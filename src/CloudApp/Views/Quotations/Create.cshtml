@@ -1,0 +1,188 @@
+﻿@model CloudApp.Models.BusinessModel.Quotation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title">Quotation</h3>
+        <ul class="panel-tool-options">
+            <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+            <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+            <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+        </ul>
+    </div>
+
+
+    <div class="panel-body">
+                
+        <form asp-action="Create" id="form1">
+            <div class="form-horizontal">
+                
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                <div class="form-group">
+                    <label asp-for="CustmerId" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <select asp-for="CustmerId" class="select2 form-control" asp-items="ViewBag.CustmerId"></select>
+                            <span class="input-group-btn"><a asp-controller="Custmers" asp-action="Create"   class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Complate" class="col-md-2 control-label"></label>
+                    <div class="col-md-2">
+                        <input asp-for="Complate" class="form-control" />
+                        <span asp-validation-for="Complate" class="text-danger" />
+                    </div>
+                    <div class="col-md-2">
+                        <select class="select2 form-control" id="timelist">
+                            <option value="Hour"> Hour</option>
+                            <option value="day">day</option>
+                            <option value="Mounth">Mounth</option>
+                        </select>
+                    </div>
+                </div>
+                        
+                <div class="form-group">
+                    <label asp-for="SCustmer" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <input asp-for="SCustmer" class="form-control" />
+                        <span asp-validation-for="SCustmer" class="text-danger" />
+                    </div>
+                </div>
+                        
+                <div class="form-group">
+                    <label asp-for="FBatch" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <select asp-for="FBatch" class="select2 form-control">
+                            <option value="0%">0%</option>
+                            <option value="25%">25%</option>
+                            <option value="50%">50%</option>
+                            <option value="100%">100%</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Bank" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <select asp-for="Bank" class="select2 form-control">
+                            <option value="مصرف الراجحي">مصرف الراجحي</option>
+                            <option value="بنك الرياض">بنك الرياض</option>
+                            <option value="بنك البلاد">بنك البلاد</option>
+                            <option value="مصرف الانماء">مصرف الانماء</option>
+                            <option value="البنك السعودي الفرنسي">البنك السعودي الفرنسي</option>
+                            <option value="ساب">ساب</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="QDate" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                                
+                        <div id="date-popup" class="input-group date">
+                            <input asp-for="QDate" type="text" data-format="D, dd MM yyyy" class="form-control">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                        <span asp-validation-for="QDate" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Sign" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <select asp-for="Sign" class="select2 form-control">
+                            <option value="عبدو">عبدو</option>
+                            <option value="حمد">حمد</option>
+                        </select>                    
+                    </div>
+                </div>
+
+            
+                <table class="table table-condensed">
+                   
+                    <tr>
+                        <th>Price</th>
+                        <th>Statemnt</th>
+                    </tr>
+
+                    <tr id="formit"></tr>
+
+
+                    <tr>
+                        <th>
+                            <a href="#" data-toggle="modal" data-target="#mymodal" class="text-primary">Add Items</a>
+                        </th>
+                        <th></th>
+                    </tr>
+
+                </table>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    
+
+</div>
+
+
+
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+    
+</div>
+
+@{
+    await Html.RenderPartialAsync("_masterDetialsForInstrmnetAndQut");
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    
+<script>
+    $("#form1").submit(function (evet) {
+        $("#Complate").val($("#Complate").val() +" "+ $("#timelist").val());
+    });
+
+
+    var items = [];
+
+    function SaveAndNew(ev) {
+        var id = $("#Id").val();
+        var price = $("#Price").val();
+        var statment = $("#Statment").val();
+        items.push({ Id: id, Price: price, Statment: statment });
+        $("#Price").val('');
+        $("#Statment").val('');
+    }
+
+    function ClosModal() {
+        $('#mymodal').modal('hide');
+        for (var i = 0; i < items.length; i++) {
+
+            var html = '<tr><td>' + items[i].Price + '</td>' + '<td>' + items[i].Statment + '</td> </tr>';
+            $("#formit").before(html);
+        }
+        items = [];
+
+    }
+
+
+</script>
+}

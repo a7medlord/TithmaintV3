@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CloudApp</title>
+    <link href="~/FrameWork/css/entypo.css" rel="stylesheet" />
+
+    <link href="~/FrameWork/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+    <link href="~/FrameWork/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/FrameWork/css/mouldifi-core.css" rel="stylesheet" />
+
+    <link href="~/FrameWork/css/plugins/select2/select2.css" rel="stylesheet" />
+
+    <link href="~/FrameWork/css/mouldifi-forms.css" rel="stylesheet" />
+
+    <link href="~/FrameWork/css/bootstrap-rtl.min.css" rel="stylesheet" />
+
+    <link href="~/FrameWork/css/mouldifi-rtl-core.css" rel="stylesheet" />
+
+    <link href="~/FrameWork/css/plugins/datepicker/bootstrap-datepicker.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    
+ 
+    <div class="page-container">
+
+       
+    <div class="page-sidebar">
+        <div class="sidebar-fixed">
+            <header class="site-header">
+                <div class="site-logo"></div>
+                <div class="sidebar-collapse hidden-xs"><a class="sidebar-collapse-icon" href="#"><i class="icon-menu"></i></a></div>
+                <div class="sidebar-mobile-menu visible-xs"><a data-target="#side-nav" data-toggle="collapse" class="mobile-menu-icon" href="#"><i class="icon-menu"></i></a></div>
+            </header>
+               
+            <ul id="side-nav" class="main-menu navbar-collapse collapse">
+                    
+                    
+                   
+                <li><a href="#"><i class="icon-location"></i><span class="title">Home</span> <span class="label label-secondary pull-right">44</span></a></li>
+                   
+                  
+                <li class="has-sub">
+                    <a asp-controller="Quotations" asp-action="Index"><i class="icon-flow-tree"></i><span class="title">Qutition</span></a>
+                    <ul class="nav collapse">
+                        <li><a asp-controller="Quotations" asp-action="Create" ><span  class="title">create Qutiotion </span></a></li>
+                        <li><a asp-controller="Quotations" asp-action="Index"><span class="title"> View</span></a></li>
+                        <li class="has-sub">
+                            <a href="#"><span class="title">Menu Level 1.3</span></a>
+                            <ul class="nav collapse">
+                                <li><a href="#"><span class="title">Menu Level 2.1</span></a></li>
+                                <li class="has-sub">
+                                    <a href="#"><span class="title">Menu Level 2.2</span></a>
+                                    <ul class="nav collapse">
+                                        <li class="has-sub">
+                                            <a href="#"><span class="title">Menu Level 3.1</span></a>
+                                            <ul class="nav collapse">
+                                                <li><a href="#"><span class="title">Menu Level 4.1</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><span class="title">Menu Level 3.2</span></a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><span class="title">Menu Level 2.3</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-sub">
+
+                    <a href="#"><i class="icon-flow-tree"></i><span class="title"> Custmers</span></a>
+                    
+                    <ul class="nav collapse">
+                        <li><a asp-controller="Custmers" asp-action="Create"><span class="title">Create new Custmer </span></a></li>
+                        
+
+                        <li><a asp-controller="Custmers" asp-action="Index"><span class="title">Index</span></a></li>
+                        <li class="has-sub">
+                            <a href="#"><span class="title">Menu Level 1.3</span></a>
+                            <ul class="nav collapse">
+                                <li><a href="#"><span class="title">Menu Level 2.1</span></a></li>
+                                <li class="has-sub">
+                                    <a href="#"><span class="title">Menu Level 2.2</span></a>
+                                    <ul class="nav collapse">
+                                        <li class="has-sub">
+                                            <a href="#"><span class="title">Menu Level 3.1</span></a>
+                                            <ul class="nav collapse">
+                                                <li><a href="#"><span class="title">Menu Level 4.1</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><span class="title">Menu Level 3.2</span></a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><span class="title">Menu Level 2.3</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+         
+    </div>
+        
+
+        <div class="main-container">
+
+            <div class="main-header row">
+                <div class="col-sm-6 col-xs-7">
+                 
+                    <ul class="user-info pull-left">
+                        <li class="profile-info dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="" src="~/images/profile.jpg">O2run Systems<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon-user"></i>البروفايل</a></li>
+                                @*<li class="divider"></li>*@
+                                <li><a href="#"><i class="icon-cog"></i>الاعدادات</a></li>
+                                <li><a href="#"><i class="icon-logout"></i>تسجيل خروج</a></li>
+                            </ul>
+                            
+
+                        </li>
+                    </ul>
+                </div>
+
+              
+
+            </div>
+           
+
+            <div class="main-content">
+                @RenderBody()
+                <br/>
+                <br />
+                <br />
+                <br />
+                <footer class="footer-main">
+                   &copy;  <strong></strong> حقوق النشر محفوظه  <a target="_blank" href="#">لاولاد الجنمبك</a>
+                </footer>
+            </div>
+        </div>
+        
+
+    </div>
+
+
+<script src="~/FrameWork/js/jquery.min.js"></script>
+
+<script src="~/FrameWork/js/bootstrap.min.js"></script>
+
+<script src="~/FrameWork/js/plugins/metismenu/jquery.metisMenu.js"></script>
+
+    <script src="~/FrameWork/js/plugins/blockui-master/jquery-ui.js"></script>
+    <script src="~/FrameWork/js/plugins/blockui-master/jquery.blockUI.js"></script>
+
+    <script src="~/FrameWork/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+<script src="~/FrameWork/js/jquery.validate.min.js"></script>
+
+
+<script src="~/FrameWork/js/plugins/scrollbar/perfect-scrollbar.jquery.min.js"></script>
+
+<script src="~/FrameWork/js/functions.js"></script>
+    
+<script src="~/FrameWork/js/plugins/select2/select2.full.min.js"></script>
+
+    <script src="~/FrameWork/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+       
+        var $Window = $(window), $Container = $('div.page-container');
+
+        $(".sidebar-collapse-icon").click(function (event) {
+            event.preventDefault();
+
+            if ($Container.hasClass('sidebar-collapsed')) {
+                // destroy scrollbars
+                $('.sidebar-fixed').perfectScrollbar('destroy');
+            } else {
+                // calling trigger resize
+                $Window.trigger('resize');
+            }
+        });
+
+        $Window.resize(function resizeScroll() {
+            var windowWidth = $Window.width();
+            if (windowWidth < 951) {
+                // destroy scrollbars
+                $('.sidebar-fixed').perfectScrollbar('destroy');
+            } else {
+                $('.sidebar-fixed').perfectScrollbar();
+            }
+        }).trigger('resize');
+    });
+
+    $(document).ready(function() {
+        
+        $(".select2").select2({
+            dir: "rtl"
+        });
+        $(".select2-placeholer").select2({
+            allowClear: true
+        });
+
+        $('#datepicker').datepicker({
+            keyboardNavigation: false,
+            forceParse: false,
+            todayHighlight: true
+        });
+
+        $('#date-popup').datepicker({
+            keyboardNavigation: false,
+            forceParse: false,
+            todayHighlight: true
+        });
+    });
+
+ 
+</script>
+
+@RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,78 @@
+@model CloudApp.Models.BusinessModel.Quotation
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Quotation</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="Bank" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Bank" class="form-control" />
+                <span asp-validation-for="Bank" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Complate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Complate" class="form-control" />
+                <span asp-validation-for="Complate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustmerId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="CustmerId" class="form-control" asp-items="ViewBag.CustmerId"></select>
+                <span asp-validation-for="CustmerId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FBatch" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FBatch" class="form-control" />
+                <span asp-validation-for="FBatch" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="QDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="QDate" class="form-control" />
+                <span asp-validation-for="QDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SCustmer" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SCustmer" class="form-control" />
+                <span asp-validation-for="SCustmer" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Sign" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Sign" class="form-control" />
+                <span asp-validation-for="Sign" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

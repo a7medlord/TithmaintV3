@@ -1,0 +1,54 @@
+@model CloudApp.Models.BusinessModel.Quotation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Quotation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bank)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bank)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Complate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Complate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FBatch)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FBatch)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SCustmer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SCustmer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sign)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sign)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
