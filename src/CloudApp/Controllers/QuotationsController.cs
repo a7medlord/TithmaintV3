@@ -56,7 +56,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Bank,Complate,CustmerId,FBatch,QDate,SCustmer,Sign")] Quotation quotation)
+        public async Task<IActionResult> Create([Bind] Quotation quotation)
         {
             if (ModelState.IsValid)
             {
