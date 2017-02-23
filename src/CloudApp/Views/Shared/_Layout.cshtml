@@ -23,13 +23,18 @@
     <link href="~/FrameWork/css/mouldifi-rtl-core.css" rel="stylesheet" />
 
     <link href="~/FrameWork/css/plugins/datepicker/bootstrap-datepicker.css" rel="stylesheet" />
-
+   
     <link href="~/FrameWork/css/plugins/datatables/jquery.dataTables.css" rel="stylesheet" />
 
-    <link href="~/FrameWork/js/plugins/datatables/extensions/Buttons/css/buttons.dataTables.css" rel="stylesheet" />
+    <link href="~/FrameWork/js/plugins/datatables/extensions/Buttons/css/buttons.bootstrap4.css" rel="stylesheet" />
+    
 
+    <link href="~/FrameWork/js/plugins/datatables/extensions/Buttons/css/buttons.dataTables.css" rel="stylesheet" />
+    
+   
 
 </head>
+
 
 <body>
 
@@ -228,30 +233,45 @@
     });
 
     $(document).ready(function () {
-        $('.dataTables-example').DataTable({
+        
+       var table = $('.dataTables-example').DataTable({
+          
+
+            "language" : {
+                "search": "بحـــث",
+                "lengthMenu": "عرض _MENU_ صفوف لكل صفحة",
+                "info": "عرض الصفحة _PAGE_ من _PAGES_"
+            } ,
+
             dom: '<"html5buttons" B>lTfgitp',
             buttons: [
-				{
-				    extend: 'copyHtml5',
-				    exportOptions: {
-				        columns: [0, ':visible']
-				    }
-				},
-				{
-				    extend: 'excelHtml5',
-				    exportOptions: {
-				        columns: ':visible'
-				    }
-				},
-				{
-				    extend: 'pdfHtml5',
-				    exportOptions: {
-				        columns: [0, 1, 2, 3, 4]
-				    }
-				},
-				'colvis'
+              {
+                  extend: 'copyHtml5',
+                  exportOptions: {
+                      columns: [0, ':visible']
+                  },
+                  text: 'نسخ'
+                 
+                 
+              },
+              {
+                  extend: 'excelHtml5',
+                  exportOptions: {
+                      columns: ':visible'
+                  },
+                  text: 'اكسل'
+              },
+              {
+                  extend: 'pdfHtml5',
+                  exportOptions: {
+                      columns: [0, 1, 2, 3, 4]
+                  },
+                  text: 'ملف'
+              },
+              'colvis'
             ]
-        });
+       });
+       
     });
  
 </script>
