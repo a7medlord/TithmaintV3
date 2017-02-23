@@ -1,26 +1,16 @@
 ﻿@model CloudApp.Models.BusinessModel.Instrument
-
-@{
-    ViewData["Title"] = "Create";
-}
-
 <div class="modal fade" id="mymodal" role="dialog" data-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Edit it</h4>
+                <h4 class="modal-title">Creat New</h4>
             </div>
             <div class="modal-body">
-                
-                
 
-                <h2>Create</h2>
-
-                <form asp-controller="Instruments" asp-action="Create">
+                
                     <div class="form-horizontal">
-                        <h4>Instrument</h4>
-                        <hr />
+                     
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group">
                             <label asp-for="Amount" class="col-md-2 control-label"></label>
@@ -58,21 +48,19 @@
                                 <span asp-validation-for="SNum" class="text-danger" />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-default" />
-                            </div>
-                        </div>
+                        
                     </div>
-                </form>
+              
 
                
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" onclick="ClosModal(this)">Close</button>
-
-                <button type="button" class="btn btn-danger" onclick="SaveAndNew(this)">Save & New</button>
+                <div style="float: right">
+                    <button type="button" class="btn btn-primary" onclick="SaveAndNew(this)">Save & New</button>
+                    <button type="button" class="btn btn-primary" onclick="SaveAndClose(this)">Save & Close</button>
+                    <button type="button" class="btn btn-default" onclick="ClosModal(this)">Close</button>
+                </div>
             </div>
         </div>
     </div>

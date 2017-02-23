@@ -108,8 +108,12 @@
                 <table class="table table-condensed">
                    
                     <tr>
-                        <th>Price</th>
-                        <th>Statemnt</th>
+                        <th>Amount</th>
+                        <th>Area</th>
+                        <th>BDiscrib</th>
+                        <th>Locat</th>
+                        <th>SNum</th>
+                        <th></th>
                     </tr>
 
                     <tr id="formit"></tr>
@@ -120,9 +124,15 @@
                             <a href="#" data-toggle="modal" data-target="#mymodal" class="text-primary">Add Items</a>
                         </th>
                         <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
 
                 </table>
+                
+              
 
                 <div class="form-group">
                     <div class="col-md-10">
@@ -144,11 +154,11 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
-    
 </div>
 
 @{
     await Html.RenderPartialAsync("_masterDetialsForInstrmnetAndQut");
+    await Html.RenderPartialAsync("_editForInstrament");
 }
 
 @section Scripts {
@@ -165,24 +175,73 @@
 
     function SaveAndNew(ev) {
         var id = $("#Id").val();
-        var price = $("#Price").val();
-        var statment = $("#Statment").val();
-        items.push({ Id: id, Price: price, Statment: statment });
-        $("#Price").val('');
-        $("#Statment").val('');
+        var amount = $("#Amount").val();
+        var area = $("#Area").val();
+        var bdiscrib = $("#BDiscrib").val();
+        var Locati = $("#Locat").val();
+        var snum = $("#SNum").val();
+        items.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: Locati, SNum : snum });
+        $("#Amount").val('');
+        $("#Area").val('');
+        $("#BDiscrib").val('');
+        $("#Locat").val('');
+        $("#SNum").val('');
+    }
+
+    function SaveAndClose(ev) {
+        var id = $("#Id").val();
+        var amount = $("#Amount").val();
+        var area = $("#Area").val();
+        var bdiscrib = $("#BDiscrib").val();
+        var Locati = $("#Locat").val();
+        var snum = $("#SNum").val();
+        items.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: Locati, SNum: snum });
+        $("#Amount").val('');
+        $("#Area").val('');
+        $("#BDiscrib").val('');
+        $("#Locat").val('');
+        $("#SNum").val('');
+
+        ClosModal();
     }
 
     function ClosModal() {
         $('#mymodal').modal('hide');
         for (var i = 0; i < items.length; i++) {
 
-            var html = '<tr><td>' + items[i].Price + '</td>' + '<td>' + items[i].Statment + '</td> </tr>';
+            var html = '<tr>' + '<td>' + items[i].Amount +
+                '</td>' + '<td>' + items[i].Area + '</td>' +
+                '<td>' + items[i].BDiscrib + '</td>' + '<td>' + items[i].Locat + '</td>' +
+                '<td>' + items[i].SNum + '</td>' + '<td>' + '<a href="#"  onclick= "editOneopenModal(this)" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a>' + '&nbsp; &nbsp; &nbsp; &nbsp;' + '<a href="#"  onclick= "DeleteData(this)" class="text-primary">  <i class="icon-trash"></i></a>' + '</td>' + '</tr>';
             $("#formit").before(html);
         }
         items = [];
 
     }
 
+    function editClose() {
+        $('#editmoal').modal('hide');
+    }
+
+    function editSave(data) {
+       
+    }
+
+    function editOneopenModal(event) {
+        $('#editmoal').modal('show');
+        //Get All td from tr
+        var trdata = $(event).parent().siblings();
+        var formedit = $("#fromhere");
+        $(formedit).find("#Amount").val(trdata[0].innerText);
+        $(formedit).find("#Area").val(trdata[1].innerText);
+        $(formedit).find("#BDiscrib").val(trdata[2].innerText);
+        $(formedit).find("#Locat").val(trdata[3].innerText);
+        $(formedit).find("#SNum").val(trdata[4].innerText);
+    }
+
+    function DeleteData(delte) {
+        confirm("Are u sure to Delete");
+    }
 
 </script>
 }
