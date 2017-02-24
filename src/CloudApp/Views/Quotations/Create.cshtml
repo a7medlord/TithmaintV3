@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Create";
 }
+<style type="text/css">.real { }</style>
 
 
 <div class="panel panel-primary">
@@ -14,8 +15,6 @@
             <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
         </ul>
     </div>
-
-
     <div class="panel-body">
                 
         <form asp-action="Create" id="form1">
@@ -108,8 +107,13 @@
                 <table class="table table-condensed">
                    
                     <tr>
-                        <th>Price</th>
-                        <th>Statemnt</th>
+                        <th>ID</th>
+                        <th>Amount</th>
+                        <th>Area</th>
+                        <th>BDiscrib</th>
+                        <th>Locat</th>
+                        <th>SNum</th>
+                        <th></th>
                     </tr>
 
                     <tr id="formit"></tr>
@@ -120,13 +124,21 @@
                             <a href="#" data-toggle="modal" data-target="#mymodal" class="text-primary">Add Items</a>
                         </th>
                         <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
 
                 </table>
+                
+              
 
                 <div class="form-group">
                     <div class="col-md-10">
                         <input type="submit" value="Create" class="btn btn-default" />
+                        <input type="button" value="printdata" onclick="GetCurntTableItem()" class="btn btn-default" />
                     </div>
                 </div>
             </div>
@@ -144,45 +156,155 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
-    
 </div>
 
 @{
     await Html.RenderPartialAsync("_masterDetialsForInstrmnetAndQut");
+    await Html.RenderPartialAsync("_editForInstrament");
 }
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
     
-<script>
-    $("#form1").submit(function (evet) {
-        $("#Complate").val($("#Complate").val() +" "+ $("#timelist").val());
-    });
+    <script>
+        
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
 
+        $("#form1").submit(function (e) {
+            e.preventDefault();
+            $("#Complate").val($("#Complate").val() + " " + $("#timelist").val());
+       
+            var dataform = $(this).serializeObject();
+        
+            dataform.Instruments = GetCurntTableItem();
+            
+            $.post($(this).attr("action"), dataform);
+            alert("posted");
+        
+       
+        });
 
-    var items = [];
+        var items = [];
 
-    function SaveAndNew(ev) {
-        var id = $("#Id").val();
-        var price = $("#Price").val();
-        var statment = $("#Statment").val();
-        items.push({ Id: id, Price: price, Statment: statment });
-        $("#Price").val('');
-        $("#Statment").val('');
-    }
+        function GetCurntTableItem() {
+            var realdatas = [];
+            var startrow = $("#formit").siblings();
 
-    function ClosModal() {
-        $('#mymodal').modal('hide');
-        for (var i = 0; i < items.length; i++) {
-
-            var html = '<tr><td>' + items[i].Price + '</td>' + '<td>' + items[i].Statment + '</td> </tr>';
-            $("#formit").before(html);
+            for (var i = 0; i < startrow.length; i++) {
+                
+                if ($(startrow[i]).attr("class") === 'real') {
+                    if (typeof (startrow[i]) != "undefined") {
+                        var row = startrow[i];
+                        var child = $(row).children();
+                        var id = child[0].innerText;
+                        var amount = child[1].innerText;
+                        var area = child[2].innerText;
+                        var bdiscrib = child[3].innerText;
+                        var locat = child[4].innerText;
+                        var snum = child[5].innerText;
+                        realdatas.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: locat, SNum: snum });
+                    }
+                } 
+            }
+            return realdatas;
         }
-        items = [];
 
-    }
+        function SaveAndNew(ev) {
+            var id = $("#Id").val();
+            var amount = $("#Amount").val();
+            var area = $("#Area").val();
+            var bdiscrib = $("#BDiscrib").val();
+            var Locati = $("#Locat").val();
+            var snum = $("#SNum").val();
+           items.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: Locati, SNum: snum });
+            $("#Amount").val('');
+            $("#Area").val('');
+            $("#BDiscrib").val('');
+            $("#Locat").val('');
+            $("#SNum").val('');
+        }
 
+        function SaveAndClose(ev) {
+            var id = $("#Id").val();
+            var amount = $("#Amount").val();
+            var area = $("#Area").val();
+            var bdiscrib = $("#BDiscrib").val();
+            var Locati = $("#Locat").val();
+            var snum = $("#SNum").val();
+            items.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: Locati, SNum: snum });
+            $("#Amount").val('');
+            $("#Area").val('');
+            $("#BDiscrib").val('');
+            $("#Locat").val('');
+            $("#SNum").val('');
 
-</script>
+            ClosModal();
+        }
+
+        function ClosModal() {
+            $('#mymodal').modal('hide');
+            for (var i = 0; i < items.length; i++) {
+
+                var html = '<tr class = "real">' + '<td>' + items[i].Id +
+                    '</td>'  + '<td>' + items[i].Amount +
+                    '</td>' + '<td>' + items[i].Area + '</td>' +
+                    '<td>' + items[i].BDiscrib + '</td>' + '<td>' + items[i].Locat + '</td>' +
+                    '<td>' + items[i].SNum + '</td>' + '<td>' + '<a href="#"  onclick= "editOneopenModal(this)" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a>' + '&nbsp; &nbsp; &nbsp; &nbsp;' + '<a href="#"  onclick= "DeleteData(this)" class="text-primary">  <i class="icon-trash"></i></a>' + '</td>' + '</tr>';
+                $("#formit").before(html);
+            }
+            items = [];
+
+        }
+
+        function editClose() {
+            $('#editmoal').modal('hide');
+        }
+
+        function editSave() {
+         
+            var formedit = $("#fromhere");
+            trdata[0].innerText = $(formedit).find("#Id").val();;
+            trdata[1].innerText = $(formedit).find("#Amount").val();;
+            trdata[2].innerText = $(formedit).find("#Area").val();
+            trdata[3].innerText = $(formedit).find("#BDiscrib").val();
+            trdata[4].innerText = $(formedit).find("#Locat").val();
+            trdata[5].innerText = $(formedit).find("#SNum").val();
+            $('#editmoal').modal('hide');
+           
+        }
+
+        var trdata;
+        function editOneopenModal(event) {
+            $('#editmoal').modal('show');
+            //Get All td from tr
+             trdata = $(event).parent().siblings();
+            var formedit = $("#fromhere");
+            $(formedit).find("#Amount").val(trdata[0].innerText);
+            $(formedit).find("#Area").val(trdata[1].innerText);
+            $(formedit).find("#BDiscrib").val(trdata[2].innerText);
+            $(formedit).find("#Locat").val(trdata[3].innerText);
+            $(formedit).find("#SNum").val(trdata[4].innerText);
+        }
+
+        function DeleteData(delte) {
+     
+            $(delte).parent().parent().remove();
+        }
+
+    </script>
 }

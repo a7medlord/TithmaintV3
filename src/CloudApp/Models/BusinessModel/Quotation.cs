@@ -21,7 +21,7 @@ namespace CloudApp.Models.BusinessModel
         public string FBatch { get; set; }
         public string Bank { get; set; }
         public string Sign { get; set; }
-        public List<Instrument> Instruments { get; set; }
+        public List<Instrument> Instruments { get; set; } = new List<Instrument>();
 
 
 

@@ -23,8 +23,18 @@
     <link href="~/FrameWork/css/mouldifi-rtl-core.css" rel="stylesheet" />
 
     <link href="~/FrameWork/css/plugins/datepicker/bootstrap-datepicker.css" rel="stylesheet" />
+   
+    <link href="~/FrameWork/css/plugins/datatables/jquery.dataTables.css" rel="stylesheet" />
+
+    <link href="~/FrameWork/js/plugins/datatables/extensions/Buttons/css/buttons.bootstrap4.css" rel="stylesheet" />
+    
+
+    <link href="~/FrameWork/js/plugins/datatables/extensions/Buttons/css/buttons.dataTables.css" rel="stylesheet" />
+    
+   
 
 </head>
+
 
 <body>
 
@@ -152,25 +162,24 @@
 
 
 <script src="~/FrameWork/js/jquery.min.js"></script>
-
 <script src="~/FrameWork/js/bootstrap.min.js"></script>
-
 <script src="~/FrameWork/js/plugins/metismenu/jquery.metisMenu.js"></script>
-
-    <script src="~/FrameWork/js/plugins/blockui-master/jquery-ui.js"></script>
-    <script src="~/FrameWork/js/plugins/blockui-master/jquery.blockUI.js"></script>
-
-    <script src="~/FrameWork/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+<script src="~/FrameWork/js/plugins/blockui-master/jquery-ui.js"></script>
+<script src="~/FrameWork/js/plugins/blockui-master/jquery.blockUI.js"></script>
+<script src="~/FrameWork/js/plugins/jasny/jasny-bootstrap.min.js"></script>
 <script src="~/FrameWork/js/jquery.validate.min.js"></script>
-
-
 <script src="~/FrameWork/js/plugins/scrollbar/perfect-scrollbar.jquery.min.js"></script>
-
 <script src="~/FrameWork/js/functions.js"></script>
-    
+<script src="~/FrameWork/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/FrameWork/js/plugins/datatables/dataTables.bootstrap.js"></script>
+<script src="~/FrameWork/js/plugins/datatables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/FrameWork/js/plugins/datatables/jszip.min.js"></script>
+<script src="~/FrameWork/js/plugins/datatables/pdfmake.min.js"></script>
+<script src="~/FrameWork/js/plugins/datatables/vfs_fonts.js"></script>
+<script src="~/FrameWork/js/plugins/datatables/extensions/Buttons/js/buttons.html5.js"></script>
+<script src="~/FrameWork/js/plugins/datatables/extensions/Buttons/js/buttons.colVis.js"></script>
 <script src="~/FrameWork/js/plugins/select2/select2.full.min.js"></script>
-
-    <script src="~/FrameWork/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="~/FrameWork/js/plugins/datepicker/bootstrap-datepicker.js"></script>
 
 <script>
 
@@ -223,6 +232,47 @@
         });
     });
 
+    $(document).ready(function () {
+        
+       var table = $('.dataTables-example').DataTable({
+          
+
+            "language" : {
+                "search": "بحـــث",
+                "lengthMenu": "عرض _MENU_ صفوف لكل صفحة",
+                "info": "عرض الصفحة _PAGE_ من _PAGES_"
+            } ,
+
+            dom: '<"html5buttons" B>lTfgitp',
+            buttons: [
+              {
+                  extend: 'copyHtml5',
+                  exportOptions: {
+                      columns: [0, ':visible']
+                  },
+                  text: 'نسخ'
+                 
+                 
+              },
+              {
+                  extend: 'excelHtml5',
+                  exportOptions: {
+                      columns: ':visible'
+                  },
+                  text: 'اكسل'
+              },
+              {
+                  extend: 'pdfHtml5',
+                  exportOptions: {
+                      columns: [0, 1, 2, 3, 4]
+                  },
+                  text: 'ملف'
+              },
+              'colvis'
+            ]
+       });
+       
+    });
  
 </script>
 
