@@ -1,15 +1,11 @@
-@model CloudApp.Models.BusinessModel.Quotation
+﻿@model CloudApp.Models.BusinessModel.Quotation
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "تعديل";
 }
-
-<h2>Edit</h2>
-
 <form asp-action="Edit">
     <div class="form-horizontal">
-        <h4>Quotation</h4>
-        <hr />
+        
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" />
         <div class="form-group">
@@ -70,7 +66,7 @@
 </form>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="text-primary">الرجوع الي الرئيسية</a>
 </div>
 
 @section Scripts {
