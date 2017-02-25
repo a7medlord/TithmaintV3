@@ -8,18 +8,21 @@ namespace CloudApp.Models.BusinessModel
     public class Quotation
     {
         public long Id { get; set; }
-        [Description("تاريخ عرض السعر") , DataType(DataType.Date)  ]
+        [Description("تاريخ عرض السعر") , DataType(DataType.Date), Display(Name = "التاريخ")]
         [DisplayFormat(ApplyFormatInEditMode = true , DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime QDate { get; set; }
         public Custmer Custmer { get; set; }
+        [Display(Name = "العميل")]
         public long CustmerId { get; set; }
-        [Description("مدة الانجاز")]
+        [Description("مدة الانجاز"), Display(Name = "مدة الانجاز")]
         public string Complate { get; set; }
-        [Description("خاص بالعميل")]
+        [Description("خاص بالعميل"), Display(Name = "خاص بالعميل")]
         public string SCustmer { get; set; }
-        [Description("الدفعة الاولي")]
+        [Description("الدفعة الاولي")  , Display(Name="الدفعة الاولي")]
         public string FBatch { get; set; }
+         [Display(Name = "البنك")]
         public string Bank { get; set; }
+        [ Display(Name = "التوقيع")]
         public string Sign { get; set; }
         public List<Instrument> Instruments { get; set; } = new List<Instrument>();
 
