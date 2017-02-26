@@ -11,7 +11,7 @@ namespace CloudApp.Models.BusinessModel
         public string Name { get; set; }
         [Display(Name = "رقم الهاتف")]
         public string Phone { get; set; }
-        [DisplayName("الايميل")]
+        [Display(Name = "الايميل")]
         public string Email { get; set; }
         public List<Quotation> Quotations { get; set; }
 
