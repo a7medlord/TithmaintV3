@@ -7,11 +7,11 @@ namespace CloudApp.Models.BusinessModel
     public class Custmer
     {
         public long Id { get; set; }
-        [Required , DisplayName("اسم العميل")]
+        [Required , Display(Name = "اسم العميل")]
         public string Name { get; set; }
-        [DisplayName("رقم الهاتف")]
+        [Display(Name = "رقم الهاتف")]
         public string Phone { get; set; }
-        [DisplayName("الايميل")]
+        [Display(Name = "الايميل")]
         public string Email { get; set; }
         public List<Quotation> Quotations { get; set; }
 
