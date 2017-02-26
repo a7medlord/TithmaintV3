@@ -8,7 +8,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading clearfix">
-        <h3 class="panel-title">عــروض الأسعـــار</h3>
+        <h3 class="panel-title">عرض سعر جديد</h3>
         <ul class="panel-tool-options">
             <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
             <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
@@ -40,9 +40,9 @@
                     </div>
                     <div class="col-md-2">
                         <select class="select2 form-control" id="timelist">
-                            <option value="Hour"> ساعة</option>
-                            <option value="day">يوم</option>
-                            <option value="Mounth">شهر</option>
+                            <option value="ساعة"> ساعة</option>
+                            <option value="يوم">يوم</option>
+                            <option value="شهر">شهر</option>
                         </select>
                     </div>
                 </div>
@@ -102,17 +102,18 @@
                         </select>                    
                     </div>
                 </div>
-
+                
+              
             
                 <table class="table table-condensed">
-                   
+                
                     <tr>
-                        <th>ID</th>
-                        <th>Amount</th>
-                        <th>Area</th>
-                        <th>BDiscrib</th>
-                        <th>Locat</th>
-                        <th>SNum</th>
+                        <th>رقم المعرف</th>
+                        <th>قيمة الاتعاب</th>
+                        <th>المساحة</th>
+                        <th>وصف العقار</th>
+                        <th>الموقع</th>
+                        <th>رقم الصك</th>
                         <th></th>
                     </tr>
 
@@ -121,7 +122,7 @@
 
                     <tr>
                         <th>
-                            <a href="#" data-toggle="modal" data-target="#mymodal" class="text-primary">Add Items</a>
+                            <a href="#" data-toggle="modal" data-target="#mymodal" class="text-primary">اضف جديد</a>
                         </th>
                         <th></th>
                         <th></th>
@@ -137,8 +138,8 @@
 
                 <div class="form-group">
                     <div class="col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" />
-                        <input type="button" value="printdata" onclick="GetCurntTableItem()" class="btn btn-default" />
+                        <input type="submit" value="حفـــظ" class="btn btn-primary" />
+                       
                     </div>
                 </div>
             </div>
@@ -155,7 +156,7 @@
 
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="text-primary">الرجوع الي الرئيسية</a>
 </div>
 
 @{

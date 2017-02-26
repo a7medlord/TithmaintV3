@@ -1,74 +1,332 @@
-﻿@model CloudApp.Models.BusinessModel.Quotation
+﻿@using CloudApp.Models.BusinessModel
+@model CloudApp.Models.BusinessModel.Quotation
 
 @{
-    ViewData["Title"] = "تعديل";
+    ViewData["Title"] = "تعديــل";
 }
-<form asp-action="Edit">
-    <div class="form-horizontal">
-        
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="Id" />
-        <div class="form-group">
-            <label asp-for="Bank" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Bank" class="form-control" />
-                <span asp-validation-for="Bank" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Complate" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Complate" class="form-control" />
-                <span asp-validation-for="Complate" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="CustmerId" class="control-label col-md-2"></label>
-            <div class="col-md-10">
-                <select asp-for="CustmerId" class="form-control" asp-items="ViewBag.CustmerId"></select>
-                <span asp-validation-for="CustmerId" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="FBatch" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="FBatch" class="form-control" />
-                <span asp-validation-for="FBatch" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="QDate" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="QDate" class="form-control" />
-                <span asp-validation-for="QDate" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="SCustmer" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="SCustmer" class="form-control" />
-                <span asp-validation-for="SCustmer" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Sign" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Sign" class="form-control" />
-                <span asp-validation-for="Sign" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+<style type="text/css">
+    .real {
+    }
+</style>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title">تعديل عرض سعر</h3>
+        <ul class="panel-tool-options">
+            <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+            <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+            <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+        </ul>
     </div>
-</form>
+    <div class="panel-body">
+
+        <form asp-action="Edit" id="form1">
+            <div class="form-horizontal">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="CustmerId" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <select asp-for="CustmerId" class="select2 form-control" asp-items="ViewBag.CustmerId"></select>
+                            <span class="input-group-btn"><a asp-controller="Custmers" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Complate" class="col-md-2 control-label"></label>
+                    <div class="col-md-2">
+                        <input asp-for="Complate" class="form-control" />
+                        <span asp-validation-for="Complate" class="text-danger" />
+                    </div>
+                    <div class="col-md-2">
+                        <select class="select2 form-control" id="timelist">
+                            <option value="ساعة"> ساعة</option>
+                            <option value="يوم">يوم</option>
+                            <option value="شهر">شهر</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SCustmer" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <input asp-for="SCustmer" class="form-control" />
+                        <span asp-validation-for="SCustmer" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FBatch" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <select asp-for="FBatch" class="select2 form-control">
+                            <option value="0%">0%</option>
+                            <option value="25%">25%</option>
+                            <option value="50%">50%</option>
+                            <option value="100%">100%</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Bank" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <select asp-for="Bank" class="select2 form-control">
+                            <option value="مصرف الراجحي">مصرف الراجحي</option>
+                            <option value="بنك الرياض">بنك الرياض</option>
+                            <option value="بنك البلاد">بنك البلاد</option>
+                            <option value="مصرف الانماء">مصرف الانماء</option>
+                            <option value="البنك السعودي الفرنسي">البنك السعودي الفرنسي</option>
+                            <option value="ساب">ساب</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="QDate" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+
+                        <div id="date-popup" class="input-group date">
+                            <input asp-for="QDate" type="text" data-format="D, dd MM yyyy" class="form-control">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                        <span asp-validation-for="QDate" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Sign" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <select asp-for="Sign" class="select2 form-control">
+                            <option value="عبدو">عبدو</option>
+                            <option value="حمد">حمد</option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <table class="table table-condensed">
+
+                    <tr>
+                        <th>رقم المعرف</th>
+                        <th>قيمة الاتعاب</th>
+                        <th>المساحة</th>
+                        <th>وصف العقار</th>
+                        <th>الموقع</th>
+                        <th>رقم الصك</th>
+                        <th></th>
+                    </tr>
+                    
+                    @foreach (var item in Model.Instruments)
+                    {
+                        <tr class="real">
+                            <td>@item.Id</td>
+                            <td>@item.Amount</td>
+                            <td>@item.Area</td>
+                            <td>@item.BDiscrib</td>
+                            <td>@item.Locat</td>
+                            <td>@item.SNum</td>
+                            <td>
+                                <a href="#" onclick="editOneopenModal(this)" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a href="#" onclick="DeleteData(this)" class="text-primary">  <i class="icon-trash"></i></a>
+
+                            </td>
+                        </tr>
+                    }
+
+                    <tr id="formit"></tr>
+
+
+                    <tr>
+                        <th>
+                            <a href="#" data-toggle="modal" data-target="#mymodal" class="text-primary">اضف جديد</a>
+                        </th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+                </table>
+
+
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="حفـــظ" class="btn btn-primary" />
+                        
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+</div>
+
+
+
+
+
 
 <div>
     <a asp-action="Index" class="text-primary">الرجوع الي الرئيسية</a>
 </div>
 
+@{
+    await Html.RenderPartialAsync("_masterDetialsForInstrmnetAndQut" , new Instrument());
+    await Html.RenderPartialAsync("_editForInstrament" , new Instrument());
+}
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+    <script>
+
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+
+        $("#form1").submit(function (e) {
+            e.preventDefault();
+            $("#Complate").val($("#Complate").val() + " " + $("#timelist").val());
+
+            var dataform = $(this).serializeObject();
+
+            dataform.Instruments = GetCurntTableItem();
+
+            $.post($(this).attr("action"), dataform);
+            alert("posted");
+
+
+        });
+
+        var items = [];
+
+        function GetCurntTableItem() {
+            var realdatas = [];
+            var startrow = $("#formit").siblings();
+
+            for (var i = 0; i < startrow.length; i++) {
+
+                if ($(startrow[i]).attr("class") === 'real') {
+                    if (typeof (startrow[i]) != "undefined") {
+                        var row = startrow[i];
+                        var child = $(row).children();
+                        var id = child[0].innerText;
+                        var amount = child[1].innerText;
+                        var area = child[2].innerText;
+                        var bdiscrib = child[3].innerText;
+                        var locat = child[4].innerText;
+                        var snum = child[5].innerText;
+                        realdatas.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: locat, SNum: snum });
+                    }
+                }
+            }
+            return realdatas;
+        }
+
+        function SaveAndNew(ev) {
+            var id = $("#Id").val();
+            var amount = $("#Amount").val();
+            var area = $("#Area").val();
+            var bdiscrib = $("#BDiscrib").val();
+            var Locati = $("#Locat").val();
+            var snum = $("#SNum").val();
+           items.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: Locati, SNum: snum });
+            $("#Amount").val('');
+            $("#Area").val('');
+            $("#BDiscrib").val('');
+            $("#Locat").val('');
+            $("#SNum").val('');
+        }
+
+        function SaveAndClose(ev) {
+            var id = $("#Id").val();
+            var amount = $("#Amount").val();
+            var area = $("#Area").val();
+            var bdiscrib = $("#BDiscrib").val();
+            var Locati = $("#Locat").val();
+            var snum = $("#SNum").val();
+            items.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: Locati, SNum: snum });
+            $("#Amount").val('');
+            $("#Area").val('');
+            $("#BDiscrib").val('');
+            $("#Locat").val('');
+            $("#SNum").val('');
+
+            ClosModal();
+        }
+
+        function ClosModal() {
+            $('#mymodal').modal('hide');
+            for (var i = 0; i < items.length; i++) {
+
+                var html = '<tr class = "real">' + '<td>' + items[i].Id +
+                    '</td>'  + '<td>' + items[i].Amount +
+                    '</td>' + '<td>' + items[i].Area + '</td>' +
+                    '<td>' + items[i].BDiscrib + '</td>' + '<td>' + items[i].Locat + '</td>' +
+                    '<td>' + items[i].SNum + '</td>' + '<td>' + '<a href="#"  onclick= "editOneopenModal(this)" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a>' + '&nbsp; &nbsp; &nbsp; &nbsp;' + '<a href="#"  onclick= "DeleteData(this)" class="text-primary">  <i class="icon-trash"></i></a>' + '</td>' + '</tr>';
+                $("#formit").before(html);
+            }
+            items = [];
+
+        }
+
+        function editClose() {
+            $('#editmoal').modal('hide');
+        }
+
+        function editSave() {
+
+            var formedit = $("#fromhere");
+            trdata[0].innerText = $(formedit).find("#Id").val();;
+            trdata[1].innerText = $(formedit).find("#Amount").val();;
+            trdata[2].innerText = $(formedit).find("#Area").val();
+            trdata[3].innerText = $(formedit).find("#BDiscrib").val();
+            trdata[4].innerText = $(formedit).find("#Locat").val();
+            trdata[5].innerText = $(formedit).find("#SNum").val();
+            $('#editmoal').modal('hide');
+
+        }
+
+        var trdata;
+        function editOneopenModal(event) {
+            $('#editmoal').modal('show');
+            //Get All td from tr
+             trdata = $(event).parent().siblings();
+            var formedit = $("#fromhere");
+            $(formedit).find("#Amount").val(trdata[1].innerText);
+            $(formedit).find("#Area").val(trdata[2].innerText);
+            $(formedit).find("#BDiscrib").val(trdata[3].innerText);
+            $(formedit).find("#Locat").val(trdata[4].innerText);
+            $(formedit).find("#SNum").val(trdata[5].innerText);
+        }
+
+        function DeleteData(delte) {
+
+            $(delte).parent().parent().remove();
+        }
+
+    </script>
 }

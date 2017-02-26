@@ -76,7 +76,7 @@ namespace CloudApp.Controllers
                 return NotFound();
             }
 
-            var quotation = await _context.Quotation.SingleOrDefaultAsync(m => m.Id == id);
+            var quotation = await _context.Quotation.Include(quotation1 => quotation1.Instruments).SingleOrDefaultAsync(m => m.Id == id);
             if (quotation == null)
             {
                 return NotFound();
@@ -90,7 +90,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Bank,Complate,CustmerId,FBatch,QDate,SCustmer,Sign")] Quotation quotation)
+        public async Task<IActionResult> Edit(long id, [Bind] Quotation quotation)
         {
             if (id != quotation.Id)
             {
