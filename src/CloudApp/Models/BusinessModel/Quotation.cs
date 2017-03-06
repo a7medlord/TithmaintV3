@@ -8,8 +8,8 @@ namespace CloudApp.Models.BusinessModel
     public class Quotation
     {
         public long Id { get; set; }
-        [Description("تاريخ عرض السعر") , DataType(DataType.Date), Display(Name = "التاريخ")]
-        [DisplayFormat(ApplyFormatInEditMode = true , DataFormatString = "{0:dd-MM-yyyy}")]
+        [Description("تاريخ عرض السعر") , Display(Name = "التاريخ")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime QDate { get; set; }
         public Custmer Custmer { get; set; }
         [Display(Name = "العميل")]

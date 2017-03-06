@@ -21,11 +21,12 @@
     </div>
     <div class="panel-body">
 
-        <form asp-action="Edit" id="form1">
+        <form asp-action="Edit" id="edform">
             <div class="form-horizontal">
 
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+                <i class="getid" style="display: none">@Model.Id</i>
                 <div class="form-group">
                     <label asp-for="CustmerId" class="col-md-2 control-label"></label>
                     <div class="col-md-6">
@@ -42,13 +43,7 @@
                         <input asp-for="Complate" class="form-control" />
                         <span asp-validation-for="Complate" class="text-danger" />
                     </div>
-                    <div class="col-md-2">
-                        <select class="select2 form-control" id="timelist">
-                            <option value="ساعة"> ساعة</option>
-                            <option value="يوم">يوم</option>
-                            <option value="شهر">شهر</option>
-                        </select>
-                    </div>
+                 
                 </div>
 
                 <div class="form-group">
@@ -90,7 +85,7 @@
                     <div class="col-md-6">
 
                         <div id="date-popup" class="input-group date">
-                            <input asp-for="QDate" type="text" data-format="D, dd MM yyyy" class="form-control">
+                            <input asp-for="QDate" type="text" data-format="dd/MM/yyyy" class="form-control">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                         </div>
                         <span asp-validation-for="QDate" class="text-danger" />
@@ -107,8 +102,6 @@
                     </div>
                 </div>
 
-
-
                 <table class="table table-condensed">
 
                     <tr>
@@ -124,7 +117,7 @@
                     @foreach (var item in Model.Instruments)
                     {
                         <tr class="real">
-                            <td>@item.Id</td>
+                            <td id="id">@item.Id</td>
                             <td>@item.Amount</td>
                             <td>@item.Area</td>
                             <td>@item.BDiscrib</td>
@@ -132,6 +125,7 @@
                             <td>@item.SNum</td>
                             <td>
                                 <a href="#" onclick="editOneopenModal(this)" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                                &nbsp; &nbsp; &nbsp; &nbsp;
                                 <a href="#" onclick="DeleteData(this)" class="text-primary">  <i class="icon-trash"></i></a>
 
                             </td>
@@ -155,11 +149,9 @@
 
                 </table>
 
-
-
                 <div class="form-group">
                     <div class="col-md-10">
-                        <input type="submit" value="حفـــظ" class="btn btn-primary" />
+                        <input type="submit" value="حفـــظ  التعديل" class="btn btn-primary" />
                         
                     </div>
                 </div>
@@ -167,13 +159,7 @@
         </form>
 
     </div>
-
-
 </div>
-
-
-
-
 
 
 <div>
@@ -190,36 +176,36 @@
 
 
     <script>
+       
+        //var countofrow = $("#edform").find(".dataclass").text();
+        var curnetpaperid = $("#edform").find(".getid").text();
+        //alert(curnetpaperid);
+        //$.fn.serializeObject = function () {
+        //    var o = {};
+        //    var a = this.serializeArray();
+        //    $.each(a, function () {
+        //        if (o[this.name] !== undefined) {
+        //            if (!o[this.name].push) {
+        //                o[this.name] = [o[this.name]];
+        //            }
+        //            o[this.name].push(this.value || '');
+        //        } else {
+        //            o[this.name] = this.value || '';
+        //        }
+        //    });
+        //    return o;
+        //};
 
-        $.fn.serializeObject = function () {
-            var o = {};
-            var a = this.serializeArray();
-            $.each(a, function () {
-                if (o[this.name] !== undefined) {
-                    if (!o[this.name].push) {
-                        o[this.name] = [o[this.name]];
-                    }
-                    o[this.name].push(this.value || '');
-                } else {
-                    o[this.name] = this.value || '';
-                }
-            });
-            return o;
-        };
-
-        $("#form1").submit(function (e) {
-            e.preventDefault();
-            $("#Complate").val($("#Complate").val() + " " + $("#timelist").val());
-
-            var dataform = $(this).serializeObject();
-
-            dataform.Instruments = GetCurntTableItem();
-
-            $.post($(this).attr("action"), dataform);
-            alert("posted");
-
-
-        });
+        //$("#edform").submit(function (e) {
+        //    e.preventDefault();
+        //    var dataform = $(this).serializeObject();
+        //    dataform.Instruments = GetCurntTableItem();
+        //    $.post($(this).attr("action"), dataform ,
+        //        function(data) {
+        //         //  location.href = "/Quotations/Index";
+        //        });
+           
+        //});
 
         var items = [];
 
@@ -253,12 +239,13 @@
             var bdiscrib = $("#BDiscrib").val();
             var Locati = $("#Locat").val();
             var snum = $("#SNum").val();
-           items.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: Locati, SNum: snum });
+            items.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: Locati, SNum: snum, QuotationId : curnetpaperid });
             $("#Amount").val('');
             $("#Area").val('');
             $("#BDiscrib").val('');
             $("#Locat").val('');
             $("#SNum").val('');
+            $.post("/Quotations/InsertInstremnt", items[items.length - 1]);
         }
 
         function SaveAndClose(ev) {
@@ -268,13 +255,13 @@
             var bdiscrib = $("#BDiscrib").val();
             var Locati = $("#Locat").val();
             var snum = $("#SNum").val();
-            items.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: Locati, SNum: snum });
+            items.push({ Id: id, Amount: amount, Area: area, BDiscrib: bdiscrib, Locat: Locati, SNum: snum, QuotationId: curnetpaperid });
             $("#Amount").val('');
             $("#Area").val('');
             $("#BDiscrib").val('');
             $("#Locat").val('');
             $("#SNum").val('');
-
+            $.post("/Quotations/InsertInstremnt", items[items.length - 1]);
             ClosModal();
         }
 
@@ -282,7 +269,7 @@
             $('#mymodal').modal('hide');
             for (var i = 0; i < items.length; i++) {
 
-                var html = '<tr class = "real">' + '<td>' + items[i].Id +
+                var html = '<tr class = "real">' + '<td id="id">' + items[i].Id +
                     '</td>'  + '<td>' + items[i].Amount +
                     '</td>' + '<td>' + items[i].Area + '</td>' +
                     '<td>' + items[i].BDiscrib + '</td>' + '<td>' + items[i].Locat + '</td>' +
@@ -300,12 +287,22 @@
         function editSave() {
 
             var formedit = $("#fromhere");
-            trdata[0].innerText = $(formedit).find("#Id").val();;
-            trdata[1].innerText = $(formedit).find("#Amount").val();;
+           
+            trdata[1].innerText = $(formedit).find("#Amount").val();
             trdata[2].innerText = $(formedit).find("#Area").val();
             trdata[3].innerText = $(formedit).find("#BDiscrib").val();
             trdata[4].innerText = $(formedit).find("#Locat").val();
             trdata[5].innerText = $(formedit).find("#SNum").val();
+            var data = {
+                Id: trdata[0].innerText,
+                Amount: trdata[1].innerText,
+                Area: trdata[2].innerText,
+                BDiscrib: trdata[3].innerText,
+                Locat: trdata[4].innerText,
+                SNum: trdata[5].innerText,
+                QuotationId: curnetpaperid
+            };
+            $.post("/Quotations/UpdateInstremnt", data);
             $('#editmoal').modal('hide');
 
         }
@@ -314,7 +311,7 @@
         function editOneopenModal(event) {
             $('#editmoal').modal('show');
             //Get All td from tr
-             trdata = $(event).parent().siblings();
+            trdata = $(event).parent().siblings();
             var formedit = $("#fromhere");
             $(formedit).find("#Amount").val(trdata[1].innerText);
             $(formedit).find("#Area").val(trdata[2].innerText);
@@ -325,7 +322,19 @@
 
         function DeleteData(delte) {
 
-            $(delte).parent().parent().remove();
+            var ret= confirm("هل تريد الحذف فعلا ..؟");
+            if (ret) {
+                var tr = $(delte).parent().parent();
+                var id = $(tr).find("td")[0].innerText;
+
+                $.get("/Quotations/Delteinstrement?id=" + id,
+                    function (data) {
+                        if (data == true) {
+                            alert("تم الحذف بنجاح ..");
+                            tr.remove();
+                        }
+                    });
+            }
         }
 
     </script>
