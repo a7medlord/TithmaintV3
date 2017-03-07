@@ -77,46 +77,28 @@ namespace CloudApp.Controllers
             }
 
             var quotation = await _context.Quotation.Include(quotation1 => quotation1.Instruments).SingleOrDefaultAsync(m => m.Id == id);
+           
             if (quotation == null)
             {
                 return NotFound();
             }
+    
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", quotation.CustmerId);
             return View(quotation);
         }
-
+        
         // POST: Quotations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind] Quotation quotation)
+        public async Task<IActionResult> Edit([Bind] Quotation quotation)
         {
-            if (id != quotation.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                _context.Entry(quotation).State = EntityState.Modified;
+                if (await _context.SaveChangesAsync() > 0)
                 {
-                    _context.Update(quotation);
-                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!QuotationExists(quotation.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction("Index");
-            }
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", quotation.CustmerId);
             return View(quotation);
         }
@@ -152,6 +134,44 @@ namespace CloudApp.Controllers
         private bool QuotationExists(long id)
         {
             return _context.Quotation.Any(e => e.Id == id);
+        }
+
+        [HttpGet]
+        public bool Delteinstrement(int id)
+        {
+            var data =  _context.Instrument.SingleOrDefault(instrument => instrument.Id == id);
+            if (data != null)
+            {
+                _context.Instrument.Remove(data);
+                if (_context.SaveChanges() > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool InsertInstremnt([Bind()] Instrument instr)
+        {
+            _context.Instrument.Add(instr);
+            if (_context.SaveChanges() > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+        public bool UpdateInstremnt([Bind()] Instrument instr)
+        {
+            _context.Entry(instr).State = EntityState.Modified;
+            if (_context.SaveChanges() > 0)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
