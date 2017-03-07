@@ -14,6 +14,7 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "الايميل")]
         public string Email { get; set; }
         public List<Quotation> Quotations { get; set; }
+        public List<Treatment> Treatments { get; set; }
 
     }
 }

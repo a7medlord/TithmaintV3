@@ -76,6 +76,18 @@
                         <li><a asp-controller="Custmers" asp-action="Index"><span class="title">جميع العملاء</span></a></li>
                     </ul>
                 </li>
+                
+                <li class="has-sub">
+
+                    <a href="#"><i class="icon-bookmarks"></i><span class="title">المعاملات</span></a>
+
+                    <ul class="nav collapse">
+                        <li><a asp-controller="Treatments" asp-action="Create"><span class="title">معاملة جديد* </span></a></li>
+
+
+                        <li><a asp-controller="Treatments" asp-action="Index"><span class="title">جميع المعاملات</span></a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
          
@@ -142,7 +154,7 @@
 <script src="~/FrameWork/js/plugins/datatables/extensions/Buttons/js/buttons.colVis.js"></script>
 <script src="~/FrameWork/js/plugins/select2/select2.full.min.js"></script>
 <script src="~/FrameWork/js/plugins/datepicker/bootstrap-datepicker.js"></script>
-
+    <script src="~/FrameWork/js/plugins/wizard/jquery.bootstrap.wizard.min.js"></script>
 <script>
 
     $(document).ready(function () {
@@ -235,6 +247,71 @@
        });
        
     });
+
+
+    // form wizerd
+    if ($.isFunction($.fn.bootstrapWizard)) {
+        $('#rootwizard').bootstrapWizard({
+            tabClass: 'wizard-steps',
+            onTabShow: function ($tab, $navigation, index) {
+                $tab.prevAll().addClass('completed');
+                $tab.nextAll().removeClass('completed');
+                $tab.removeClass('completed');
+            }
+
+        });
+
+        $(".validate-form-wizard").each(function (i, formwizard) {
+            var $this = $(formwizard);
+            var $progress = $this.find(".steps-progress div");
+
+            var $validator = $this.validate({
+                rules: {
+                    username: {
+                        required: true,
+                        minlength: 3
+                    },
+                    password: {
+                        required: true,
+                        minlength: 3
+                    },
+                    confirmpassword: {
+                        required: true,
+                        minlength: 3
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                        minlength: 3,
+                    }
+                }
+            });
+
+            // Validation
+            var checkValidaion = function (tab, navigation, index) {
+                if ($this.hasClass('validate')) {
+                    var $valid = $this.valid();
+                    if (!$valid) {
+                        $validator.focusInvalid();
+                        return false;
+                    }
+                }
+
+                return true;
+            };
+
+            $this.bootstrapWizard({
+                tabClass: 'wizard-steps',
+                onNext: checkValidaion,
+                onTabClick: checkValidaion,
+                onTabShow: function ($tab, $navigation, index) {
+                    $tab.removeClass('completed');
+                    $tab.prevAll().addClass('completed');
+                    $tab.nextAll().removeClass('completed');
+                }
+            });
+        });
+    }
  
 </script>
 

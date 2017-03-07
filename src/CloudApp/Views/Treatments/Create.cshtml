@@ -1,0 +1,400 @@
+﻿@model CloudApp.Models.BusinessModel.Treatment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+@*<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Treatment</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Agbuild" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Agbuild" class="form-control" />
+                <span asp-validation-for="Agbuild" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Area" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Area" class="form-control" />
+                <span asp-validation-for="Area" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CaseBuild" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CaseBuild" class="form-control" />
+                <span asp-validation-for="CaseBuild" class="text-danger" />
+            </div>
+        </div>
+        
+        
+        
+
+        <div class="form-group">
+            <label asp-for="City" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateSNum" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DateSNum" class="form-control" />
+                <span asp-validation-for="DateSNum" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Gada" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Gada" class="form-control" />
+                <span asp-validation-for="Gada" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Local" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Local" class="form-control" />
+                <span asp-validation-for="Local" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Napartment" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Napartment" class="form-control" />
+                <span asp-validation-for="Napartment" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Npiece" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Npiece" class="form-control" />
+                <span asp-validation-for="Npiece" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="OccBuild" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="OccBuild" class="form-control" />
+                <span asp-validation-for="OccBuild" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Plane" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Plane" class="form-control" />
+                <span asp-validation-for="Plane" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ResWland" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ResWland" class="form-control" />
+                <span asp-validation-for="ResWland" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SNum" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SNum" class="form-control" />
+                <span asp-validation-for="SNum" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Street" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Street" class="form-control" />
+                <span asp-validation-for="Street" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="StyleBuild" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="StyleBuild" class="form-control" />
+                <span asp-validation-for="StyleBuild" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Tbuild" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Tbuild" class="form-control" />
+                <span asp-validation-for="Tbuild" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wland" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wland" class="form-control" />
+                <span asp-validation-for="Wland" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>*@
+
+
+
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title">المعاملة الجارية...</h3>
+        <ul class="panel-tool-options">
+            <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+            <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+            <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+        </ul>
+    </div>
+    <div class="panel-body">
+        <form asp-action="Create" id="rootwizard-2" class="form-wizard validate-form-wizard validate">
+            <div class="wizard-navbar">
+                <ul>
+                    <li class="active"><a href="#tab2-1" data-toggle="tab"><span>1</span> تحت الأدخال </a></li>
+                    <li><a href="#tab2-2" data-toggle="tab"><span>2</span>تحت التثمين</a></li>
+                    <li><a href="#tab2-3" data-toggle="tab"><span>3</span>  المراجعة</a></li>
+                    <li><a href="#tab2-4" data-toggle="tab"><span>4</span> التعميد</a></li>
+                </ul>
+            </div>
+            <div class="tab-content">
+           <div class="tab-pane  active" id="tab2-1">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CustmerId" class="control-label"></label>
+                                <select asp-for="CustmerId" class="select2 form-control" asp-items="ViewBag.CustmerId"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Owner" class="control-label"></label>
+                                    <input asp-for="Owner" class="form-control" />
+                                    <span asp-validation-for="Owner" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="SCustmer" class="control-label"></label>
+           
+                                    <input asp-for="SCustmer" class="form-control" />
+                                    <span asp-validation-for="SCustmer" class="text-danger" />
+                            </div>
+                        </div>
+                    </div>  
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="SNum" class="control-label"></label>
+                                <input asp-for="SNum" class="form-control" />
+                                <span asp-validation-for="SNum" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="City" class="control-label"></label>
+                                <input asp-for="City" class="form-control" />
+                                <span asp-validation-for="City" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Gada" class="control-label"></label>
+
+                                <input asp-for="Gada" class="form-control" />
+                                <span asp-validation-for="Gada" class="text-danger" />
+                            </div>
+                        </div>
+                    </div>  
+                    
+
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="DateSNum" class="control-label"></label>
+                                
+                                <div id="date-popup" class="input-group date">
+                                    <input asp-for="DateSNum" type="text" data-format="D, dd MM yyyy" class="form-control">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <span asp-validation-for="DateSNum" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Local" class="control-label"></label>
+                                <input asp-for="Local" class="form-control" />
+                                <span asp-validation-for="Local" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Street" class="control-label"></label>
+                                <input asp-for="Street" class="form-control" />
+                                <span asp-validation-for="Street" class="text-danger" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Plane" class="control-label"></label>
+                                <input asp-for="Plane" class="form-control" />
+                                <span asp-validation-for="Plane" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Tbuild" class="control-label"></label>
+                                <input asp-for="Tbuild" class="form-control" />
+                                <span asp-validation-for="Tbuild" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Area" class="control-label"></label>
+                                <input asp-for="Area" class="form-control" />
+                                <span asp-validation-for="Area" class="text-danger" />
+                            </div>
+                        </div>
+           
+                    </div>
+                     
+                    
+               <div class="form-group">
+                   <div class="col-md-offset-2 col-md-10">
+                       <input type="submit" value="حفـــــظ" class="btn btn-primary" />
+                   </div>
+               </div> 
+
+                </div>
+                
+                @* tab2 *@
+            <div class="tab-pane" id="tab2-2">
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Wland" class="control-label"></label>
+                            <input asp-for="Wland" class="form-control"/>
+                            <span asp-validation-for="Wland" class="text-danger" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="ResWland" class="control-label"></label>
+                            <input asp-for="ResWland" class="form-control"/>
+                            <span asp-validation-for="ResWland" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Npiece" class="control-label"></label>
+                            <input asp-for="Npiece" class="form-control"/>
+                            <span asp-validation-for="Npiece" class="text-danger" />
+                        </div>
+                    </div>
+ 
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Napartment" class="control-label"></label>
+                            <input asp-for="Napartment" class="form-control" />
+                            <span asp-validation-for="Napartment" class="text-danger" />
+                        </div>
+                    </div>
+                    
+                    
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Agbuild" class="control-label"></label>
+                            <input asp-for="Agbuild" class="form-control" />
+                            <span asp-validation-for="Agbuild" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="OccBuild" class="control-label"></label>
+                            <input asp-for="OccBuild" class="form-control" />
+                            <span asp-validation-for="OccBuild" class="text-danger" />
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="CaseBuild" class="control-label"></label>
+                            <input asp-for="CaseBuild" class="form-control" />
+                            <span asp-validation-for="CaseBuild" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="StyleBuild" class="control-label"></label>
+                            <input asp-for="StyleBuild" class="form-control" />
+                            <span asp-validation-for="StyleBuild" class="text-danger" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+                @*tab3*@
+            <div class="tab-pane" id="tab2-3">
+                <h3 class="title text-info"> تدقيق المستندات والأدخال</h3>
+                <p><strong>1.</strong> تمت مراجعة وتدقيق كافة الاواراق والصكوك والمدخلات بعد عمليتي الأدخال و التثمين.</p>
+                <div class="checkbox">
+                    <label><input type="checkbox">موافق..</label>
+                </div>
+            </div>
+
+                @*tab4*@
+           <div class="tab-pane" id="tab2-4">
+                    <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
+                    <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .</p>
+                    <div class="checkbox">
+                        <label><input type="checkbox">موافق..</label>
+                    </div>
+                </div>
+
+                <ul class="pager wizard">
+                    <li class="previous"><a href="javascript:void(0)"><i class="icon-right-open"></i>السابق</a></li>
+                    <li class="next"><a href="javascript:void(0)">التالي<i class="icon-left-open"></i></a> </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

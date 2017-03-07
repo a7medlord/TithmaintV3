@@ -29,6 +29,8 @@ namespace CloudApp.Data
         public DbSet<Quotation> Quotation { get; set; }
 
         public DbSet<Instrument> Instrument { get; set; }
+
+        public DbSet<Treatment> Treatment { get; set; }
         
         
     }
