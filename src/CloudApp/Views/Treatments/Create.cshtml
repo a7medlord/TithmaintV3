@@ -163,10 +163,11 @@
         <form asp-action="Create" id="rootwizard-2" class="form-wizard validate-form-wizard validate">
             <div class="wizard-navbar">
                 <ul>
-                    <li class="active"><a href="#tab2-1" data-toggle="tab"><span>1</span> تحت الأدخال </a></li>
-                    <li><a href="#tab2-2" data-toggle="tab"><span>2</span>تحت التثمين</a></li>
-                    <li><a href="#tab2-3" data-toggle="tab"><span>3</span>  المراجعة</a></li>
-                    <li><a href="#tab2-4" data-toggle="tab"><span>4</span> التعميد</a></li>
+                    <li class="l0 active" ><a href="#tab2-1" data-toggle="tab"><span>1</span> تحت الأدخال </a></li>
+                    <li class="l1"><a href="#tab2-2" data-toggle="tab"><span>2</span>تحت التثمين</a></li>
+                    <li class="l2"><a href="#tab2-3" data-toggle="tab"><span>3</span>  المراجعة</a></li>
+                    <li class="l3"><a href="#tab2-4" data-toggle="tab"><span>4</span> التعميد</a></li>
+                    <li class="l4"><a href="#tab2-5" data-toggle="tab"><span>5</span> الأرشفة</a></li>
                 </ul>
             </div>
             <div class="tab-content">
@@ -222,9 +223,7 @@
                             </div>
                         </div>
                     </div>  
-                    
-
-                    
+       
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -278,7 +277,12 @@
            
                     </div>
                      
-                    
+
+               
+
+               <div class="checkbox">
+                   <label><input id="nex1" type="checkbox">اكمال عملية الأدخال...</label>
+               </div>
                <div class="form-group">
                    <div class="col-md-offset-2 col-md-10">
                        <input type="submit" value="حفـــــظ" class="btn btn-primary" />
@@ -373,15 +377,23 @@
             </div>
 
                 @*tab4*@
-           <div class="tab-pane" id="tab2-4">
-                    <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
-                    <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .</p>
-                    <div class="checkbox">
-                        <label><input type="checkbox">موافق..</label>
-                    </div>
+            <div class="tab-pane" id="tab2-4">
+                <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
+                <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .</p>
+                <div class="checkbox">
+                    <label><input type="checkbox">موافق..</label>
+                </div>
+            </div>
+                
+                @*tab5*@
+            <div class="tab-pane" id="tab2-5">
+                    <h3 class="title text-info"> تمت ارشفة جميع  المستندات </h3>
+                    <p><strong>1.</strong> يمكنك مراجعة المعاملة من قسم المعاملات المؤشفة .</p>
+
+        
                 </div>
 
-                <ul class="pager wizard">
+            <ul class="pager wizard">
                     <li class="previous"><a href="javascript:void(0)"><i class="icon-right-open"></i>السابق</a></li>
                     <li class="next"><a href="javascript:void(0)">التالي<i class="icon-left-open"></i></a> </li>
                 </ul>
@@ -391,10 +403,34 @@
 </div>
 
 
+
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+       
+    }
+    <script>
+        $("#nex1").change(function () {
+            if (this.checked) {
+    
+                $(".l0").removeClass('active').addClass('completed');
+
+            } else {
+
+                $(".l0").removeClass('completed').addClass('active');
+
+            }
+        });
+
+    </script>
+
 }
+
+
+
+
+
