@@ -286,7 +286,6 @@
                     }
                 }
             });
-
             // Validation
             var checkValidaion = function (tab, navigation, index) {
                 if ($this.hasClass('validate')) {
@@ -305,9 +304,50 @@
                 onNext: checkValidaion,
                 onTabClick: checkValidaion,
                 onTabShow: function ($tab, $navigation, index) {
-                    $tab.removeClass('completed');
-                    $tab.prevAll().addClass('completed');
-                    $tab.nextAll().removeClass('completed');
+                
+                    switch(index) {
+                        case 0:
+                            if ($("#nex1").prop('checked')) {
+                                $tab.removeClass('active').addClass('completed');       
+
+                            } else {
+                                $tab.removeClass('completed').addClass('active');
+                            }
+                            break;
+                        case 1:
+                            if ($("#nex2").prop('checked')) {
+                                $tab.removeClass('active').addClass('completed');
+
+                            } else {
+                                $tab.removeClass('completed').addClass('active');
+                            }
+                            break;
+                        case 2:
+                            if ($("#nex3").prop('checked')) {
+                                $tab.removeClass('active').addClass('completed');
+
+                            } else {
+                                $tab.removeClass('completed').addClass('active');
+                            }
+                            break;
+                        case 3:
+                            if ($("#nex4").prop('checked')) {
+                                $tab.removeClass('active').addClass('completed');
+
+                            } else {
+                                $tab.removeClass('completed').addClass('active');
+                            }
+                            break;
+                        default:
+                         
+                    } 
+
+
+               
+
+                    //$tab.removeClass('completed');
+                    //$tab.prevAll().addClass('completed');
+                    //$tab.nextAll().removeClass('completed');
                 }
             });
         });

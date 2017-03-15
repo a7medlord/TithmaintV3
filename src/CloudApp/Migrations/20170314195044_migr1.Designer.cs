@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using CloudApp.Data;
 
-namespace CloudApp.Data.Migrations
+namespace CloudApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170221081535_migr1")]
+    [Migration("20170314195044_migr1")]
     partial class migr1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,6 +64,141 @@ namespace CloudApp.Data.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Custmer", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<string>("Phone");
+
+                    b.Property<long>("SampleId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SampleId");
+
+                    b.ToTable("Custmer");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Instrument", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Amount");
+
+                    b.Property<string>("Area");
+
+                    b.Property<string>("BDiscrib");
+
+                    b.Property<string>("Locat");
+
+                    b.Property<long>("QuotationId");
+
+                    b.Property<string>("SNum");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuotationId");
+
+                    b.ToTable("Instrument");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Quotation", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Bank");
+
+                    b.Property<string>("Complate");
+
+                    b.Property<long>("CustmerId");
+
+                    b.Property<string>("FBatch");
+
+                    b.Property<DateTime>("QDate");
+
+                    b.Property<string>("SCustmer");
+
+                    b.Property<string>("Sign");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustmerId");
+
+                    b.ToTable("Quotation");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Sample", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Samples");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Treatment", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Agbuild");
+
+                    b.Property<string>("Area");
+
+                    b.Property<string>("CaseBuild");
+
+                    b.Property<string>("City");
+
+                    b.Property<long>("CustmerId");
+
+                    b.Property<string>("DateSNum");
+
+                    b.Property<string>("Gada");
+
+                    b.Property<string>("Local");
+
+                    b.Property<string>("Napartment");
+
+                    b.Property<string>("Npiece");
+
+                    b.Property<string>("OccBuild");
+
+                    b.Property<string>("Owner");
+
+                    b.Property<string>("Plane");
+
+                    b.Property<string>("ResWland");
+
+                    b.Property<string>("SCustmer");
+
+                    b.Property<string>("SNum");
+
+                    b.Property<string>("Street");
+
+                    b.Property<string>("StyleBuild");
+
+                    b.Property<string>("Tbuild");
+
+                    b.Property<string>("Wland");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustmerId");
+
+                    b.ToTable("Treatment");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -171,6 +306,38 @@ namespace CloudApp.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Custmer", b =>
+                {
+                    b.HasOne("CloudApp.Models.BusinessModel.Sample", "Sample")
+                        .WithMany("Custmers")
+                        .HasForeignKey("SampleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Instrument", b =>
+                {
+                    b.HasOne("CloudApp.Models.BusinessModel.Quotation", "Quotation")
+                        .WithMany("Instruments")
+                        .HasForeignKey("QuotationId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Quotation", b =>
+                {
+                    b.HasOne("CloudApp.Models.BusinessModel.Custmer", "Custmer")
+                        .WithMany("Quotations")
+                        .HasForeignKey("CustmerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Treatment", b =>
+                {
+                    b.HasOne("CloudApp.Models.BusinessModel.Custmer", "Custmer")
+                        .WithMany("Treatments")
+                        .HasForeignKey("CustmerId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

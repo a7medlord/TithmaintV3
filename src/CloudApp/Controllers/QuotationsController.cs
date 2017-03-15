@@ -46,7 +46,6 @@ namespace CloudApp.Controllers
         // GET: Quotations/Create
         public IActionResult Create()
         {
-        
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
             return View();
         }

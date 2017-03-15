@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using CloudApp.Data;
 
-namespace CloudApp.Data.Migrations
+namespace CloudApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170221082136_migr2")]
-    partial class migr2
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -78,7 +77,11 @@ namespace CloudApp.Data.Migrations
 
                     b.Property<string>("Phone");
 
+                    b.Property<long>("SampleId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("SampleId");
 
                     b.ToTable("Custmer");
                 });
@@ -131,6 +134,70 @@ namespace CloudApp.Data.Migrations
                     b.HasIndex("CustmerId");
 
                     b.ToTable("Quotation");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Sample", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Samples");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Treatment", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Agbuild");
+
+                    b.Property<string>("Area");
+
+                    b.Property<string>("CaseBuild");
+
+                    b.Property<string>("City");
+
+                    b.Property<long>("CustmerId");
+
+                    b.Property<string>("DateSNum");
+
+                    b.Property<string>("Gada");
+
+                    b.Property<string>("Local");
+
+                    b.Property<string>("Napartment");
+
+                    b.Property<string>("Npiece");
+
+                    b.Property<string>("OccBuild");
+
+                    b.Property<string>("Owner");
+
+                    b.Property<string>("Plane");
+
+                    b.Property<string>("ResWland");
+
+                    b.Property<string>("SCustmer");
+
+                    b.Property<string>("SNum");
+
+                    b.Property<string>("Street");
+
+                    b.Property<string>("StyleBuild");
+
+                    b.Property<string>("Tbuild");
+
+                    b.Property<string>("Wland");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustmerId");
+
+                    b.ToTable("Treatment");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -240,6 +307,14 @@ namespace CloudApp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Custmer", b =>
+                {
+                    b.HasOne("CloudApp.Models.BusinessModel.Sample", "Sample")
+                        .WithMany("Custmers")
+                        .HasForeignKey("SampleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("CloudApp.Models.BusinessModel.Instrument", b =>
                 {
                     b.HasOne("CloudApp.Models.BusinessModel.Quotation", "Quotation")
@@ -252,6 +327,14 @@ namespace CloudApp.Data.Migrations
                 {
                     b.HasOne("CloudApp.Models.BusinessModel.Custmer", "Custmer")
                         .WithMany("Quotations")
+                        .HasForeignKey("CustmerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.Treatment", b =>
+                {
+                    b.HasOne("CloudApp.Models.BusinessModel.Custmer", "Custmer")
+                        .WithMany("Treatments")
                         .HasForeignKey("CustmerId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

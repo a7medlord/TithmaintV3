@@ -10,23 +10,22 @@ using CloudApp.Models.BusinessModel;
 
 namespace CloudApp.Controllers
 {
-    public class CustmersController : Controller
+    public class SamplesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CustmersController(ApplicationDbContext context)
+        public SamplesController(ApplicationDbContext context)
         {
             _context = context;    
         }
 
-        // GET: Custmers
+        // GET: Samples
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Custmer.Include(q => q.Sample);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await _context.Samples.ToListAsync());
         }
 
-        // GET: Custmers/Details/5
+        // GET: Samples/Details/5
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -34,39 +33,38 @@ namespace CloudApp.Controllers
                 return NotFound();
             }
 
-            var custmer = await _context.Custmer.SingleOrDefaultAsync(m => m.Id == id);
-            if (custmer == null)
+            var sample = await _context.Samples.SingleOrDefaultAsync(m => m.Id == id);
+            if (sample == null)
             {
                 return NotFound();
             }
 
-            return View(custmer);
+            return View(sample);
         }
 
-        // GET: Custmers/Create
+        // GET: Samples/Create
         public IActionResult Create()
         {
-            ViewData["SampleId"]= new SelectList(_context.Samples, "Id", "Name");
             return View();
         }
 
-        // POST: Custmers/Create
+        // POST: Samples/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Email,Name,Phone")] Custmer custmer)
+        public async Task<IActionResult> Create([Bind("Id,Name")] Sample sample)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(custmer);
+                _context.Add(sample);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(custmer);
+            return View(sample);
         }
 
-        // GET: Custmers/Edit/5
+        // GET: Samples/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -74,22 +72,22 @@ namespace CloudApp.Controllers
                 return NotFound();
             }
 
-            var custmer = await _context.Custmer.SingleOrDefaultAsync(m => m.Id == id);
-            if (custmer == null)
+            var sample = await _context.Samples.SingleOrDefaultAsync(m => m.Id == id);
+            if (sample == null)
             {
                 return NotFound();
             }
-            return View(custmer);
+            return View(sample);
         }
 
-        // POST: Custmers/Edit/5
+        // POST: Samples/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Email,Name,Phone")] Custmer custmer)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Name")] Sample sample)
         {
-            if (id != custmer.Id)
+            if (id != sample.Id)
             {
                 return NotFound();
             }
@@ -98,12 +96,12 @@ namespace CloudApp.Controllers
             {
                 try
                 {
-                    _context.Update(custmer);
+                    _context.Update(sample);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustmerExists(custmer.Id))
+                    if (!SampleExists(sample.Id))
                     {
                         return NotFound();
                     }
@@ -114,10 +112,10 @@ namespace CloudApp.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            return View(custmer);
+            return View(sample);
         }
 
-        // GET: Custmers/Delete/5
+        // GET: Samples/Delete/5
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -125,29 +123,29 @@ namespace CloudApp.Controllers
                 return NotFound();
             }
 
-            var custmer = await _context.Custmer.SingleOrDefaultAsync(m => m.Id == id);
-            if (custmer == null)
+            var sample = await _context.Samples.SingleOrDefaultAsync(m => m.Id == id);
+            if (sample == null)
             {
                 return NotFound();
             }
 
-            return View(custmer);
+            return View(sample);
         }
 
-        // POST: Custmers/Delete/5
+        // POST: Samples/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var custmer = await _context.Custmer.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Custmer.Remove(custmer);
+            var sample = await _context.Samples.SingleOrDefaultAsync(m => m.Id == id);
+            _context.Samples.Remove(sample);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
-        private bool CustmerExists(long id)
+        private bool SampleExists(long id)
         {
-            return _context.Custmer.Any(e => e.Id == id);
+            return _context.Samples.Any(e => e.Id == id);
         }
     }
 }

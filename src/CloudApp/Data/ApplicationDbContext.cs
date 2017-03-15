@@ -31,7 +31,7 @@ namespace CloudApp.Data
         public DbSet<Instrument> Instrument { get; set; }
 
         public DbSet<Treatment> Treatment { get; set; }
-        
+        public DbSet<Sample> Samples { get; set; }
         
     }
 }

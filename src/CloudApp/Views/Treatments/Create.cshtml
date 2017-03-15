@@ -159,15 +159,14 @@
             <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
         </ul>
     </div>
-    <div class="panel-body">
-        <form asp-action="Create" id="rootwizard-2" class="form-wizard validate-form-wizard validate">
+    <div  class="panel-body" >
+        <form   asp-action="Create" id="rootwizard-2" class="form-wizard validate-form-wizard validate">
             <div class="wizard-navbar">
                 <ul>
                     <li class="l0 active" ><a href="#tab2-1" data-toggle="tab"><span>1</span> تحت الأدخال </a></li>
                     <li class="l1"><a href="#tab2-2" data-toggle="tab"><span>2</span>تحت التثمين</a></li>
                     <li class="l2"><a href="#tab2-3" data-toggle="tab"><span>3</span>  المراجعة</a></li>
                     <li class="l3"><a href="#tab2-4" data-toggle="tab"><span>4</span> التعميد</a></li>
-                    <li class="l4"><a href="#tab2-5" data-toggle="tab"><span>5</span> الأرشفة</a></li>
                 </ul>
             </div>
             <div class="tab-content">
@@ -281,7 +280,7 @@
                
 
                <div class="checkbox">
-                   <label><input id="nex1" type="checkbox">اكمال عملية الأدخال...</label>
+                   <label><input id="nex1"  type="checkbox">اكمال عملية الأدخال...</label>
                </div>
                <div class="form-group">
                    <div class="col-md-offset-2 col-md-10">
@@ -365,6 +364,11 @@
                         </div>
                     </div>
                 </div>
+                
+
+                <div class="checkbox">
+                    <label><input id="nex2" type="checkbox">اكمال عملية التثمين...</label>
+                </div>
             </div>
                 
                 @*tab3*@
@@ -372,7 +376,7 @@
                 <h3 class="title text-info"> تدقيق المستندات والأدخال</h3>
                 <p><strong>1.</strong> تمت مراجعة وتدقيق كافة الاواراق والصكوك والمدخلات بعد عمليتي الأدخال و التثمين.</p>
                 <div class="checkbox">
-                    <label><input type="checkbox">موافق..</label>
+                    <label><input   id="nex3" type="checkbox">موافق..</label>
                 </div>
             </div>
 
@@ -381,17 +385,11 @@
                 <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
                 <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .</p>
                 <div class="checkbox">
-                    <label><input type="checkbox">موافق..</label>
+                    <label><input  id="nex4" type="checkbox">موافق..</label>
                 </div>
             </div>
                 
-                @*tab5*@
-            <div class="tab-pane" id="tab2-5">
-                    <h3 class="title text-info"> تمت ارشفة جميع  المستندات </h3>
-                    <p><strong>1.</strong> يمكنك مراجعة المعاملة من قسم المعاملات المؤشفة .</p>
-
-        
-                </div>
+ 
 
             <ul class="pager wizard">
                     <li class="previous"><a href="javascript:void(0)"><i class="icon-right-open"></i>السابق</a></li>
@@ -414,6 +412,54 @@
        
     }
     <script>
+        //function getstattab1() {
+        //    $("#nex1").prop('checked', true);
+
+        //    if ($("#nex1").prop('checked')) {
+        //        $(".l0").removeClass('active').addClass('completed');
+
+        //    } else {
+        //        $(".l0").removeClass('completed').addClass('active');
+        //    }
+        //}
+        //function getstattab2() {
+        //    $("#nex2").prop('checked', false);
+        //    if ($("#nex2").prop('checked')) {
+        //        $(".l1").removeClass('active').addClass('completed');
+
+        //    } else {
+        //        $(".l1").removeClass('completed').addClass('active');
+        //    }
+        //}
+        //function getstattab3() {
+        //    $("#nex3").prop('checked', false);
+        //    if ($("#nex3").prop('checked')) {
+        //        $(".l2").removeClass('active').addClass('completed');
+
+        //    } else {
+        //        $(".l2").removeClass('completed').addClass('active');
+        //    }
+        //}
+        //function getstattab4() {
+        //    $("#nex4").prop('checked', false);
+        //    if ($("#nex4").prop('checked')) {
+        //        $(".l3").removeClass('active').addClass('completed');
+
+        //    } else {
+        //        $(".l3").removeClass('completed').addClass('active');
+        //    }
+        //}
+
+
+
+        //$("#rootwizard-2").ready(function() {
+        //    getstattab1();
+        //    getstattab2();
+        //    getstattab3();
+        //    getstattab4();
+        //});
+
+
         $("#nex1").change(function () {
             if (this.checked) {
     
@@ -422,6 +468,39 @@
             } else {
 
                 $(".l0").removeClass('completed').addClass('active');
+
+            }
+        });
+        $("#nex2").change(function () {
+            if (this.checked) {
+
+                $(".l1").removeClass('active').addClass('completed');
+
+            } else {
+
+                $(".l1").removeClass('completed').addClass('active');
+
+            }
+        });
+        $("#nex3").change(function () {
+            if (this.checked) {
+
+                $(".l2").removeClass('active').addClass('completed');
+
+            } else {
+
+                $(".l2").removeClass('completed').addClass('active');
+
+            }
+        });
+        $("#nex4").change(function () {
+            if (this.checked) {
+
+                $(".l3").removeClass('active').addClass('completed');
+
+            } else {
+
+                $(".l3").removeClass('completed').addClass('active');
 
             }
         });
