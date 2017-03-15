@@ -1,0 +1,51 @@
+﻿@model CloudApp.Models.BusinessModel.Treatment
+<div class="modal fade" id="mymodal" role="dialog" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">انشاء جديد</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="row">
+                    <label asp-for="CustmerId" class="col-md-2 control-label"></label>
+                    <div class="col-md-9">
+                        <div class="input-group">
+                            <select asp-for="CustmerId" class="select2 form-control" asp-items="ViewBag.CustmerId"></select>
+                            <span class="input-group-btn"><a asp-controller="Custmers" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div style="float: right">
+                    <button type="button" id="btn_select"  class="btn btn-primary" >اختيار</button>
+               
+                    <button type="button" id="btn_close" class="btn btn-default">اغــلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        $('#mymodal').modal('show');
+
+        $("#btn_select").click(function () {
+         
+            window.location.href = "/Treatments/Create?id=" + $("#CustmerId").val();
+        });
+        $("#btn_close") .click(function() {
+                $('#mymodal').modal('hide');
+                // similar behavior as clicking on a link
+                window.location.href = "/Treatments/Index";
+            });
+
+    </script>
+}

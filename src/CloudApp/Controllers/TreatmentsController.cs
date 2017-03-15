@@ -44,11 +44,34 @@ namespace CloudApp.Controllers
         }
 
         // GET: Treatments/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
+        {
+            Custmer cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == id);
+            long sampleid;
+            sampleid = cms?.SampleId ?? 1;
+
+
+            ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
+
+            switch (sampleid)
+            {
+                case 1 :
+                    return View();
+                case 2:
+                    return View("TestSample1");
+                default:
+                    return View();
+            }
+            
+        
+       
+        }
+        public IActionResult Select_custmer()
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
-            return View();
+            return View("Models_Custmor");
         }
+
 
         // POST: Treatments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

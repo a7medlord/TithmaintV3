@@ -22,7 +22,7 @@ namespace CloudApp.Controllers
         // GET: Custmers
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Custmer.Include(q => q.Sample);
+            var applicationDbContext = _context.Custmer.Include(c => c.Sample);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -46,7 +46,7 @@ namespace CloudApp.Controllers
         // GET: Custmers/Create
         public IActionResult Create()
         {
-            ViewData["SampleId"]= new SelectList(_context.Samples, "Id", "Name");
+            ViewData["SampleId"] = new SelectList(_context.Samples, "Id", "Name");
             return View();
         }
 
@@ -55,7 +55,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Email,Name,Phone")] Custmer custmer)
+        public async Task<IActionResult> Create([Bind("Id,Email,Name,Phone,SampleId")] Custmer custmer)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +63,7 @@ namespace CloudApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewData["SampleId"] = new SelectList(_context.Samples, "Id", "Name", custmer.SampleId);
             return View(custmer);
         }
 
@@ -79,6 +80,7 @@ namespace CloudApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["SampleId"] = new SelectList(_context.Samples, "Id", "Name", custmer.SampleId);
             return View(custmer);
         }
 
@@ -87,7 +89,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Email,Name,Phone")] Custmer custmer)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Email,Name,Phone,SampleId")] Custmer custmer)
         {
             if (id != custmer.Id)
             {
@@ -114,6 +116,7 @@ namespace CloudApp.Controllers
                 }
                 return RedirectToAction("Index");
             }
+            ViewData["SampleId"] = new SelectList(_context.Samples, "Id", "Name", custmer.SampleId);
             return View(custmer);
         }
 

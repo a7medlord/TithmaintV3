@@ -15,10 +15,12 @@ namespace CloudApp.Models.BusinessModel
         public string Email { get; set; }
         public List<Quotation> Quotations { get; set; }
         public List<Treatment> Treatments { get; set; }
+
+        public Sample Sample { get; set; }
+
         [Display(Name = "النموذج")]
         public long SampleId { get; set; }
 
-        public Sample Sample { get; set; }
 
     }
 }
