@@ -8,9 +8,10 @@ using CloudApp.Data;
 namespace CloudApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170317110851_migr2")]
+    partial class migr2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -270,14 +271,6 @@ namespace CloudApp.Migrations
                     b.Property<string>("DateSNum");
 
                     b.Property<string>("Gada");
-
-                    b.Property<bool>("IsAduit");
-
-                    b.Property<bool>("IsApproved");
-
-                    b.Property<bool>("IsIntered");
-
-                    b.Property<bool>("IsThmin");
 
                     b.Property<string>("Local");
 

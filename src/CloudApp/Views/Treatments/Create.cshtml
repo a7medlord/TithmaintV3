@@ -4,7 +4,6 @@
     ViewData["Title"] = "Create";
 }
 
-<h3>@ViewBag.simid</h3>
 
 <div class="panel panel-primary">
     <div class="panel-heading clearfix">
@@ -16,7 +15,7 @@
         </ul>
     </div>
     <div  class="panel-body" >
-        <form   asp-action="Create" id="rootwizard-2" class="form-wizard validate-form-wizard validate">
+        <form   asp-action="Create" id="rootwizard-2"  class="form-wizard validate-form-wizard validate">
             <div class="wizard-navbar">
                 <ul>
                     <li class="l0 active" ><a href="#tab2-1" data-toggle="tab"><span>1</span> تحت الأدخال </a></li>
@@ -31,12 +30,16 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="row">
-                        <div class="col-md-4">
+                        
+                        <div class="col-md-4"style="pointer-events:none">
                             <div class="form-group">
                                 <label asp-for="CustmerId" class="control-label"></label>
-                                <select asp-for="CustmerId" class="select2 form-control" asp-items="ViewBag.CustmerId"></select>
+                           
+                                    <select asp-for="CustmerId" class="select2 form-control" asp-items="ViewBag.CustmerId"></select>
+                            
                             </div>
                         </div>
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="Owner" class="control-label"></label>
@@ -136,11 +139,11 @@
                
 
                <div class="checkbox">
-                   <label><input id="nex1"  type="checkbox">اكمال عملية الأدخال...</label>
+                   <label><input id="nex1" asp-for="IsIntered"  type="checkbox">اكمال عملية الأدخال...</label>
                </div>
                <div class="form-group">
                    <div class="col-md-offset-2 col-md-10">
-                       <input type="submit" value="حفـــــظ" class="btn btn-primary" />
+                       <input type="submit" value="حفـــــظ"  class="btn btn-primary"  />
                    </div>
                </div> 
 
@@ -223,7 +226,7 @@
                 
 
                 <div class="checkbox">
-                    <label><input id="nex2" type="checkbox">اكمال عملية التثمين...</label>
+                    <label><input id="nex2" asp-for="IsThmin" type="checkbox">اكمال عملية التثمين...</label>
                 </div>
             </div>
                 
@@ -232,7 +235,7 @@
                 <h3 class="title text-info"> تدقيق المستندات والأدخال</h3>
                 <p><strong>1.</strong> تمت مراجعة وتدقيق كافة الاواراق والصكوك والمدخلات بعد عمليتي الأدخال و التثمين.</p>
                 <div class="checkbox">
-                    <label><input   id="nex3" type="checkbox">موافق..</label>
+                    <label><input asp-for="IsAduit"   id="nex3" type="checkbox">موافق..</label>
                 </div>
             </div>
 
@@ -241,7 +244,7 @@
                 <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
                 <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .</p>
                 <div class="checkbox">
-                    <label><input  id="nex4" type="checkbox">موافق..</label>
+                    <label><input  id="nex4"  asp-for="IsApproved"  type="checkbox">موافق..</label>
                 </div>
             </div>
                 
@@ -268,54 +271,6 @@
        
     }
     <script>
-        //function getstattab1() {
-        //    $("#nex1").prop('checked', true);
-
-        //    if ($("#nex1").prop('checked')) {
-        //        $(".l0").removeClass('active').addClass('completed');
-
-        //    } else {
-        //        $(".l0").removeClass('completed').addClass('active');
-        //    }
-        //}
-        //function getstattab2() {
-        //    $("#nex2").prop('checked', false);
-        //    if ($("#nex2").prop('checked')) {
-        //        $(".l1").removeClass('active').addClass('completed');
-
-        //    } else {
-        //        $(".l1").removeClass('completed').addClass('active');
-        //    }
-        //}
-        //function getstattab3() {
-        //    $("#nex3").prop('checked', false);
-        //    if ($("#nex3").prop('checked')) {
-        //        $(".l2").removeClass('active').addClass('completed');
-
-        //    } else {
-        //        $(".l2").removeClass('completed').addClass('active');
-        //    }
-        //}
-        //function getstattab4() {
-        //    $("#nex4").prop('checked', false);
-        //    if ($("#nex4").prop('checked')) {
-        //        $(".l3").removeClass('active').addClass('completed');
-
-        //    } else {
-        //        $(".l3").removeClass('completed').addClass('active');
-        //    }
-        //}
-
-
-
-        //$("#rootwizard-2").ready(function() {
-        //    getstattab1();
-        //    getstattab2();
-        //    getstattab3();
-        //    getstattab4();
-        //});
-
-
         $("#nex1").change(function () {
             if (this.checked) {
     

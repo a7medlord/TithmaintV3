@@ -46,24 +46,22 @@ namespace CloudApp.Controllers
         // GET: Treatments/Create
         public IActionResult Create(int id)
         {
-            Custmer cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == id);
-            long sampleid;
-            sampleid = cms?.SampleId ?? 1;
-
-
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
+
+            Custmer cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == id);
+            var sampleid = cms?.SampleId ?? 1;
 
             switch (sampleid)
             {
                 case 1 :
                     return View();
                 case 2:
-                    return View("TestSample1");
+                    return RedirectToAction("Create","R1Smaple");
+                case 3:
+                    return RedirectToAction("Create", "R2Smaple");
                 default:
                     return View();
             }
-            
-        
        
         }
         public IActionResult Select_custmer()
@@ -78,16 +76,16 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Agbuild,Area,CaseBuild,City,CustmerId,DateSNum,Gada,Local,Napartment,Npiece,OccBuild,Owner,Plane,ResWland,SCustmer,SNum,Street,StyleBuild,Tbuild,Wland")] Treatment treatment)
+        public async Task<IActionResult> Create([Bind("Id,Agbuild,Area,CaseBuild,City,CustmerId,DateSNum,Gada,Local,Napartment,Npiece,OccBuild,Owner,Plane,ResWland,SCustmer,SNum,Street,StyleBuild,Tbuild,Wland,IsIntered,IsThmin,IsAduit,IsApproved")] Treatment treatment)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(treatment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", new {Id=treatment.Id});
             }
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", treatment.CustmerId);
-            return View(treatment);
+            return View("Create",treatment);
         }
 
         // GET: Treatments/Edit/5
@@ -112,7 +110,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Agbuild,Area,CaseBuild,City,CustmerId,DateSNum,Gada,Local,Napartment,Npiece,OccBuild,Owner,Plane,ResWland,SCustmer,SNum,Street,StyleBuild,Tbuild,Wland")] Treatment treatment)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Agbuild,Area,CaseBuild,City,CustmerId,DateSNum,Gada,Local,Napartment,Npiece,OccBuild,Owner,Plane,ResWland,SCustmer,SNum,Street,StyleBuild,Tbuild,Wland,IsIntered,IsThmin,IsAduit,IsApproved")] Treatment treatment)
         {
             if (id != treatment.Id)
             {

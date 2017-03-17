@@ -1,0 +1,132 @@
+@model CloudApp.Models.BusinessModel.R1Smaple
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>R1Smaple</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Agbuild)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Agbuild)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CaseBuild)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CaseBuild)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateSNum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateSNum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gada)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gada)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Local)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Local)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Napartment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Napartment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Npiece)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Npiece)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OccBuild)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OccBuild)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Plane)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Plane)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ResWland)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ResWland)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SCustmer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SCustmer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SNum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SNum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StyleBuild)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StyleBuild)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbuild)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tbuild)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Wland)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Wland)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

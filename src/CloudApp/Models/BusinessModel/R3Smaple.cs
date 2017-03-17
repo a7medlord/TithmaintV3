@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace CloudApp.Models.BusinessModel
 {
-    public class Treatment
+    public class R1Smaple
     {
         public long Id { get; set; }
         public Custmer Custmer { get; set; }
@@ -15,9 +14,9 @@ namespace CloudApp.Models.BusinessModel
         public long CustmerId { get; set; }
         [Display(Name = "المالك")]
         public string Owner { get; set; }
-        [ Display(Name = "اسم عميل البنك")]
+        [Display(Name = "اسم عميل البنك")]
         public string SCustmer { get; set; }
-        [ Display(Name = "رقم الصك")]
+        [Display(Name = "رقم الصك")]
         public string SNum { get; set; }
         [Display(Name = "تاريخ الصك")]
         public string DateSNum { get; set; }
@@ -25,7 +24,7 @@ namespace CloudApp.Models.BusinessModel
         public string City { get; set; }
         [Display(Name = "الحي")]
         public string Gada { get; set; }
-    
+
         [Display(Name = "الموقع")]
         public string Local { get; set; }
         [Display(Name = "اسم الشارع")]
@@ -60,13 +59,10 @@ namespace CloudApp.Models.BusinessModel
 
         [Display(Name = "حالة البناء")]
         public string CaseBuild { get; set; }
+
+
+
         [Display(Name = "اسلوب البناء")]
         public string StyleBuild { get; set; }
-         //is function
-        public bool IsIntered { get; set; }
-        public bool IsThmin { get; set; }
-        public bool IsAduit{ get; set; }
-        public bool IsApproved { get; set; }
-
     }
 }
