@@ -8,10 +8,10 @@ namespace CloudApp
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
+             .UseIISIntegration()
                 .UseKestrel()
+                .UseUrls("http://localhost:5002")
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseUrls("http://192.168.1.3:5000")
-                .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
 
