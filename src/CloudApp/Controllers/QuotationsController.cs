@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
+using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
 using Microsoft.Reporting.WebForms;
 
@@ -22,19 +23,20 @@ namespace CloudApp.Controllers
 
         public IActionResult GetQoutionReport()
         {
-            ReportDataSource reportDataSource = new ReportDataSource();
+            List<Custmer> custmer = new List<Custmer>() { new Custmer() { Name = "عملاء شركة  التثمينات", Id = 1 } };
 
             ReportDataSource custmertDataSource = new ReportDataSource();
 
             ReportDataSource instrumentsDataSource = new ReportDataSource();
 
-           List<Custmer> custmer = new List<Custmer>() {new Custmer() { Name = "عملاء شركة  التثمينات", Id = 1}};
-            List<Quotation> quotation = new List<Quotation>() {new Quotation() { Id = 1, Bank = "الراجحي" ,Complate = "3ايام عمل " ,FBatch = "50%", QDate = new DateTime() , SCustmer = "حامد اب فلجة" ,Sign = "حامد احمد هارون" ,CustmerId = 1}};
+            ReportDataSource reportDataSource = new ReportDataSource(); 
+
+            List<Quotation> quotation = new List<Quotation>() {new Quotation() { Id = 1, Bank = "الراجحي" ,Complate = "3ايام عمل " ,FBatch = "50%", QDate = DateTime.Now , SCustmer = "حامد اب فلجة" ,Sign = "حامد احمد هارون" ,CustmerId = 1}};
            List<Instrument> instruments = new List<Instrument>()
            {
-               new Instrument() {QuotationId = 1,Id = 1 ,Amount = "5000" ,Area = "300",BDiscrib = "فيلا",Locat = "الرياض" ,SNum = "5"},
-                new Instrument() {QuotationId = 1,Id = 2 ,Amount = "6000" ,Area = "250",BDiscrib = "قصر",Locat = "الدمام" ,SNum = "3"},
-                 new Instrument() {QuotationId = 1,Id = 3 ,Amount = "7000" ,Area = "350",BDiscrib = "مصنع",Locat = "مكة" ,SNum = "2"}
+               new Instrument() {QuotationId = 1,Id = 1 ,Amount = 5000 ,Area = "300",BDiscrib = "فيلا",Locat = "الرياض" ,SNum = "5"},
+                new Instrument() {QuotationId = 1,Id = 2 ,Amount = 6000 ,Area = "250",BDiscrib = "قصر",Locat = "الدمام" ,SNum = "3"},
+                 new Instrument() {QuotationId = 1,Id = 3 ,Amount = 7000 ,Area = "350",BDiscrib = "مصنع",Locat = "مكة" ,SNum = "2"}
            };
            
             // Qoution Report
@@ -51,17 +53,33 @@ namespace CloudApp.Controllers
 
             LocalReport local = new LocalReport();
             local.DataSources.Add(reportDataSource);
-            //local.SubreportProcessing+= delegate(object sender, SubreportProcessingEventArgs args)
-            //{
-            //    args.DataSources.Add(custmertDataSource);
-            //    args.DataSources.Add(instrumentsDataSource);
-            //};
+            local.SubreportProcessing += delegate (object sender, SubreportProcessingEventArgs args)
+             {
+                 args.DataSources.Add(custmertDataSource);
+                 args.DataSources.Add(instrumentsDataSource);
+              
+             };
 
             local.ReportPath = "Report/QtReport.rdlc";
             local.EnableExternalImages = true;
+           double amount = instruments.Sum(d => d.Amount);
+
+            ToWord toWord = new ToWord((decimal) amount, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
+
+            ReportParameter[] parameters = {
+       
+                new ReportParameter("num",  toWord.ConvertToArabic())
+               };
 
 
-            byte[] rendervalue = local.Render("Pdf", "");
+            local.SetParameters(parameters);
+         
+             
+
+              
+
+
+            byte[] rendervalue = local.Render("Pdf","");
 
             return File(rendervalue, "application/pdf");
         }

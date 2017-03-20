@@ -497,7 +497,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>فقط اثنان ألف ريال سعودي</Value>
+                    <Value>=Parameters!numtoword.Value</Value>
                     <Style>
                       <FontSize>11pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -538,43 +538,8 @@
           </Border>
         </Style>
       </Rectangle>
-      <Subreport Name="Subreport2">
-        <ReportName>SupCoReport</ReportName>
-        <Parameters>
-          <Parameter Name="Cs">
-            <Value>=Fields!Id.Value</Value>
-          </Parameter>
-        </Parameters>
-        <Top>2.89243cm</Top>
-        <Left>5.62505cm</Left>
-        <Height>0.74083cm</Height>
-        <Width>8.33438cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Subreport>
-      <Subreport Name="Subreport1">
-        <ReportName>SupQtReport</ReportName>
-        <Parameters>
-          <Parameter Name="Qouts">
-            <Value>=Fields!Id.Value</Value>
-          </Parameter>
-        </Parameters>
-        <Top>4.07882cm</Top>
-        <Height>0.60854cm</Height>
-        <Width>19.46547cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Subreport>
     </ReportItems>
-    <Height>2.13875in</Height>
+    <Height>1.13875in</Height>
     <Style />
   </Body>
   <Width>19.58448cm</Width>
@@ -649,6 +614,12 @@
     <ReportParameter Name="Qouts">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="numtoword">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>

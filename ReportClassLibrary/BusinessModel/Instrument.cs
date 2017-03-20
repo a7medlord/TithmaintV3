@@ -15,7 +15,7 @@ namespace ReportClassLibrary.BusinessModel
         [Description("الموقع"), Display(Name = "الموقع")]
         public string Locat { get; set; }
         [Description("قيمةالاتعاب"), Display(Name = " قيمة الاتعاب")]
-        public string Amount { get; set; }
+        public double Amount { get; set; }
         
         public Quotation Quotation { get; set; }
         public long QuotationId { get; set; }

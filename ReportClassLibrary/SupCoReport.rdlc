@@ -11,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.75406cm</Height>
+              <Height>0.56356cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -71,21 +71,25 @@
             </FilterValues>
           </Filter>
         </Filters>
-        <Top>0.03175cm</Top>
-        <Left>0.03175cm</Left>
-        <Height>0.75406cm</Height>
+        <Height>0.56356cm</Height>
         <Width>7.27604cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
+            <Width>0.3pt</Width>
           </Border>
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.30938in</Height>
-    <Style />
+    <Height>0.56356cm</Height>
+    <Style>
+      <Border>
+        <Style>None</Style>
+        <Width>0.3pt</Width>
+      </Border>
+    </Style>
   </Body>
-  <Width>7.30779cm</Width>
+  <Width>7.27604cm</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
