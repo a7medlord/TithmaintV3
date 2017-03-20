@@ -22,7 +22,7 @@ namespace CloudApp.Controllers
         // GET: Treatments
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Treatment.Include(t => t.Custmer);
+            var applicationDbContext = _context.Treatment.Include(t => t.Custmer).ThenInclude(d=>d.Sample);
             return View(await applicationDbContext.ToListAsync());
         }
 

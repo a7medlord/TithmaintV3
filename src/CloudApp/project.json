@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-CloudApp-4ca0e008-8b40-4307-9c09-552cb2e917c5",
 
   "dependencies": {
@@ -31,6 +31,7 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+    "Microsoft.Report.Viewer": "11.0.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
     "Microsoft.VisualStudio.Web.CodeGeneration.Tools": {
       "version": "1.0.0-preview2-final",

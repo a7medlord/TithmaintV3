@@ -74,9 +74,9 @@
             @Html.DisplayFor(modelItem => item.Sign)
         </td>
         <td>
-            <a asp-action="Edit" asp-route-id="@item.Id" class="text-primary">تعديل</a> |
+            <a asp-action="Edit" asp-route-id="@item.Id" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a> |
             
-            <a asp-action="Delete" asp-route-id="@item.Id" class="text-primary">حذف</a>
+            <a asp-action="Delete" asp-route-id="@item.Id" class="text-primary"><i class="icon-trash"></i></a>
            
         </td>
     </tr>
@@ -89,8 +89,3 @@
     </div>
 </div>
 
-<!-- Footer -->
-<footer class="footer-main">
-    &copy; 2016 <strong>Mouldifi</strong> Admin Theme by <a target="_blank" href="#">Deger-Team</a>
-</footer>
-<!-- /footer -->

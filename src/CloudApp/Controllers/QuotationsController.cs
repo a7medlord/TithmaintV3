@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
 using CloudApp.Models.BusinessModel;
+using Microsoft.Reporting.WebForms;
 
 namespace CloudApp.Controllers
 {
@@ -17,6 +18,52 @@ namespace CloudApp.Controllers
         public QuotationsController(ApplicationDbContext context)
         {
             _context = context;    
+        }
+
+        public IActionResult GetQoutionReport()
+        {
+            ReportDataSource reportDataSource = new ReportDataSource();
+
+            ReportDataSource custmertDataSource = new ReportDataSource();
+
+            ReportDataSource instrumentsDataSource = new ReportDataSource();
+
+           List<Custmer> custmer = new List<Custmer>() {new Custmer() { Name = "عملاء شركة  التثمينات", Id = 1}};
+            List<Quotation> quotation = new List<Quotation>() {new Quotation() { Id = 1, Bank = "الراجحي" ,Complate = "3ايام عمل " ,FBatch = "50%", QDate = new DateTime() , SCustmer = "حامد اب فلجة" ,Sign = "حامد احمد هارون" ,CustmerId = 1}};
+           List<Instrument> instruments = new List<Instrument>()
+           {
+               new Instrument() {QuotationId = 1,Id = 1 ,Amount = "5000" ,Area = "300",BDiscrib = "فيلا",Locat = "الرياض" ,SNum = "5"},
+                new Instrument() {QuotationId = 1,Id = 2 ,Amount = "6000" ,Area = "250",BDiscrib = "قصر",Locat = "الدمام" ,SNum = "3"},
+                 new Instrument() {QuotationId = 1,Id = 3 ,Amount = "7000" ,Area = "350",BDiscrib = "مصنع",Locat = "مكة" ,SNum = "2"}
+           };
+           
+            // Qoution Report
+            reportDataSource.Name = "ReportDataSet";
+            reportDataSource.Value = quotation;
+            //Custumer Report
+            custmertDataSource.Name = "CustmerDataSet";
+            custmertDataSource.Value = custmer.ToList();
+            //Instrument Reprot
+            instrumentsDataSource.Name = "SupQtDataSet";
+            instrumentsDataSource.Value = instruments;
+
+
+
+            LocalReport local = new LocalReport();
+            local.DataSources.Add(reportDataSource);
+            //local.SubreportProcessing+= delegate(object sender, SubreportProcessingEventArgs args)
+            //{
+            //    args.DataSources.Add(custmertDataSource);
+            //    args.DataSources.Add(instrumentsDataSource);
+            //};
+
+            local.ReportPath = "Report/QtReport.rdlc";
+            local.EnableExternalImages = true;
+
+
+            byte[] rendervalue = local.Render("Pdf", "");
+
+            return File(rendervalue, "application/pdf");
         }
 
         // GET: Quotations
