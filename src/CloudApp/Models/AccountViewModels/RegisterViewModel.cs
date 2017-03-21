@@ -5,7 +5,7 @@ namespace CloudApp.Models.AccountViewModels
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "الأيميل")]
+        [Display(Name = "اسم المستخدم")]
         public string Email { get; set; }
 
         [Required]

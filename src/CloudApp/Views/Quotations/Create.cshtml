@@ -194,10 +194,12 @@
         
             dataform.Instruments = GetCurntTableItem();
             
-            $.post($(this).attr("action"), dataform ,
-                function() {
-                    location.href = "/Quotations/index";
-                });
+            if ($(this).valid()) {
+                $.post($(this).attr("action"), dataform,
+                    function () {
+                        location.href = "/Quotations/index";
+                    });
+            }
            
         
        
