@@ -1,4 +1,5 @@
-﻿@model CloudApp.Models.BusinessModel.Quotation
+﻿@using CloudApp.Models.BusinessModel
+@model Quotation
 
 @{
     ViewData["Title"] = "جــديد";
@@ -159,8 +160,8 @@
 </div>
 
 @{
-    await Html.RenderPartialAsync("_masterDetialsForInstrmnetAndQut");
-    await Html.RenderPartialAsync("_editForInstrament");
+    await Html.RenderPartialAsync("_masterDetialsForInstrmnetAndQut" , new Instrument());
+    await Html.RenderPartialAsync("_editForInstrament" , new Instrument());
 }
 
 @section Scripts {
@@ -193,10 +194,12 @@
         
             dataform.Instruments = GetCurntTableItem();
             
-            $.post($(this).attr("action"), dataform ,
-                function() {
-                    location.href = "/Quotations/index";
-                });
+            if ($(this).valid()) {
+                $.post($(this).attr("action"), dataform,
+                    function () {
+                        location.href = "/Quotations/index";
+                    });
+            }
            
         
        
@@ -226,6 +229,7 @@
             }
             return realdatas;
         }
+        //this is commment
 
         function SaveAndNew(ev) {
             var id = $("#Id").val();
