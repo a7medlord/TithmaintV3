@@ -21,33 +21,32 @@ namespace CloudApp.Controllers
             _context = context;    
         }
 
-        public IActionResult GetQoutionReport()
+        public IActionResult GetQoutionReport(Quotation quotation)
         {
-            List<Custmer> custmer = new List<Custmer>() { new Custmer() { Name = "عملاء شركة  التثمينات", Id = 1 } };
-
+           
             ReportDataSource custmertDataSource = new ReportDataSource();
 
             ReportDataSource instrumentsDataSource = new ReportDataSource();
 
             ReportDataSource reportDataSource = new ReportDataSource(); 
 
-            List<Quotation> quotation = new List<Quotation>() {new Quotation() { Id = 1, Bank = "الراجحي" ,Complate = "3ايام عمل " ,FBatch = "50%", QDate = DateTime.Now , SCustmer = "حامد اب فلجة" ,Sign = "حامد احمد هارون" ,CustmerId = 1}};
-           List<Instrument> instruments = new List<Instrument>()
-           {
-               new Instrument() {QuotationId = 1,Id = 1 ,Amount = 5000 ,Area = "300",BDiscrib = "فيلا",Locat = "الرياض" ,SNum = "5"},
-                new Instrument() {QuotationId = 1,Id = 2 ,Amount = 6000 ,Area = "250",BDiscrib = "قصر",Locat = "الدمام" ,SNum = "3"},
-                 new Instrument() {QuotationId = 1,Id = 3 ,Amount = 7000 ,Area = "350",BDiscrib = "مصنع",Locat = "مكة" ,SNum = "2"}
-           };
+           // List<Quotation> quotation = new List<Quotation>() {new Quotation() { Id = 1, Bank = "الراجحي" ,Complate = "3ايام عمل " ,FBatch = "50%", QDate = DateTime.Now , SCustmer = "حامد اب فلجة" ,Sign = "حامد احمد هارون" ,CustmerId = 1}};
+           //List<Instrument> instruments = new List<Instrument>()
+           //{
+           //    new Instrument() {QuotationId = 1,Id = 1 ,Amount = 5000 ,Area = "300",BDiscrib = "فيلا",Locat = "الرياض" ,SNum = "5"},
+           //     new Instrument() {QuotationId = 1,Id = 2 ,Amount = 6000 ,Area = "250",BDiscrib = "قصر",Locat = "الدمام" ,SNum = "3"},
+           //      new Instrument() {QuotationId = 1,Id = 3 ,Amount = 7000 ,Area = "350",BDiscrib = "مصنع",Locat = "مكة" ,SNum = "2"}
+           //};
            
             // Qoution Report
             reportDataSource.Name = "ReportDataSet";
             reportDataSource.Value = quotation;
             //Custumer Report
             custmertDataSource.Name = "CustmerDataSet";
-            custmertDataSource.Value = custmer.ToList();
+            custmertDataSource.Value = _context.Custmer.ToList();
             //Instrument Reprot
             instrumentsDataSource.Name = "SupQtDataSet";
-            instrumentsDataSource.Value = instruments;
+            instrumentsDataSource.Value = quotation.Instruments;
 
 
 
@@ -70,15 +69,9 @@ namespace CloudApp.Controllers
        
                 new ReportParameter("num",  toWord.ConvertToArabic())
                };
-
-
+            
             local.SetParameters(parameters);
-         
-             
-
-              
-
-
+        
             byte[] rendervalue = local.Render("Pdf","");
 
             return File(rendervalue, "application/pdf");
@@ -124,6 +117,7 @@ namespace CloudApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 _context.Add(quotation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
