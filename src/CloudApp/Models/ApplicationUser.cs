@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CloudApp.Models
 {
@@ -10,5 +6,15 @@ namespace CloudApp.Models
     public class ApplicationUser : IdentityUser
     {
         public string EmployName { get; set; }
+
+        public string IdentityId { get; set; }
+
+        public string MemberId { get; set; }
+
+        public string MemberPhotoId { get; set; }
+
+        public string ProfilePic { get; set; }
+
+        public string IdenetityPic { get; set; }
     }
 }

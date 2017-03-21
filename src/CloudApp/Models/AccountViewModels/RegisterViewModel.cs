@@ -18,5 +18,18 @@ namespace CloudApp.Models.AccountViewModels
         [Display(Name = "تأكيد كلمه المرور")]
         [Compare("Password", ErrorMessage = "كلمات المرور غير متشابهة الرجاء التعديل")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "اسم الموظف")]
+        public string EmployName { get; set; }
+        [Display(Name = "رقم الهوية")]
+        public string IdentityId { get; set; }
+        [Display(Name = "رقم العضوية")]
+        public string MemberId { get; set; }
+        
+        public string MemberPhotoId { get; set; }
+
+        public string ProfilePic { get; set; }
+
+        public string IdenetityPic { get; set; }
     }
 }

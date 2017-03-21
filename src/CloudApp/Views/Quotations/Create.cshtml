@@ -1,4 +1,5 @@
-﻿@model CloudApp.Models.BusinessModel.Quotation
+﻿@using CloudApp.Models.BusinessModel
+@model Quotation
 
 @{
     ViewData["Title"] = "جــديد";
@@ -159,8 +160,8 @@
 </div>
 
 @{
-    await Html.RenderPartialAsync("_masterDetialsForInstrmnetAndQut");
-    await Html.RenderPartialAsync("_editForInstrament");
+    await Html.RenderPartialAsync("_masterDetialsForInstrmnetAndQut" , new Instrument());
+    await Html.RenderPartialAsync("_editForInstrament" , new Instrument());
 }
 
 @section Scripts {
@@ -226,6 +227,7 @@
             }
             return realdatas;
         }
+        //this is commment
 
         function SaveAndNew(ev) {
             var id = $("#Id").val();

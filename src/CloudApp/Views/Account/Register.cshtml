@@ -1,12 +1,10 @@
 ﻿@model RegisterViewModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "تسجيل مستخدم";
 }
-
-<h2>@ViewData["Title"].</h2>
-
+<h4>تسجيل حساب جديد</h4>
 <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
-    <h4>Create a new account.</h4>
+   
     <hr />
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
@@ -30,6 +28,35 @@
             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
         </div>
     </div>
+    
+    <div class="form-group">
+        <label asp-for="EmployName" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="EmployName" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="IdentityId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="IdentityId" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+    </div>
+    
+
+    <div class="form-group">
+        <label asp-for="MemberId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="MemberId" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+    </div>
+    
+
+
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <button type="submit" class="btn btn-default">Register</button>
