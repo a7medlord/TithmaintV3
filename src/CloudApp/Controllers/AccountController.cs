@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CloudApp.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,30 +13,40 @@ using Microsoft.Extensions.Logging;
 using CloudApp.Models;
 using CloudApp.Models.AccountViewModels;
 using CloudApp.Services;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace CloudApp.Controllers
 {
-    [Authorize]
+   
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private RoleManager<IdentityRole> _roleManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
+        private ApplicationDbContext _context;
+        private IHostingEnvironment _env;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
-            ILoggerFactory loggerFactory)
+            ILoggerFactory loggerFactory , ApplicationDbContext context , RoleManager<IdentityRole> roleManager , IHostingEnvironment env)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _smsSender = smsSender;
             _logger = loggerFactory.CreateLogger<AccountController>();
+            _context = context;
+            _roleManager = roleManager;
+            _env = env;
         }
 
         //
@@ -44,6 +56,7 @@ namespace CloudApp.Controllers
         public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+            
             return View();
         }
 
@@ -85,13 +98,26 @@ namespace CloudApp.Controllers
             return View(model);
         }
 
+        public IActionResult Addroles()
+        {
+            return View("Addroles");
+        }
+
+        [HttpPost]
+        public async Task<RedirectToActionResult> Addroles(IdentityRole role)
+        {
+           await _roleManager.CreateAsync(role);
+            return RedirectToAction("Addroles");
+        }
+
+
         //
         // GET: /Account/Register
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Register(string returnUrl = null)
+        public async Task<ViewResult> Register()
         {
-            ViewData["ReturnUrl"] = returnUrl;
+            ViewData["roles"] = await _context.Roles.ToListAsync();
             return View();
         }
 
@@ -100,30 +126,73 @@ namespace CloudApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Register(RegisterViewModel model, string[] rolesids , IFormFile idnetitypic)
         {
-            ViewData["ReturnUrl"] = returnUrl;
+         
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.UserName, Email = model.Email , EmployName = model.EmployName , MemberId = model.MemberId 
+                    , PhoneNumber = model.PhoneNumber , IdentityId = model.IdentityId 
+                };
+                //foreach (IFormFile formFile in files)
+                //{
+                //    string guid = Guid.NewGuid().ToString();
+                //    string filepath = "ProfileImg/" + guid + ".Png";
+                //    if (formFile.Name == "memberphoto")
+                //    {
+                //        user.MemberPhotoId = guid;
+                //    }else if (formFile.Name == "profid")
+                //    {
+                //        user.ProfilePic = guid;
+                //    }else if (formFile.Name == "idnetitypic")
+                //    {
+                //        user.IdenetityPic = guid;
+                //    }
+                //    var strem = new FileStream(Path.Combine(_env.WebRootPath, filepath), FileMode.Create);
+                //    await formFile.CopyToAsync(strem);
+                //}
+
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
-                    // Send an email with this link
-                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
-                    //await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
-                    //    $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation(3, "User created a new account with password.");
-                    return RedirectToLocal(returnUrl);
+                    ApplicationUser users = _context.Users.SingleOrDefault(applicationUser => applicationUser.UserName == model.UserName);
+                    await _userManager.AddToRolesAsync(users, rolesids);
+                
+                    return View("UserCreatedSecuss");
                 }
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        public IActionResult EditRegister()
+        {
+            return View("EditReqisterUsers");
+        }
+
+        public async Task<ViewResult> EditRegister(RegisterViewModel model , string[] rolesids)
+        {
+            var user = new ApplicationUser
+            {
+                UserName = model.UserName,
+                Email = model.Email,
+                EmployName = model.EmployName,
+                MemberId = model.MemberId
+                   ,
+                PhoneNumber = model.PhoneNumber,
+                IdentityId = model.IdentityId
+            };
+          
+         var reslt =  await _userManager.UpdateAsync(user);
+            if (reslt.Succeeded)
+            {
+                return View("UserCreatedSecuss");
+            }
+            return View("EditReqisterUsers", model);
         }
 
         //

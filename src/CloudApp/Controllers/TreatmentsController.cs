@@ -29,6 +29,7 @@ namespace CloudApp.Controllers
         // GET: Treatments/Details/5
         public async Task<IActionResult> Details(long? id)
         {
+            
             if (id == null)
             {
                 return NotFound();

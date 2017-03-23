@@ -193,12 +193,19 @@
             var dataform = $(this).serializeObject();
         
             dataform.Instruments = GetCurntTableItem();
-            
+            var istrue = false;
             if ($(this).valid()) {
                 $.post($(this).attr("action"), dataform,
                     function () {
-                        location.href = "/Quotations/index";
+                   
+                        // location.href = "/Quotations/index";
+                        window.open("https://www.w3schools.com");
                     });
+
+                alert(istrue);
+                if (istrue) {
+                    
+                }
             }
            
         

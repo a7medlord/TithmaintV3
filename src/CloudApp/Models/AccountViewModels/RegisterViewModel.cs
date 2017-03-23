@@ -5,7 +5,7 @@ namespace CloudApp.Models.AccountViewModels
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "اسم المستخدم")]
+        [Display(Name = "الايميل")]
         public string Email { get; set; }
 
         [Required]
@@ -25,11 +25,20 @@ namespace CloudApp.Models.AccountViewModels
         public string IdentityId { get; set; }
         [Display(Name = "رقم العضوية")]
         public string MemberId { get; set; }
-        
+       
         public string MemberPhotoId { get; set; }
-
+      
         public string ProfilePic { get; set; }
 
         public string IdenetityPic { get; set; }
+
+        public string [] UsersRolesIds { get; set; }
+
+
+        [Display(Name = "اسم الحساب")]
+        public string UserName { get; set; }
+
+        [Display(Name = "رقم الهاتف")]
+        public string PhoneNumber { get; set; }
     }
 }
