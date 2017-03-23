@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using CloudApp.Data;
 using CloudApp.Models;
 using CloudApp.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
 
 namespace CloudApp
 {
@@ -54,7 +57,7 @@ namespace CloudApp
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
+          
             services.AddMvc();
 
             // Add application services.
@@ -73,13 +76,21 @@ namespace CloudApp
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
                 app.UseBrowserLink();
-           // }
+            // }
             //else
             //{
             //    app.UseExceptionHandler("/Home/Error");
             //}
-
             app.UseStaticFiles();
+
+            
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.WebRootPath, "ProfileImg")) ,
+                RequestPath = new PathString("/ProfPic")
+            });
+
+            
 
             app.UseIdentity();
 

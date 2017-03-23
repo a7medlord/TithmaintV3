@@ -15,11 +15,11 @@
     <div class="panel-body">
 
 
-        <form asp-controller="Account" asp-action="Register" enctype="multipart/form-data" method="post" class="form-horizontal">
+        <form asp-controller="Account" asp-action="EditRegister" enctype="multipart/form-data" method="post" class="form-horizontal">
 
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
-            
+
             <div class="form-group">
                 <label asp-for="UserName" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
@@ -42,7 +42,7 @@
                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-           
+
 
             <div class="form-group">
                 <label asp-for="IdentityId" class="col-md-2 control-label"></label>
@@ -84,23 +84,23 @@
                     <span asp-validation-for="MemberId" class="text-danger"></span>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label for="memberphoto" class="col-md-2 control-label">صوره العضوية</label>
                 <div class="col-md-10">
                     <input id="memberphoto" name="memberphoto" type="file" class="form-control" />
-                    
+
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label for="profid" class="col-md-2 control-label">صوره شخصية</label>
                 <div class="col-md-10">
                     <input type="file" id="profid" name="profid" class="form-control" />
-                    
+
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label for="idnetitypic" class="col-md-2 control-label">صوره الهوية</label>
                 <div class="col-md-10">
@@ -108,7 +108,7 @@
 
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <ol class="list-group">
 
@@ -116,16 +116,16 @@
                     {
                         <li class="list-group-item">
                             <label for="rolesids" class="control-label">@role.Name</label>
-                        
-                                <input type="checkbox" id="rolesids" name="rolesids" value="@role.Name" />
-                       
+
+                            <input type="checkbox" id="rolesids" name="rolesids" value="@role.Name" />
+
                         </li>
                     }
 
                 </ol>
-               
+
             </div>
-            
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <button type="submit" class="btn btn-primary">حفــــظ</button>
