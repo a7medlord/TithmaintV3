@@ -126,7 +126,7 @@ namespace CloudApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string[] rolesids , IFormFile idnetitypic)
+        public async Task<IActionResult> Register([Bind]RegisterViewModel model, string[] rolesids , [Bind]IFormFile idnetitypic)
         {
          
             if (ModelState.IsValid)
