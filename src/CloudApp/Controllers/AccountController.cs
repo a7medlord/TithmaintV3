@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using CloudApp.Data;
@@ -169,11 +166,25 @@ namespace CloudApp.Controllers
             return View(model);
         }
 
-        public IActionResult EditRegister()
+        public IActionResult EditRegister(string id)
         {
-            return View("EditReqisterUsers");
+            var model = _context.Users.SingleOrDefault(us => us.Id == id);
+          
+                RegisterViewModel usermodel = new RegisterViewModel()
+                {
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    EmployName = model.EmployName,
+                    MemberId = model.MemberId
+                    ,
+                    PhoneNumber = model.PhoneNumber,
+                    IdentityId = model.IdentityId ,
+                    Id = model.Id
+                };
+                return View("EditReqisterUsers" , usermodel);
         }
 
+        [HttpPost]
         public async Task<ViewResult> EditRegister(RegisterViewModel model , string[] rolesids)
         {
             var user = new ApplicationUser
@@ -186,7 +197,7 @@ namespace CloudApp.Controllers
                 PhoneNumber = model.PhoneNumber,
                 IdentityId = model.IdentityId
             };
-          
+            
          var reslt =  await _userManager.UpdateAsync(user);
             if (reslt.Succeeded)
             {

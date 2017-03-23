@@ -40,5 +40,7 @@ namespace CloudApp.Models.AccountViewModels
 
         [Display(Name = "رقم الهاتف")]
         public string PhoneNumber { get; set; }
+
+        public string Id { get; set; }
     }
 }

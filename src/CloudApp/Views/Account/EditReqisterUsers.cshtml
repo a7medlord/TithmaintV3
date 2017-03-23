@@ -114,12 +114,16 @@
 
                     @foreach (IdentityRole role in ViewBag.roles)
                     {
-                        <li class="list-group-item">
-                            <label for="rolesids" class="control-label">@role.Name</label>
 
-                            <input type="checkbox" id="rolesids" name="rolesids" value="@role.Name" />
+                        if (User.IsInRole(role.Name))
+                        {
+                            <li class="list-group-item">
+                                <label for="rolesids" class="control-label">@role.Name</label>
 
-                        </li>
+                                <input type="checkbox" checked="checked" id="rolesids" name="rolesids" value="@role.Name" />
+
+                            </li>
+                        }
                     }
 
                 </ol>
