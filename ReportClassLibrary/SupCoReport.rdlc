@@ -11,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.56356cm</Height>
+              <Height>0.75406cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -61,7 +61,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
+        <DataSetName>CustmerDataSet</DataSetName>
         <Filters>
           <Filter>
             <FilterExpression>=Fields!Id.Value</FilterExpression>
@@ -71,25 +71,21 @@
             </FilterValues>
           </Filter>
         </Filters>
-        <Height>0.56356cm</Height>
+        <Top>0.03175cm</Top>
+        <Left>0.03175cm</Left>
+        <Height>0.75406cm</Height>
         <Width>7.27604cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
-            <Width>0.3pt</Width>
           </Border>
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.56356cm</Height>
-    <Style>
-      <Border>
-        <Style>None</Style>
-        <Width>0.3pt</Width>
-      </Border>
-    </Style>
+    <Height>0.30938in</Height>
+    <Style />
   </Body>
-  <Width>7.27604cm</Width>
+  <Width>7.30779cm</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -111,7 +107,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="CustmerDataSet">
       <Query>
         <DataSourceName>ReportClassLibraryBusinessModel</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
