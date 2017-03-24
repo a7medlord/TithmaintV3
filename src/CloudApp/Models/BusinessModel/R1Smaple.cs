@@ -59,10 +59,19 @@ namespace CloudApp.Models.BusinessModel
 
         [Display(Name = "حالة البناء")]
         public string CaseBuild { get; set; }
-
-
-
         [Display(Name = "اسلوب البناء")]
         public string StyleBuild { get; set; }
+        //is function
+        public bool IsIntered { get; set; }
+        public bool IsThmin { get; set; }
+        public bool IsAduit { get; set; }
+        public bool IsApproved { get; set; }
+
+        // pluse
+        [Display(Name = "تم اطلاق التيار")]
+        public bool ElictFire { get; set; }
+        [Display(Name = " التكييف")]
+        public bool Acce { get; set; }
+
     }
 }

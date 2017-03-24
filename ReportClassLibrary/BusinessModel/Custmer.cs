@@ -6,7 +6,7 @@ namespace ReportClassLibrary.BusinessModel
     public class Custmer
     {
         public long Id { get; set; }
-        [Microsoft.Build.Framework.Required , Display(Name = "اسم العميل")]
+        [Required , Display(Name = "اسم العميل")]
         public string Name { get; set; }
         [Display(Name = "رقم الهاتف")]
         public string Phone { get; set; }

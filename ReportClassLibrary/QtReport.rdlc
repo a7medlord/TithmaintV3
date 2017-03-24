@@ -503,26 +503,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Subreport Name="Subreport2">
-        <ReportName>SupCoReport</ReportName>
-        <Parameters>
-          <Parameter Name="Cs">
-            <Value>=Fields!Id.Value</Value>
-          </Parameter>
-        </Parameters>
-        <Top>2.88357cm</Top>
-        <Left>11.51081cm</Left>
-        <Height>2.17162cm</Height>
-        <Width>7.30779cm</Width>
-        <ZIndex>15</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-            <Width>0.3pt</Width>
-          </Border>
-          <Color>White</Color>
-        </Style>
-      </Subreport>
       <Subreport Name="Subreport1">
         <ReportName>SupQtReport</ReportName>
         <Parameters>
@@ -537,6 +517,24 @@
         <Left>0.49318cm</Left>
         <Height>0.60854cm</Height>
         <Width>19.58448cm</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="Subreport2">
+        <ReportName>SupCoReport</ReportName>
+        <Parameters>
+          <Parameter Name="Cs">
+            <Value>=Fields!CustmerId.Value</Value>
+          </Parameter>
+        </Parameters>
+        <Top>3.55032cm</Top>
+        <Left>11.47974cm</Left>
+        <Height>0.24687in</Height>
+        <Width>7.30779cm</Width>
         <ZIndex>16</ZIndex>
         <Style>
           <Border>

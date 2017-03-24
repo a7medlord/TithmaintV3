@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
+using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
+using Microsoft.Reporting.WebForms;
 
 namespace CloudApp.Controllers
 {
@@ -17,6 +19,52 @@ namespace CloudApp.Controllers
         public TreatmentsController(ApplicationDbContext context)
         {
             _context = context;    
+        }
+
+        public IActionResult GetSample0Report()
+        {
+
+            ReportDataSource custmertDataSource = new ReportDataSource();
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+
+
+
+            // Qoution Report
+            reportDataSource.Name = "ReportDataSet";
+            reportDataSource.Value = _context.Treatment.ToList();
+            //Custumer Report
+            custmertDataSource.Name = "CustmerDataSet";
+            custmertDataSource.Value = _context.Custmer.ToList();
+       
+
+
+
+            LocalReport local = new LocalReport();
+            local.DataSources.Add(reportDataSource);
+            //local.SubreportProcessing += delegate (object sender, SubreportProcessingEventArgs args)
+            //{
+            //    args.DataSources.Add(custmertDataSource);
+            //    args.DataSources.Add(instrumentsDataSource);
+
+            //};
+
+            local.ReportPath = "Report/Sm0Report.rdlc";
+            local.EnableExternalImages = true;
+           // double amount = instruments.Sum(d => d.Amount);
+
+        //    ToWord toWord = new ToWord((decimal)amount, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
+
+            //ReportParameter[] parameters = {
+
+            //    new ReportParameter("num",  toWord.ConvertToArabic())
+            //   };
+
+            //local.SetParameters(parameters);
+
+            byte[] rendervalue = local.Render("Pdf", "");
+
+            return File(rendervalue, "application/pdf");
         }
 
         // GET: Treatments

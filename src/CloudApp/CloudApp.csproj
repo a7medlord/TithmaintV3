@@ -13,6 +13,9 @@
     <None Remove="Properties\PublishProfiles\cms.pubxml" />
     <None Remove="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Remove="Properties\PublishProfiles\newprofile.pubxml" />
+    <None Remove="Report\QtReport.rdlc" />
+    <None Remove="Report\SupCoReport.rdlc" />
+    <None Remove="Report\SupQtReport.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
@@ -66,6 +69,14 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.0" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Report\QtReport.rdlc" />
+    <EmbeddedResource Include="Report\Sm0Report.rdlc" />
+    <EmbeddedResource Include="Report\Sm1Report.rdlc" />
+    <EmbeddedResource Include="Report\SupCoReport.rdlc" />
+    <EmbeddedResource Include="Report\SupQtReport.rdlc" />
   </ItemGroup>
 
 </Project>
