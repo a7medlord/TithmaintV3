@@ -236,7 +236,8 @@ namespace CloudApp.Controllers
                 Id = model.Id,
                 IdenetityPic = model.IdenetityPic,
                 ProfilePic = model.ProfilePic,
-                MemberPhotoId = model.MemberPhotoId
+                MemberPhotoId = model.MemberPhotoId ,
+                SigPic = model.SigImage
             };
             return View("RegisterForUser", usermodel);
         }
@@ -253,6 +254,7 @@ namespace CloudApp.Controllers
 
             useris.PhoneNumber = model.PhoneNumber;
             useris.IdentityId = model.IdentityId;
+            useris.SigImage = model.SigPic;
 
             if (ModelState.IsValid)
             {
