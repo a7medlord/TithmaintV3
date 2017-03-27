@@ -23,66 +23,69 @@
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover dataTables-example">
                         <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Bank)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Custmer.Name)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Complate)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.FBatch)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.QDate)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.SCustmer)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Sign)
-                                </th>
-                                <th></th>
-                            </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Bank)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Custmer.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Complate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FBatch)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.QDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SCustmer)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Sign)
+                            </th>
+                            <th></th>
+                        </tr>
                         </thead>
                         <tbody>
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bank)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Custmer.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Complate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FBatch)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SCustmer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sign)
-        </td>
-        <td>
-            <a asp-action="Edit" asp-route-id="@item.Id" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Bank)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Custmer.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Complate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FBatch)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.QDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SCustmer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ApplicationUser.EmployName)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a>
             
-            <a asp-action="Delete" asp-route-id="@item.Id" class="text-primary"><i class="icon-trash"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="text-primary"><i class="icon-trash"></i></a>
 
-            <a asp-action="GetQoutionReport" asp-route-id="@item.Id" class="text-primary"><i class="icon-print"></i></a>
+                                    <a asp-action="GetQoutionReport" asp-route-id="@item.Id" class="text-primary"><i class="icon-print"></i></a>
+                                    <i id="clintemail" style="display: none">@item.Id</i>
 
-        </td>
-    </tr>
-}
+                                    <a href="#" id="sendemail"  class="text-primary"><i class="icon-mail"></i></a>
+
+                                </td>
+                            </tr>
+                        }
                         </tbody>
                     </table>
                 </div>
@@ -90,3 +93,18 @@
         </div>
     </div>
 </div>
+    
+@section scripts
+{
+    <script>
+        $("#sendemail").click(function() {
+            var clintid = $("#clintemail").text();
+            if (confirm("هل تريد ارسال الايميل فعلا؟")) {
+                $.get("/Quotations/SendEmail?id=" + clintid,
+                    function() {
+                            alert("تم ارسال الايميل بنجاح !");
+                    });
+            }
+        });
+    </script>
+}

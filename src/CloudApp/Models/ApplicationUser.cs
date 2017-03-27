@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using CloudApp.Models.BusinessModel;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CloudApp.Models
 {
@@ -17,7 +19,9 @@ namespace CloudApp.Models
 
         public string IdenetityPic { get; set; }
 
-        public string SigImage { get; set; }    
+        public string SigImage { get; set; }
+
+        public List<Quotation> Quotations { get; set; }
        
     }
 }

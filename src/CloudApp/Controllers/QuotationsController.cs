@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,6 +13,7 @@ using CloudApp.Data;
 using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Reporting.WebForms;
 
 namespace CloudApp.Controllers
@@ -17,25 +22,56 @@ namespace CloudApp.Controllers
     public class QuotationsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public QuotationsController(ApplicationDbContext context)
+        private IHostingEnvironment _env;
+        public QuotationsController(ApplicationDbContext context , IHostingEnvironment env)
         {
-            _context = context;    
+            _context = context;
+            _env = env;
         }
 
+        public bool SendEmail(long id)
+        {
+            var qu = _context.Quotation.Include(quotation => quotation.Custmer).SingleOrDefault(quotation => quotation.Id == id);
+
+            var fromAddress = new MailAddress("ma3az333333@gmail.com", "شركة التثمينات العقاريه");
+            string frompassword = "maazahmed1111111";
+
+            var toAddress = new MailAddress(qu.Custmer.Email, qu.Custmer.Name);
+          
+            Attachment attacher = new Attachment(new MemoryStream(GetReportAsStremas(id)) , MediaTypeNames.Application.Pdf);
+            attacher.ContentDisposition.FileName = qu.Id + ".pdf";
+
+           SmtpClient smptclints = new SmtpClient(){Host = "smtp.gmail.com" , Port = 587 , EnableSsl = true , DeliveryMethod = SmtpDeliveryMethod.Network , UseDefaultCredentials = false ,
+               Credentials = new NetworkCredential(fromAddress.Address , frompassword)};
+     
+            MailMessage msg = new MailMessage();
+           msg.Attachments.Add(attacher);
+            msg.Subject = "عرض سعر عملية تثمين";
+            msg.Body = "الرجاء الاطلاع علي عرض السعر ";
+            msg.To.Add(toAddress);
+            msg.From = fromAddress;
+           smptclints.Send(msg);
+            
+            return true;
+        }
+        
         public IActionResult GetQoutionReport(long id )
         {
-           
+            return File(GetReportAsStremas(id), "application/pdf");
+        }
+
+        public byte[] GetReportAsStremas(long id)
+        {
             ReportDataSource custmertDataSource = new ReportDataSource();
 
             ReportDataSource instrumentsDataSource = new ReportDataSource();
 
-            ReportDataSource reportDataSource = new ReportDataSource(); 
+            ReportDataSource reportDataSource = new ReportDataSource();
 
 
             // Qoution Report
             reportDataSource.Name = "ReportDataSet";
-            reportDataSource.Value = _context.Quotation.Where(d=>d.Id == id);
+            reportDataSource.Value = _context.Quotation.Where(d => d.Id == id);
             //Custumer Report
             custmertDataSource.Name = "CustmerDataSet";
             custmertDataSource.Value = _context.Custmer.ToList();
@@ -47,34 +83,34 @@ namespace CloudApp.Controllers
             LocalReport local = new LocalReport();
             local.DataSources.Add(reportDataSource);
             local.SubreportProcessing += delegate (object sender, SubreportProcessingEventArgs args)
-             {
-                 args.DataSources.Add(custmertDataSource);
-                 args.DataSources.Add(instrumentsDataSource);
-              
-             };
+            {
+                args.DataSources.Add(custmertDataSource);
+                args.DataSources.Add(instrumentsDataSource);
+
+            };
 
             local.ReportPath = "Report/QtReport.rdlc";
             local.EnableExternalImages = true;
             double amount = instruments.Sum(d => d.Amount);
 
-            ToWord toWord = new ToWord((decimal) amount, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
+            ToWord toWord = new ToWord((decimal)amount, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
 
             ReportParameter[] parameters = {
-       
+
                 new ReportParameter("num",  toWord.ConvertToArabic())
                };
-            
-            local.SetParameters(parameters);
-        
-            byte[] rendervalue = local.Render("Pdf","");
 
-            return File(rendervalue, "application/pdf");
+            local.SetParameters(parameters);
+
+            byte[] rendervalue = local.Render("Pdf", "");
+
+            return rendervalue;
         }
 
         // GET: Quotations
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Quotation.Include(q => q.Custmer).OrderByDescending(d => d.Id);
+            var applicationDbContext = _context.Quotation.Include(q => q.Custmer).Include(quotation => quotation.ApplicationUser).OrderByDescending(d => d.Id);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -99,6 +135,8 @@ namespace CloudApp.Controllers
         public IActionResult Create()
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
+            ViewData["ApplicationId"] = new SelectList(_context.Users, "Id", "EmployName");
+           
             return View();
         }
 
@@ -136,6 +174,7 @@ namespace CloudApp.Controllers
             }
     
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", quotation.CustmerId);
+            ViewData["ApplicationId"] = new SelectList(_context.Users, "Id", "EmployName");
             return View(quotation);
         }
         

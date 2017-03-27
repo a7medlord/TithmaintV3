@@ -95,10 +95,7 @@
                 <div class="form-group">
                     <label asp-for="Sign" class="col-md-2 control-label"></label>
                     <div class="col-md-6">
-                        <select asp-for="Sign" class="select2 form-control">
-                            <option value="عبدو">عبدو</option>
-                            <option value="حمد">حمد</option>
-                        </select>
+                        <select asp-for="ApplicationUserId" asp-items="ViewBag.ApplicationId" class="select2 form-control"></select> 
                     </div>
                 </div>
 

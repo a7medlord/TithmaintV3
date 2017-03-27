@@ -26,6 +26,10 @@ namespace CloudApp.Models.BusinessModel
         public string Sign { get; set; }
         public List<Instrument> Instruments { get; set; } = new List<Instrument>();
 
+        public ApplicationUser ApplicationUser { get; set; }
+
+        public string ApplicationUserId { get; set; }
+
 
 
 
