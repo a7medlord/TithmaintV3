@@ -52,12 +52,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="QtReport.rdlc" />
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Sm2Report.rdlc" />
     <EmbeddedResource Include="Sm1Report.rdlc" />
     <EmbeddedResource Include="Sm0Report.rdlc" />
-    <EmbeddedResource Include="QtReport.rdlc" />
     <EmbeddedResource Include="SupCoReport.rdlc" />
     <EmbeddedResource Include="SupQtReport.rdlc" />
   </ItemGroup>

@@ -13,7 +13,7 @@ using Microsoft.Reporting.WebForms;
 
 namespace CloudApp.Controllers
 {
-    [Authorize]
+
     public class QuotationsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -55,7 +55,7 @@ namespace CloudApp.Controllers
 
             local.ReportPath = "Report/QtReport.rdlc";
             local.EnableExternalImages = true;
-            double amount = 4; //instruments.Sum(d => d.Amount);
+            double amount = instruments.Sum(d => d.Amount);
 
             ToWord toWord = new ToWord((decimal) amount, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
 

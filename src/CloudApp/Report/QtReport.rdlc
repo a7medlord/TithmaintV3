@@ -366,8 +366,9 @@
         </Style>
       </Textbox>
       <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>ID2</Value>
+        <Source>External</Source>
+        <Value>=Fields!Sign.Value</Value>
+        <Sizing>Fit</Sizing>
         <Top>12.31657cm</Top>
         <Left>1.32927cm</Left>
         <Height>3.43958cm</Height>
