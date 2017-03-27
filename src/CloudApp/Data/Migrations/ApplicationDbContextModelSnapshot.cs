@@ -154,6 +154,8 @@ namespace CloudApp.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Acce");
+
                     b.Property<string>("Agbuild");
 
                     b.Property<string>("Area");
@@ -166,7 +168,17 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("DateSNum");
 
+                    b.Property<bool>("ElictFire");
+
                     b.Property<string>("Gada");
+
+                    b.Property<bool>("IsAduit");
+
+                    b.Property<bool>("IsApproved");
+
+                    b.Property<bool>("IsIntered");
+
+                    b.Property<bool>("IsThmin");
 
                     b.Property<string>("Local");
 
@@ -206,6 +218,8 @@ namespace CloudApp.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Acce");
+
                     b.Property<string>("Agbuild");
 
                     b.Property<string>("Area");
@@ -218,7 +232,17 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("DateSNum");
 
+                    b.Property<bool>("ElictFire");
+
                     b.Property<string>("Gada");
+
+                    b.Property<bool>("IsAduit");
+
+                    b.Property<bool>("IsApproved");
+
+                    b.Property<bool>("IsIntered");
+
+                    b.Property<bool>("IsThmin");
 
                     b.Property<string>("Local");
 
@@ -231,6 +255,8 @@ namespace CloudApp.Migrations
                     b.Property<string>("Owner");
 
                     b.Property<string>("Plane");
+
+                    b.Property<string>("PurpApp");
 
                     b.Property<string>("ResWland");
 
