@@ -13,7 +13,7 @@ using Microsoft.Reporting.WebForms;
 
 namespace CloudApp.Controllers
 {
-
+    [Authorize]
     public class QuotationsController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -18,14 +18,21 @@ namespace CloudApp.Migrations
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(nullable: false),
+                    EmployName = table.Column<string>(nullable: true),
+                    IdenetityPic = table.Column<string>(nullable: true),
+                    IdentityId = table.Column<string>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    MemberId = table.Column<string>(nullable: true),
+                    MemberPhotoId = table.Column<string>(nullable: true),
                     NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
                     PasswordHash = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    ProfilePic = table.Column<string>(nullable: true),
                     SecurityStamp = table.Column<string>(nullable: true),
+                    SigImage = table.Column<string>(nullable: true),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true)
                 },
@@ -209,18 +216,24 @@ namespace CloudApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Treatment",
+                name: "R1Smaple",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Acce = table.Column<bool>(nullable: false),
                     Agbuild = table.Column<string>(nullable: true),
                     Area = table.Column<string>(nullable: true),
                     CaseBuild = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
                     CustmerId = table.Column<long>(nullable: false),
                     DateSNum = table.Column<string>(nullable: true),
+                    ElictFire = table.Column<bool>(nullable: false),
                     Gada = table.Column<string>(nullable: true),
+                    IsAduit = table.Column<bool>(nullable: false),
+                    IsApproved = table.Column<bool>(nullable: false),
+                    IsIntered = table.Column<bool>(nullable: false),
+                    IsThmin = table.Column<bool>(nullable: false),
                     Local = table.Column<string>(nullable: true),
                     Napartment = table.Column<string>(nullable: true),
                     Npiece = table.Column<string>(nullable: true),
@@ -233,6 +246,135 @@ namespace CloudApp.Migrations
                     Street = table.Column<string>(nullable: true),
                     StyleBuild = table.Column<string>(nullable: true),
                     Tbuild = table.Column<string>(nullable: true),
+                    Wland = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_R1Smaple", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_R1Smaple_Custmer_CustmerId",
+                        column: x => x.CustmerId,
+                        principalTable: "Custmer",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "R2Smaple",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Acce = table.Column<bool>(nullable: false),
+                    Agbuild = table.Column<string>(nullable: true),
+                    Area = table.Column<string>(nullable: true),
+                    CaseBuild = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    CustmerId = table.Column<long>(nullable: false),
+                    DateSNum = table.Column<string>(nullable: true),
+                    ElictFire = table.Column<bool>(nullable: false),
+                    Gada = table.Column<string>(nullable: true),
+                    IsAduit = table.Column<bool>(nullable: false),
+                    IsApproved = table.Column<bool>(nullable: false),
+                    IsIntered = table.Column<bool>(nullable: false),
+                    IsThmin = table.Column<bool>(nullable: false),
+                    Local = table.Column<string>(nullable: true),
+                    Napartment = table.Column<string>(nullable: true),
+                    Npiece = table.Column<string>(nullable: true),
+                    OccBuild = table.Column<string>(nullable: true),
+                    Owner = table.Column<string>(nullable: true),
+                    Plane = table.Column<string>(nullable: true),
+                    PurpApp = table.Column<string>(nullable: true),
+                    ResWland = table.Column<string>(nullable: true),
+                    SCustmer = table.Column<string>(nullable: true),
+                    SNum = table.Column<string>(nullable: true),
+                    Street = table.Column<string>(nullable: true),
+                    StyleBuild = table.Column<string>(nullable: true),
+                    Tbuild = table.Column<string>(nullable: true),
+                    Wland = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_R2Smaple", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_R2Smaple_Custmer_CustmerId",
+                        column: x => x.CustmerId,
+                        principalTable: "Custmer",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Treatment",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Agbuild = table.Column<string>(nullable: true),
+                    Area = table.Column<string>(nullable: true),
+                    CaseBuild = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    CustmerId = table.Column<long>(nullable: false),
+                    DateSNum = table.Column<string>(nullable: true),
+                    East = table.Column<string>(nullable: true),
+                    EastTall = table.Column<string>(nullable: true),
+                    Gada = table.Column<string>(nullable: true),
+                    GenralLocations = table.Column<string>(nullable: true),
+                    IsAduit = table.Column<bool>(nullable: false),
+                    IsApproved = table.Column<bool>(nullable: false),
+                    IsIntered = table.Column<bool>(nullable: false),
+                    IsThmin = table.Column<bool>(nullable: false),
+                    Local = table.Column<string>(nullable: true),
+                    MantinCost = table.Column<string>(nullable: true),
+                    MeterPriceForBulding = table.Column<double>(nullable: false),
+                    MeterPriceForEarth = table.Column<double>(nullable: false),
+                    MothmnOpnin = table.Column<string>(nullable: true),
+                    Napartment = table.Column<string>(nullable: true),
+                    North = table.Column<string>(nullable: true),
+                    NorthTall = table.Column<string>(nullable: true),
+                    NotesAndAbstracting = table.Column<string>(nullable: true),
+                    Npiece = table.Column<string>(nullable: true),
+                    OccBuild = table.Column<string>(nullable: true),
+                    Owner = table.Column<string>(nullable: true),
+                    Plane = table.Column<string>(nullable: true),
+                    ResWland = table.Column<string>(nullable: true),
+                    SCustmer = table.Column<string>(nullable: true),
+                    SNum = table.Column<string>(nullable: true),
+                    ServicesElectrocitcs = table.Column<bool>(nullable: false),
+                    ServicesPhone = table.Column<bool>(nullable: false),
+                    ServicesSanitation = table.Column<bool>(nullable: false),
+                    ServicesSantiNetWork = table.Column<bool>(nullable: false),
+                    ServicesWater = table.Column<bool>(nullable: false),
+                    South = table.Column<string>(nullable: true),
+                    SouthTall = table.Column<string>(nullable: true),
+                    SroundBank = table.Column<bool>(nullable: false),
+                    SroundCentralSoaq = table.Column<bool>(nullable: false),
+                    SroundComirchalCenter = table.Column<bool>(nullable: false),
+                    SroundDispensares = table.Column<bool>(nullable: false),
+                    SroundFeul = table.Column<bool>(nullable: false),
+                    SroundGarden = table.Column<bool>(nullable: false),
+                    SroundGenralSoaq = table.Column<bool>(nullable: false),
+                    SroundGovermentDepartMent = table.Column<bool>(nullable: false),
+                    SroundHospital = table.Column<bool>(nullable: false),
+                    SroundHotel = table.Column<bool>(nullable: false),
+                    SroundMosq = table.Column<bool>(nullable: false),
+                    SroundPoilceCenter = table.Column<bool>(nullable: false),
+                    SroundRestrant = table.Column<bool>(nullable: false),
+                    SroundSchools = table.Column<bool>(nullable: false),
+                    SroundSoaq = table.Column<bool>(nullable: false),
+                    SroundciviliDenfencs = table.Column<bool>(nullable: false),
+                    SroundmedSecurityFacilty = table.Column<bool>(nullable: false),
+                    SroundmedicalCenter = table.Column<bool>(nullable: false),
+                    Sroundmedicalfacilty = table.Column<bool>(nullable: false),
+                    Sroundpartment = table.Column<bool>(nullable: false),
+                    Street = table.Column<string>(nullable: true),
+                    StyleBuild = table.Column<string>(nullable: true),
+                    Tbuild = table.Column<string>(nullable: true),
+                    TotalBulding = table.Column<string>(nullable: true),
+                    TotalForEarcth = table.Column<string>(nullable: true),
+                    TotalPriceNumber = table.Column<double>(nullable: false),
+                    West = table.Column<string>(nullable: true),
+                    WestTall = table.Column<string>(nullable: true),
                     Wland = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -252,7 +394,7 @@ namespace CloudApp.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Amount = table.Column<string>(nullable: true),
+                    Amount = table.Column<double>(nullable: false),
                     Area = table.Column<string>(nullable: true),
                     BDiscrib = table.Column<string>(nullable: true),
                     Locat = table.Column<string>(nullable: true),
@@ -297,6 +439,16 @@ namespace CloudApp.Migrations
                 column: "CustmerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_R1Smaple_CustmerId",
+                table: "R1Smaple",
+                column: "CustmerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_R2Smaple_CustmerId",
+                table: "R2Smaple",
+                column: "CustmerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Treatment_CustmerId",
                 table: "Treatment",
                 column: "CustmerId");
@@ -304,7 +456,8 @@ namespace CloudApp.Migrations
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
-                column: "NormalizedName");
+                column: "NormalizedName",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -325,17 +478,18 @@ namespace CloudApp.Migrations
                 name: "IX_AspNetUserRoles_RoleId",
                 table: "AspNetUserRoles",
                 column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_UserId",
-                table: "AspNetUserRoles",
-                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Instrument");
+
+            migrationBuilder.DropTable(
+                name: "R1Smaple");
+
+            migrationBuilder.DropTable(
+                name: "R2Smaple");
 
             migrationBuilder.DropTable(
                 name: "Treatment");

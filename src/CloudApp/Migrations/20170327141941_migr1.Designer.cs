@@ -8,8 +8,8 @@ using CloudApp.Data;
 namespace CloudApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170321165259_migr7")]
-    partial class migr7
+    [Migration("20170327141941_migr1")]
+    partial class migr1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,9 +32,19 @@ namespace CloudApp.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<string>("EmployName");
+
+                    b.Property<string>("IdenetityPic");
+
+                    b.Property<string>("IdentityId");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("MemberId");
+
+                    b.Property<string>("MemberPhotoId");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
@@ -48,7 +58,11 @@ namespace CloudApp.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
+                    b.Property<string>("ProfilePic");
+
                     b.Property<string>("SecurityStamp");
+
+                    b.Property<string>("SigImage");
 
                     b.Property<bool>("TwoFactorEnabled");
 
@@ -143,6 +157,8 @@ namespace CloudApp.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Acce");
+
                     b.Property<string>("Agbuild");
 
                     b.Property<string>("Area");
@@ -155,7 +171,17 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("DateSNum");
 
+                    b.Property<bool>("ElictFire");
+
                     b.Property<string>("Gada");
+
+                    b.Property<bool>("IsAduit");
+
+                    b.Property<bool>("IsApproved");
+
+                    b.Property<bool>("IsIntered");
+
+                    b.Property<bool>("IsThmin");
 
                     b.Property<string>("Local");
 
@@ -195,6 +221,8 @@ namespace CloudApp.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Acce");
+
                     b.Property<string>("Agbuild");
 
                     b.Property<string>("Area");
@@ -207,7 +235,17 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("DateSNum");
 
+                    b.Property<bool>("ElictFire");
+
                     b.Property<string>("Gada");
+
+                    b.Property<bool>("IsAduit");
+
+                    b.Property<bool>("IsApproved");
+
+                    b.Property<bool>("IsIntered");
+
+                    b.Property<bool>("IsThmin");
 
                     b.Property<string>("Local");
 
@@ -220,6 +258,8 @@ namespace CloudApp.Migrations
                     b.Property<string>("Owner");
 
                     b.Property<string>("Plane");
+
+                    b.Property<string>("PurpApp");
 
                     b.Property<string>("ResWland");
 
@@ -271,7 +311,13 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("DateSNum");
 
+                    b.Property<string>("East");
+
+                    b.Property<string>("EastTall");
+
                     b.Property<string>("Gada");
+
+                    b.Property<string>("GenralLocations");
 
                     b.Property<bool>("IsAduit");
 
@@ -283,7 +329,21 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("Local");
 
+                    b.Property<string>("MantinCost");
+
+                    b.Property<double>("MeterPriceForBulding");
+
+                    b.Property<double>("MeterPriceForEarth");
+
+                    b.Property<string>("MothmnOpnin");
+
                     b.Property<string>("Napartment");
+
+                    b.Property<string>("North");
+
+                    b.Property<string>("NorthTall");
+
+                    b.Property<string>("NotesAndAbstracting");
 
                     b.Property<string>("Npiece");
 
@@ -299,11 +359,75 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("SNum");
 
+                    b.Property<bool>("ServicesElectrocitcs");
+
+                    b.Property<bool>("ServicesPhone");
+
+                    b.Property<bool>("ServicesSanitation");
+
+                    b.Property<bool>("ServicesSantiNetWork");
+
+                    b.Property<bool>("ServicesWater");
+
+                    b.Property<string>("South");
+
+                    b.Property<string>("SouthTall");
+
+                    b.Property<bool>("SroundBank");
+
+                    b.Property<bool>("SroundCentralSoaq");
+
+                    b.Property<bool>("SroundComirchalCenter");
+
+                    b.Property<bool>("SroundDispensares");
+
+                    b.Property<bool>("SroundFeul");
+
+                    b.Property<bool>("SroundGarden");
+
+                    b.Property<bool>("SroundGenralSoaq");
+
+                    b.Property<bool>("SroundGovermentDepartMent");
+
+                    b.Property<bool>("SroundHospital");
+
+                    b.Property<bool>("SroundHotel");
+
+                    b.Property<bool>("SroundMosq");
+
+                    b.Property<bool>("SroundPoilceCenter");
+
+                    b.Property<bool>("SroundRestrant");
+
+                    b.Property<bool>("SroundSchools");
+
+                    b.Property<bool>("SroundSoaq");
+
+                    b.Property<bool>("SroundciviliDenfencs");
+
+                    b.Property<bool>("SroundmedSecurityFacilty");
+
+                    b.Property<bool>("SroundmedicalCenter");
+
+                    b.Property<bool>("Sroundmedicalfacilty");
+
+                    b.Property<bool>("Sroundpartment");
+
                     b.Property<string>("Street");
 
                     b.Property<string>("StyleBuild");
 
                     b.Property<string>("Tbuild");
+
+                    b.Property<string>("TotalBulding");
+
+                    b.Property<string>("TotalForEarcth");
+
+                    b.Property<double>("TotalPriceNumber");
+
+                    b.Property<string>("West");
+
+                    b.Property<string>("WestTall");
 
                     b.Property<string>("Wland");
 
