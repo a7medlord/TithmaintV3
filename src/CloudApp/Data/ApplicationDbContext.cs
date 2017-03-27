@@ -37,6 +37,7 @@ namespace CloudApp.Data
         public DbSet<Treatment> Treatment { get; set; }
         public DbSet<Sample> Samples { get; set; }
         public DbSet<CloudApp.Models.BusinessModel.R1Smaple> R1Smaple { get; set; }
+        public DbSet<CloudApp.Models.BusinessModel.R2Smaple> R2Smaple { get; set; }
 
         
     }

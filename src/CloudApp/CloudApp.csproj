@@ -14,6 +14,8 @@
     <None Remove="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Remove="Properties\PublishProfiles\newprofile.pubxml" />
     <None Remove="Report\QtReport.rdlc" />
+    <None Remove="Report\Sm1Report.rdlc" />
+    <None Remove="Report\Sm2Report.rdlc" />
     <None Remove="Report\SupCoReport.rdlc" />
     <None Remove="Report\SupQtReport.rdlc" />
   </ItemGroup>
@@ -75,6 +77,7 @@
     <EmbeddedResource Include="Report\QtReport.rdlc" />
     <EmbeddedResource Include="Report\Sm0Report.rdlc" />
     <EmbeddedResource Include="Report\Sm1Report.rdlc" />
+    <EmbeddedResource Include="Report\Sm2Report.rdlc" />
     <EmbeddedResource Include="Report\SupCoReport.rdlc" />
     <EmbeddedResource Include="Report\SupQtReport.rdlc" />
   </ItemGroup>
