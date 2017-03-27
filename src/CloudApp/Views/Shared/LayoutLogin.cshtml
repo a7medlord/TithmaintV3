@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mouldifi - A fully responsive, HTML5 based admin theme">
+    <meta name="keywords" content="Responsive, HTML5, admin theme, business, professional, Mouldifi, web design, CSS3">
+    <title>تسجيل الدخول</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+
+    <link href="~/FrameWork/css/entypo.css" rel="stylesheet">
+
+    <link href="~/FrameWork/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="~/FrameWork/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="~/FrameWork/css/mouldifi-core.css" rel="stylesheet">
+
+    <link href="~/FrameWork/css/mouldifi-forms.css" rel="stylesheet">
+
+
+    <link href="~/FrameWork/css/bootstrap-rtl.min.css" rel="stylesheet">
+
+    <link href="~/FrameWork/css/mouldifi-rtl-core.css" rel="stylesheet">
+
+
+
+</head>
+<body class="login-page">
+<div class="login-container">
+    <div class="login-branding">
+        <a asp-controller="Account" asp-action="Login"><img src="~/images/brandlogo.png" alt="Mouldifi" title="Mouldifi"></a>
+    </div>
+    <div class="login-content">
+
+            @RenderBody()
+    </div>
+</div>
+<!--Load JQuery-->
+<script src="~/FrameWork/js/jquery.min.js"></script>
+<script src="~/FrameWork/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

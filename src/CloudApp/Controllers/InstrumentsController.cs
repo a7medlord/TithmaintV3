@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
 using CloudApp.Models.BusinessModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CloudApp.Controllers
 {
+    [Authorize]
     public class InstrumentsController : Controller
     {
         private readonly ApplicationDbContext _context;

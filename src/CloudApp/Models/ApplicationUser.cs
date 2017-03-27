@@ -17,6 +17,7 @@ namespace CloudApp.Models
 
         public string IdenetityPic { get; set; }
 
+        public string SigImage { get; set; }    
        
     }
 }

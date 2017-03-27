@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
 using CloudApp.Models.BusinessModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CloudApp.Controllers
 {
+    [Authorize]
     public class R2SmapleController : Controller
     {
         private readonly ApplicationDbContext _context;

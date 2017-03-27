@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
 using CloudApp.Models.BusinessModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CloudApp.Controllers
 {
+    [Authorize]
     public class CustmersController : Controller
     {
         private readonly ApplicationDbContext _context;
 
         public CustmersController(ApplicationDbContext context)
         {
-            _context = context;    
+            _context = context;
+            ViewData["usernames"] = AccountController.userName;
         }
 
         // GET: Custmers

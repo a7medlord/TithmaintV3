@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CloudApp.Models.BusinessModel
 {
@@ -68,5 +63,107 @@ namespace CloudApp.Models.BusinessModel
         public bool IsAduit{ get; set; }
         public bool IsApproved { get; set; }
 
+        //Services
+        [Display(Name = "مياه")]
+        public bool ServicesWater { get; set; }
+        [Display(Name = "هاتف")]
+        public bool ServicesPhone { get; set; }
+        [Display(Name = "كهرباء")]
+        public bool ServicesElectrocitcs { get; set; }
+        [Display(Name = "صرف صحي")]
+        public bool ServicesSanitation { get; set; }
+        [Display(Name = "شبكة تصريف السيول")]
+        public bool ServicesSantiNetWork { get; set; }
+
+        //Sround
+
+        [Display(Name = "جامع")]
+        public bool SroundMosq { get; set; }
+
+        [Display(Name = "مرفق طبي")]
+        public bool Sroundmedicalfacilty { get; set; }
+
+        [Display(Name = "مرفق امني")]
+        public bool SroundmedSecurityFacilty { get; set; }
+        [Display(Name = "سوق تجاري")]
+        public bool SroundSoaq { get; set; }
+        [Display(Name = "حديقة")]
+        public bool SroundGarden { get; set; }
+
+        [Display(Name = "محطات وقود")]
+        public bool SroundFeul { get; set; }
+        [Display(Name = "شقق مفروشة")]
+        public bool Sroundpartment { get; set; }
+        [Display(Name = "فنادق")]
+        public bool SroundHotel { get; set; }
+        [Display(Name = "مطاعم")]
+        public bool SroundRestrant { get; set; }
+        [Display(Name = "اسواق عامة")]
+        public bool SroundGenralSoaq { get; set; }
+        [Display(Name = "اسواق مركزية")]
+        public bool SroundCentralSoaq { get; set; }
+        [Display(Name = "مراكز طبية")]
+        public bool SroundmedicalCenter { get; set; }
+        [Display(Name = "مراكز تجارية")]
+        public bool SroundComirchalCenter { get; set; }
+        [Display(Name = "مستوصفات")]
+        public bool SroundDispensares { get; set; }
+        [Display(Name = "مستشفيات")]
+        public bool SroundHospital { get; set; }
+        [Display(Name = "دفاع مدني")]
+        public bool SroundciviliDenfencs { get; set; }
+        [Display(Name = "بنوك")]
+        public bool SroundBank { get; set; }
+        [Display(Name = "مدارس")]
+        public bool SroundSchools { get; set; }
+        [Display(Name = "مركز شرطة")]
+        public bool SroundPoilceCenter { get; set; }
+        [Display(Name = "دوئر حكومية")]
+        public bool SroundGovermentDepartMent { get; set; }
+        //Sround end
+
+           [Display(Name = "رأي المثمن")]
+          [DataType(DataType.MultilineText)]
+        public string MothmnOpnin { get; set; }
+
+        
+
+        //locatins
+
+        [Display(Name = "الموقع العام")]
+       public string GenralLocations { get; set; }
+        [Display(Name = "شمالا")]
+        public string North { get; set; }
+        [Display(Name = "جنوبآ")]
+        public string South { get; set; }
+        [Display(Name = "شرقآ")]
+        public string East { get; set; }
+        [Display(Name = "غربآ")]
+        public string West { get; set; }
+        [Display(Name = "بطول")]
+        public string NorthTall { get; set; }
+        [Display(Name = "بطول")]
+        public string SouthTall { get; set; }
+        [Display(Name = "بطول")]
+        public string EastTall { get; set; }
+        [Display(Name = "بطول")]
+        public string WestTall { get; set; }
+
+        //end Locations
+        [Display(Name = "الملاحظات والنواقص")]
+        public string NotesAndAbstracting { get; set; }
+        [Display(Name = "تكاليف الصيانة التقديرية")]
+        public string MantinCost { get; set; }
+        [Display(Name = "القيمة الاجمالية للارض")]
+        public string TotalForEarcth { get; set; }
+        [Display(Name = "القيمة الاجمالية للبناء")]
+        public string TotalBulding { get; set; }
+        [Display(Name = "سعر متر الارض")]
+        public double MeterPriceForEarth { get; set; }
+        [Display(Name = "سعر متر البناء")]
+        public double MeterPriceForBulding { get; set; }
+        [Display(Name = "القيمة الاجمالية رقما")]
+        public double TotalPriceNumber { get; set; }
+        
     }
 }

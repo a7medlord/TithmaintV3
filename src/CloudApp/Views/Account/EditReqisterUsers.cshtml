@@ -1,11 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
 @model RegisterViewModel
 @{
-    ViewData["Title"] = "تسجيل مستخدم";
+    ViewData["Title"] = "تعديل مستخدم";
 }
 <div class="panel panel-primary">
     <div class="panel-heading clearfix">
-        <h3 class="panel-title">تسجيل مستخدم جديد</h3>
+        <h3 class="panel-title">تعديل مستخدم</h3>
         <ul class="panel-tool-options">
             <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
             <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
@@ -16,14 +16,14 @@
 
 
         <form asp-controller="Account" asp-action="EditRegister" enctype="multipart/form-data" method="post" class="form-horizontal">
-
-            <hr />
+            
+            
             <div asp-validation-summary="All" class="text-danger"></div>
-
+            <input type="hidden" asp-for="Id"/>
             <div class="form-group">
                 <label asp-for="UserName" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="UserName" class="form-control" />
+                    <input asp-for="UserName" class="form-control"/>
                     <span asp-validation-for="UserName" class="text-danger"></span>
                 </div>
             </div>
@@ -31,14 +31,14 @@
             <div class="form-group">
                 <label asp-for="Email" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="Email" class="form-control" />
+                    <input asp-for="Email" class="form-control"/>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group">
                 <label asp-for="EmployName" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="EmployName" class="form-control" />
+                    <input asp-for="EmployName" class="form-control"/>
                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>
             </div>
@@ -46,7 +46,7 @@
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="PhoneNumber" class="form-control" />
+                    <input asp-for="PhoneNumber" class="form-control"/>
                     <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                 </div>
             </div>
@@ -54,73 +54,56 @@
             <div class="form-group">
                 <label asp-for="Password" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="Password" class="form-control" />
+                    <input asp-for="Password" class="form-control"/>
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
             </div>
+
             <div class="form-group">
                 <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <input asp-for="ConfirmPassword" class="form-control"/>
                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>
             </div>
 
-
-
             <div class="form-group">
                 <label asp-for="IdentityId" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="IdentityId" class="form-control" />
+                    <input asp-for="IdentityId" class="form-control"/>
                     <span asp-validation-for="IdentityId" class="text-danger"></span>
                 </div>
             </div>
 
-
             <div class="form-group">
                 <label asp-for="MemberId" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="MemberId" class="form-control" />
+                    <input asp-for="MemberId" class="form-control"/>
                     <span asp-validation-for="MemberId" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="memberphoto" class="col-md-2 control-label">صوره العضوية</label>
-                <div class="col-md-10">
-                    <input id="memberphoto" name="memberphoto" type="file" class="form-control" />
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="profid" class="col-md-2 control-label">صوره شخصية</label>
-                <div class="col-md-10">
-                    <input type="file" id="profid" name="profid" class="form-control" />
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="idnetitypic" class="col-md-2 control-label">صوره الهوية</label>
-                <div class="col-md-10">
-                    <input type="file" id="idnetitypic" name="idnetitypic" class="form-control" />
-
-                </div>
-            </div>
 
             <div class="form-group">
                 <ol class="list-group">
 
                     @foreach (IdentityRole role in ViewBag.roles)
                     {
-
-                        if (User.IsInRole(role.Name))
+                        if (IsInRole(role.Name))
                         {
                             <li class="list-group-item">
                                 <label for="rolesids" class="control-label">@role.Name</label>
 
-                                <input type="checkbox" checked="checked" id="rolesids" name="rolesids" value="@role.Name" />
+                                <input type="checkbox" checked="checked" id="rolesids" name="rolesids" value="@role.Name"/>
+
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="list-group-item">
+                                <label for="rolesids" class="control-label">@role.Name</label>
+
+                                <input type="checkbox" id="rolesids" name="rolesids" value="@role.Name"/>
 
                             </li>
                         }
@@ -129,6 +112,38 @@
                 </ol>
 
             </div>
+
+            <div class="form-group" style="margin-right: 10%">
+                <div class="col-md-3">
+
+                    <img id="imgc" src="@string.Format("http://" + Context.Request.Host + "/ProfPic/" + Model.ProfilePic + ".jpg")" class="thumbnail" width="130" height="130" />
+                    <input type="file" id="profid" name="profid" />
+                    <label for="profid" class="control-label text-center">صوره الشخصية</label>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <img src="@string.Format("http://" + Context.Request.Host + "/ProfPic/" + Model.MemberPhotoId + ".jpg")" class="thumbnail" width="130" height="130" />
+                    <input id="memberphoto" name="memberphoto" type="file" />
+                    <label for="memberphoto" class="control-label text-center">صوره العضوية</label>
+
+                </div>
+
+                <div class="col-md-3">
+                    <img src="@string.Format("http://" + Context.Request.Host + "/ProfPic/" + Model.IdenetityPic + ".jpg")" class="thumbnail" width="130" height="130" />
+                    <input type="file" id="idnetitypic" name="idnetitypic" />
+                    <label for="idnetitypic" class="control-label text-center">صوره الهوية</label>
+                </div>
+
+                <div class="col-md-3">
+                    <img src="@string.Format("http://" + Context.Request.Host + "/ProfPic/" + Model.SigPic + ".jpg")" class="thumbnail" width="130" height="130" />
+                    <input type="file" id="sigpic" name="sigpic" />
+                    <label for="sigpic" class="control-label text-center">التوقيــع</label>
+                </div>
+            </div>
+
+           
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
@@ -140,6 +155,16 @@
     </div>
 </div>
 
+@functions
+{
+
+    bool IsInRole(string rolename)
+    {
+        return ((IEnumerable<string>)ViewBag.userRoles).Any(s => s == rolename);
+    }
+
+
+}
 
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }

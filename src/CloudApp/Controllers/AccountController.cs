@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using CloudApp.Data;
@@ -28,7 +30,8 @@ namespace CloudApp.Controllers
         private readonly ILogger _logger;
         private ApplicationDbContext _context;
         private IHostingEnvironment _env;
-
+        public static string userName;
+        public static string picId;
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
@@ -44,6 +47,7 @@ namespace CloudApp.Controllers
             _context = context;
             _roleManager = roleManager;
             _env = env;
+            
         }
 
         //
@@ -53,7 +57,7 @@ namespace CloudApp.Controllers
         public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            
+           
             return View();
         }
 
@@ -69,10 +73,14 @@ namespace CloudApp.Controllers
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
+               
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
+                    var userdata = _context.Users.SingleOrDefault(user => user.UserName == model.UserName);
+                   userName = userdata.EmployName;
+                    picId = userdata.ProfilePic + ".jpg";
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -86,7 +94,7 @@ namespace CloudApp.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "خطأ في تسجيل الدخول الرجاء تاكد من صحة المعلومات المدخلة");
                     return View(model);
                 }
             }
@@ -111,7 +119,7 @@ namespace CloudApp.Controllers
         //
         // GET: /Account/Register
         [HttpGet]
-        [AllowAnonymous]
+        
         public async Task<ViewResult> Register()
         {
             ViewData["roles"] = await _context.Roles.ToListAsync();
@@ -121,9 +129,9 @@ namespace CloudApp.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register([Bind]RegisterViewModel model, string[] rolesids , [Bind]IFormFile idnetitypic)
+        public async Task<IActionResult> Register([Bind]RegisterViewModel model, string[] rolesids)
         {
          
             if (ModelState.IsValid)
@@ -131,26 +139,10 @@ namespace CloudApp.Controllers
                 var user = new ApplicationUser
                 {
                     UserName = model.UserName, Email = model.Email , EmployName = model.EmployName , MemberId = model.MemberId 
-                    , PhoneNumber = model.PhoneNumber , IdentityId = model.IdentityId 
+                    , PhoneNumber = model.PhoneNumber , IdentityId = model.IdentityId,SigImage = model.SigPic
                 };
-                //foreach (IFormFile formFile in files)
-                //{
-                //    string guid = Guid.NewGuid().ToString();
-                //    string filepath = "ProfileImg/" + guid + ".Png";
-                //    if (formFile.Name == "memberphoto")
-                //    {
-                //        user.MemberPhotoId = guid;
-                //    }else if (formFile.Name == "profid")
-                //    {
-                //        user.ProfilePic = guid;
-                //    }else if (formFile.Name == "idnetitypic")
-                //    {
-                //        user.IdenetityPic = guid;
-                //    }
-                //    var strem = new FileStream(Path.Combine(_env.WebRootPath, filepath), FileMode.Create);
-                //    await formFile.CopyToAsync(strem);
-                //}
 
+              await SaveFiles(user);
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -165,8 +157,8 @@ namespace CloudApp.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
-        public IActionResult EditRegister(string id)
+        [Authorize]
+        public async Task<IActionResult> EditRegister(string id)
         {
             var model = _context.Users.SingleOrDefault(us => us.Id == id);
           
@@ -179,42 +171,157 @@ namespace CloudApp.Controllers
                     ,
                     PhoneNumber = model.PhoneNumber,
                     IdentityId = model.IdentityId ,
-                    Id = model.Id
+                    Id = model.Id ,
+                    IdenetityPic = model.IdenetityPic ,
+                    ProfilePic = model.ProfilePic,
+                    MemberPhotoId = model.MemberPhotoId ,
+                    SigPic = model.SigImage
                 };
-                return View("EditReqisterUsers" , usermodel);
+            ViewData["roles"] = await _context.Roles.ToListAsync();
+            ViewData["userRoles"] = await _userManager.GetRolesAsync(model);
+            return View("EditReqisterUsers" , usermodel);
         }
-
+        [Authorize]
         [HttpPost]
-        public async Task<ViewResult> EditRegister(RegisterViewModel model , string[] rolesids)
+        public async Task<IActionResult> EditRegister([Bind]RegisterViewModel model , string[] rolesids)
         {
-            var user = new ApplicationUser
+            var useris = _context.Users.SingleOrDefault(user => user.Id == model.Id);
+            
+            useris.UserName = model.UserName;
+            useris.Email = model.Email;
+            useris.EmployName = model.EmployName;
+            useris.MemberId = model.MemberId;
+
+            useris.PhoneNumber = model.PhoneNumber;
+            useris.IdentityId = model.IdentityId;
+            useris.SigImage = model.SigPic;
+            
+            if (ModelState.IsValid)
+            {
+                 _context.Update(useris);
+               _context.RemoveRange(_context.UserRoles.Where(role => role.UserId == useris.Id));
+               await SaveFiles(useris);
+                if (_context.SaveChanges() >0)
+                {
+                    for (int i = 0; i < rolesids.Length; i++)
+                    {
+                        await _userManager.AddToRolesAsync(useris, rolesids);
+                    }
+                    return RedirectToAction("RegisterIndex" );
+                }
+            }
+            ViewData["roles"] = await _context.Roles.ToListAsync();
+            ViewData["userRoles"] = await _userManager.GetRolesAsync(useris);
+            return View("EditReqisterUsers", model);
+        }
+        [Authorize]
+        public IActionResult RegisterIndex()
+        {
+            
+            return View("RegisterIndex" , _context.Users.ToList());
+        }
+        [Authorize]
+        public async Task<IActionResult> RegisterForuser()
+        {
+            var model = await GetCurrentUserAsync();
+            RegisterViewModel usermodel = new RegisterViewModel()
             {
                 UserName = model.UserName,
                 Email = model.Email,
                 EmployName = model.EmployName,
                 MemberId = model.MemberId
-                   ,
+                    ,
                 PhoneNumber = model.PhoneNumber,
-                IdentityId = model.IdentityId
+                IdentityId = model.IdentityId,
+                Id = model.Id,
+                IdenetityPic = model.IdenetityPic,
+                ProfilePic = model.ProfilePic,
+                MemberPhotoId = model.MemberPhotoId
             };
-            
-         var reslt =  await _userManager.UpdateAsync(user);
-            if (reslt.Succeeded)
-            {
-                return View("UserCreatedSecuss");
-            }
-            return View("EditReqisterUsers", model);
+            return View("RegisterForUser", usermodel);
         }
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> RegisterForuser(RegisterViewModel model)
+        {
+            var useris = _context.Users.SingleOrDefault(user => user.Id == model.Id);
+
+            useris.UserName = model.UserName;
+            useris.Email = model.Email;
+            useris.EmployName = model.EmployName;
+            useris.MemberId = model.MemberId;
+
+            useris.PhoneNumber = model.PhoneNumber;
+            useris.IdentityId = model.IdentityId;
+
+            if (ModelState.IsValid)
+            {
+              await SaveFiles(useris);
+                _context.SaveChanges();
+              return View("UserCreatedSecuss");
+            }
+
+            return View("RegisterForUser", model);
+        }
+        
+        public async Task CreatFile(string path , IFormFile file)
+        {
+            var strem = new FileStream(Path.Combine(_env.WebRootPath, path), FileMode.Create);
+            await file.CopyToAsync(strem);
+            strem.Close();
+            strem.Dispose();
+
+        }
+
+        public async Task SaveFiles(ApplicationUser user)
+        {
+            foreach (IFormFile formFile in Request.Form.Files)
+            {
+                string guid = Guid.NewGuid().ToString();
+                string filepath = "ProfileImg/" + guid + ".jpg";
+                if (formFile.Name == "memberphoto" && formFile.Length > 0)
+                {
+                    await CreatFile(filepath, formFile);
+                    user.MemberPhotoId = guid;
+                }
+                else if (formFile.Name == "profid" && formFile.Length > 0)
+                {
+                    await CreatFile(filepath, formFile);
+                    user.ProfilePic = guid;
+                }
+                else if (formFile.Name == "idnetitypic" && formFile.Length > 0)
+                {
+                    await CreatFile(filepath, formFile);
+                    user.IdenetityPic = guid;
+                }else if (formFile.Name == "sigpic" && formFile.Length > 0)
+                {
+                    await CreatFile(filepath, formFile);
+                    user.SigImage = guid;
+                }
+
+            }
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+        /// <returns></returns>
+
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        
+      [Authorize]
         public async Task<IActionResult> LogOff()
         {
             await _signInManager.SignOutAsync();
-            _logger.LogInformation(4, "User logged out.");
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+          
+            return RedirectToAction("Login");
         }
 
         //

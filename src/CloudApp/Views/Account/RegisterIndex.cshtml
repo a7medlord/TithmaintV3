@@ -1,9 +1,9 @@
-﻿@model IEnumerable<RegisterViewModel>
+﻿@model IEnumerable<ApplicationUser>
 
 @{
     ViewData["Title"] = "الرئيســة";
 }
-
+<h3>المستخدمين والصلاحيات</h3>
 <p>
     <a asp-action="Register" class="btn btn-primary">اضافه جديد</a>
 </p>
@@ -24,22 +24,22 @@
                         <thead>
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.EmployName)
+                                  اسم الموظف
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Email)
+                                    الايميل
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                                   رقم الهاتف
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.MemberId)
+                                   رقم العضوية
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.IdentityId)
+                                   رقم الهوية
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.UserName)
+                                   اسم المستخدم
                                 </th>
                                
                                 <th></th>
@@ -69,10 +69,7 @@
                                     </td>
                                     
                                     <td>
-                                        <a asp-action="EditRegister" asp-route-id="@item." class="text-primary"><i class="glyphicon glyphicon-edit"></i></a> |
-
-                                        <a asp-action="Delete" asp-route-id="@item.Id" class="text-primary"><i class="icon-trash"></i></a>
-
+                                        <a asp-action="EditRegister" asp-route-id="@item.Id" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a>
                                     </td>
                                 </tr>
                             }

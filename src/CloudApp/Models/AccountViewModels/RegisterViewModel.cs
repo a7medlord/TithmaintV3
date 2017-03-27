@@ -8,7 +8,7 @@ namespace CloudApp.Models.AccountViewModels
         [Display(Name = "الايميل")]
         public string Email { get; set; }
 
-        [Required]
+       
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 4)]
         [DataType(DataType.Password)]
         [Display(Name = "كلمة المرور")]
@@ -42,5 +42,7 @@ namespace CloudApp.Models.AccountViewModels
         public string PhoneNumber { get; set; }
 
         public string Id { get; set; }
+
+        public string SigPic { get; set; }
     }
 }
