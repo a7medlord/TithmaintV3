@@ -382,7 +382,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Sum(Fields!Amount.Value)</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -414,7 +416,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>الاجمالي</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>

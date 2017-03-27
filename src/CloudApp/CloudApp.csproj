@@ -13,10 +13,9 @@
     <None Remove="Properties\PublishProfiles\cms.pubxml" />
     <None Remove="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Remove="Properties\PublishProfiles\newprofile.pubxml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="wwwroot\images\brandlogo.png" />
+    <None Remove="Report\QtReport.rdlc" />
+    <None Remove="Report\SupCoReport.rdlc" />
+    <None Remove="Report\SupQtReport.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
@@ -73,7 +72,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\ProfileImg\" />
+    <EmbeddedResource Include="Report\QtReport.rdlc" />
+    <EmbeddedResource Include="Report\Sm0Report.rdlc" />
+    <EmbeddedResource Include="Report\Sm1Report.rdlc" />
+    <EmbeddedResource Include="Report\SupCoReport.rdlc" />
+    <EmbeddedResource Include="Report\SupQtReport.rdlc" />
   </ItemGroup>
 
 </Project>

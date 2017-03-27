@@ -12,62 +12,83 @@
 <table class="table">
     <thead>
         <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Owner)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SCustmer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SNum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateSNum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Local)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Street)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Plane)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tbuild)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Wland)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ResWland)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Npiece)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Napartment)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Agbuild)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OccBuild)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaseBuild)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StyleBuild)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsIntered)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsThmin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsAduit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsApproved)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ElictFire)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Acce)
+                </th>
             <th>
-                @Html.DisplayNameFor(model => model.Agbuild)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Area)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CaseBuild)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateSNum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gada)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Local)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Napartment)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Npiece)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OccBuild)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Owner)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Plane)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ResWland)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SCustmer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SNum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Street)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StyleBuild)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tbuild)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Wland)
+                @Html.DisplayNameFor(model => model.Custmer)
             </th>
             <th></th>
         </tr>
@@ -76,43 +97,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Agbuild)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Area)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CaseBuild)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateSNum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Local)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Napartment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Npiece)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OccBuild)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Owner)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Plane)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ResWland)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SCustmer)
@@ -121,16 +106,73 @@
                 @Html.DisplayFor(modelItem => item.SNum)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.DateSNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Local)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Street)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StyleBuild)
+                @Html.DisplayFor(modelItem => item.Plane)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Tbuild)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Wland)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResWland)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Npiece)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Napartment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agbuild)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OccBuild)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CaseBuild)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StyleBuild)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsIntered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsThmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAduit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsApproved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ElictFire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acce)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Custmer.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

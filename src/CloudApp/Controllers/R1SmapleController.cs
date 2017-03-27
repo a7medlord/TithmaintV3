@@ -7,11 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
 using CloudApp.Models.BusinessModel;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.Reporting.WebForms;
 
 namespace CloudApp.Controllers
 {
-    [Authorize]
     public class R1SmapleController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -19,6 +18,52 @@ namespace CloudApp.Controllers
         public R1SmapleController(ApplicationDbContext context)
         {
             _context = context;    
+        }
+
+        public IActionResult GetSample1Report()
+        {
+
+            ReportDataSource custmertDataSource = new ReportDataSource();
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+
+
+
+            // Qoution Report
+            reportDataSource.Name = "ReportDataSet";
+            reportDataSource.Value = _context.Treatment.ToList();
+            //Custumer Report
+            custmertDataSource.Name = "CustmerDataSet";
+            custmertDataSource.Value = _context.Custmer.ToList();
+
+
+
+
+            LocalReport local = new LocalReport();
+            local.DataSources.Add(reportDataSource);
+            //local.SubreportProcessing += delegate (object sender, SubreportProcessingEventArgs args)
+            //{
+            //    args.DataSources.Add(custmertDataSource);
+            //    args.DataSources.Add(instrumentsDataSource);
+
+            //};
+
+            local.ReportPath = "Report/Sm1Report.rdlc";
+            local.EnableExternalImages = true;
+            // double amount = instruments.Sum(d => d.Amount);
+
+            //    ToWord toWord = new ToWord((decimal)amount, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
+
+            //ReportParameter[] parameters = {
+
+            //    new ReportParameter("num",  toWord.ConvertToArabic())
+            //   };
+
+            //local.SetParameters(parameters);
+
+            byte[] rendervalue = local.Render("Pdf", "");
+
+            return File(rendervalue, "application/pdf");
         }
 
         // GET: R1Smaple
@@ -36,7 +81,9 @@ namespace CloudApp.Controllers
                 return NotFound();
             }
 
-            var r1Smaple = await _context.R1Smaple.SingleOrDefaultAsync(m => m.Id == id);
+            var r1Smaple = await _context.R1Smaple
+                .Include(r => r.Custmer)
+                .SingleOrDefaultAsync(m => m.Id == id);
             if (r1Smaple == null)
             {
                 return NotFound();
@@ -57,7 +104,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Agbuild,Area,CaseBuild,City,CustmerId,DateSNum,Gada,Local,Napartment,Npiece,OccBuild,Owner,Plane,ResWland,SCustmer,SNum,Street,StyleBuild,Tbuild,Wland")] R1Smaple r1Smaple)
+        public async Task<IActionResult> Create([Bind("Id,CustmerId,Owner,SCustmer,SNum,DateSNum,City,Gada,Local,Street,Plane,Tbuild,Wland,ResWland,Npiece,Napartment,Area,Agbuild,OccBuild,CaseBuild,StyleBuild,IsIntered,IsThmin,IsAduit,IsApproved,ElictFire,Acce")] R1Smaple r1Smaple)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +138,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Agbuild,Area,CaseBuild,City,CustmerId,DateSNum,Gada,Local,Napartment,Npiece,OccBuild,Owner,Plane,ResWland,SCustmer,SNum,Street,StyleBuild,Tbuild,Wland")] R1Smaple r1Smaple)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,CustmerId,Owner,SCustmer,SNum,DateSNum,City,Gada,Local,Street,Plane,Tbuild,Wland,ResWland,Npiece,Napartment,Area,Agbuild,OccBuild,CaseBuild,StyleBuild,IsIntered,IsThmin,IsAduit,IsApproved,ElictFire,Acce")] R1Smaple r1Smaple)
         {
             if (id != r1Smaple.Id)
             {
@@ -130,7 +177,9 @@ namespace CloudApp.Controllers
                 return NotFound();
             }
 
-            var r1Smaple = await _context.R1Smaple.SingleOrDefaultAsync(m => m.Id == id);
+            var r1Smaple = await _context.R1Smaple
+                .Include(r => r.Custmer)
+                .SingleOrDefaultAsync(m => m.Id == id);
             if (r1Smaple == null)
             {
                 return NotFound();
