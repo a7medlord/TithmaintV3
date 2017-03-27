@@ -164,6 +164,8 @@ namespace CloudApp.Models.BusinessModel
         public double MeterPriceForBulding { get; set; }
         [Display(Name = "القيمة الاجمالية رقما")]
         public double TotalPriceNumber { get; set; }
+        [Display(Name = "القيمة الاجمالية كتابة")]
+        public string TotalPriceWorld { get; set; }
         
     }
 }

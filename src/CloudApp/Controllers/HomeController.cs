@@ -4,10 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
+using System.Net.Mime;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace CloudApp.Controllers
 {
@@ -22,6 +25,8 @@ namespace CloudApp.Controllers
       
         public IActionResult Index()
         {
+            Attachment attach = new Attachment(String.Empty , MediaTypeNames.Application.Pdf);
+         
             WebClient clint = new WebClient();
             clint.DownloadFile(new Uri(@"https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&size=600x600&maptype=satellite&key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs") , Path.Combine(_env.WebRootPath, "ProfileImg/map.png"));
             return View();
