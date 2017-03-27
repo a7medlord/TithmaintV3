@@ -15,7 +15,7 @@ namespace CloudApp.Controllers
     public class SamplesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        //edit 
         public SamplesController(ApplicationDbContext context)
         {
             _context = context;    
