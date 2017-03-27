@@ -6,9 +6,7 @@
  
 }
 <style type="text/css">.real { }</style>
-<div class="row">
-    <a asp-action="GetQoutionReport" class="btn btn-primary">طباعة عرض سعر</a>
-</div>
+
 
 <div class="panel panel-primary">
     <div class="panel-heading clearfix">
@@ -91,7 +89,7 @@
                     <div class="col-md-6">
                                 
                         <div id="date-popup" class="input-group date">
-                            <input asp-for="QDate" type="text" data-format="D, dd MM yyyy" class="form-control">
+                            <input asp-for="QDate" type="text" data-format="D, dd-MM-yyyy" class="form-control">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                         </div>
                         <span asp-validation-for="QDate" class="text-danger" />

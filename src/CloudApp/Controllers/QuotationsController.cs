@@ -74,7 +74,7 @@ namespace CloudApp.Controllers
         // GET: Quotations
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Quotation.Include(q => q.Custmer);
+            var applicationDbContext = _context.Quotation.Include(q => q.Custmer).OrderByDescending(d => d.Id);
             return View(await applicationDbContext.ToListAsync());
         }
 
