@@ -68,10 +68,11 @@ namespace CloudApp.Controllers
 
             ReportDataSource reportDataSource = new ReportDataSource();
 
-
+             
             // Qoution Report
             reportDataSource.Name = "ReportDataSet";
-            reportDataSource.Value = _context.Quotation.Where(d => d.Id == id);
+            var qut =    _context.Quotation.Include(d=>d.ApplicationUser).Where(d => d.Id == id);
+            reportDataSource.Value = qut;
             //Custumer Report
             custmertDataSource.Name = "CustmerDataSet";
             custmertDataSource.Value = _context.Custmer.ToList();
@@ -94,10 +95,10 @@ namespace CloudApp.Controllers
             double amount = instruments.Sum(d => d.Amount);
 
             ToWord toWord = new ToWord((decimal)amount, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
-
+            string sigurl = "http://"+HttpContext.Request.Host+"/ProfPic/"+ qut.SingleOrDefault().ApplicationUser.SigImage+".jpg";
             ReportParameter[] parameters = {
-
-                new ReportParameter("num",  toWord.ConvertToArabic())
+                new ReportParameter("num",  toWord.ConvertToArabic()),          
+                new ReportParameter("sig", sigurl)
                };
 
             local.SetParameters(parameters);

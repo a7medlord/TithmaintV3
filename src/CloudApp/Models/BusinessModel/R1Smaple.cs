@@ -41,11 +41,7 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "اسباب الخضوع")]
         public string ResWland { get; set; }
 
-
-        [Display(Name = "رقم القطعة")]
-        public string Npiece { get; set; }
-
-        [Display(Name = "رقم الشقة")]
+        [Display(Name = " رقم القطعة/رقم الشقة")]
         public string Napartment { get; set; }
 
         [Display(Name = "مساحة الارض")]

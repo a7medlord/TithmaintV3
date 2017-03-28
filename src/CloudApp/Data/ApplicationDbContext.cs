@@ -38,6 +38,8 @@ namespace CloudApp.Data
         public DbSet<Sample> Samples { get; set; }
         public DbSet<CloudApp.Models.BusinessModel.R1Smaple> R1Smaple { get; set; }
         public DbSet<CloudApp.Models.BusinessModel.R2Smaple> R2Smaple { get; set; }
+        public DbSet<CloudApp.Models.BusinessModel.Flag> Flag { get; set; }
+
 
         
     }

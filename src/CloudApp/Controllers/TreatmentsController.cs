@@ -103,15 +103,15 @@ namespace CloudApp.Controllers
             switch (sampleid)
             {
                 case 1 :
-                    return View();
+                   // ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d=>d.FlagValue  ==FlagsName.Aqar), "Value", "Value");
+                    return View(new Treatment());
                 case 2:
                     return RedirectToAction("Create","R1Smaple");
                 case 3:
                     return RedirectToAction("Create", "R2Smaple");
                 default:
                     return View();
-            }
-       
+            } 
         }
         public IActionResult Select_custmer()
         {
@@ -125,7 +125,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Agbuild,Area,CaseBuild,City,CustmerId,DateSNum,Gada,Local,Napartment,Npiece,OccBuild,Owner,Plane,ResWland,SCustmer,SNum,Street,StyleBuild,Tbuild,Wland,IsIntered,IsThmin,IsAduit,IsApproved")] Treatment treatment)
+        public async Task<IActionResult> Create([Bind ]Treatment treatment)
         {
             if (ModelState.IsValid)
             {
@@ -159,7 +159,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Agbuild,Area,CaseBuild,City,CustmerId,DateSNum,Gada,Local,Napartment,Npiece,OccBuild,Owner,Plane,ResWland,SCustmer,SNum,Street,StyleBuild,Tbuild,Wland,IsIntered,IsThmin,IsAduit,IsApproved")] Treatment treatment)
+        public async Task<IActionResult> Edit(long id, [Bind] Treatment treatment)
         {
             if (id != treatment.Id)
             {

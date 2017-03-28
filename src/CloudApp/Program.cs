@@ -10,7 +10,7 @@ namespace CloudApp
             var host = new WebHostBuilder()
              .UseIISIntegration()
                 .UseKestrel()
-                .UseUrls("http://192.168.1.6:5002")
+                .UseUrls("http://192.168.1.3:5000")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();

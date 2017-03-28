@@ -38,10 +38,7 @@ namespace CloudApp.Models.BusinessModel
         public string ResWland { get; set; }
 
 
-        [Display(Name = "رقم القطعة")]
-        public string Npiece { get; set; }
-
-        [Display(Name = "رقم الشقة")]
+        [Display(Name = "رقم القطعة /رقم الشقة")]
         public string Napartment { get; set; }
 
         [Display(Name = "مساحة الارض")]
@@ -121,6 +118,8 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "دوئر حكومية")]
         public bool SroundGovermentDepartMent { get; set; }
         //Sround end
+        [Display(Name = "مسطح البناء")]
+        public string Musteh { get; set; }
 
            [Display(Name = "رأي المثمن")]
           [DataType(DataType.MultilineText)]

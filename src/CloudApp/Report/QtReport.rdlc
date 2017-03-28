@@ -367,7 +367,7 @@
       </Textbox>
       <Image Name="Image1">
         <Source>External</Source>
-        <Value>=Fields!Sign.Value</Value>
+        <Value>=Parameters!sig.Value</Value>
         <Sizing>Fit</Sizing>
         <Top>12.31657cm</Top>
         <Left>1.32927cm</Left>
@@ -750,6 +750,12 @@
   </DataSets>
   <ReportParameters>
     <ReportParameter Name="num">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="sig">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>
