@@ -57,7 +57,7 @@ namespace CloudApp.Controllers
         public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-           
+          
             return View();
         }
 
@@ -105,6 +105,7 @@ namespace CloudApp.Controllers
 
         public IActionResult Addroles()
         {
+
             return View("Addroles");
         }
 
