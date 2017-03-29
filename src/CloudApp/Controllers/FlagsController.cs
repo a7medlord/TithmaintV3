@@ -20,9 +20,9 @@ namespace CloudApp.Controllers
         }
 
         // GET: Flags
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(long flags)
         {
-            return View(await _context.Flag.ToListAsync());
+            return View(await _context.Flag.Where(d=>d.FlagValue==flags).ToListAsync());
         }
 
         // GET: Flags/Details/5
@@ -41,12 +41,13 @@ namespace CloudApp.Controllers
             }
 
             return View(flag);
+
         }
 
         // GET: Flags/Create
-        public IActionResult Create()
+        public IActionResult Create(long ids )
         {
-            return View();
+            return View(new Flag(){FlagValue = ids});
         }
 
         // POST: Flags/Create
@@ -54,17 +55,19 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Value,FlagValue")] Flag flag)
+        public async Task<IActionResult> Create([Bind] Flag flag)
         {
+
             if (ModelState.IsValid)
             {
+
                 _context.Add(flag);
+   
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index",new{ flags = flag.FlagValue } );
             }
             return View(flag);
         }
-
         // GET: Flags/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {

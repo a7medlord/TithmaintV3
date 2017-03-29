@@ -36,21 +36,30 @@
 
     <div class="row">
 
-        <div class="col-md-4"style="pointer-events: none">
+        <div class="col-md-3"style="pointer-events: none">
             <div class="form-group">
                 <label asp-for="CustmerId" class="control-label"></label>
                 <select asp-for="CustmerId" class="select2 form-control" asp-items="ViewBag.CustmerId"></select>
             </div>
         </div>
+        
+        
 
-        <div class="col-md-4">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="ApplicationUserId" class="control-label"></label>
+                <select asp-for="ApplicationUserId" class="select2 form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+        </div>
+
+        <div class="col-md-3">
             <div class="form-group">
                 <label asp-for="Owner" class="control-label"></label>
                 <input asp-for="Owner" class="form-control"/>
                 <span asp-validation-for="Owner" class="text-danger"/>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="form-group">
                 <label asp-for="SCustmer" class="control-label"></label>
 
@@ -127,12 +136,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="input-group">
-                            <select asp-for="Tbuild" class="select2 form-control" data-placeholder="اختيار" asp-items="ViewBag.Aqartype" multiple></select>
-                            <span class="input-group-btn"><a id="test1" asp-controller="Flags" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                            <select asp-for="Tbuild"  class="select2 form-control" data-placeholder="اختيار" asp-items="ViewBag.Aqartype" ></select>
+                            <span class="input-group-btn"><a id="test1" asp-controller="Flags" asp-route-ids="1" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                         </div>
                     </div>    
                 </div>
-                
             </div>
         </div>
         <div class="col-md-4">
@@ -286,14 +294,24 @@
             <input asp-for="ServicesSanitation" />
             <label asp-for="ServicesSanitation"></label>
         </div>
+        
         <div class="col-md-2 checkbox">
-            <input asp-for="ServicesSantiNetWork" />
-            <label asp-for="ServicesSantiNetWork"></label>
-        </div>
 
+            <input asp-for="ServicesRoad" />
+            <label asp-for="ServicesRoad"></label>
+        </div>
+        <div class="col-md-2 checkbox">
+            <input asp-for="ServicesLamp" />
+            <label asp-for="ServicesLamp"></label>
+        </div>
     </div>
+    
+
+
 </div>
-    <br/>
+
+
+<br/>
 <p>المحيـــط : </p>
     <br/>
 <div style="border: darkturquoise solid 1px; padding: 10px">
@@ -414,168 +432,180 @@
 </div>
 <br/>
     
-    <div style="border: darkturquoise solid 1px; padding: 10px" >
-        <div class="row">
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="North" class="control-label"></label>
-                    <input asp-for="North" class="form-control" />
-                    <span asp-validation-for="North" class="text-danger" />
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="NorthTall" class="control-label"></label>
-                    <input asp-for="NorthTall" class="form-control" />
-                    <span asp-validation-for="NorthTall" class="text-danger" />
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="South" class="control-label"></label>
-                    <input asp-for="South" class="form-control" />
-                    <span asp-validation-for="South" class="text-danger" />
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="SouthTall" class="control-label"></label>
-                    <input asp-for="SouthTall" class="form-control" />
-                    <span asp-validation-for="SouthTall" class="text-danger" />
-                </div>
-            </div>
-
-        </div>
-        <br />
-
-        <div class="row">
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="East" class="control-label"></label>
-                    <input asp-for="East" class="form-control" />
-                    <span asp-validation-for="East" class="text-danger" />
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="EastTall" class="control-label"></label>
-                    <input asp-for="EastTall" class="form-control" />
-                    <span asp-validation-for="EastTall" class="text-danger" />
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="West" class="control-label"></label>
-                    <input asp-for="West" class="form-control" />
-                    <span asp-validation-for="West" class="text-danger" />
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="WestTall" class="control-label"></label>
-                    <input asp-for="WestTall" class="form-control" />
-                    <span asp-validation-for="WestTall" class="text-danger" />
-                </div>
-            </div>
-
-        </div>
-
-        <br />
-
-        <div class="row">
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="TotalForEarcth" class="control-label"></label>
-                    <input asp-for="TotalForEarcth" class="form-control" />
-                    <span asp-validation-for="TotalForEarcth" class="text-danger" />
-                </div>
-
-            </div>
-
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="TotalBulding" class="control-label"></label>
-                    <input asp-for="TotalBulding" class="form-control" />
-                    <span asp-validation-for="TotalBulding" class="text-danger" />
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="MeterPriceForEarth" class="control-label"></label>
-                    <input asp-for="MeterPriceForEarth" class="form-control" />
-                    <span asp-validation-for="MeterPriceForEarth" class="text-danger" />
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label asp-for="MeterPriceForBulding" class="control-label"></label>
-                    <input asp-for="MeterPriceForBulding" class="form-control" />
-                    <span asp-validation-for="MeterPriceForBulding" class="text-danger" />
-                </div>
-            </div>
-        </div>
-
-        <br />
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="NotesAndAbstracting" class="control-label"></label>
-                    <input asp-for="NotesAndAbstracting" class="form-control" />
-                    <span asp-validation-for="NotesAndAbstracting" class="text-danger" />
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="MantinCost" class="control-label"></label>
-                    <input asp-for="MantinCost" class="form-control" />
-                    <span asp-validation-for="MantinCost" class="text-danger" />
-                </div>
-            </div>
-        </div>
-
-        <br />
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="TotalPriceNumber" class="control-label"></label>
-                    <input asp-for="TotalPriceNumber" class="form-control" />
-                    <span asp-validation-for="TotalPriceNumber" class="text-danger" />
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="TotalPriceWorld" class="control-label"></label>
-                    <input asp-for="TotalPriceWorld" class="form-control" />
-                    <span asp-validation-for="TotalPriceWorld" class="text-danger" />
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-10">
-                <div class="form-group">
-                    <label asp-for="MothmnOpnin" class="control-label"></label>
-                    <input asp-for="MothmnOpnin" class="form-control" />
-                    <span asp-validation-for="MothmnOpnin" class="text-danger" />
+<div style="border: darkturquoise solid 1px; padding: 10px">
+    
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="GenLoc" class="control-label"></label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <select asp-for="GenLoc" class="select2 form-control" data-placeholder="اختيار" asp-items="ViewBag.Gentype"></select>
+                            <span class="input-group-btn"><a id="test2" asp-controller="Flags" asp-route-ids="2" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="North" class="control-label"></label>
+                <input asp-for="North" class="form-control"/>
+                <span asp-validation-for="North" class="text-danger"/>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="NorthTall" class="control-label"></label>
+                <input asp-for="NorthTall" class="form-control"/>
+                <span asp-validation-for="NorthTall" class="text-danger"/>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="South" class="control-label"></label>
+                <input asp-for="South" class="form-control"/>
+                <span asp-validation-for="South" class="text-danger"/>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="SouthTall" class="control-label"></label>
+                <input asp-for="SouthTall" class="form-control"/>
+                <span asp-validation-for="SouthTall" class="text-danger"/>
+            </div>
+        </div>
+
+    </div>
+    <br/>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="East" class="control-label"></label>
+                <input asp-for="East" class="form-control"/>
+                <span asp-validation-for="East" class="text-danger"/>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="EastTall" class="control-label"></label>
+                <input asp-for="EastTall" class="form-control"/>
+                <span asp-validation-for="EastTall" class="text-danger"/>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="West" class="control-label"></label>
+                <input asp-for="West" class="form-control"/>
+                <span asp-validation-for="West" class="text-danger"/>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="WestTall" class="control-label"></label>
+                <input asp-for="WestTall" class="form-control"/>
+                <span asp-validation-for="WestTall" class="text-danger"/>
+            </div>
+        </div>
+
+    </div>
+
+    <br/>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="TotalForEarcth" class="control-label"></label>
+                <input asp-for="TotalForEarcth" class="form-control"/>
+                <span asp-validation-for="TotalForEarcth" class="text-danger"/>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="TotalBulding" class="control-label"></label>
+                <input asp-for="TotalBulding" class="form-control"/>
+                <span asp-validation-for="TotalBulding" class="text-danger"/>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="MeterPriceForEarth" class="control-label"></label>
+                <input asp-for="MeterPriceForEarth" class="form-control"/>
+                <span asp-validation-for="MeterPriceForEarth" class="text-danger"/>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="MeterPriceForBulding" class="control-label"></label>
+                <input asp-for="MeterPriceForBulding" class="form-control"/>
+                <span asp-validation-for="MeterPriceForBulding" class="text-danger"/>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <label asp-for="NotesAndAbstracting" class="control-label"></label>
+                <input asp-for="NotesAndAbstracting" class="form-control"/>
+                <span asp-validation-for="NotesAndAbstracting" class="text-danger"/>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="MantinCost" class="control-label"></label>
+                <input asp-for="MantinCost" class="form-control"/>
+                <span asp-validation-for="MantinCost" class="text-danger"/>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="TotalPriceNumber" class="control-label"></label>
+                <input asp-for="TotalPriceNumber" class="form-control"/>
+                <span asp-validation-for="TotalPriceNumber" class="text-danger"/>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <label asp-for="MothmnOpnin" class="control-label"></label>
+                <input asp-for="MothmnOpnin" class="form-control"/>
+                <span asp-validation-for="MothmnOpnin" class="text-danger"/>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="checkbox">
     <label><input id="nex2" asp-for="IsThmin" type="checkbox">اكمال عملية التثمين...</label>
 </div>
@@ -786,11 +816,8 @@
         });
 
 
-        $("#test1").click(function() {
-            var values = "مكتب,محل,جاز".split(",");      
-            $("#Tbuild").val(values).trigger("change");
-        });
-     
+
+  
         
     </script>
     

@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
 using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
+using CloudApp.Models.ManpulateModel;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Reporting.WebForms;
 
 namespace CloudApp.Controllers
@@ -15,10 +17,11 @@ namespace CloudApp.Controllers
     public class TreatmentsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public TreatmentsController(ApplicationDbContext context)
+        private UserManager<ApplicationUser> _userManager;
+        public TreatmentsController(ApplicationDbContext context , UserManager<ApplicationUser> user)
         {
-            _context = context;    
+            _context = context;
+            _userManager = user;
         }
 
         public IActionResult GetSample0Report()
@@ -93,9 +96,11 @@ namespace CloudApp.Controllers
         }
 
         // GET: Treatments/Create
-        public IActionResult Create(int id)
+        public async Task<IActionResult> Create(int id)
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
+
+            ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
 
             Custmer cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == id);
             var sampleid = cms?.SampleId ?? 1;
@@ -103,7 +108,9 @@ namespace CloudApp.Controllers
             switch (sampleid)
             {
                 case 1 :
-                   // ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d=>d.FlagValue  ==FlagsName.Aqar), "Value", "Value");
+                    ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d=>d.FlagValue  ==FlagsName.Aqar), "Value", "Value");
+                    ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");
+
                     return View(new Treatment());
                 case 2:
                     return RedirectToAction("Create","R1Smaple");
@@ -129,6 +136,20 @@ namespace CloudApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (treatment.IsAduit && this.User.IsInRole("au"))
+                {
+                    treatment.Adutit = _userManager.GetUserId(this.User);
+                }
+                if (treatment.IsApproved && User.IsInRole("apr"))
+                {
+                    treatment.Approver = _userManager.GetUserId(this.User);
+                } if (treatment.IsIntered && User.IsInRole("en"))
+                {
+                    treatment.Intered = _userManager.GetUserId(this.User);
+                } if (treatment.IsThmin && User.IsInRole("th"))
+                {
+                    treatment.Muthmen = _userManager.GetUserId(this.User);
+                }
                 _context.Add(treatment);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Edit", new {Id=treatment.Id});
