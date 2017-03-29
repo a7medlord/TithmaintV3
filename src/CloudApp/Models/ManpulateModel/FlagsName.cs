@@ -8,5 +8,6 @@ namespace CloudApp.Models.ManpulateModel
     public class FlagsName
     {
         public static long Aqar = 1;
+        public static long Gen = 2;
     }
 }

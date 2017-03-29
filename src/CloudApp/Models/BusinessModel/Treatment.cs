@@ -69,8 +69,11 @@ namespace CloudApp.Models.BusinessModel
         public bool ServicesElectrocitcs { get; set; }
         [Display(Name = "صرف صحي")]
         public bool ServicesSanitation { get; set; }
-        [Display(Name = "شبكة تصريف السيول")]
-        public bool ServicesSantiNetWork { get; set; }
+        [Display(Name = "طرق مسفلتة")]
+        public bool ServicesRoad { get; set; }
+        [Display(Name = "انارة")]
+        public bool ServicesLamp { get; set; }
+
 
         //Sround
 
@@ -163,8 +166,19 @@ namespace CloudApp.Models.BusinessModel
         public double MeterPriceForBulding { get; set; }
         [Display(Name = "القيمة الاجمالية رقما")]
         public double TotalPriceNumber { get; set; }
-        [Display(Name = "القيمة الاجمالية كتابة")]
-        public string TotalPriceWorld { get; set; }
-        
+
+
+        [Display(Name = "نطاق العقار")]
+        public string GenLoc{ get; set; }
+
+        public ApplicationUser ApplicationUser { get; set; }
+        [Display(Name = "المثمن")]
+        public string ApplicationUserId { get; set; }
+        public string Muthmen { get; set; }
+        public string Adutit { get; set; }
+        public string Approver { get; set; }
+        public string Intered { get; set; }
+
+
     }
 }
