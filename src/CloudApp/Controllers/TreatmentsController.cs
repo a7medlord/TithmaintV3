@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ using CloudApp.Data;
 using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
 using CloudApp.Models.ManpulateModel;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Reporting.WebForms;
 
@@ -18,12 +20,14 @@ namespace CloudApp.Controllers
     {
         private readonly ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
-        public TreatmentsController(ApplicationDbContext context , UserManager<ApplicationUser> user)
+        private IHostingEnvironment _env;
+        public TreatmentsController(ApplicationDbContext context , UserManager<ApplicationUser> user , IHostingEnvironment env)
         {
             _context = context;
             _userManager = user;
+            _env = env;
         }
-
+       
         public IActionResult GetSample0Report()
         {
 
@@ -111,12 +115,83 @@ namespace CloudApp.Controllers
 
             return File(rendervalue, "application/pdf");
         }
+        [HttpPost]
+        public async Task<JsonResult> UploadFile()
+        {
+                string guid = Guid.NewGuid().ToString();
+                string filepath = "sample1attachment/" + guid + ".jpg";
+                var strem = new FileStream(Path.Combine(_env.WebRootPath, filepath), FileMode.Create);
+                await Request.Form.Files[0].CopyToAsync(strem);
+                strem.Close();
+                strem.Dispose();
+            return Json(guid);
+        }
 
         // GET: Treatments
-        public async Task<IActionResult> Index()
+        public  IActionResult Index()
         {
-            var applicationDbContext = _context.Treatment.Include(t => t.Custmer).ThenInclude(d=>d.Sample);
-            return View(await applicationDbContext.ToListAsync());
+           List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
+            var listoftremantsample1 = _context.Treatment.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
+            foreach (Treatment treatment in listoftremantsample1)
+            {
+                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
+                {
+                    Id = treatment.Id,
+                    Clint = CheckNullValue(treatment.Custmer.Name),
+                    Owner = CheckNullValue(treatment.Owner),
+                    AqarType = CheckNullValue(treatment.Tbuild),
+                    CityAndHy = CheckNullValue(treatment.City + " / " + treatment.Gada),
+                    Mothmen =ChekNull(treatment.ApplicationUser),
+                    SampleId = CheckNullValue(treatment.Custmer.Sample.Name) ,
+                    State = GetState(treatment.IsIntered , treatment.IsThmin , treatment.IsAduit , treatment.IsApproved)
+                };
+
+                lists.Add(row);
+            }
+            return View(lists);
+        }
+
+        private string CheckNullValue(string item)
+        {
+            if (string.IsNullOrEmpty(item))
+            {
+                return "·« ÌÊÃœ ‘∆ ·⁄—÷Â";
+            }
+            return item;
+        }
+
+        string ChekNull(ApplicationUser user)
+        {
+            if (user == null)
+            {
+                return "·„  À„‰ »⁄œ ";
+            }
+           return user.EmployName;
+        }
+
+        string GetState(params bool[] state)
+        {
+            bool IsIntered = state[0];
+            bool IsThmin = state[1];
+            bool IsAduit = state[2];
+            bool IsApproved = state[3];
+            if (IsIntered && IsThmin == false)
+            {
+                return " Õ  «· À„Ì‰";
+            }
+            if (IsThmin && IsAduit == false)
+            {
+                return " Õ  «· œﬁÌﬁ";
+            }
+            if (IsAduit && IsApproved == false)
+            {
+                return " Õ  «· ⁄„Ìœ";
+            }
+            if (IsApproved)
+            {
+                return "„ﬂ „‹‹·…";
+            }
+            return " Õ  «·«œŒ«·";
         }
 
         // GET: Treatments/Details/5
@@ -162,44 +237,71 @@ namespace CloudApp.Controllers
                     return View();
             } 
         }
+
         public IActionResult Select_custmer()
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
             return View("Models_Custmor");
         }
-
-
+        
         // POST: Treatments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind ]Treatment treatment)
+        public async Task<IActionResult> Create([Bind ]Treatment treatment , string ids)
         {
+          
             if (ModelState.IsValid)
             {
-                if (treatment.IsAduit && this.User.IsInRole("au"))
+             
+                if (!string.IsNullOrEmpty(ids))
                 {
-                    treatment.Adutit = _userManager.GetUserId(this.User);
+                    string[] imgsids = ids.Split(';');
+                    treatment.AttachmentForTreaments = new List<AttachmentForTreament>();
+                    for (int i = 0; i < imgsids.Length - 1; i++)
+                    {
+                        treatment.AttachmentForTreaments.Add(new AttachmentForTreament() { AttachmentId = imgsids[i] });
+                    }
+                }
+              
+
+                if (treatment.IsAduit && User.IsInRole("au"))
+                {
+                    treatment.Adutit = _userManager.GetUserId(User);
                 }
                 if (treatment.IsApproved && User.IsInRole("apr"))
                 {
-                    treatment.Approver = _userManager.GetUserId(this.User);
+                    treatment.Approver = _userManager.GetUserId(User);
                 } if (treatment.IsIntered && User.IsInRole("en"))
                 {
-                    treatment.Intered = _userManager.GetUserId(this.User);
+                    treatment.Intered = _userManager.GetUserId(User);
                 } if (treatment.IsThmin && User.IsInRole("th"))
                 {
-                    treatment.Muthmen = _userManager.GetUserId(this.User);
+                    treatment.Muthmen = _userManager.GetUserId(User);
                 }
                 _context.Add(treatment);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Edit", new {Id=treatment.Id});
             }
-            ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", treatment.CustmerId);
+            await GetListBind(treatment.CustmerId);
             return View("Create",treatment);
         }
 
+        async Task GetListBind(long cmsSelectId)
+        {
+            ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", cmsSelectId);
+            ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
+            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
+            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");
+        }
+
+        public JsonResult RemoveFile(string name)
+        {
+            _context.Remove(_context.AttachmentForTreaments.SingleOrDefault(treament => treament.AttachmentId == name));
+            _context.SaveChanges();
+            return Json("true");
+        }
         // GET: Treatments/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
@@ -208,12 +310,20 @@ namespace CloudApp.Controllers
                 return NotFound();
             }
 
-            var treatment = await _context.Treatment.SingleOrDefaultAsync(m => m.Id == id);
+            var treatment = await _context.Treatment.Include(treatment1 => treatment1.AttachmentForTreaments).SingleOrDefaultAsync(m => m.Id == id);
+
             if (treatment == null)
             {
                 return NotFound();
             }
-            ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", treatment.CustmerId);
+
+            string files = "";
+            foreach (AttachmentForTreament file in treatment.AttachmentForTreaments)
+            {
+                    files += file.AttachmentId + ";";
+            }
+            ViewData["imgs"] = files;
+           await GetListBind(treatment.CustmerId);
             return View(treatment);
         }
 
@@ -222,7 +332,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind] Treatment treatment)
+        public async Task<IActionResult> Edit(long id, [Bind] Treatment treatment , string ids)
         {
             if (id != treatment.Id)
             {
@@ -233,8 +343,36 @@ namespace CloudApp.Controllers
             {
                 try
                 {
+                    if (!string.IsNullOrEmpty(ids))
+                    {
+                        string[] imgsids = ids.Split(';');
+                        treatment.AttachmentForTreaments = new List<AttachmentForTreament>();
+                        for (int i = 0; i < imgsids.Length - 1; i++)
+                        {
+                            treatment.AttachmentForTreaments.Add(new AttachmentForTreament() { AttachmentId = imgsids[i] });
+                        }
+                    }
+
+
+                    if (treatment.IsAduit && User.IsInRole("au"))
+                    {
+                        treatment.Adutit = _userManager.GetUserId(User);
+                    }
+                    if (treatment.IsApproved && User.IsInRole("apr"))
+                    {
+                        treatment.Approver = _userManager.GetUserId(User);
+                    }
+                    if (treatment.IsIntered && User.IsInRole("en"))
+                    {
+                        treatment.Intered = _userManager.GetUserId(User);
+                    }
+                    if (treatment.IsThmin && User.IsInRole("th"))
+                    {
+                        treatment.Muthmen = _userManager.GetUserId(User);
+                    }
                     _context.Update(treatment);
                     await _context.SaveChangesAsync();
+                    RedirectToAction("Index");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -242,45 +380,22 @@ namespace CloudApp.Controllers
                     {
                         return NotFound();
                     }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
                 return RedirectToAction("Index");
             }
-            ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", treatment.CustmerId);
+          await  GetListBind(treatment.CustmerId);
             return View(treatment);
         }
 
         // GET: Treatments/Delete/5
-        public async Task<IActionResult> Delete(long? id)
+        public JsonResult Delete(long? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var treatment = await _context.Treatment.SingleOrDefaultAsync(m => m.Id == id);
-            if (treatment == null)
-            {
-                return NotFound();
-            }
-
-            return View(treatment);
+            _context.Remove(_context.Treatment.SingleOrDefault(treatment => treatment.Id == id));
+            _context.SaveChanges();
+            return Json("true");
         }
-
-        // POST: Treatments/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long id)
-        {
-            var treatment = await _context.Treatment.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Treatment.Remove(treatment);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
-
+        
         private bool TreatmentExists(long id)
         {
             return _context.Treatment.Any(e => e.Id == id);

@@ -22,6 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\Dropzone\basic.min.css" />
+    <Content Include="wwwroot\Dropzone\dropzone-amd-module.min.js" />
+    <Content Include="wwwroot\Dropzone\dropzone.min.css" />
+    <Content Include="wwwroot\Dropzone\dropzone.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="App.config" />
     <None Update="wwwroot\**\*">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

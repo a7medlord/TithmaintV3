@@ -13,6 +13,14 @@ namespace CloudApp.Models.BusinessModel
         public string Phone { get; set; }
         [Display(Name = "الايميل")]
         public string Email { get; set; }
+
+        [Display(Name = "عناية العميل")]
+        public string FromClint { get; set; }
+
+        [Display(Name = "التصنيف")]
+        public string CustmerType { get; set; }
+
+        public string ImgId { get; set; }
         public List<Quotation> Quotations { get; set; }
         public List<Treatment> Treatments { get; set; }
 

@@ -57,7 +57,7 @@ namespace CloudApp.Controllers
         public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-           
+          
             return View();
         }
 
@@ -105,6 +105,7 @@ namespace CloudApp.Controllers
 
         public IActionResult Addroles()
         {
+
             return View("Addroles");
         }
 
@@ -194,7 +195,7 @@ namespace CloudApp.Controllers
 
             useris.PhoneNumber = model.PhoneNumber;
             useris.IdentityId = model.IdentityId;
-            useris.SigImage = model.SigPic;
+         
             
             if (ModelState.IsValid)
             {
@@ -254,7 +255,7 @@ namespace CloudApp.Controllers
 
             useris.PhoneNumber = model.PhoneNumber;
             useris.IdentityId = model.IdentityId;
-            useris.SigImage = model.SigPic;
+           
 
             if (ModelState.IsValid)
             {

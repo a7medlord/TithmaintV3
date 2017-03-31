@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
 using CloudApp.Models.BusinessModel;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace CloudApp.Controllers
 {
@@ -16,10 +18,12 @@ namespace CloudApp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public CustmersController(ApplicationDbContext context)
+        private IHostingEnvironment _env;
+        public CustmersController(ApplicationDbContext context , IHostingEnvironment env)
         {
             _context = context;
             ViewData["usernames"] = AccountController.userName;
+            _env = env;
         }
 
         // GET: Custmers
@@ -58,10 +62,15 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Email,Name,Phone,SampleId")] Custmer custmer)
+        public async Task<IActionResult> Create([Bind] Custmer custmer)
         {
             if (ModelState.IsValid)
-            {
+            { 
+                IFormFile file = Request.Form.Files[0];
+                string guid = Guid.NewGuid().ToString();
+                string path = "ProfileImg/" + guid+ ".jpg";
+                custmer.ImgId = guid;
+                await  CreatFile(path, file);
                 _context.Add(custmer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -69,7 +78,14 @@ namespace CloudApp.Controllers
             ViewData["SampleId"] = new SelectList(_context.Samples, "Id", "Name", custmer.SampleId);
             return View(custmer);
         }
+        public async Task CreatFile(string path, IFormFile file)
+        {
+            var strem = new FileStream(Path.Combine(_env.WebRootPath, path), FileMode.Create);
+            await file.CopyToAsync(strem);
+            strem.Close();
+            strem.Dispose();
 
+        }
         // GET: Custmers/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
@@ -92,7 +108,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Email,Name,Phone,SampleId")] Custmer custmer)
+        public async Task<IActionResult> Edit(long id, [Bind] Custmer custmer)
         {
             if (id != custmer.Id)
             {
@@ -103,6 +119,15 @@ namespace CloudApp.Controllers
             {
                 try
                 {
+                    IFormFile file = Request.Form.Files[0];
+                    if (file.Length > 0)
+                    {
+                        string guid = Guid.NewGuid().ToString();
+                        string path = "ProfileImg/" + guid + ".jpg";
+                        custmer.ImgId = guid;
+                        await CreatFile(path, file);
+                    }
+                    
                     _context.Update(custmer);
                     await _context.SaveChangesAsync();
                 }

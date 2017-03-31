@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CloudApp.Models.BusinessModel
 {
@@ -179,6 +180,10 @@ namespace CloudApp.Models.BusinessModel
         public string Approver { get; set; }
         public string Intered { get; set; }
 
-
+        public List<AttachmentForTreament> AttachmentForTreaments { get; set; }
+        [Display(Name = "خــط طول")]
+        public string Longtute { get; set; }
+        [Display(Name = "خــط العرض")]
+        public string Latute { get; set; }
     }
 }
