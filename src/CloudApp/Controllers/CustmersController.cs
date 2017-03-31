@@ -108,7 +108,7 @@ namespace CloudApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Email,Name,Phone,SampleId")] Custmer custmer)
+        public async Task<IActionResult> Edit(long id, [Bind] Custmer custmer)
         {
             if (id != custmer.Id)
             {
@@ -119,6 +119,15 @@ namespace CloudApp.Controllers
             {
                 try
                 {
+                    IFormFile file = Request.Form.Files[0];
+                    if (file.Length > 0)
+                    {
+                        string guid = Guid.NewGuid().ToString();
+                        string path = "ProfileImg/" + guid + ".jpg";
+                        custmer.ImgId = guid;
+                        await CreatFile(path, file);
+                    }
+                    
                     _context.Update(custmer);
                     await _context.SaveChangesAsync();
                 }
