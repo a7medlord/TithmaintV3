@@ -27,18 +27,25 @@ namespace CloudApp.Controllers
         public IActionResult GetSample0Report()
         {
 
-            ReportDataSource custmertDataSource = new ReportDataSource();
+            //ReportDataSource custmertDataSource = new ReportDataSource();
 
             ReportDataSource reportDataSource = new ReportDataSource();
 
-
+            //List<Treatment> treatments = new List<Treatment>(){new Treatment()
+            //{Id = 434344,
+            //    Owner = "ÌÇãÏ Úáí ßÈáæ",SCustmer = "Úáí ÈÇÈÇ" ,City = "ÇáÑíÇÖ" , Gada = "ÇáãáÒ",
+            //    ServicesWater = true,ServicesElectrocitcs = true ,ServicesLamp = true ,ServicesPhone = true ,ServicesRoad = true,ServicesSanitation = true,
+            //    SroundMosq = true ,SroundGarden = true, SroundBank = true , SroundCentralSoaq = false, SroundPoilceCenter = true ,SroundComirchalCenter = true, SroundDispensares = true , SroundFeul = true, SroundGenralSoaq = true , SroundGovermentDepartMent = true , SroundHospital = true ,SroundHotel = true , SroundRestrant = true, SroundSchools = true ,SroundSoaq = true, SroundciviliDenfencs = true ,SroundmedSecurityFacilty = true , SroundmedicalCenter = true, Sroundmedicalfacilty = true ,Sroundpartment = true,
+            //    StyleBuild = "äÚã æÇäå ÇáÇÌãá", GenralLocations = "ÏÇÎá ÇáäØÇÞ" , TotalPriceNumber = 1000
+            //}};
 
             // Qoution Report
-            reportDataSource.Name = "ReportDataSet";
-            reportDataSource.Value = _context.Treatment.ToList();
-            //Custumer Report
-            custmertDataSource.Name = "CustmerDataSet";
-            custmertDataSource.Value = _context.Custmer.ToList();
+          var  treatments= _context.Treatment.Where(d => d.Id == 20);
+            reportDataSource.Name = "DataSetS0";
+            reportDataSource.Value = treatments;
+            ////Custumer Report
+            //custmertDataSource.Name = "CustmerDataSet";
+            //custmertDataSource.Value = _context.Custmer.ToList();
        
 
 
@@ -54,16 +61,51 @@ namespace CloudApp.Controllers
 
             local.ReportPath = "Report/Sm0Report.rdlc";
             local.EnableExternalImages = true;
-           // double amount = instruments.Sum(d => d.Amount);
 
-        //    ToWord toWord = new ToWord((decimal)amount, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
+            double price = treatments.Sum(d => d.TotalPriceNumber);
 
-            //ReportParameter[] parameters = {
+              ToWord toWord = new ToWord((decimal)price, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
+            //get name
+             string muthmenname=   _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.EmployName;
+            string aduitname = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.EmployName;
+            string appovename = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.EmployName;
+            // get member id
+            string muthmenid = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.MemberId;
+            string aduitid = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.MemberId;
+            string appoveid = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.MemberId;
+            //get image sign
+            string muthminsign = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.SigImage;
+            string auditsign = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.SigImage;
+            string approvesign = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.SigImage;
+            //get image url
+            string sigurlmuthmen = "http://" + HttpContext.Request.Host + "/ProfPic/" + muthminsign + ".jpg";
+            string sigurlauditsign = "http://" + HttpContext.Request.Host + "/ProfPic/" + auditsign + ".jpg";
+            string sigurlapprovesign = "http://" + HttpContext.Request.Host + "/ProfPic/" + approvesign + ".jpg";
 
-            //    new ReportParameter("num",  toWord.ConvertToArabic())
-            //   };
+            ReportParameter[] parameters = {
+                new ReportParameter("muthmen", muthmenname),
+                 new ReportParameter("audit", aduitname),
+                  new ReportParameter("approver", appovename),
+                new ReportParameter("totprice",  toWord.ConvertToArabic()),
 
-            //local.SetParameters(parameters);
+
+                new ReportParameter("muthminsign",  sigurlmuthmen),
+                new ReportParameter("Auditsign",  sigurlauditsign),
+                new ReportParameter("Approvesign", sigurlapprovesign),
+
+
+                new ReportParameter("idmuthmin",  muthmenid),
+                new ReportParameter("idaudit",  aduitid),
+                new ReportParameter("idapprove", appoveid),
+                new ReportParameter("earthmap",  ""),
+                new ReportParameter("map", ""),
+                new ReportParameter("zoommap", ""),
+                new ReportParameter("images", "1,2,3,4,5,6")
+
+
+               };
+
+            local.SetParameters(parameters);
 
             byte[] rendervalue = local.Render("Pdf", "");
 
