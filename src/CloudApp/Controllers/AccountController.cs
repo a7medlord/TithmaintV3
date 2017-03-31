@@ -195,7 +195,7 @@ namespace CloudApp.Controllers
 
             useris.PhoneNumber = model.PhoneNumber;
             useris.IdentityId = model.IdentityId;
-            useris.SigImage = model.SigPic;
+         
             
             if (ModelState.IsValid)
             {
@@ -255,7 +255,7 @@ namespace CloudApp.Controllers
 
             useris.PhoneNumber = model.PhoneNumber;
             useris.IdentityId = model.IdentityId;
-            useris.SigImage = model.SigPic;
+           
 
             if (ModelState.IsValid)
             {

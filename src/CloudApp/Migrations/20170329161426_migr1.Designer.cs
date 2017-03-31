@@ -8,8 +8,8 @@ using CloudApp.Data;
 namespace CloudApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170328162507_migr8")]
-    partial class migr8
+    [Migration("20170329161426_migr1")]
+    partial class migr1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -79,6 +79,22 @@ namespace CloudApp.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.AttachmentForTreament", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AttachmentId");
+
+                    b.Property<long>("TreatmentId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TreatmentId");
+
+                    b.ToTable("AttachmentForTreaments");
                 });
 
             modelBuilder.Entity("CloudApp.Models.BusinessModel.Custmer", b =>
@@ -313,7 +329,13 @@ namespace CloudApp.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Adutit");
+
                     b.Property<string>("Agbuild");
+
+                    b.Property<string>("ApplicationUserId");
+
+                    b.Property<string>("Approver");
 
                     b.Property<string>("Area");
 
@@ -331,7 +353,11 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("Gada");
 
+                    b.Property<string>("GenLoc");
+
                     b.Property<string>("GenralLocations");
+
+                    b.Property<string>("Intered");
 
                     b.Property<bool>("IsAduit");
 
@@ -341,7 +367,11 @@ namespace CloudApp.Migrations
 
                     b.Property<bool>("IsThmin");
 
+                    b.Property<string>("Latute");
+
                     b.Property<string>("Local");
+
+                    b.Property<string>("Longtute");
 
                     b.Property<string>("MantinCost");
 
@@ -352,6 +382,8 @@ namespace CloudApp.Migrations
                     b.Property<string>("MothmnOpnin");
 
                     b.Property<string>("Musteh");
+
+                    b.Property<string>("Muthmen");
 
                     b.Property<string>("Napartment");
 
@@ -375,11 +407,13 @@ namespace CloudApp.Migrations
 
                     b.Property<bool>("ServicesElectrocitcs");
 
+                    b.Property<bool>("ServicesLamp");
+
                     b.Property<bool>("ServicesPhone");
 
-                    b.Property<bool>("ServicesSanitation");
+                    b.Property<bool>("ServicesRoad");
 
-                    b.Property<bool>("ServicesSantiNetWork");
+                    b.Property<bool>("ServicesSanitation");
 
                     b.Property<bool>("ServicesWater");
 
@@ -439,8 +473,6 @@ namespace CloudApp.Migrations
 
                     b.Property<double>("TotalPriceNumber");
 
-                    b.Property<string>("TotalPriceWorld");
-
                     b.Property<string>("West");
 
                     b.Property<string>("WestTall");
@@ -448,6 +480,8 @@ namespace CloudApp.Migrations
                     b.Property<string>("Wland");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("CustmerId");
 
@@ -561,6 +595,14 @@ namespace CloudApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.AttachmentForTreament", b =>
+                {
+                    b.HasOne("CloudApp.Models.BusinessModel.Treatment", "Treatment")
+                        .WithMany("AttachmentForTreaments")
+                        .HasForeignKey("TreatmentId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("CloudApp.Models.BusinessModel.Custmer", b =>
                 {
                     b.HasOne("CloudApp.Models.BusinessModel.Sample", "Sample")
@@ -607,6 +649,10 @@ namespace CloudApp.Migrations
 
             modelBuilder.Entity("CloudApp.Models.BusinessModel.Treatment", b =>
                 {
+                    b.HasOne("CloudApp.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("CloudApp.Models.BusinessModel.Custmer", "Custmer")
                         .WithMany("Treatments")
                         .HasForeignKey("CustmerId")

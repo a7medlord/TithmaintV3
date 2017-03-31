@@ -42,6 +42,20 @@ namespace CloudApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Flag",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    FlagValue = table.Column<long>(nullable: false),
+                    Value = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Flag", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Samples",
                 columns: table => new
                 {
@@ -196,6 +210,7 @@ namespace CloudApp.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ApplicationUserId = table.Column<string>(nullable: true),
                     Bank = table.Column<string>(nullable: true),
                     Complate = table.Column<string>(nullable: true),
                     CustmerId = table.Column<long>(nullable: false),
@@ -207,6 +222,12 @@ namespace CloudApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Quotation", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Quotation_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Quotation_Custmer_CustmerId",
                         column: x => x.CustmerId,
@@ -236,7 +257,6 @@ namespace CloudApp.Migrations
                     IsThmin = table.Column<bool>(nullable: false),
                     Local = table.Column<string>(nullable: true),
                     Napartment = table.Column<string>(nullable: true),
-                    Npiece = table.Column<string>(nullable: true),
                     OccBuild = table.Column<string>(nullable: true),
                     Owner = table.Column<string>(nullable: true),
                     Plane = table.Column<string>(nullable: true),
@@ -280,7 +300,6 @@ namespace CloudApp.Migrations
                     IsThmin = table.Column<bool>(nullable: false),
                     Local = table.Column<string>(nullable: true),
                     Napartment = table.Column<string>(nullable: true),
-                    Npiece = table.Column<string>(nullable: true),
                     OccBuild = table.Column<string>(nullable: true),
                     Owner = table.Column<string>(nullable: true),
                     Plane = table.Column<string>(nullable: true),
@@ -310,7 +329,10 @@ namespace CloudApp.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Adutit = table.Column<string>(nullable: true),
                     Agbuild = table.Column<string>(nullable: true),
+                    ApplicationUserId = table.Column<string>(nullable: true),
+                    Approver = table.Column<string>(nullable: true),
                     Area = table.Column<string>(nullable: true),
                     CaseBuild = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
@@ -319,21 +341,26 @@ namespace CloudApp.Migrations
                     East = table.Column<string>(nullable: true),
                     EastTall = table.Column<string>(nullable: true),
                     Gada = table.Column<string>(nullable: true),
+                    GenLoc = table.Column<string>(nullable: true),
                     GenralLocations = table.Column<string>(nullable: true),
+                    Intered = table.Column<string>(nullable: true),
                     IsAduit = table.Column<bool>(nullable: false),
                     IsApproved = table.Column<bool>(nullable: false),
                     IsIntered = table.Column<bool>(nullable: false),
                     IsThmin = table.Column<bool>(nullable: false),
+                    Latute = table.Column<string>(nullable: true),
                     Local = table.Column<string>(nullable: true),
+                    Longtute = table.Column<string>(nullable: true),
                     MantinCost = table.Column<string>(nullable: true),
                     MeterPriceForBulding = table.Column<double>(nullable: false),
                     MeterPriceForEarth = table.Column<double>(nullable: false),
                     MothmnOpnin = table.Column<string>(nullable: true),
+                    Musteh = table.Column<string>(nullable: true),
+                    Muthmen = table.Column<string>(nullable: true),
                     Napartment = table.Column<string>(nullable: true),
                     North = table.Column<string>(nullable: true),
                     NorthTall = table.Column<string>(nullable: true),
                     NotesAndAbstracting = table.Column<string>(nullable: true),
-                    Npiece = table.Column<string>(nullable: true),
                     OccBuild = table.Column<string>(nullable: true),
                     Owner = table.Column<string>(nullable: true),
                     Plane = table.Column<string>(nullable: true),
@@ -341,9 +368,10 @@ namespace CloudApp.Migrations
                     SCustmer = table.Column<string>(nullable: true),
                     SNum = table.Column<string>(nullable: true),
                     ServicesElectrocitcs = table.Column<bool>(nullable: false),
+                    ServicesLamp = table.Column<bool>(nullable: false),
                     ServicesPhone = table.Column<bool>(nullable: false),
+                    ServicesRoad = table.Column<bool>(nullable: false),
                     ServicesSanitation = table.Column<bool>(nullable: false),
-                    ServicesSantiNetWork = table.Column<bool>(nullable: false),
                     ServicesWater = table.Column<bool>(nullable: false),
                     South = table.Column<string>(nullable: true),
                     SouthTall = table.Column<string>(nullable: true),
@@ -381,6 +409,12 @@ namespace CloudApp.Migrations
                 {
                     table.PrimaryKey("PK_Treatment", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Treatment_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Treatment_Custmer_CustmerId",
                         column: x => x.CustmerId,
                         principalTable: "Custmer",
@@ -412,6 +446,26 @@ namespace CloudApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "AttachmentForTreaments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AttachmentId = table.Column<string>(nullable: true),
+                    TreatmentId = table.Column<long>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AttachmentForTreaments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AttachmentForTreaments_Treatment_TreatmentId",
+                        column: x => x.TreatmentId,
+                        principalTable: "Treatment",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
@@ -424,6 +478,11 @@ namespace CloudApp.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_AttachmentForTreaments_TreatmentId",
+                table: "AttachmentForTreaments",
+                column: "TreatmentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Custmer_SampleId",
                 table: "Custmer",
                 column: "SampleId");
@@ -432,6 +491,11 @@ namespace CloudApp.Migrations
                 name: "IX_Instrument_QuotationId",
                 table: "Instrument",
                 column: "QuotationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Quotation_ApplicationUserId",
+                table: "Quotation",
+                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Quotation_CustmerId",
@@ -447,6 +511,11 @@ namespace CloudApp.Migrations
                 name: "IX_R2Smaple_CustmerId",
                 table: "R2Smaple",
                 column: "CustmerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Treatment_ApplicationUserId",
+                table: "Treatment",
+                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Treatment_CustmerId",
@@ -483,6 +552,12 @@ namespace CloudApp.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AttachmentForTreaments");
+
+            migrationBuilder.DropTable(
+                name: "Flag");
+
+            migrationBuilder.DropTable(
                 name: "Instrument");
 
             migrationBuilder.DropTable(
@@ -490,9 +565,6 @@ namespace CloudApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "R2Smaple");
-
-            migrationBuilder.DropTable(
-                name: "Treatment");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -508,6 +580,9 @@ namespace CloudApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Treatment");
 
             migrationBuilder.DropTable(
                 name: "Quotation");

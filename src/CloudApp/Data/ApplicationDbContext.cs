@@ -40,6 +40,8 @@ namespace CloudApp.Data
         public DbSet<CloudApp.Models.BusinessModel.R2Smaple> R2Smaple { get; set; }
         public DbSet<CloudApp.Models.BusinessModel.Flag> Flag { get; set; }
 
+        public DbSet<AttachmentForTreament> AttachmentForTreaments { get; set; }
+
 
         
     }

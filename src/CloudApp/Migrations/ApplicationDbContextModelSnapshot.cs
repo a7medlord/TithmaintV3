@@ -80,12 +80,34 @@ namespace CloudApp.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.AttachmentForTreament", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AttachmentId");
+
+                    b.Property<long>("TreatmentId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TreatmentId");
+
+                    b.ToTable("AttachmentForTreaments");
+                });
+
             modelBuilder.Entity("CloudApp.Models.BusinessModel.Custmer", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("CustmerType");
+
                     b.Property<string>("Email");
+
+                    b.Property<string>("FromClint");
+
+                    b.Property<string>("ImgId");
 
                     b.Property<string>("Name")
                         .IsRequired();
@@ -350,7 +372,11 @@ namespace CloudApp.Migrations
 
                     b.Property<bool>("IsThmin");
 
+                    b.Property<string>("Latute");
+
                     b.Property<string>("Local");
+
+                    b.Property<string>("Longtute");
 
                     b.Property<string>("MantinCost");
 
@@ -572,6 +598,14 @@ namespace CloudApp.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.AttachmentForTreament", b =>
+                {
+                    b.HasOne("CloudApp.Models.BusinessModel.Treatment", "Treatment")
+                        .WithMany("AttachmentForTreaments")
+                        .HasForeignKey("TreatmentId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CloudApp.Models.BusinessModel.Custmer", b =>
