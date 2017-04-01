@@ -9205,7 +9205,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value>=Fields!CountShowromms.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9253,7 +9253,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value>=Fields!CountAprtment.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9301,7 +9301,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value>=Fields!CountForOffice.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9349,7 +9349,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value>=Fields!DetlisShowRooms.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9361,6 +9361,7 @@
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox7</rd:DefaultName>
+                    <Left>0.02822cm</Left>
                     <Height>0.60707cm</Height>
                     <Width>1.68539cm</Width>
                     <Style>
@@ -9378,7 +9379,7 @@
                 <Top>1.57618cm</Top>
                 <Left>4.0606cm</Left>
                 <Height>0.63881cm</Height>
-                <Width>1.68539cm</Width>
+                <Width>1.71361cm</Width>
                 <ZIndex>7</ZIndex>
                 <Style>
                   <Border>
@@ -9397,7 +9398,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value>=Fields!DetlisApartment.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9445,7 +9446,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value>=Fields!DetlisOffice.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9493,7 +9494,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value>=Fields!TotalOfRending.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9667,7 +9668,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value>=Fields!EffictiveEjarShowRooms.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9715,7 +9716,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value>=Fields!EffictiveEjarApartment.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9763,7 +9764,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value>=Fields!EffictiveEjarOffice.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9848,7 +9849,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value>=Fields!AqarTgeemShowrooms.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9896,7 +9897,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value>=Fields!AqarTgeem.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9944,7 +9945,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value>=Fields!AqarTgeemOffices.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10124,7 +10125,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>0</Value>
+                            <Value>=Fields!IncomePrecentage.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10362,7 +10363,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value>=Fields!CountshowRoom.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10410,7 +10411,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10458,7 +10459,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value>=Fields!Countoffice.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10506,7 +10507,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value>=Fields!RendingCompnyShowRoom.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10554,7 +10555,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10602,7 +10603,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value>=Fields!RendingCompnyoffice.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10775,7 +10776,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value>=Fields!ContractCountShowRoom.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10823,7 +10824,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10871,7 +10872,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value>=Fields!ContractCountoffice.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10917,7 +10918,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>الايجار العملي</Value>
+                        <Value>عدد العقود</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -10956,7 +10957,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value>=Fields!RendingTypeShowRoom.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11004,7 +11005,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11052,7 +11053,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value>=Fields!RendingTypeoffice.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11098,24 +11099,23 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>تقييم للعقارات</Value>
+                        <Value>تصنيف المستاجر</Value>
                         <Style>
-                          <FontSize>9pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Normal</FontWeight>
                           <Color>White</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
                     <Style>
-                      <TextAlign>Center</TextAlign>
+                      <TextAlign>Right</TextAlign>
                     </Style>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
                 <Top>6.21368cm</Top>
-                <Left>0.12774cm</Left>
                 <Height>0.67937cm</Height>
-                <Width>1.71198cm</Width>
+                <Width>1.83972cm</Width>
                 <ZIndex>45</ZIndex>
                 <Style>
                   <Border>

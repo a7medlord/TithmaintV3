@@ -393,7 +393,9 @@ namespace ReportClassLibrary.BusinessModel
         public string ContractCountoffice { get; set; }
         [Display(Name = "تصنيف المستأجر")]
         public string RendingTypeoffice { get; set; }
-
+       /// <summary>
+       /// 
+       /// </summary>
 
         [Display(Name = "عدد الشقق")]
         public string CountAprtmentfor { get; set; }
