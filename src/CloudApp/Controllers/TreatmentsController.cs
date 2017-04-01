@@ -130,6 +130,7 @@ namespace CloudApp.Controllers
         {
            List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
             var listoftremantsample1 = _context.Treatment.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
+            var listoftremantsample2 = _context.R1Smaple.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
             foreach (Treatment treatment in listoftremantsample1)
             {
                 TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
@@ -141,7 +142,26 @@ namespace CloudApp.Controllers
                     CityAndHy = CheckNullValue(treatment.City + " / " + treatment.Gada),
                     Mothmen =ChekNull(treatment.ApplicationUser),
                     SampleId = CheckNullValue(treatment.Custmer.Sample.Name) ,
-                    State = GetState(treatment.IsIntered , treatment.IsThmin , treatment.IsAduit , treatment.IsApproved)
+                    State = GetState(treatment.IsIntered , treatment.IsThmin , treatment.IsAduit , treatment.IsApproved) ,
+                    Type = 1
+                };
+
+                lists.Add(row);
+            }
+
+            foreach (R1Smaple treatment in listoftremantsample2)
+            {
+                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
+                {
+                    Id = treatment.Id,
+                    Clint = CheckNullValue(treatment.Custmer.Name),
+                    Owner = CheckNullValue(treatment.Owner),
+                    AqarType = CheckNullValue(treatment.AqarType),
+                    CityAndHy = CheckNullValue(treatment.City + " / " + treatment.Gada),
+                    Mothmen = ChekNull(treatment.ApplicationUser),
+                    SampleId = CheckNullValue(treatment.Custmer.Sample.Name),
+                    State = GetState(treatment.IsIntered, treatment.IsThmin, treatment.IsAduit, treatment.IsApproved),
+                    Type = 2
                 };
 
                 lists.Add(row);
@@ -323,6 +343,22 @@ namespace CloudApp.Controllers
             return View(treatment);
         }
 
+        public IActionResult EditRouter(string id)
+        {
+            string[] data = id.Split(';');
+
+            if (data[1] == "1")
+            {
+             return   RedirectToAction("Edit", new {id= data[0]});
+            }
+            if (data[1] == "2")
+            {
+                return RedirectToAction("Edit", "R1Smaple" , new { id = data[0]});
+            }
+
+            return  RedirectToAction("Index");
+        }
+
      
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -383,10 +419,17 @@ namespace CloudApp.Controllers
         }
 
       
-        public JsonResult Delete(long? id)
+        public JsonResult Delete(long? id , int type)
         {
-            _context.Remove(_context.Treatment.SingleOrDefault(treatment => treatment.Id == id));
-            _context.SaveChanges();
+            if (type == 1)
+            {
+                _context.Remove(_context.Treatment.SingleOrDefault(treatment => treatment.Id == id));
+                _context.SaveChanges();
+            } else if (type == 2)
+            {
+                _context.Remove(_context.R1Smaple.SingleOrDefault(treatment => treatment.Id == id));
+                _context.SaveChanges();
+            }
             return Json("true");
         }
         

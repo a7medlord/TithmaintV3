@@ -25,6 +25,8 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "الحــالة")]
         public string State { get; set; }
 
+        public int Type { get; set; }
+
 
     }
 }

@@ -36,11 +36,13 @@ namespace CloudApp.Data
 
         public DbSet<Treatment> Treatment { get; set; }
         public DbSet<Sample> Samples { get; set; }
-        public DbSet<CloudApp.Models.BusinessModel.R1Smaple> R1Smaple { get; set; }
-        public DbSet<CloudApp.Models.BusinessModel.R2Smaple> R2Smaple { get; set; }
-        public DbSet<CloudApp.Models.BusinessModel.Flag> Flag { get; set; }
+        public DbSet<R1Smaple> R1Smaple { get; set; }
+        public DbSet<R2Smaple> R2Smaple { get; set; }
+        public DbSet<Flag> Flag { get; set; }
 
         public DbSet<AttachmentForTreament> AttachmentForTreaments { get; set; }
+
+        public DbSet<AttachmentForR1Sample> AttachmentForR1Samples { get; set; }
 
 
         

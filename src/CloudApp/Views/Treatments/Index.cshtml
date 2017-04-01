@@ -90,9 +90,9 @@
                                     @Html.DisplayFor(modelItem => item.State)
                                 </td>  
                                 <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="glyphicon glyphicon-edit text-primary"></i></a> &nbsp;&nbsp;
+                                    <a asp-action="EditRouter" asp-route-id="@string.Format(item.Id + ";" + item.Type)"><i class="glyphicon glyphicon-edit text-primary"></i></a> &nbsp;&nbsp;
                                     <a asp-action="GetSample0Report" asp-route-id="@item.Id"><i class="icon-print text-primary"></i></a> &nbsp;&nbsp;
-                                    <a href="#" onclick="Ondelete(this);"><i class="icon-trash text-primary"></i></a>
+                                    <a href="#" onclick="Ondelete(this , @item.Type);"><i class="icon-trash text-primary"></i></a>
                                 </td>
                             </tr>
                         }
@@ -109,19 +109,27 @@
 {
     <script>
         //Delete Logic
-        function Ondelete(event) {
+        function Ondelete(event , type) {
         
           var tds = $(event).parent().siblings();
           var idc = tds[0].innerText;
           
          if (confirm("هل تريد حذف المعاملة حقا؟")) {
-             $.get("/Treatments/Delete?id=" + idc,
+             $.get("/Treatments/Delete?id=" + idc + "&" + "type=" + type,
                  function () {
                      alert("تم حذف المعامله بنجاح");
                      $(event).parent().parent().remove();
                  });
          }
         }
+
+        function Onedit(id , type) {
+            $.get("/Treatments/EditRouter?id="+id+ "&" + "type=" + type,
+                function() {
+                   
+                });
+        }
+
         //End
     </script>
 }

@@ -93,12 +93,12 @@ namespace CloudApp.Migrations
 
                     b.HasIndex("R1SmapleId");
 
-                    b.ToTable("AttachmentForR1Sample");
+                    b.ToTable("AttachmentForR1Samples");
                 });
 
             modelBuilder.Entity("CloudApp.Models.BusinessModel.AttachmentForTreament", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("AttachmentId");
@@ -628,8 +628,6 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("GenLoc");
 
-                    b.Property<string>("GenralLocations");
-
                     b.Property<string>("Intered");
 
                     b.Property<bool>("IsAduit");
@@ -673,8 +671,6 @@ namespace CloudApp.Migrations
                     b.Property<string>("Plane");
 
                     b.Property<string>("ResWland");
-
-                    b.Property<string>("SCustmer");
 
                     b.Property<string>("SNum");
 
