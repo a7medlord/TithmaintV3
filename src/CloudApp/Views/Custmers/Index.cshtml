@@ -25,53 +25,60 @@
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover dataTables-example">
                         <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Name)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Email)
-                                </th>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
 
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Phone)
-                                </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
 
-                                <th>
+                            <th>
 
-                                    @Html.DisplayNameFor(model => model.Sample.Name)
-                                </th>
-                                <th>
+                                @Html.DisplayNameFor(model => model.Sample.Name)
+                            </th>
+                            <th>
 
-                                </th>
-                            </tr>
+                            </th>
+                        </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                 
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Name)
-                                    </td>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
                                     
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Email)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Phone)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Sample.Name)
-                                    </td>
-                                    <td>
-                                        <a asp-action="Edit" asp-route-id="@item.Id" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
 
-                                        <a asp-action="Delete" asp-route-id="@item.Id" class="text-primary"><i class="icon-trash"></i></a>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
 
-                                    </td>
-                                </tr>
-                            }
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sample.Name)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="text-primary"><i class="glyphicon glyphicon-edit"></i></a>
+
+                                    <a href="#" onclick="Ondelete(this)" class="text-primary"><i class="icon-trash"></i></a>
+
+                                </td>
+                            </tr>
+                        }
                         </tbody>
                     </table>
                 </div>
@@ -79,3 +86,24 @@
         </div>
     </div>
 </div>
+
+
+@section scripts
+{
+    <script>
+        function Ondelete(event) {
+
+            var tds = $(event).parent().siblings();
+            var idc = tds[0].innerText;
+
+            if (confirm("هل تريد حذف العميل حقا؟")) {
+                $.get("/Custmers/Delete?id=" + idc,
+                    function () {
+                        alert("تم حذف العميل بنجاح");
+                        $(event).parent().parent().remove();
+                    });
+            }
+        }
+
+    </script>
+}

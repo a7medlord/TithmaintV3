@@ -22,6 +22,9 @@ namespace CloudApp.Models
         public string SigImage { get; set; }
 
         public List<Quotation> Quotations { get; set; }
-       
+
+        public List<Treatment> Treatments { get; set; }
+
+        public List<R1Smaple> R1Smaples { get; set; }
     }
 }

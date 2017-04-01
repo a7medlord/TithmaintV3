@@ -31,6 +31,8 @@
     </ul>
 </div>
 
+@*TabContent*@
+
 <div class="tab-content">
 @* tab1 *@
 <div class="tab-pane  active" id="tab2-1">
@@ -635,11 +637,11 @@
         </div>
     </div>
 </div>
-    <br/>
-    <p>ارفق المزيــد !</p>
+<br/>
+<p>ارفق المزيــد !</p>
 <div class="dropzone" id="myId"></div>
-    <br/>
-    @*<p>او قم بحذف ملف سابق !</p>
+<br/>
+@*<p>او قم بحذف ملف سابق !</p>
     <div class="dropzone" id="myId2"></div>*@
   
 <div class="checkbox">
@@ -672,12 +674,13 @@
 </div>
 
 
-
 <ul class="pager wizard">
     <li class="previous"><a href="javascript:void(0)"><i class="icon-right-open"></i>السابق</a></li>
     <li class="next"><a href="javascript:void(0)">التالي<i class="icon-left-open"></i></a> </li>
 </ul>
 </div>
+    
+    @*StoreData*@
 <input type="hidden" name="ids" id="ids"/>
 
 </form>
@@ -699,6 +702,7 @@
     }
 
     <script>
+        //Control Tab
         $("#nex1").change(function () {
             if (this.checked) {
 
@@ -743,8 +747,9 @@
 
             }
         });
+        //end
 
-
+        //Drop Zone Logic
         var imguids = "";
         $("#myId").dropzone({
             url: "/Treatments/UploadFile",
@@ -752,11 +757,12 @@
                 imguids += response + ";";
             }
         });
-       
         $("#root").submit(function() {
             $("#ids").val(imguids);
         });
+        //end
 
+        //Google Map Logic
         var pos;
         var map;
         var geocoder;
@@ -787,10 +793,10 @@
 
                     handleLocationError(true, infoWindow, map.getCenter());
                 }, {
-                        enableHighAccuracy: false,
-                        timeout: 30000,
-                        maximumAge: 30000
-                    });
+                    enableHighAccuracy: false,
+                    timeout: 30000,
+                    maximumAge: 30000
+                });
             } else {
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
@@ -901,10 +907,12 @@
                 title: 'موقع العقار'
             });
 
-          //  var obj = map.getCenter();
+            //  var obj = map.getCenter();
             //lng() lat()
             
         });
+
+        //End
 
     </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>

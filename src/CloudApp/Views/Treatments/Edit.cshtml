@@ -1,11 +1,8 @@
 ﻿@model CloudApp.Models.BusinessModel.Treatment
 
 @{
-    ViewData["Title"] = "Create";
-
-
+    ViewData["Title"] = "جديد";
 }
-
 
 <div class="panel panel-primary">
 
@@ -20,8 +17,9 @@
 
     <div class="panel-body">
         <form asp-action="Edit" id="root" class="form-wizard validate-form-wizard validate">
-            <input type="hidden" asp-for="Id" />
-            <div class="wizard-navbar">
+        <input type="hidden" asp-for="Id" />
+
+       <div class="wizard-navbar">
                 <ul>
                     <li class="l0 active"><a href="#tab2-1" data-toggle="tab"><span>1</span> تحت الأدخال </a></li>
                     <li class="l1"><a href="#tab2-2" data-toggle="tab"><span>2</span>تحت التثمين</a></li>
@@ -30,7 +28,7 @@
                 </ul>
             </div>
 
-        <div class="tab-content">
+       <div class="tab-content">
         @* tab1 *@
         <div class="tab-pane  active" id="tab2-1">
 
@@ -680,8 +678,7 @@
         </ul>
         </div>
             
-            
-            
+            @*StoreData*@
         <input type="hidden" name="ids" id="ids" />
         <i id="imgs" style="display: none">@ViewBag.imgs</i>
         <i id="hosname" style="display: none">@string.Format("http://" + Context.Request.Host + "/attachs1/")</i>
@@ -707,7 +704,7 @@
     }
 
     <script>
-
+        //ControlTab For Edit
         function getstattab1() {
 
             if ($("#nex1").prop('checked')) {
@@ -742,7 +739,6 @@
             }
         }
 
-
         setTimeout(function() {
             $("#root").ready(function () {
                 getstattab1();
@@ -751,9 +747,9 @@
                 getstattab4();
             });
         }, 300);
+        //End
 
-
-
+        //Contorl Tab In Clint
         $("#nex1").change(function () {
             if (this.checked) {
 
@@ -798,9 +794,9 @@
 
             }
         });
+        //End
 
-
-        //start
+        //DropZone Logic
         var imguids = "";
         var ob = $("#myId").dropzone({
             url: "/Treatments/UploadFile",
@@ -828,16 +824,14 @@
             ob[0].dropzone.emit("thumbnail", mockFile, hostname + files[i]+ ".jpg" );
             ob[0].dropzone.emit("complete", mockFile);
         }
-        //end
-
-
 
         $("#root").submit(function () {
             $("#ids").val(imguids);
         });
+        //End
 
-
-
+        
+        //GoogleMap Logic
         var pos;
         var map;
         var geocoder;
@@ -986,6 +980,8 @@
             //lng() lat()
 
         });
+
+        //End
 
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>

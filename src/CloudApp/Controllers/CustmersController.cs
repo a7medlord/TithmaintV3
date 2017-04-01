@@ -26,14 +26,14 @@ namespace CloudApp.Controllers
             _env = env;
         }
 
-        // GET: Custmers
+   
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Custmer.Include(c => c.Sample);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Custmers/Details/5
+      
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -50,16 +50,13 @@ namespace CloudApp.Controllers
             return View(custmer);
         }
 
-        // GET: Custmers/Create
+    
         public IActionResult Create()
         {
             ViewData["SampleId"] = new SelectList(_context.Samples, "Id", "Name");
             return View();
         }
 
-        // POST: Custmers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind] Custmer custmer)
@@ -86,7 +83,7 @@ namespace CloudApp.Controllers
             strem.Dispose();
 
         }
-        // GET: Custmers/Edit/5
+       
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -103,9 +100,7 @@ namespace CloudApp.Controllers
             return View(custmer);
         }
 
-        // POST: Custmers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind] Custmer custmer)
@@ -120,7 +115,7 @@ namespace CloudApp.Controllers
                 try
                 {
                     IFormFile file = Request.Form.Files[0];
-                    if (file.Length > 0)
+                    if (file.Length > 0 && file.Name == "logo")
                     {
                         string guid = Guid.NewGuid().ToString();
                         string path = "ProfileImg/" + guid + ".jpg";
@@ -148,33 +143,14 @@ namespace CloudApp.Controllers
             return View(custmer);
         }
 
-        // GET: Custmers/Delete/5
-        public async Task<IActionResult> Delete(long? id)
+        
+        public JsonResult Delete(long? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var custmer = await _context.Custmer.SingleOrDefaultAsync(m => m.Id == id);
-            if (custmer == null)
-            {
-                return NotFound();
-            }
-
-            return View(custmer);
+            _context.Remove(_context.Custmer.SingleOrDefault(custmer => custmer.Id == id));
+            _context.SaveChanges();
+            return Json("true");
         }
-
-        // POST: Custmers/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long id)
-        {
-            var custmer = await _context.Custmer.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Custmer.Remove(custmer);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
+        
 
         private bool CustmerExists(long id)
         {

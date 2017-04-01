@@ -85,7 +85,7 @@ namespace CloudApp.Controllers
             return Json(guid);
         }
 
-        // GET: Treatments
+       
         public  IActionResult Index()
         {
            List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
@@ -152,7 +152,7 @@ namespace CloudApp.Controllers
             return " Õ  «·«œŒ«·";
         }
 
-        // GET: Treatments/Details/5
+       
         public async Task<IActionResult> Details(long? id)
         {
             
@@ -170,7 +170,7 @@ namespace CloudApp.Controllers
             return View(treatment);
         }
 
-        // GET: Treatments/Create
+     
         public async Task<IActionResult> Create(int id)
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
@@ -202,9 +202,7 @@ namespace CloudApp.Controllers
             return View("Models_Custmor");
         }
         
-        // POST: Treatments/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind ]Treatment treatment , string ids)
@@ -260,7 +258,7 @@ namespace CloudApp.Controllers
             _context.SaveChanges();
             return Json("true");
         }
-        // GET: Treatments/Edit/5
+     
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -285,9 +283,7 @@ namespace CloudApp.Controllers
             return View(treatment);
         }
 
-        // POST: Treatments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind] Treatment treatment , string ids)
@@ -346,7 +342,7 @@ namespace CloudApp.Controllers
             return View(treatment);
         }
 
-        // GET: Treatments/Delete/5
+      
         public JsonResult Delete(long? id)
         {
             _context.Remove(_context.Treatment.SingleOrDefault(treatment => treatment.Id == id));

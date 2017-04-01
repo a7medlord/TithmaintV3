@@ -6,6 +6,7 @@ namespace CloudApp.Models.BusinessModel
 {
     public class Custmer
     {
+        [Display(Name = "رقم المعرف")]
         public long Id { get; set; }
         [Required , Display(Name = "اسم العميل")]
         public string Name { get; set; }

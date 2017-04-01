@@ -1,88 +1,98 @@
 ﻿@model CloudApp.Models.BusinessModel.Custmer
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "تعديــل";
 }
 
-<h2>Edit</h2>
-
-<form asp-action="Edit" enctype="multipart/form-data">
-    <div class="form-horizontal">
-        <h4>Custmer</h4>
-        <hr />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="Id" />
-        <div class="form-group">
-            <label asp-for="Name" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger" />
-            </div>
-        </div>        
-
-        <div class="form-group">
-            <label asp-for="Email" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Phone" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="SampleId" class="control-label col-md-2"></label>
-            <div class="col-md-10">
-                <select asp-for="SampleId" class="form-control" asp-items="ViewBag.SampleId"></select>
-                <span asp-validation-for="SampleId" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="FromClint" class="col-md-2 control-label"></label>
-            <div class="col-md-6">
-                <input asp-for="FromClint" class="form-control" />
-                <span asp-validation-for="FromClint" class="text-danger" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="CustmerType" class="col-md-2 control-label"></label>
-            <div class="col-md-6">
-                <select class="select2 form-control" asp-for="CustmerType">
-                    <option>عام</option>
-                    <option>افراد</option>
-                    <option>شركات</option>
-                </select>
-                <span asp-validation-for="FromClint" class="text-danger" />
-            </div>
-        </div>
-        
-        <img src="@string.Format("http://"+ Context.Request.Host +"/ProfPic/" + Model.ImgId + ".jpg")" class="img-thumbnail" width="320" height="500" style="margin-right: 15%"/>
-        <br/>
-        <br/>
-
-        <div class="form-group">
-            <label for="logo" class="col-md-2 control-label">شعار العميل</label>
-            <div class="col-md-6">
-                <input id="logo" type="file" name="logo" />
-                <span asp-validation-for="FromClint" class="text-danger" />
-            </div>
-        </div>
-        <br />
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="حفــظ" class="btn btn-primary" />
-            </div>
-        </div>
+<div class="panel panel-primary">
+    <div class="panel-heading clearfix">
+        <h3 class="panel-title">العمــــــلاء</h3>
+        <ul class="panel-tool-options">
+            <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+            <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+            <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+        </ul>
     </div>
-</form>
+    <div class="panel-body">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div class="form-horizontal">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Name" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Phone" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SampleId" class="control-label col-md-2"></label>
+                    <div class="col-md-10">
+                        <select asp-for="SampleId" class="form-control select2" asp-items="ViewBag.SampleId"></select>
+                        <span asp-validation-for="SampleId" class="text-danger" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FromClint" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <input asp-for="FromClint" class="form-control" />
+                        <span asp-validation-for="FromClint" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CustmerType" class="col-md-2 control-label"></label>
+                    <div class="col-md-6">
+                        <select class="select2 form-control" asp-for="CustmerType">
+                            <option value="عام">عام</option>
+                            <option value="افراد">افراد</option>
+                            <option value="شركات">شركات</option>
+                        </select>
+                        <span asp-validation-for="FromClint" class="text-danger" />
+                    </div>
+                </div>
+
+                <img src="@string.Format("http://"+ Context.Request.Host +"/ProfPic/" + Model.ImgId + ".jpg")" class="img-thumbnail" width="320" height="500" style="margin-right: 15%" />
+                <br />
+                <br />
+
+                <div class="form-group">
+                    <label for="logo" class="col-md-2 control-label">شعار العميل</label>
+                    <div class="col-md-6">
+                        <input id="logo" type="file" name="logo" />
+                        <span asp-validation-for="FromClint" class="text-danger" />
+                    </div>
+                </div>
+                <br />
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="حفــظ" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
 
 <div>
     <a asp-action="Index">رجوع لقائمة العملاء</a>
