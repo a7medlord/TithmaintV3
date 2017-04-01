@@ -8,6 +8,8 @@ namespace CloudApp.Models.BusinessModel
 {
     public class R2Smaple
     {
+
+        //comment
         public long Id { get; set; }
 
         [Display(Name = "نوع المبني")]
