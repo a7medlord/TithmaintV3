@@ -45,7 +45,7 @@
             <Top>0.06147cm</Top>
             <Left>0.16492cm</Left>
             <Height>0.64964cm</Height>
-            <Width>19.65855cm</Width>
+            <Width>19.82347cm</Width>
             <Style>
               <Border>
                 <Color>Firebrick</Color>
@@ -345,7 +345,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!City.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -393,7 +393,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>متوفرة</Value>
+                        <Value>=Fields!BuldingType.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -441,7 +441,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>داخل النطاق</Value>
+                        <Value>=Fields!AqarScope.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -489,7 +489,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>متوفرة</Value>
+                        <Value>=Fields!JarIsBulding.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -537,7 +537,25 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>شمال : اشارع طول عرض</Value>
+                        <Value>  شمال: </Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!North.Value</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> بطول </Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!NorthTall.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -585,7 +603,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>شمال : اشارع طول عرض</Value>
+                        <Value>=Fields!Owner.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -774,7 +792,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!Gada.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -822,7 +840,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>متوفرة</Value>
+                        <Value>=Fields!BuldinIsNull.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -870,7 +888,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>داخل النطاق</Value>
+                        <Value>=Fields!AqarType.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1060,7 +1078,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!KotatNumber.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1108,7 +1126,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>متوفرة</Value>
+                        <Value>=Fields!RoadSeflt.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1156,7 +1174,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>داخل النطاق</Value>
+                        <Value>=Fields!ArchDesgin.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1346,7 +1364,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!PiceNumber.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1394,7 +1412,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>متوفرة</Value>
+                        <Value>=Fields!RoadLight.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1420,9 +1438,9 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>2.30364cm</Top>
+            <Top>2.24979cm</Top>
             <Left>5.06162cm</Left>
-            <Height>0.63881cm</Height>
+            <Height>0.69266cm</Height>
             <Width>1.35025cm</Width>
             <ZIndex>29</ZIndex>
             <Style>
@@ -1442,7 +1460,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>داخل النطاق</Value>
+                        <Value>=Fields!Mansob.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1631,7 +1649,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!BlockNumber.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1679,7 +1697,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>متوفرة</Value>
+                        <Value>=Fields!AqarAge.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1727,7 +1745,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>داخل النطاق</Value>
+                        <Value>=Fields!BulState.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1822,7 +1840,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>متوفرة</Value>
+                        <Value>=Fields!AqaraAttachment.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -1917,7 +1935,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>متوفرة</Value>
+                        <Value>=Fields!AttchType.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -2012,7 +2030,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>متوفرة</Value>
+                        <Value>=Fields!TshteebType.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -2107,7 +2125,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>متوفرة</Value>
+                        <Value>=Fields!BuldingNumber.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -2155,7 +2173,25 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>شمال : اشارع طول عرض</Value>
+                        <Value>  جنوب: </Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!South.Value</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> بطول </Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!SouthTall.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -2204,7 +2240,25 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>شمال : اشارع طول عرض</Value>
+                        <Value>  شرقا: </Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!East.Value</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> بطول </Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!EastTall.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -2252,7 +2306,25 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>شمال : اشارع طول عرض</Value>
+                        <Value>  غربآ: </Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!West.Value</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> بطول </Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!WestTall.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -2348,7 +2420,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>شمال : اشارع طول عرض</Value>
+                        <Value>=Fields!MarkterRoad.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -2470,7 +2542,19 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value> نرفق لكم فيما يلي معاينة وتقييم رقم 034744344 والؤرخ  في 12-23-2017 افيلا الواقعة في مدينة المبرز حي العيون بموجب صك رقم 1/129 بتاريخ 4/3/2015  وفسح بناء رقم 3 </Value>
+                <Value> نرفق لكم فيما يلي معاينة وتقييم0</Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!Id.Value</Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value> والؤرخ  في 12-23-2017 افيلا الواقعة في مدينة المبرز حي العيون بموجب صك رقم 1/129 بتاريخ 4/3/2015  وفسح بناء رقم  </Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>
@@ -2745,7 +2829,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>حراراي</Value>
+                        <Value>=Fields!AzlType.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -2789,7 +2873,7 @@
             <Top>0.6468cm</Top>
             <Left>11.18609cm</Left>
             <Height>0.63881cm</Height>
-            <Width>2.28468cm</Width>
+            <Width>3.65946cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -2806,41 +2890,19 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>جنوب</Value>
+                    <Value>جنوبا </Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
                   </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>0.6468cm</Top>
-            <Left>12.52842cm</Left>
-            <Height>0.57533cm</Height>
-            <Width>0.93623cm</Width>
-            <ZIndex>7</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox26">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
                   <TextRun>
-                    <Value>دهان</Value>
+                    <Value>=Fields!InterfcaesSouth.Value</Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -2853,10 +2915,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>0.6468cm</Top>
-            <Left>11.18609cm</Left>
+            <Left>11.25201cm</Left>
             <Height>0.57533cm</Height>
-            <Width>1.29646cm</Width>
-            <ZIndex>8</ZIndex>
+            <Width>3.58742cm</Width>
+            <ZIndex>7</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2873,7 +2935,7 @@
             <Left>9.10575cm</Left>
             <Height>0.63881cm</Height>
             <Width>2.15239cm</Width>
-            <ZIndex>9</ZIndex>
+            <ZIndex>8</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -2889,41 +2951,19 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>شرق</Value>
+                    <Value>شرقا </Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
                   </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>0.6468cm</Top>
-            <Left>10.31578cm</Left>
-            <Height>0.57533cm</Height>
-            <Width>0.93623cm</Width>
-            <ZIndex>10</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox28">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
                   <TextRun>
-                    <Value>دهان</Value>
+                    <Value>=Fields!InterfcaesEast.Value</Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -2936,10 +2976,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>0.6468cm</Top>
-            <Left>9.10575cm</Left>
+            <Left>9.09042cm</Left>
             <Height>0.57533cm</Height>
-            <Width>1.16417cm</Width>
-            <ZIndex>11</ZIndex>
+            <Width>2.16159cm</Width>
+            <ZIndex>9</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2956,7 +2996,7 @@
             <Left>6.89077cm</Left>
             <Height>0.63881cm</Height>
             <Width>2.17242cm</Width>
-            <ZIndex>12</ZIndex>
+            <ZIndex>10</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -2972,41 +3012,19 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>غرب</Value>
+                    <Value>غربا </Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
                   </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>0.64678cm</Top>
-            <Left>8.12082cm</Left>
-            <Height>0.57533cm</Height>
-            <Width>0.93623cm</Width>
-            <ZIndex>13</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox30">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
                   <TextRun>
-                    <Value>دهان</Value>
+                    <Value>=Fields!InterfcaesWest.Value</Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -3019,10 +3037,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>0.64678cm</Top>
-            <Left>6.91079cm</Left>
+            <Left>6.86332cm</Left>
             <Height>0.57533cm</Height>
-            <Width>1.16417cm</Width>
-            <ZIndex>14</ZIndex>
+            <Width>2.19373cm</Width>
+            <ZIndex>11</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3036,10 +3054,10 @@
           <Rectangle Name="Rectangle22">
             <KeepTogether>true</KeepTogether>
             <Top>0.64324cm</Top>
-            <Left>13.51293cm</Left>
+            <Left>14.83943cm</Left>
             <Height>0.63881cm</Height>
-            <Width>4.32077cm</Width>
-            <ZIndex>15</ZIndex>
+            <Width>2.99427cm</Width>
+            <ZIndex>12</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -3055,41 +3073,19 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>جنوب</Value>
+                    <Value>شمال </Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
                   </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>0.64324cm</Top>
-            <Left>15.14651cm</Left>
-            <Height>0.57533cm</Height>
-            <Width>2.73094cm</Width>
-            <ZIndex>16</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox32">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
                   <TextRun>
-                    <Value>دهان</Value>
+                    <Value>=Fields!InterfcaesNorth.Value</Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -3102,10 +3098,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>0.64324cm</Top>
-            <Left>13.51293cm</Left>
+            <Left>14.88083cm</Left>
             <Height>0.57533cm</Height>
-            <Width>1.63358cm</Width>
-            <ZIndex>17</ZIndex>
+            <Width>2.99662cm</Width>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3122,7 +3118,7 @@
             <Left>3.54629cm</Left>
             <Height>0.63881cm</Height>
             <Width>3.32317cm</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -3154,7 +3150,7 @@
             <Left>4.72809cm</Left>
             <Height>0.57533cm</Height>
             <Width>2.13523cm</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3173,7 +3169,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>دهان</Value>
+                    <Value>=Fields!WestTall.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -3189,7 +3185,7 @@
             <Left>3.55243cm</Left>
             <Height>0.57533cm</Height>
             <Width>1.17567cm</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3207,7 +3203,7 @@
             <Left>0.05586cm</Left>
             <Height>0.63881cm</Height>
             <Width>3.49657cm</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -3223,7 +3219,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>الابواب الخارجية</Value>
+                    <Value>الابواب الداخلية</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -3239,7 +3235,7 @@
             <Left>1.41106cm</Left>
             <Height>0.57533cm</Height>
             <Width>2.13523cm</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3258,7 +3254,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>دهان</Value>
+                    <Value>=Fields!InnerDoor.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -3274,7 +3270,7 @@
             <Left>0.05586cm</Left>
             <Height>0.57533cm</Height>
             <Width>1.3552cm</Width>
-            <ZIndex>23</ZIndex>
+            <ZIndex>19</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3292,7 +3288,7 @@
             <Left>11.28384cm</Left>
             <Height>0.63881cm</Height>
             <Width>3.98019cm</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>20</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -3324,7 +3320,7 @@
             <Left>13.89472cm</Left>
             <Height>0.57533cm</Height>
             <Width>1.3693cm</Width>
-            <ZIndex>25</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3342,7 +3338,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>سراميك</Value>
+                    <Value>=Fields!Rescptions.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -3358,7 +3354,7 @@
             <Left>11.28384cm</Left>
             <Height>0.57533cm</Height>
             <Width>2.61088cm</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3409,7 +3405,7 @@
             <Left>6.97988cm</Left>
             <Height>0.63881cm</Height>
             <Width>4.34727cm</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -3425,7 +3421,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>سراميك</Value>
+                    <Value>=Fields!Rooms.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -3441,7 +3437,7 @@
             <Left>6.97988cm</Left>
             <Height>0.57533cm</Height>
             <Width>3.22084cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3458,7 +3454,7 @@
             <Left>15.36901cm</Left>
             <Height>0.63881cm</Height>
             <Width>2.50844cm</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -3490,7 +3486,7 @@
             <Left>16.53554cm</Left>
             <Height>0.57533cm</Height>
             <Width>1.33579cm</Width>
-            <ZIndex>30</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3508,7 +3504,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>يلاط</Value>
+                    <Value>=Fields!Ahwash.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -3524,7 +3520,7 @@
             <Left>15.32403cm</Left>
             <Height>0.57533cm</Height>
             <Width>1.21151cm</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3541,7 +3537,7 @@
             <Left>3.48033cm</Left>
             <Height>0.63881cm</Height>
             <Width>3.32317cm</Width>
-            <ZIndex>32</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -3573,7 +3569,7 @@
             <Left>4.66213cm</Left>
             <Height>0.57533cm</Height>
             <Width>2.13523cm</Width>
-            <ZIndex>33</ZIndex>
+            <ZIndex>29</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3592,7 +3588,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>دهان</Value>
+                    <Value>=Fields!ArchConstract.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -3608,7 +3604,7 @@
             <Left>3.48647cm</Left>
             <Height>0.57533cm</Height>
             <Width>1.17567cm</Width>
-            <ZIndex>34</ZIndex>
+            <ZIndex>30</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3625,7 +3621,7 @@
             <Top>1.3717cm</Top>
             <Height>0.63881cm</Height>
             <Width>3.49657cm</Width>
-            <ZIndex>35</ZIndex>
+            <ZIndex>31</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -3657,7 +3653,7 @@
             <Left>1.3451cm</Left>
             <Height>0.57533cm</Height>
             <Width>2.13523cm</Width>
-            <ZIndex>36</ZIndex>
+            <ZIndex>32</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3676,7 +3672,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>دهان</Value>
+                    <Value>=Fields!AsqfType.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -3691,7 +3687,7 @@
             <Top>1.3717cm</Top>
             <Height>0.57533cm</Height>
             <Width>1.3552cm</Width>
-            <ZIndex>37</ZIndex>
+            <ZIndex>33</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3712,7 +3708,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsDonForSndElectric.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -3745,7 +3741,7 @@
             <Left>9.93018cm</Left>
             <Height>0.57533cm</Height>
             <Width>5.84835cm</Width>
-            <ZIndex>38</ZIndex>
+            <ZIndex>34</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -3777,7 +3773,7 @@
             <Left>10.56518cm</Left>
             <Height>0.57533cm</Height>
             <Width>3.96152cm</Width>
-            <ZIndex>39</ZIndex>
+            <ZIndex>35</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3797,7 +3793,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>التكيف</Value>
+                        <Value>مركزي</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -3809,6 +3805,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>0.00664cm</Top>
                 <Left>7.70781cm</Left>
                 <Height>0.51183cm</Height>
                 <Width>1.02765cm</Width>
@@ -3829,7 +3826,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>صحراوي</Value>
+                        <Value>شباك</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -3841,7 +3838,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.03936cm</Top>
+                <Top>0.046cm</Top>
                 <Left>3.12897cm</Left>
                 <Height>0.48006cm</Height>
                 <Width>1.69632cm</Width>
@@ -3864,7 +3861,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>شباك</Value>
+                        <Value>منفصل</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -3876,7 +3873,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.03934cm</Top>
+                <Top>0.04598cm</Top>
                 <Left>0.89339cm</Left>
                 <Height>0.48008cm</Height>
                 <Width>1.3552cm</Width>
@@ -3899,7 +3896,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>منفصل</Value>
+                        <Value>صحراوي</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -3911,7 +3908,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.02412cm</Top>
+                <Top>0.03076cm</Top>
                 <Left>5.88362cm</Left>
                 <Height>0.48008cm</Height>
                 <Width>1.3552cm</Width>
@@ -3934,7 +3931,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsCetral.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -3947,7 +3944,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>AuditAgree</rd:DefaultName>
-                <Top>0.00761cm</Top>
+                <Top>0.01425cm</Top>
                 <Left>8.51321cm</Left>
                 <Height>0.50247cm</Height>
                 <Width>0.79762cm</Width>
@@ -3962,13 +3959,46 @@
                   <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
+              <Textbox Name="Textbox282">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>التكييف</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Right</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Left>9.31083cm</Left>
+                <Height>0.60707cm</Height>
+                <Width>1.08149cm</Width>
+                <ZIndex>5</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>2.16903cm</Top>
+            <Top>2.16239cm</Top>
             <Left>0.13758cm</Left>
-            <Height>0.51942cm</Height>
-            <Width>9.64495cm</Width>
-            <ZIndex>40</ZIndex>
+            <Height>0.60707cm</Height>
+            <Width>12.07011cm</Width>
+            <ZIndex>36</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -3984,7 +4014,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsDesrt.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -4001,7 +4031,7 @@
             <Left>7.17621cm</Left>
             <Height>0.56597cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>41</ZIndex>
+            <ZIndex>37</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4019,7 +4049,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsWindo.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -4036,7 +4066,7 @@
             <Left>4.89021cm</Left>
             <Height>0.50247cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>42</ZIndex>
+            <ZIndex>38</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4054,7 +4084,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsSeprat.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -4071,7 +4101,7 @@
             <Left>2.25496cm</Left>
             <Height>0.47685cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>43</ZIndex>
+            <ZIndex>39</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4227,7 +4257,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsDoublGlass.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -4261,7 +4291,7 @@
             <Left>9.45619cm</Left>
             <Height>0.51942cm</Height>
             <Width>8.40231cm</Width>
-            <ZIndex>44</ZIndex>
+            <ZIndex>40</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -4277,7 +4307,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsDoublWall.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -4294,7 +4324,7 @@
             <Left>14.83943cm</Left>
             <Height>0.56597cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>45</ZIndex>
+            <ZIndex>41</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4312,7 +4342,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsJebsForSaqf.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -4329,7 +4359,7 @@
             <Left>12.71218cm</Left>
             <Height>0.50247cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>46</ZIndex>
+            <ZIndex>42</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4347,7 +4377,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsHidingLight.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -4364,7 +4394,7 @@
             <Left>10.77543cm</Left>
             <Height>0.47685cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>47</ZIndex>
+            <ZIndex>43</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4522,7 +4552,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsDonForSndElectric.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -4557,7 +4587,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsKrajEletcru.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -4591,7 +4621,7 @@
             <Left>0.12082cm</Left>
             <Height>0.56598cm</Height>
             <Width>9.25823cm</Width>
-            <ZIndex>48</ZIndex>
+            <ZIndex>44</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -4607,7 +4637,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IslAder.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -4624,7 +4654,7 @@
             <Left>3.97873cm</Left>
             <Height>0.50247cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>49</ZIndex>
+            <ZIndex>45</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4642,7 +4672,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsNormalKraj.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -4659,7 +4689,7 @@
             <Left>2.48648cm</Left>
             <Height>0.47685cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>50</ZIndex>
+            <ZIndex>46</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4747,7 +4777,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>حمام عربي عدد</Value>
+                        <Value>حمام عربي </Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -4817,7 +4847,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsGates.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -4852,7 +4882,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>حمام افرنجي عدد</Value>
+                        <Value>حمام افرنجي </Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -4887,7 +4917,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsForinTut.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -4920,7 +4950,7 @@
             <Left>0.13758cm</Left>
             <Height>0.55688cm</Height>
             <Width>17.63251cm</Width>
-            <ZIndex>51</ZIndex>
+            <ZIndex>47</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -4936,7 +4966,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsLifts.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -4953,7 +4983,7 @@
             <Left>13.0751cm</Left>
             <Height>0.56597cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>52</ZIndex>
+            <ZIndex>48</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4971,7 +5001,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Ishoter.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -4988,7 +5018,7 @@
             <Left>10.31286cm</Left>
             <Height>0.50247cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>53</ZIndex>
+            <ZIndex>49</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -5006,7 +5036,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsArbicTut.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                     <Style>
                       <FontFamily>Wingdings</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -5023,7 +5053,7 @@
             <Left>7.20075cm</Left>
             <Height>0.5042cm</Height>
             <Width>0.79762cm</Width>
-            <ZIndex>54</ZIndex>
+            <ZIndex>50</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -5057,7 +5087,7 @@
             <Left>13.50182cm</Left>
             <Height>0.57533cm</Height>
             <Width>2.13523cm</Width>
-            <ZIndex>55</ZIndex>
+            <ZIndex>51</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -5092,7 +5122,7 @@
             <Left>9.09042cm</Left>
             <Height>0.57533cm</Height>
             <Width>2.13523cm</Width>
-            <ZIndex>56</ZIndex>
+            <ZIndex>52</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -5127,7 +5157,7 @@
             <Left>4.4885cm</Left>
             <Height>0.57533cm</Height>
             <Width>2.13523cm</Width>
-            <ZIndex>57</ZIndex>
+            <ZIndex>53</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -5178,7 +5208,7 @@
             <Left>15.80621cm</Left>
             <Height>0.63881cm</Height>
             <Width>2.06206cm</Width>
-            <ZIndex>58</ZIndex>
+            <ZIndex>54</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -5226,7 +5256,7 @@
             <Left>6.94729cm</Left>
             <Height>0.63881cm</Height>
             <Width>2.06206cm</Width>
-            <ZIndex>59</ZIndex>
+            <ZIndex>55</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -5274,7 +5304,7 @@
             <Left>11.35367cm</Left>
             <Height>0.63881cm</Height>
             <Width>2.06206cm</Width>
-            <ZIndex>60</ZIndex>
+            <ZIndex>56</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -5323,7 +5353,7 @@
             <Left>0.21695cm</Left>
             <Height>0.63881cm</Height>
             <Width>4.13044cm</Width>
-            <ZIndex>61</ZIndex>
+            <ZIndex>57</ZIndex>
             <Style>
               <Border>
                 <Color>#e2e7eb</Color>
@@ -5373,7 +5403,7 @@
             <Left>0.15875cm</Left>
             <Height>0.64964cm</Height>
             <Width>19.65855cm</Width>
-            <ZIndex>62</ZIndex>
+            <ZIndex>58</ZIndex>
             <Style>
               <Border>
                 <Color>Firebrick</Color>
@@ -11237,7 +11267,7 @@
   <Width>20.6cm</Width>
   <Page>
     <PageHeader>
-      <Height>2.22273cm</Height>
+      <Height>2.22274cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -11451,34 +11481,198 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>8a479e59-ba6f-457a-b993-efbf32400a22</rd:DataSourceID>
+      <rd:DataSourceID>c6bcf882-a057-4f16-b887-2e2ae18c5825</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSetS1">
+    <DataSet Name="DataSetR1Sample">
       <Query>
         <DataSourceName>ReportClassLibraryBusinessModel</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Acce">
-          <DataField>Acce</DataField>
+        <Field Name="Adutit">
+          <DataField>Adutit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AhlakPrecentage">
+          <DataField>AhlakPrecentage</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Ahwash">
+          <DataField>Ahwash</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ApplicationUser">
+          <DataField>ApplicationUser</DataField>
+          <rd:TypeName>ReportClassLibrary.BusinessModel.ApplicationUser</rd:TypeName>
+        </Field>
+        <Field Name="ApplicationUserId">
+          <DataField>ApplicationUserId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Approver">
+          <DataField>Approver</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AqaraAttachment">
+          <DataField>AqaraAttachment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AqarAge">
+          <DataField>AqarAge</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AqarIsMosas">
+          <DataField>AqarIsMosas</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="Agbuild">
-          <DataField>Agbuild</DataField>
+        <Field Name="AqarScope">
+          <DataField>AqarScope</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Area">
-          <DataField>Area</DataField>
+        <Field Name="AqarTgeem">
+          <DataField>AqarTgeem</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CaseBuild">
-          <DataField>CaseBuild</DataField>
+        <Field Name="AqarTgeemOffices">
+          <DataField>AqarTgeemOffices</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AqarTgeemShowrooms">
+          <DataField>AqarTgeemShowrooms</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AqarType">
+          <DataField>AqarType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ArchConstract">
+          <DataField>ArchConstract</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ArchDesgin">
+          <DataField>ArchDesgin</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaApendxup">
+          <DataField>AreaApendxup</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaApnedxEarth">
+          <DataField>AreaApnedxEarth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaCars">
+          <DataField>AreaCars</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaDorEarth">
+          <DataField>AreaDorEarth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaEarth">
+          <DataField>AreaEarth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaFirstDoor">
+          <DataField>AreaFirstDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Areagarden">
+          <DataField>Areagarden</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaOthers">
+          <DataField>AreaOthers</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaQabo">
+          <DataField>AreaQabo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreareptDoor">
+          <DataField>AreareptDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaSwar">
+          <DataField>AreaSwar</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaSwimingpool">
+          <DataField>AreaSwimingpool</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AsqfType">
+          <DataField>AsqfType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AttchType">
+          <DataField>AttchType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AzlType">
+          <DataField>AzlType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BlockNumber">
+          <DataField>BlockNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BuldingNumber">
+          <DataField>BuldingNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BuldingType">
+          <DataField>BuldingType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BuldinIsNull">
+          <DataField>BuldinIsNull</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BulState">
+          <DataField>BulState</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="City">
           <DataField>City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContractCountapartment">
+          <DataField>ContractCountapartment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContractCountoffice">
+          <DataField>ContractCountoffice</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContractCountShowRoom">
+          <DataField>ContractCountShowRoom</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CountAprtment">
+          <DataField>CountAprtment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CountAprtmentfor">
+          <DataField>CountAprtmentfor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CountForOffice">
+          <DataField>CountForOffice</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Countoffice">
+          <DataField>Countoffice</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CountShowromms">
+          <DataField>CountShowromms</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CountshowRoom">
+          <DataField>CountshowRoom</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Custmer">
@@ -11489,13 +11683,45 @@
           <DataField>CustmerId</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
-        <Field Name="DateSNum">
-          <DataField>DateSNum</DataField>
+        <Field Name="DetlisApartment">
+          <DataField>DetlisApartment</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ElictFire">
-          <DataField>ElictFire</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
+        <Field Name="DetlisOffice">
+          <DataField>DetlisOffice</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DetlisShowRooms">
+          <DataField>DetlisShowRooms</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="East">
+          <DataField>East</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EastTall">
+          <DataField>EastTall</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EffictiveEjarApartment">
+          <DataField>EffictiveEjarApartment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EffictiveEjarOffice">
+          <DataField>EffictiveEjarOffice</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EffictiveEjarShowRooms">
+          <DataField>EffictiveEjarShowRooms</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ElcrictyCount">
+          <DataField>ElcrictyCount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ElcrictyNumber">
+          <DataField>ElcrictyNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Gada">
           <DataField>Gada</DataField>
@@ -11505,6 +11731,38 @@
           <DataField>Id</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
+        <Field Name="IncomePrecentage">
+          <DataField>IncomePrecentage</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Inner">
+          <DataField>Inner</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InnerDoor">
+          <DataField>InnerDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Intered">
+          <DataField>Intered</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InterfcaesEast">
+          <DataField>InterfcaesEast</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InterfcaesNorth">
+          <DataField>InterfcaesNorth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InterfcaesSouth">
+          <DataField>InterfcaesSouth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InterfcaesWest">
+          <DataField>InterfcaesWest</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="IsAduit">
           <DataField>IsAduit</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
@@ -11513,64 +11771,336 @@
           <DataField>IsApproved</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="IsArbicTut">
+          <DataField>IsArbicTut</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsCetral">
+          <DataField>IsCetral</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsDesrt">
+          <DataField>IsDesrt</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsDonForSndElectric">
+          <DataField>IsDonForSndElectric</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsDoublGlass">
+          <DataField>IsDoublGlass</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsDoublWall">
+          <DataField>IsDoublWall</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsElectricCount">
+          <DataField>IsElectricCount</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsElectricCountMostgl">
+          <DataField>IsElectricCountMostgl</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsElectricServicesInGada">
+          <DataField>IsElectricServicesInGada</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsForinTut">
+          <DataField>IsForinTut</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsGates">
+          <DataField>IsGates</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsHidingLight">
+          <DataField>IsHidingLight</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Ishoter">
+          <DataField>Ishoter</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
         <Field Name="IsIntered">
           <DataField>IsIntered</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsJebsForSaqf">
+          <DataField>IsJebsForSaqf</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsKrajEletcru">
+          <DataField>IsKrajEletcru</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IslAder">
+          <DataField>IslAder</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsLifts">
+          <DataField>IsLifts</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsNormalKraj">
+          <DataField>IsNormalKraj</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsSeprat">
+          <DataField>IsSeprat</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="IsThmin">
           <DataField>IsThmin</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="Local">
-          <DataField>Local</DataField>
+        <Field Name="IsWaterConut">
+          <DataField>IsWaterConut</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsWaterServicesInGada">
+          <DataField>IsWaterServicesInGada</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsWatrerCountMostgl">
+          <DataField>IsWatrerCountMostgl</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsWindo">
+          <DataField>IsWindo</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="JarIsBulding">
+          <DataField>JarIsBulding</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Napartment">
-          <DataField>Napartment</DataField>
+        <Field Name="KotatNumber">
+          <DataField>KotatNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Npiece">
-          <DataField>Npiece</DataField>
+        <Field Name="LastTaqeem">
+          <DataField>LastTaqeem</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="OccBuild">
-          <DataField>OccBuild</DataField>
+        <Field Name="Latute">
+          <DataField>Latute</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Longtute">
+          <DataField>Longtute</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Mansob">
+          <DataField>Mansob</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MantinancePrice">
+          <DataField>MantinancePrice</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MarkterRoad">
+          <DataField>MarkterRoad</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceApendexErth">
+          <DataField>MeterPriceApendexErth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceapendxup">
+          <DataField>MeterPriceapendxup</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceAsawr">
+          <DataField>MeterPriceAsawr</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceCars">
+          <DataField>MeterPriceCars</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceDorEarth">
+          <DataField>MeterPriceDorEarth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceEarh">
+          <DataField>MeterPriceEarh</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceFirstDoor">
+          <DataField>MeterPriceFirstDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPricegarden">
+          <DataField>MeterPricegarden</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceothers">
+          <DataField>MeterPriceothers</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceQabo">
+          <DataField>MeterPriceQabo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceReptDoor">
+          <DataField>MeterPriceReptDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceswiminpoo">
+          <DataField>MeterPriceswiminpoo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MothmenOpnion">
+          <DataField>MothmenOpnion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Muthmen">
+          <DataField>Muthmen</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="North">
+          <DataField>North</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NorthTall">
+          <DataField>NorthTall</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Owner">
           <DataField>Owner</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Plane">
-          <DataField>Plane</DataField>
+        <Field Name="PiceNumber">
+          <DataField>PiceNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ResWland">
-          <DataField>ResWland</DataField>
+        <Field Name="ProfitPrecntage">
+          <DataField>ProfitPrecntage</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SCustmer">
-          <DataField>SCustmer</DataField>
+        <Field Name="RendingCompnyapartment">
+          <DataField>RendingCompnyapartment</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SNum">
-          <DataField>SNum</DataField>
+        <Field Name="RendingCompnyoffice">
+          <DataField>RendingCompnyoffice</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Street">
-          <DataField>Street</DataField>
+        <Field Name="RendingCompnyShowRoom">
+          <DataField>RendingCompnyShowRoom</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="StyleBuild">
-          <DataField>StyleBuild</DataField>
+        <Field Name="RendingTypeapartment">
+          <DataField>RendingTypeapartment</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Tbuild">
-          <DataField>Tbuild</DataField>
+        <Field Name="RendingTypeoffice">
+          <DataField>RendingTypeoffice</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Wland">
-          <DataField>Wland</DataField>
+        <Field Name="RendingTypeShowRoom">
+          <DataField>RendingTypeShowRoom</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Rescptions">
+          <DataField>Rescptions</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RoadLight">
+          <DataField>RoadLight</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RoadSeflt">
+          <DataField>RoadSeflt</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Rooms">
+          <DataField>Rooms</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="South">
+          <DataField>South</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SouthTall">
+          <DataField>SouthTall</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalApendxEarth">
+          <DataField>TotalApendxEarth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Totalapendxup">
+          <DataField>Totalapendxup</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalAswar">
+          <DataField>TotalAswar</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalCars">
+          <DataField>TotalCars</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalDorerath">
+          <DataField>TotalDorerath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalEarh">
+          <DataField>TotalEarh</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalFirstDoor">
+          <DataField>TotalFirstDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Totalgarden">
+          <DataField>Totalgarden</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalOfRending">
+          <DataField>TotalOfRending</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Totalothers">
+          <DataField>Totalothers</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalQabo">
+          <DataField>TotalQabo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalReptDoor">
+          <DataField>TotalReptDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Totalswimingpool">
+          <DataField>Totalswimingpool</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TshteebType">
+          <DataField>TshteebType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WaterNumber">
+          <DataField>WaterNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WatrerCount">
+          <DataField>WatrerCount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="West">
+          <DataField>West</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WestTall">
+          <DataField>WestTall</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="XtrenalDoor">
+          <DataField>XtrenalDoor</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -11581,6 +12111,14 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="sample">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <EmbeddedImages>
     <EmbeddedImage Name="ID19_3_58a99643bc5b9_autoX300">
       <MIMEType>image/png</MIMEType>
