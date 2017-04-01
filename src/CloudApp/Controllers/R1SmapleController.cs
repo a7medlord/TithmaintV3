@@ -61,9 +61,9 @@ namespace CloudApp.Controllers
             local.ReportPath = "Report/Sm1Report.rdlc";
             local.EnableExternalImages = true;
 
-            //double price = treatments.Sum(d => d.TotalPriceNumber);
+            double price = sample.Sum(d => d.LastTaqeem);
 
-            //ToWord toWord = new ToWord((decimal)price, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
+            ToWord toWord = new ToWord((decimal)price, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
             ////get name
             //string muthmenname = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.EmployName;
             //string aduitname = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.EmployName;
@@ -81,30 +81,30 @@ namespace CloudApp.Controllers
             //string sigurlauditsign = "http://" + HttpContext.Request.Host + "/ProfPic/" + auditsign + ".jpg";
             //string sigurlapprovesign = "http://" + HttpContext.Request.Host + "/ProfPic/" + approvesign + ".jpg";
 
-            //ReportParameter[] parameters = {
+            ReportParameter[] parameters = {
             //    new ReportParameter("sample",sample),
             //    new ReportParameter("custmer",custmer),
             //    new ReportParameter("muthmen", muthmenname),
             //     new ReportParameter("audit", aduitname),
             //      new ReportParameter("approver", appovename),
-            //    new ReportParameter("totprice",  toWord.ConvertToArabic()),
+                new ReportParameter("totprice",  toWord.ConvertToArabic()),
 
 
-            //    new ReportParameter("muthminsign",  sigurlmuthmen),
-            //    new ReportParameter("Auditsign",  sigurlauditsign),
-            //    new ReportParameter("Approvesign", sigurlapprovesign),
+                //    new ReportParameter("muthminsign",  sigurlmuthmen),
+                //    new ReportParameter("Auditsign",  sigurlauditsign),
+                //    new ReportParameter("Approvesign", sigurlapprovesign),
 
 
-            //    new ReportParameter("idmuthmin",  muthmenid),
-            //    new ReportParameter("idaudit",  aduitid),
-            //    new ReportParameter("idapprove", appoveid),
-            //    new ReportParameter("earthmap",  ""),
-            //    new ReportParameter("map", ""),
-            //    new ReportParameter("zoommap", ""),
-            //    new ReportParameter("images",images)
+                //    new ReportParameter("idmuthmin",  muthmenid),
+                //    new ReportParameter("idaudit",  aduitid),
+                //    new ReportParameter("idapprove", appoveid),
+                //    new ReportParameter("earthmap",  ""),
+                //    new ReportParameter("map", ""),
+                //    new ReportParameter("zoommap", ""),
+                //    new ReportParameter("images",images)
 
 
-            //   };
+                   };
 
             //local.SetParameters(parameters);
 

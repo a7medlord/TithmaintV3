@@ -265,7 +265,121 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "سعر المتر التجاري ")]
         public string Meterpricetreentment { get; set; }
         //طريقة التقييم
+        [Display(Name = "المساحة")]
+        public string AreaEarth { get; set; }
 
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceEarh { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string TotalEarh { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string AreaQabo { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceQabo { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string TotalQabo { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string AreaDorEarth { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceDorEarth { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string TotalDorerath { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string AreaFirstDoor { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceFirstDoor { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string TotalFirstDoor { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string AreareptDoor { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceReptDoor { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string TotalReptDoor { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string AreaApnedxEarth { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceApendexErth { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string TotalApendxEarth { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string AreaApendxup { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceapendxup { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string Totalapendxup { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string AreaSwar { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceAsawr { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string TotalAswar { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string Areagarden { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPricegarden { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string Totalgarden { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string AreaSwimingpool { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceswiminpoo { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string Totalswimingpool { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string AreaCars { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceCars { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string TotalCars { get; set; }
+
+        [Display(Name = "المساحة")]
+        public string AreaOthers { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public string MeterPriceothers { get; set; }
+
+        [Display(Name = "المجموع")]
+        public string Totalothers { get; set; }
+
+        [Display(Name = "نسبه الربح")]
+        public string ProfitPrecntage { get; set; }
+
+        [Display(Name = "نسبه الاهلاك")]
+        public string AhlakPrecentage { get; set; }
+        [Display(Name = "التقيم النهائي")]
+        public double LastTaqeem { get; set; }
 
 
         //Services

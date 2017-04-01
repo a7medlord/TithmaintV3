@@ -337,7 +337,7 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "نسبه الاهلاك")]
         public string AhlakPrecentage { get; set; }
         [Display(Name = "التقيم النهائي")]
-        public string LastTaqeem { get; set; }
+        public double LastTaqeem { get; set; }
 
         [Display(Name = "تكاليف الصيانة التقديرية")]
         public string MantinancePrice { get; set; }
