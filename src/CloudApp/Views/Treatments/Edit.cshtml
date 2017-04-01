@@ -38,7 +38,7 @@
 
             <div class="row">
 
-                <div class="col-md-3" style="pointer-events: none">
+                <div class="col-md-4" style="pointer-events: none">
                     <div class="form-group">
                         <label asp-for="CustmerId" class="control-label"></label>
                         <select asp-for="CustmerId" class="select2 form-control" asp-items="ViewBag.CustmerId"></select>
@@ -48,28 +48,21 @@
 
 
 
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="ApplicationUserId" class="control-label"></label>
                         <select asp-for="ApplicationUserId" class="select2 form-control" asp-items="ViewBag.UserId"></select>
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="Owner" class="control-label"></label>
                         <input asp-for="Owner" class="form-control" />
                         <span asp-validation-for="Owner" class="text-danger" />
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label asp-for="SCustmer" class="control-label"></label>
 
-                        <input asp-for="SCustmer" class="form-control" />
-                        <span asp-validation-for="SCustmer" class="text-danger" />
-                    </div>
-                </div>
             </div>
 
             <div class="row">

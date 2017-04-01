@@ -28,49 +28,44 @@ namespace CloudApp.Controllers
             _env = env;
         }
        
-        public IActionResult GetSample0Report()
+        public IActionResult GetSample0Report(long id)
         {
 
-            //ReportDataSource custmertDataSource = new ReportDataSource();
+            byte[] rendervalue = GetSample0ReportasStreem(id);
 
+            return File(rendervalue, "application/pdf");
+        }
+
+        public byte[] GetSample0ReportasStreem(long id)
+        {
+          
             ReportDataSource reportDataSource = new ReportDataSource();
 
-            //List<Treatment> treatments = new List<Treatment>(){new Treatment()
-            //{Id = 434344,
-            //    Owner = "ÌÇãÏ Úáí ßÈáæ",SCustmer = "Úáí ÈÇÈÇ" ,City = "ÇáÑíÇÖ" , Gada = "ÇáãáÒ",
-            //    ServicesWater = true,ServicesElectrocitcs = true ,ServicesLamp = true ,ServicesPhone = true ,ServicesRoad = true,ServicesSanitation = true,
-            //    SroundMosq = true ,SroundGarden = true, SroundBank = true , SroundCentralSoaq = false, SroundPoilceCenter = true ,SroundComirchalCenter = true, SroundDispensares = true , SroundFeul = true, SroundGenralSoaq = true , SroundGovermentDepartMent = true , SroundHospital = true ,SroundHotel = true , SroundRestrant = true, SroundSchools = true ,SroundSoaq = true, SroundciviliDenfencs = true ,SroundmedSecurityFacilty = true , SroundmedicalCenter = true, Sroundmedicalfacilty = true ,Sroundpartment = true,
-            //    StyleBuild = "äÚã æÇäå ÇáÇÌãá", GenralLocations = "ÏÇÎá ÇáäØÇÞ" , TotalPriceNumber = 1000
-            //}};
+            // get attachment  
+            var attament = _context.AttachmentForTreaments.Where(d => d.TreatmentId == id);
+            string images = null;
+            foreach (var attachmentForTreament in attament)
+            {
+                images +=   "http://" + HttpContext.Request.Host + "/sample1attachment/" + attachmentForTreament.AttachmentId + ".jpg" + ",";
+            }
 
             // Qoution Report
-          var  treatments= _context.Treatment.Where(d => d.Id == 20);
-            reportDataSource.Name = "DataSetS0";
+            var treatments = _context.Treatment.Include(d=> d.Custmer).ThenInclude(s=>s.Sample).Where(d => d.Id == id);
+            reportDataSource.Name = "DataSetSample0";
             reportDataSource.Value = treatments;
-            ////Custumer Report
-            //custmertDataSource.Name = "CustmerDataSet";
-            //custmertDataSource.Value = _context.Custmer.ToList();
-       
-
-
-
+            string custmer =  treatments.SingleOrDefault()?.Custmer.Name;
+            string sample = treatments.SingleOrDefault()?.Custmer.Sample.Name;
             LocalReport local = new LocalReport();
             local.DataSources.Add(reportDataSource);
-            //local.SubreportProcessing += delegate (object sender, SubreportProcessingEventArgs args)
-            //{
-            //    args.DataSources.Add(custmertDataSource);
-            //    args.DataSources.Add(instrumentsDataSource);
-
-            //};
-
+            
             local.ReportPath = "Report/Sm0Report.rdlc";
             local.EnableExternalImages = true;
 
             double price = treatments.Sum(d => d.TotalPriceNumber);
 
-              ToWord toWord = new ToWord((decimal)price, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
+            ToWord toWord = new ToWord((decimal)price, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
             //get name
-             string muthmenname=   _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.EmployName;
+            string muthmenname = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.EmployName;
             string aduitname = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.EmployName;
             string appovename = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.EmployName;
             // get member id
@@ -87,6 +82,8 @@ namespace CloudApp.Controllers
             string sigurlapprovesign = "http://" + HttpContext.Request.Host + "/ProfPic/" + approvesign + ".jpg";
 
             ReportParameter[] parameters = {
+                new ReportParameter("sample",sample),
+                new ReportParameter("custmer",custmer), 
                 new ReportParameter("muthmen", muthmenname),
                  new ReportParameter("audit", aduitname),
                   new ReportParameter("approver", appovename),
@@ -104,17 +101,18 @@ namespace CloudApp.Controllers
                 new ReportParameter("earthmap",  ""),
                 new ReportParameter("map", ""),
                 new ReportParameter("zoommap", ""),
-                new ReportParameter("images", "1,2,3,4,5,6")
+                new ReportParameter("images",images)
 
 
                };
 
             local.SetParameters(parameters);
 
-            byte[] rendervalue = local.Render("Pdf", "");
-
-            return File(rendervalue, "application/pdf");
+            return local.Render("Pdf", "");
         }
+
+
+
         [HttpPost]
         public async Task<JsonResult> UploadFile()
         {

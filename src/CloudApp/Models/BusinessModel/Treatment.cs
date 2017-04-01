@@ -11,8 +11,6 @@ namespace CloudApp.Models.BusinessModel
         public long CustmerId { get; set; }
         [Display(Name = "المالك")]
         public string Owner { get; set; }
-        [ Display(Name = "اسم عميل البنك")]
-        public string SCustmer { get; set; }
         [ Display(Name = "رقم الصك")]
         public string SNum { get; set; }
         [Display(Name = "تاريخ الصك")]
@@ -133,8 +131,7 @@ namespace CloudApp.Models.BusinessModel
 
         //locatins
 
-        [Display(Name = "الموقع العام")]
-       public string GenralLocations { get; set; }
+
         [Display(Name = "شمالا")]
         public string North { get; set; }
         [Display(Name = "جنوبآ")]

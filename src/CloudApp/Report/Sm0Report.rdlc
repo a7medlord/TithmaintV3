@@ -16,7 +16,6 @@
                         <Value>اسم عميل البنك</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -65,7 +64,6 @@
                         <Value>المالك</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -112,10 +110,9 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!SCustmer.Value</Value>
+                        <Value>=Parameters!custmer.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -166,7 +163,6 @@
                         <Value>=Fields!Owner.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -255,10 +251,10 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>بنك الرياض التوثيق والضمانات</Value>
+                <Value>=Parameters!sample.Value</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -269,9 +265,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>0.1905cm</Top>
-        <Left>11.38569cm</Left>
+        <Left>13.79221cm</Left>
         <Height>0.6cm</Height>
-        <Width>8.04333cm</Width>
+        <Width>5.63681cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -290,7 +286,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>بالاشارة الي تكليفنا بتقييم العقار المؤرخ في 21-232-23- ورقم نرقف لكم فيما يلي نتيجة معاينة وتقييم رقم 23234234</Value>
+                <Value>بالاشارة الي تكليفنا بتقييم العقار المؤرخ في  ورقم نرقف لكم فيما يلي نتيجة معاينة وتقييم رقم </Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -301,9 +297,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>0.75205cm</Top>
-        <Left>6.32862cm</Left>
+        <Left>9.71621cm</Left>
         <Height>0.6cm</Height>
-        <Width>13.90354cm</Width>
+        <Width>10.51595cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -329,7 +325,6 @@
                         <Value>رقم الصك</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -339,8 +334,8 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.30869cm</Top>
-                <Left>0.46157cm</Left>
+                <Top>0.41452cm</Top>
+                <Left>0.48803cm</Left>
                 <Height>0.58412cm</Height>
                 <Width>4.33917cm</Width>
                 <Style>
@@ -378,7 +373,6 @@
                         <Value>=Fields!SNum.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -429,7 +423,6 @@
                         <Value>المدينة / الحي</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -439,8 +432,8 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.27517cm</Top>
-                <Left>0.37161cm</Left>
+                <Top>0.381cm</Top>
+                <Left>0.39807cm</Left>
                 <Height>0.64762cm</Height>
                 <Width>4.33917cm</Width>
                 <Style>
@@ -479,28 +472,24 @@
                         <Value>=Fields!City.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                       <TextRun>
                         <Value> - </Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                       <TextRun>
                         <Value>=Fields!Gada.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                       <TextRun>
                         <Value xml:space="preserve"> </Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -551,7 +540,6 @@
                         <Value>تاريخ الصك</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -561,8 +549,8 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.30869cm</Top>
-                <Left>0.46157cm</Left>
+                <Top>0.41452cm</Top>
+                <Left>0.48803cm</Left>
                 <Height>0.61587cm</Height>
                 <Width>4.33917cm</Width>
                 <Style>
@@ -601,7 +589,6 @@
                         <Value>=Fields!DateSNum.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -652,7 +639,6 @@
                         <Value>موقع العقار / اسم الشارع</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -662,8 +648,8 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.27517cm</Top>
-                <Left>0.37161cm</Left>
+                <Top>0.381cm</Top>
+                <Left>0.39807cm</Left>
                 <Height>0.67937cm</Height>
                 <Width>4.33917cm</Width>
                 <Style>
@@ -680,7 +666,7 @@
             <KeepTogether>true</KeepTogether>
             <Top>1.3948cm</Top>
             <Left>5.62504cm</Left>
-            <Height>1.04775cm</Height>
+            <Height>1.06037cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
@@ -702,21 +688,18 @@
                         <Value>=Fields!Local.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                       <TextRun>
                         <Value> - </Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                       <TextRun>
                         <Value>=Fields!Street.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -767,7 +750,6 @@
                         <Value>رقم المخطط</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -777,8 +759,8 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.30869cm</Top>
-                <Left>0.46157cm</Left>
+                <Top>0.36161cm</Top>
+                <Left>0.48803cm</Left>
                 <Height>0.58412cm</Height>
                 <Width>4.33917cm</Width>
                 <Style>
@@ -817,7 +799,6 @@
                         <Value>=Fields!Plane.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -868,7 +849,6 @@
                         <Value>نوع العقار</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -878,8 +858,8 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.27517cm</Top>
-                <Left>0.37161cm</Left>
+                <Top>0.381cm</Top>
+                <Left>0.39807cm</Left>
                 <Height>0.64762cm</Height>
                 <Width>4.33917cm</Width>
                 <Style>
@@ -918,7 +898,6 @@
                         <Value>=Fields!Tbuild.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -969,7 +948,6 @@
                         <Value>خضوع العقار لنظام الارض البيضاء</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -979,7 +957,8 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.30869cm</Top>
+                <Top>0.36161cm</Top>
+                <Left>0.02646cm</Left>
                 <Height>0.64762cm</Height>
                 <Width>5.04376cm</Width>
                 <Style>
@@ -1018,7 +997,6 @@
                         <Value>=Fields!Wland.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1069,7 +1047,6 @@
                         <Value>اسلوب الخضوع </Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1119,7 +1096,6 @@
                         <Value>=Fields!ResWland.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1170,7 +1146,6 @@
                         <Value>رقم القطعة  / رقم الشقة</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1220,7 +1195,6 @@
                         <Value>=Fields!Napartment.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1271,7 +1245,6 @@
                         <Value>مساحة الارض</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1321,7 +1294,6 @@
                         <Value>=Fields!Area.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1372,7 +1344,6 @@
                         <Value>وصف / عمر العقار</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1422,7 +1393,6 @@
                         <Value>=Fields!Agbuild.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1473,7 +1443,6 @@
                         <Value>شاغلية العقار</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1523,7 +1492,6 @@
                         <Value>=Fields!OccBuild.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1574,7 +1542,6 @@
                         <Value>مسطح البناء</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1624,7 +1591,6 @@
                         <Value>=Fields!Musteh.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1726,7 +1692,6 @@
                         <Value>حالة البناء</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1776,7 +1741,6 @@
                         <Value>=Fields!CaseBuild.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1825,9 +1789,7 @@
                     <TextRuns>
                       <TextRun>
                         <Value>مياه</Value>
-                        <Style>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
+                        <Style />
                       </TextRun>
                     </TextRuns>
                     <Style>
@@ -1893,9 +1855,7 @@
                     <TextRuns>
                       <TextRun>
                         <Value>كهرباء </Value>
-                        <Style>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
+                        <Style />
                       </TextRun>
                     </TextRuns>
                     <Style>
@@ -1962,9 +1922,7 @@
                     <TextRuns>
                       <TextRun>
                         <Value> صرف صحي</Value>
-                        <Style>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
+                        <Style />
                       </TextRun>
                     </TextRuns>
                     <Style>
@@ -2031,9 +1989,7 @@
                     <TextRuns>
                       <TextRun>
                         <Value>طرق مسفلتة</Value>
-                        <Style>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
+                        <Style />
                       </TextRun>
                     </TextRuns>
                     <Style>
@@ -2100,9 +2056,7 @@
                     <TextRuns>
                       <TextRun>
                         <Value>الانارة</Value>
-                        <Style>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
+                        <Style />
                       </TextRun>
                     </TextRuns>
                     <Style>
@@ -2169,9 +2123,7 @@
                     <TextRuns>
                       <TextRun>
                         <Value>هاتف</Value>
-                        <Style>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
+                        <Style />
                       </TextRun>
                     </TextRuns>
                     <Style>
@@ -2257,7 +2209,6 @@
                         <Value>اسلوب البناء</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -2307,7 +2258,6 @@
                         <Value>=Fields!StyleBuild.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -2417,7 +2367,7 @@ Switch(Fields!SroundmedSecurityFacilty.Value = True, "مرفق امني" +" - ")
 Switch(Fields!SroundSoaq.Value = True, "سوق تجاري" +" - ") +
 Switch(Fields!SroundFeul.Value = True, "محطات وقود" +" - ") +
 Switch(Fields!SroundHotel.Value = True, "فنادق" +" - ") +
-Switch(Fields!Sroundmedicalfacilty.Value = True, "مراكز طبية"  +" - ")+
+Switch(Fields!SroundmedicalCenter.Value = True, "مراكز طبية"  +" - ")+
 Switch(Fields!SroundComirchalCenter.Value = True, "مراكز تجارية" +" - ") +
 Switch(Fields!SroundDispensares.Value = True, "مستوصفات" +" - ") +
 Switch(Fields!SroundHospital.Value = True, "مستشفيات" +" - ") +
@@ -2490,7 +2440,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Parameters!muthmen.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -2501,7 +2450,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
                 <Top>0.23079cm</Top>
-                <Left>0.11289cm</Left>
+                <Left>0.08643cm</Left>
                 <Height>0.67937cm</Height>
                 <Width>6.44469cm</Width>
                 <Style>
@@ -2708,7 +2657,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>الموقع العام</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -2755,10 +2703,9 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!GenralLocations.Value</Value>
+                        <Value>=Fields!GenLoc.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -2769,7 +2716,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
                 <Top>0.30869cm</Top>
-                <Left>0.16699cm</Left>
+                <Left>0.14053cm</Left>
                 <Height>0.58413cm</Height>
                 <Width>14.13656cm</Width>
                 <Style>
@@ -2809,7 +2756,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>شمالا</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -2859,7 +2805,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!North.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -2910,7 +2855,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>طول</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -2960,7 +2904,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!NorthTall.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3011,7 +2954,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>جنوبا</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3061,7 +3003,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!South.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3112,7 +3053,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>طول</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3162,7 +3102,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!SouthTall.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3213,7 +3152,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>شرقا</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3263,7 +3201,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!East.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3314,7 +3251,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>طول</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3364,7 +3300,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!EastTall.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3415,7 +3350,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>غربا</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3465,7 +3399,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!West.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3516,7 +3449,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>طول</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3566,7 +3498,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!WestTall.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3607,7 +3538,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>19.30665cm</Top>
+        <Top>19.11615cm</Top>
         <Left>0.31198cm</Left>
         <Height>7.93443cm</Height>
         <Width>19.97604cm</Width>
@@ -3684,7 +3615,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>الملاحظات والنواقص</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3783,7 +3713,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>تكاليف الصيانة التقديرية</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3870,7 +3799,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>27.6461cm</Top>
+        <Top>27.16985cm</Top>
         <Left>0.31198cm</Left>
         <Height>3.66713cm</Height>
         <Width>19.97604cm</Width>
@@ -3896,7 +3825,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!TotalForEarcth.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3907,7 +3835,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
                 <Top>0.30869cm</Top>
-                <Left>4.45404cm</Left>
+                <Left>4.40112cm</Left>
                 <Height>0.58413cm</Height>
                 <Width>9.83363cm</Width>
                 <Style>
@@ -3946,7 +3874,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!TotalBulding.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -3997,7 +3924,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>القيمة الإجمالية للبناء</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -4047,7 +3973,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>القيمة الإجمالية للأرض</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -4087,7 +4012,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>31.55928cm</Top>
+        <Top>30.95603cm</Top>
         <Left>0.31198cm</Left>
         <Height>2.57705cm</Height>
         <Width>19.97604cm</Width>
@@ -4113,7 +4038,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>سعر متر الارض</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -4162,7 +4086,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!MeterPriceForEarth.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -4213,7 +4136,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>سعر متر البناء</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -4263,7 +4185,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!MeterPriceForBulding.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -4304,7 +4225,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>34.47499cm</Top>
+        <Top>33.64949cm</Top>
         <Left>0.38841cm</Left>
         <Height>1.29647cm</Height>
         <Width>19.87551cm</Width>
@@ -4330,7 +4251,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>القيمة الإجمالية رقما</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -4379,7 +4299,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>=Fields!TotalPriceNumber.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -4477,7 +4396,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                         <Value>القيمة الإجمالية كتابة</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -4517,8 +4435,8 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>36.07485cm</Top>
-        <Left>0.3937cm</Left>
+        <Top>35.12235cm</Top>
+        <Left>0.29845cm</Left>
         <Height>2.56118cm</Height>
         <Width>19.97604cm</Width>
         <ZIndex>10</ZIndex>
@@ -4639,7 +4557,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Top>0.79226cm</Top>
                 <Left>0.13494cm</Left>
                 <Height>0.67937cm</Height>
-                <Width>2.14457cm</Width>
+                <Width>2.48853cm</Width>
                 <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
@@ -4738,7 +4656,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Top>0.7217cm</Top>
                 <Left>0.17362cm</Left>
                 <Height>0.67937cm</Height>
-                <Width>2.15295cm</Width>
+                <Width>2.53277cm</Width>
                 <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
@@ -4873,7 +4791,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Top>0.68514cm</Top>
                 <Left>0.14147cm</Left>
                 <Height>0.67937cm</Height>
-                <Width>2.10225cm</Width>
+                <Width>2.48142cm</Width>
                 <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
@@ -5036,8 +4954,8 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>39.06815cm</Top>
-        <Left>0.15018cm</Left>
+        <Top>37.79815cm</Top>
+        <Left>0.11843cm</Left>
         <Height>4.16719cm</Height>
         <Width>20.11373cm</Width>
         <ZIndex>11</ZIndex>
@@ -5397,15 +5315,14 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>24.45454</Value>
+                        <Value>=Fields!Longtute.Value</Value>
                         <Style>
-                          <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
+                          <FontWeight>Normal</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
                     <Style>
-                      <TextAlign>Right</TextAlign>
+                      <TextAlign>Left</TextAlign>
                     </Style>
                   </Paragraph>
                 </Paragraphs>
@@ -5413,7 +5330,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Top>2.24809cm</Top>
                 <Left>0.47361cm</Left>
                 <Height>0.68616cm</Height>
-                <Width>3.31258cm</Width>
+                <Width>4.52715cm</Width>
                 <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
@@ -5432,23 +5349,20 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>24.45454</Value>
-                        <Style>
-                          <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
+                        <Value>=Fields!Latute.Value</Value>
+                        <Style />
                       </TextRun>
                     </TextRuns>
                     <Style>
-                      <TextAlign>Right</TextAlign>
+                      <TextAlign>Left</TextAlign>
                     </Style>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>3.79679cm</Top>
+                <Top>3.86735cm</Top>
                 <Left>0.47361cm</Left>
                 <Height>0.68616cm</Height>
-                <Width>3.31258cm</Width>
+                <Width>4.52715cm</Width>
                 <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
@@ -5477,8 +5391,8 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>45.47637cm</Top>
-        <Left>0.31198cm</Left>
+        <Top>42.14262cm</Top>
+        <Left>0.24848cm</Left>
         <Height>25.34442cm</Height>
         <Width>20.00515cm</Width>
         <ZIndex>12</ZIndex>
@@ -5521,38 +5435,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox87">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>:رقم المعاملة</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox87</rd:DefaultName>
-        <Top>0.86811cm</Top>
-        <Left>2.88255cm</Left>
-        <Height>0.60325cm</Height>
-        <Width>1.59278cm</Width>
-        <ZIndex>14</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox96">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -5564,15 +5446,17 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox96</rd:DefaultName>
-        <Top>0.87701cm</Top>
-        <Left>0.28787cm</Left>
+        <Top>0.75205cm</Top>
+        <Left>4.65738cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>15</ZIndex>
+        <Width>5.05883cm</Width>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -5637,8 +5521,8 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <Rectangle Name="Rectangle38">
             <ReportItems>
               <Image Name="Image13">
-                <Source>Embedded</Source>
-                <Value>img1</Value>
+                <Source>External</Source>
+                <Value>=Split(Parameters!images.Value,",").GetValue(0)</Value>
                 <Sizing>Fit</Sizing>
                 <Top>0.1703cm</Top>
                 <Left>0.14027cm</Left>
@@ -5667,13 +5551,14 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <Rectangle Name="Rectangle85">
             <ReportItems>
               <Image Name="Image10">
-                <Source>Embedded</Source>
-                <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+                <Source>External</Source>
+                <Value>=Split(Parameters!images.Value,",").GetValue(1)</Value>
                 <Sizing>Fit</Sizing>
                 <Top>0.16236cm</Top>
-                <Left>0.15267cm</Left>
+                <Left>0.12886cm</Left>
                 <Height>4.18817cm</Height>
                 <Width>9.68824cm</Width>
+                <ToolTip>=Parameters!images.Value</ToolTip>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -5697,8 +5582,8 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <Rectangle Name="Rectangle86">
             <ReportItems>
               <Image Name="Image11">
-                <Source>Embedded</Source>
-                <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+                <Source>External</Source>
+                <Value>=Split(Parameters!images.Value,",").GetValue(2)</Value>
                 <Sizing>Fit</Sizing>
                 <Top>0.16236cm</Top>
                 <Height>4.18817cm</Height>
@@ -5726,8 +5611,8 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <Rectangle Name="Rectangle87">
             <ReportItems>
               <Image Name="Image12">
-                <Source>Embedded</Source>
-                <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+                <Source>External</Source>
+                <Value>=Split(Parameters!images.Value,",").GetValue(3)</Value>
                 <Sizing>Fit</Sizing>
                 <Top>0.16236cm</Top>
                 <Left>0.15267cm</Left>
@@ -5756,8 +5641,8 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <Rectangle Name="Rectangle94">
             <ReportItems>
               <Image Name="Image14">
-                <Source>Embedded</Source>
-                <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+                <Source>External</Source>
+                <Value>=Split(Parameters!images.Value,",").GetValue(4)</Value>
                 <Sizing>Fit</Sizing>
                 <Top>0.16236cm</Top>
                 <Height>4.18817cm</Height>
@@ -5785,10 +5670,10 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <Rectangle Name="Rectangle95">
             <ReportItems>
               <Image Name="Image15">
-                <Source>Embedded</Source>
-                <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+                <Source>External</Source>
+                <Value>=Split(Parameters!images.Value,",").GetValue(5)</Value>
                 <Sizing>Fit</Sizing>
-                <Top>0.16236cm</Top>
+                <Top>0.15442cm</Top>
                 <Left>0.15267cm</Left>
                 <Height>4.18817cm</Height>
                 <Width>9.68824cm</Width>
@@ -5815,8 +5700,8 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <Rectangle Name="Rectangle98">
             <ReportItems>
               <Image Name="Image16">
-                <Source>Embedded</Source>
-                <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+                <Source>External</Source>
+                <Value>=Split(Parameters!images.Value,",").GetValue(6)</Value>
                 <Sizing>Fit</Sizing>
                 <Top>0.16236cm</Top>
                 <Height>4.18817cm</Height>
@@ -5844,8 +5729,8 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <Rectangle Name="Rectangle99">
             <ReportItems>
               <Image Name="Image17">
-                <Source>Embedded</Source>
-                <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+                <Source>External</Source>
+                <Value>=Split(Parameters!images.Value,",").GetValue(7)</Value>
                 <Sizing>Fit</Sizing>
                 <Top>0.16236cm</Top>
                 <Left>0.15267cm</Left>
@@ -5874,15 +5759,12 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <Rectangle Name="Rectangle100">
             <ReportItems>
               <Image Name="Image18">
-                <Source>Embedded</Source>
-                <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+                <Source>External</Source>
+                <Value>=Split(Parameters!images.Value,",").GetValue(8)</Value>
                 <Sizing>Fit</Sizing>
                 <Top>0.16236cm</Top>
                 <Height>4.18817cm</Height>
                 <Width>9.68824cm</Width>
-                <Visibility>
-                  <Hidden>true</Hidden>
-                </Visibility>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -5906,16 +5788,13 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <Rectangle Name="Rectangle110">
             <ReportItems>
               <Image Name="Image19">
-                <Source>Embedded</Source>
-                <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+                <Source>External</Source>
+                <Value>=Split(Parameters!images.Value,",").GetValue(9)</Value>
                 <Sizing>Fit</Sizing>
-                <Top>0.16236cm</Top>
-                <Left>0.15267cm</Left>
+                <Top>0.15442cm</Top>
+                <Left>0.1271cm</Left>
                 <Height>4.18817cm</Height>
                 <Width>9.68824cm</Width>
-                <Visibility>
-                  <Hidden>true</Hidden>
-                </Visibility>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -5938,11 +5817,11 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>73.58304cm</Top>
-        <Left>0.00108cm</Left>
+        <Top>67.66343cm</Top>
+        <Left>0.26459cm</Left>
         <Height>24.18946cm</Height>
         <Width>20.23076cm</Width>
-        <ZIndex>16</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Color>Firebrick</Color>
@@ -5951,7 +5830,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </Style>
       </Rectangle>
     </ReportItems>
-    <Height>38.55309in</Height>
+    <Height>36.16255in</Height>
     <Style />
   </Body>
   <Width>20.6cm</Width>
@@ -6174,18 +6053,11 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
       </ConnectionProperties>
       <rd:DataSourceID>f857bc7b-6fd2-406d-85c3-3956611ecb03</rd:DataSourceID>
     </DataSource>
-    <DataSource Name="ReportClassLibraryBusinessModel1">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>fa0fd4c3-6c26-47aa-81af-636672890739</rd:DataSourceID>
-    </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSetS0">
+    <DataSet Name="DataSetSample0">
       <Query>
-        <DataSourceName>ReportClassLibraryBusinessModel1</DataSourceName>
+        <DataSourceName>ReportClassLibraryBusinessModel</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -6277,8 +6149,16 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <DataField>IsThmin</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="Latute">
+          <DataField>Latute</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Local">
           <DataField>Local</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Longtute">
+          <DataField>Longtute</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="MantinCost">
@@ -6581,6 +6461,18 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="images">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="sample">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="custmer">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ReportClassLibrary.BusinessModel
 {
@@ -177,8 +178,12 @@ namespace ReportClassLibrary.BusinessModel
         public string Muthmen { get; set; }
         public string Adutit { get; set; }
         public string Approver { get; set; }
-        public string Intered { get; set ; }
+        public string Intered { get; set; }
 
-
+        public List<AttachmentForTreament> AttachmentForTreaments { get; set; }
+        [Display(Name = "خــط طول")]
+        public string Longtute { get; set; }
+        [Display(Name = "خــط العرض")]
+        public string Latute { get; set; }
     }
 }
