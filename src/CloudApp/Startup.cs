@@ -95,7 +95,13 @@ namespace CloudApp
                 RequestPath = new PathString("/attachs1")
             });
 
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.WebRootPath, "sample2attachment")),
+                RequestPath = new PathString("/attachs2")
+            });
 
+            
 
             app.UseIdentity();
 

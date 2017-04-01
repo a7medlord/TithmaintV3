@@ -240,5 +240,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-/src/CloudApp/Migrations
-/src/CloudApp/Migrations
+/src/CloudApp/Migrations/20170401183803_cs.cs
+/src/CloudApp/Migrations/20170401183803_cs.Designer.cs
