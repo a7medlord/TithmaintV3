@@ -28,51 +28,91 @@ namespace CloudApp.Controllers
             _env = env;
         }
        
-        public IActionResult GetSample0Report()
+        public IActionResult GetSample0Report(long id)
         {
 
-            ReportDataSource custmertDataSource = new ReportDataSource();
-
-            ReportDataSource reportDataSource = new ReportDataSource();
-
-
-
-            // Qoution Report
-            reportDataSource.Name = "ReportDataSet";
-            reportDataSource.Value = _context.Treatment.ToList();
-            //Custumer Report
-            custmertDataSource.Name = "CustmerDataSet";
-            custmertDataSource.Value = _context.Custmer.ToList();
-       
-
-
-
-            LocalReport local = new LocalReport();
-            local.DataSources.Add(reportDataSource);
-            //local.SubreportProcessing += delegate (object sender, SubreportProcessingEventArgs args)
-            //{
-            //    args.DataSources.Add(custmertDataSource);
-            //    args.DataSources.Add(instrumentsDataSource);
-
-            //};
-
-            local.ReportPath = "Report/Sm0Report.rdlc";
-            local.EnableExternalImages = true;
-           // double amount = instruments.Sum(d => d.Amount);
-
-        //    ToWord toWord = new ToWord((decimal)amount, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
-
-            //ReportParameter[] parameters = {
-
-            //    new ReportParameter("num",  toWord.ConvertToArabic())
-            //   };
-
-            //local.SetParameters(parameters);
-
-            byte[] rendervalue = local.Render("Pdf", "");
+            byte[] rendervalue = GetSample0ReportasStreem(id);
 
             return File(rendervalue, "application/pdf");
         }
+
+        public byte[] GetSample0ReportasStreem(long id)
+        {
+          
+            ReportDataSource reportDataSource = new ReportDataSource();
+
+            // get attachment  
+            var attament = _context.AttachmentForTreaments.Where(d => d.TreatmentId == id);
+            string images = null;
+            foreach (var attachmentForTreament in attament)
+            {
+                images +=   "http://" + HttpContext.Request.Host + "/sample1attachment/" + attachmentForTreament.AttachmentId + ".jpg" + ",";
+            }
+
+            // Qoution Report
+            var treatments = _context.Treatment.Include(d=> d.Custmer).ThenInclude(s=>s.Sample).Where(d => d.Id == id);
+            reportDataSource.Name = "DataSetSample0";
+            reportDataSource.Value = treatments;
+            string custmer =  treatments.SingleOrDefault()?.Custmer.Name;
+            string sample = treatments.SingleOrDefault()?.Custmer.Sample.Name;
+            LocalReport local = new LocalReport();
+            local.DataSources.Add(reportDataSource);
+            
+            local.ReportPath = "Report/Sm0Report.rdlc";
+            local.EnableExternalImages = true;
+
+            double price = treatments.Sum(d => d.TotalPriceNumber);
+
+            ToWord toWord = new ToWord((decimal)price, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
+            //get name
+            string muthmenname = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.EmployName;
+            string aduitname = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.EmployName;
+            string appovename = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.EmployName;
+            // get member id
+            string muthmenid = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.MemberId;
+            string aduitid = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.MemberId;
+            string appoveid = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.MemberId;
+            //get image sign
+            string muthminsign = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.SigImage;
+            string auditsign = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.SigImage;
+            string approvesign = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.SigImage;
+            //get image url
+            string sigurlmuthmen = "http://" + HttpContext.Request.Host + "/ProfPic/" + muthminsign + ".jpg";
+            string sigurlauditsign = "http://" + HttpContext.Request.Host + "/ProfPic/" + auditsign + ".jpg";
+            string sigurlapprovesign = "http://" + HttpContext.Request.Host + "/ProfPic/" + approvesign + ".jpg";
+
+            ReportParameter[] parameters = {
+                new ReportParameter("sample",sample),
+                new ReportParameter("custmer",custmer), 
+                new ReportParameter("muthmen", muthmenname),
+                 new ReportParameter("audit", aduitname),
+                  new ReportParameter("approver", appovename),
+                new ReportParameter("totprice",  toWord.ConvertToArabic()),
+
+
+                new ReportParameter("muthminsign",  sigurlmuthmen),
+                new ReportParameter("Auditsign",  sigurlauditsign),
+                new ReportParameter("Approvesign", sigurlapprovesign),
+
+
+                new ReportParameter("idmuthmin",  muthmenid),
+                new ReportParameter("idaudit",  aduitid),
+                new ReportParameter("idapprove", appoveid),
+                new ReportParameter("earthmap",  ""),
+                new ReportParameter("map", ""),
+                new ReportParameter("zoommap", ""),
+                new ReportParameter("images",images)
+
+
+               };
+
+            local.SetParameters(parameters);
+
+            return local.Render("Pdf", "");
+        }
+
+
+
         [HttpPost]
         public async Task<JsonResult> UploadFile()
         {
