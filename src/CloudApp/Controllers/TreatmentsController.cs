@@ -83,7 +83,7 @@ namespace CloudApp.Controllers
             string images = null;
             foreach (var attachmentForTreament in attament)
             {
-                images +=   "http://" + HttpContext.Request.Host + "/sample1attachment/" + attachmentForTreament.AttachmentId + ".jpg" + ",";
+                images +=   "http://" + HttpContext.Request.Host + "/attachs1/" + attachmentForTreament.AttachmentId + ".jpg" + ",";
             }
 
             // Qoution Report

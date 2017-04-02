@@ -47,7 +47,7 @@ namespace CloudApp.Controllers
             string images = null;
             foreach (var r1Samples in rsample1)
             {
-                images += "http://" + HttpContext.Request.Host + "/sample1attachment/" + r1Samples.AttachmentId + ".jpg" + ",";
+                images += "http://" + HttpContext.Request.Host + "/attachs2/" + r1Samples.AttachmentId + ".jpg" + ",";
             }
 
             // R1 Report
@@ -83,8 +83,8 @@ namespace CloudApp.Controllers
             string sigurlauditsign = "http://" + HttpContext.Request.Host + "/ProfPic/" + auditsign + ".jpg";
             string sigurlapprovesign = "http://" + HttpContext.Request.Host + "/ProfPic/" + approvesign + ".jpg";
 
-            string earthmap = Mapgen(longtute, latute, "satellite", "12", "283", "739");
-            string map = Mapgen(longtute, latute, "ROADMAP", "12", "249", "739");
+            string earthmap = Mapgen(longtute, latute, "satellite", "10", "283", "750");
+            string map = Mapgen(longtute, latute, "ROADMAP", "10", "249", "739");
             string zoommap = Mapgen(longtute, latute, "satellite", "18", "265", "530");
             ReportParameter[] parameters = {
                 new ReportParameter("sample",sample),
