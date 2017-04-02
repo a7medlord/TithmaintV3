@@ -120,10 +120,11 @@ namespace CloudApp.Controllers
         }
 
 
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
-            ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
+            var cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == id);
+            ViewData["cmsname"] = cms;
             return View(new R1Smaple());
         }
 
@@ -196,7 +197,7 @@ namespace CloudApp.Controllers
                 return NotFound();
             }
 
-            var r1Smaple = await _context.R1Smaple.Include(smaple => smaple.AttachmentForR1Samples).SingleOrDefaultAsync(m => m.Id == id);
+            var r1Smaple = await _context.R1Smaple.Include(smaple => smaple.AttachmentForR1Samples).Include(smaple => smaple.Custmer).SingleOrDefaultAsync(m => m.Id == id);
             if (r1Smaple == null)
             {
                 return NotFound();
@@ -210,7 +211,7 @@ namespace CloudApp.Controllers
             ViewData["imgs"] = files;
 
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", r1Smaple.ApplicationUserId);
-            ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", r1Smaple.CustmerId);
+            ViewData["cmsname"] = r1Smaple.Custmer;
             return View(r1Smaple);
         }
 
