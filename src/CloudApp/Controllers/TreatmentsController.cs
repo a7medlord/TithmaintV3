@@ -55,6 +55,8 @@ namespace CloudApp.Controllers
             reportDataSource.Value = treatments;
             string custmer =  treatments.SingleOrDefault()?.Custmer.Name;
             string sample = treatments.SingleOrDefault()?.Custmer.Sample.Name;
+            string longtute = treatments.SingleOrDefault()?.Longtute;
+            string latute = treatments.SingleOrDefault()?.Latute;
             LocalReport local = new LocalReport();
             local.DataSources.Add(reportDataSource);
             
@@ -81,6 +83,9 @@ namespace CloudApp.Controllers
             string sigurlauditsign = "http://" + HttpContext.Request.Host + "/ProfPic/" + auditsign + ".jpg";
             string sigurlapprovesign = "http://" + HttpContext.Request.Host + "/ProfPic/" + approvesign + ".jpg";
 
+            string earthmap = Mapgen(longtute, latute, "satellite", "12", "283", "739");
+            string map = Mapgen(longtute, latute, "ROADMAP", "12", "249", "739");
+            string zoommap = Mapgen(longtute, latute, "satellite", "18", "265", "530");
             ReportParameter[] parameters = {
                 new ReportParameter("sample",sample),
                 new ReportParameter("custmer",custmer), 
@@ -98,9 +103,9 @@ namespace CloudApp.Controllers
                 new ReportParameter("idmuthmin",  muthmenid),
                 new ReportParameter("idaudit",  aduitid),
                 new ReportParameter("idapprove", appoveid),
-                new ReportParameter("earthmap",  ""),
-                new ReportParameter("map", ""),
-                new ReportParameter("zoommap", ""),
+                new ReportParameter("earthmap",  earthmap),
+                new ReportParameter("map", map),
+                new ReportParameter("zoommap", zoommap),
                 new ReportParameter("images",images)
 
 
@@ -109,6 +114,12 @@ namespace CloudApp.Controllers
             local.SetParameters(parameters);
 
             return local.Render("Pdf", "");
+        }
+
+        public string Mapgen(string longtut , string lutit , string type , string zoom , string hight , string with)
+        {
+            string url = "https://maps.googleapis.com/maps/api/staticmap?center=" + longtut +","+lutit +"&zoom="+zoom + "&size="+with+"x" + hight+ "&maptype="+type + "&key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs";
+            return url;
         }
 
 

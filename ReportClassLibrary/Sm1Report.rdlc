@@ -2508,7 +2508,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>بنك الرياض / تمويل الافراد</Value>
+                <Value>=Parameters!sample.Value</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -5426,363 +5426,6 @@
           </Border>
         </Style>
       </Rectangle>
-      <Rectangle Name="Rectangle88">
-        <ReportItems>
-          <Rectangle Name="Rectangle89">
-            <ReportItems>
-              <Textbox Name="Textbox88">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>المقيم العقاري</Value>
-                        <Style>
-                          <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                          <Color>White</Color>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Left>0.02173cm</Left>
-                <Height>0.67937cm</Height>
-                <Width>4.77133cm</Width>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <BackgroundColor>#003228</BackgroundColor>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox90">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>توفيق الماجد 1220000073</Value>
-                        <Style>
-                          <FontWeight>Normal</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Right</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.7852cm</Top>
-                <Left>0.68143cm</Left>
-                <Height>0.67937cm</Height>
-                <Width>3.59834cm</Width>
-                <ZIndex>1</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>0.07408cm</Top>
-            <Left>15.17034cm</Left>
-            <Height>3.21733cm</Height>
-            <Width>4.79306cm</Width>
-            <Style>
-              <Border>
-                <Color>#e2e7eb</Color>
-                <Style>Solid</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </Rectangle>
-          <Rectangle Name="Rectangle90">
-            <ReportItems>
-              <Textbox Name="Textbox89">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>مدقق التقيم</Value>
-                        <Style>
-                          <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                          <Color>White</Color>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Height>0.67937cm</Height>
-                <Width>4.79306cm</Width>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <BackgroundColor>#003228</BackgroundColor>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox91">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>محمد عبدالله 1220000073</Value>
-                        <Style>
-                          <FontWeight>Normal</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Right</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.7852cm</Top>
-                <Left>0.68143cm</Left>
-                <Height>0.67937cm</Height>
-                <Width>3.59834cm</Width>
-                <ZIndex>1</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>0.09525cm</Top>
-            <Left>10.25789cm</Left>
-            <Height>3.21733cm</Height>
-            <Width>4.79306cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Color>#e2e7eb</Color>
-                <Style>Solid</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </Rectangle>
-          <Rectangle Name="Rectangle91">
-            <ReportItems>
-              <Textbox Name="Textbox92">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>اعتمده</Value>
-                        <Style>
-                          <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                          <Color>White</Color>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Left>0.0623cm</Left>
-                <Height>0.67937cm</Height>
-                <Width>4.73076cm</Width>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <BackgroundColor>#003228</BackgroundColor>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox93">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>عبدالعالم العمر 1220000073 </Value>
-                        <Style>
-                          <FontWeight>Normal</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Right</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.7852cm</Top>
-                <Left>0.28897cm</Left>
-                <Height>0.67937cm</Height>
-                <Width>4.20247cm</Width>
-                <ZIndex>1</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>0.09261cm</Top>
-            <Left>5.33665cm</Left>
-            <Height>3.21733cm</Height>
-            <Width>4.79306cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Color>#e2e7eb</Color>
-                <Style>Solid</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </Rectangle>
-          <Rectangle Name="Rectangle92">
-            <ReportItems>
-              <Textbox Name="Textbox94">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>الختم الرسم</Value>
-                        <Style>
-                          <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                          <Color>White</Color>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Height>0.67937cm</Height>
-                <Width>4.79306cm</Width>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <BackgroundColor>#003228</BackgroundColor>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox95">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>ادارة الاقيم</Value>
-                        <Style>
-                          <FontWeight>Normal</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.7852cm</Top>
-                <Left>0.68143cm</Left>
-                <Height>0.67937cm</Height>
-                <Width>3.59834cm</Width>
-                <ZIndex>1</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>0.09261cm</Top>
-            <Left>0.4295cm</Left>
-            <Height>3.21733cm</Height>
-            <Width>4.79306cm</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Color>#e2e7eb</Color>
-                <Style>Solid</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </Rectangle>
-        </ReportItems>
-        <KeepTogether>true</KeepTogether>
-        <Top>23.9234cm</Top>
-        <Left>0.21056cm</Left>
-        <Height>3.37608cm</Height>
-        <Width>20.05335cm</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Color>Firebrick</Color>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Rectangle>
       <Rectangle Name="Rectangle93">
         <ReportItems>
           <Rectangle Name="Rectangle96">
@@ -5808,7 +5451,6 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>0.16077cm</Top>
                 <Left>4.42148cm</Left>
                 <Height>0.58412cm</Height>
                 <Width>11.24479cm</Width>
@@ -5824,9 +5466,8 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>0.1688cm</Top>
             <Left>0.23105cm</Left>
-            <Height>0.90364cm</Height>
+            <Height>0.74287cm</Height>
             <Width>19.65855cm</Width>
             <Style>
               <Border>
@@ -5837,12 +5478,12 @@
             </Style>
           </Rectangle>
           <Image Name="Image2">
-            <Source>Embedded</Source>
-            <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+            <Source>External</Source>
+            <Value>=Parameters!earthmap.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>1.22647cm</Top>
+            <Top>0.91926cm</Top>
             <Left>0.15168cm</Left>
-            <Height>7.47959cm</Height>
+            <Height>7.10798cm</Height>
             <Width>19.54334cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
@@ -5890,7 +5531,7 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>8.92766cm</Top>
+            <Top>8.24884cm</Top>
             <Left>0.22871cm</Left>
             <Height>0.90364cm</Height>
             <Width>19.65855cm</Width>
@@ -5904,10 +5545,10 @@
             </Style>
           </Rectangle>
           <Image Name="Image3">
-            <Source>Embedded</Source>
-            <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+            <Source>External</Source>
+            <Value>=Parameters!map.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>10.03564cm</Top>
+            <Top>9.35682cm</Top>
             <Left>0.19615cm</Left>
             <Height>6.58cm</Height>
             <Width>19.54334cm</Width>
@@ -5942,8 +5583,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
                 <Top>0.16077cm</Top>
+                <Left>0.27888cm</Left>
                 <Height>0.58412cm</Height>
-                <Width>12.65474cm</Width>
+                <Width>13.41116cm</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -5956,10 +5598,10 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>16.84125cm</Top>
-            <Left>7.19253cm</Left>
+            <Top>16.16243cm</Top>
+            <Left>6.15723cm</Left>
             <Height>0.90364cm</Height>
-            <Width>12.69473cm</Width>
+            <Width>13.73003cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -5995,7 +5637,7 @@
                 <Top>0.16077cm</Top>
                 <Left>0.02676cm</Left>
                 <Height>0.58412cm</Height>
-                <Width>6.81484cm</Width>
+                <Width>5.64528cm</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -6008,10 +5650,10 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>16.84125cm</Top>
+            <Top>16.16243cm</Top>
             <Left>0.15168cm</Left>
             <Height>0.90364cm</Height>
-            <Width>6.8416cm</Width>
+            <Width>5.80739cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -6024,13 +5666,13 @@
           <Rectangle Name="Rectangle108">
             <ReportItems>
               <Image Name="Image5">
-                <Source>Embedded</Source>
-                <Value>ID19_3_58a99643bc5b9_autoX300</Value>
+                <Source>External</Source>
+                <Value>=Parameters!zoommap.Value</Value>
                 <Sizing>FitProportional</Sizing>
                 <Top>0.16404cm</Top>
-                <Left>0.23424cm</Left>
+                <Left>0.27888cm</Left>
                 <Height>7.01414cm</Height>
-                <Width>12.15875cm</Width>
+                <Width>13.25891cm</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -6039,10 +5681,10 @@
               </Image>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>17.92128cm</Top>
-            <Left>7.22cm</Left>
+            <Top>17.24246cm</Top>
+            <Left>6.15723cm</Left>
             <Height>7.2732cm</Height>
-            <Width>12.6696cm</Width>
+            <Width>13.73237cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -6076,7 +5718,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
                 <Top>1.38554cm</Top>
-                <Left>2.06111cm</Left>
+                <Left>0.23464cm</Left>
                 <Height>0.68616cm</Height>
                 <Width>4.0088cm</Width>
                 <Style>
@@ -6111,7 +5753,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
                 <Top>3.11063cm</Top>
-                <Left>2.06111cm</Left>
+                <Left>0.23464cm</Left>
                 <Height>0.68616cm</Height>
                 <Width>4.0088cm</Width>
                 <ZIndex>1</ZIndex>
@@ -6132,23 +5774,22 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>24.45454</Value>
+                        <Value>=Fields!Longtute.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
                     <Style>
-                      <TextAlign>Right</TextAlign>
+                      <TextAlign>Left</TextAlign>
                     </Style>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
                 <Top>2.24809cm</Top>
-                <Left>2.06111cm</Left>
+                <Left>0.23464cm</Left>
                 <Height>0.68616cm</Height>
-                <Width>3.31258cm</Width>
+                <Width>4.60887cm</Width>
                 <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
@@ -6167,23 +5808,22 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>24.45454</Value>
+                        <Value>=Fields!Latute.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
                     <Style>
-                      <TextAlign>Right</TextAlign>
+                      <TextAlign>Left</TextAlign>
                     </Style>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
                 <Top>3.79679cm</Top>
-                <Left>2.06111cm</Left>
+                <Left>0.23464cm</Left>
                 <Height>0.68616cm</Height>
-                <Width>3.31258cm</Width>
+                <Width>4.60887cm</Width>
                 <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
@@ -6197,10 +5837,10 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>17.88601cm</Top>
+            <Top>17.20719cm</Top>
             <Left>0.19034cm</Left>
             <Height>7.30847cm</Height>
-            <Width>6.76922cm</Width>
+            <Width>5.76873cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -6212,11 +5852,11 @@
           </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>27.57996cm</Top>
+        <Top>28.25878cm</Top>
         <Left>0.18514cm</Left>
-        <Height>25.34442cm</Height>
+        <Height>24.6656cm</Height>
         <Width>20.07511cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Color>Firebrick</Color>
@@ -10411,7 +10051,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value />
+                            <Value>=Fields!CountAprtmentfor.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10555,7 +10195,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value />
+                            <Value>=Fields!RendingCompnyapartment.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10824,7 +10464,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value />
+                            <Value>=Fields!ContractCountapartment.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11005,7 +10645,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value />
+                            <Value>=Fields!RendingTypeapartment.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11188,7 +10828,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value>=Fields!MothmenOpnion.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11335,7 +10975,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>0</Value>
+                            <Value>=Fields!MantinancePrice.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11444,6 +11084,525 @@
         <Left>0.21056cm</Left>
         <Height>12.52815cm</Height>
         <Width>20.06596cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Color>Firebrick</Color>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle88">
+        <ReportItems>
+          <Rectangle Name="Rectangle89">
+            <ReportItems>
+              <Textbox Name="Textbox88">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>المقيم العقاري</Value>
+                        <Style>
+                          <FontSize>12pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>White</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Left>0.02173cm</Left>
+                <Height>0.67937cm</Height>
+                <Width>4.77133cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <BackgroundColor>#003228</BackgroundColor>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox90">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Parameters!muthmen.Value</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Right</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>0.7852cm</Top>
+                <Left>2.03081cm</Left>
+                <Height>0.67937cm</Height>
+                <Width>2.61425cm</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Image Name="Image1">
+                <Source>External</Source>
+                <Value>=Parameters!muthminsign.Value</Value>
+                <Sizing>FitProportional</Sizing>
+                <Top>1.4699cm</Top>
+                <Left>0.19925cm</Left>
+                <Height>2.52326cm</Height>
+                <Width>4.44581cm</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+              <Textbox Name="Textbox105">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Parameters!idmuthmin.Value</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Right</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>0.79226cm</Top>
+                <Left>0.13494cm</Left>
+                <Height>0.67937cm</Height>
+                <Width>2.48853cm</Width>
+                <ZIndex>3</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>0.07408cm</Top>
+            <Left>15.23072cm</Left>
+            <Height>4.07458cm</Height>
+            <Width>4.79306cm</Width>
+            <Style>
+              <Border>
+                <Color>#e2e7eb</Color>
+                <Style>Solid</Style>
+              </Border>
+              <BackgroundColor>White</BackgroundColor>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle90">
+            <ReportItems>
+              <Textbox Name="Textbox89">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>مدقق التقيم</Value>
+                        <Style>
+                          <FontSize>12pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>White</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Height>0.67937cm</Height>
+                <Width>4.79306cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <BackgroundColor>#003228</BackgroundColor>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Image Name="Image6">
+                <Source>External</Source>
+                <Value>=Parameters!Auditsign.Value</Value>
+                <Sizing>FitProportional</Sizing>
+                <Top>1.46457cm</Top>
+                <Left>0.17362cm</Left>
+                <Height>2.51006cm</Height>
+                <Width>4.44581cm</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+              <Textbox Name="Textbox106">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Parameters!idaudit.Value</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Right</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>0.7217cm</Top>
+                <Left>0.17362cm</Left>
+                <Height>0.67937cm</Height>
+                <Width>2.53277cm</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox91">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Parameters!audit.Value</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Right</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>0.71464cm</Top>
+                <Left>1.72553cm</Left>
+                <Height>0.67937cm</Height>
+                <Width>2.95821cm</Width>
+                <ZIndex>3</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>0.09261cm</Top>
+            <Left>10.31827cm</Left>
+            <Height>4.07458cm</Height>
+            <Width>4.79306cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Color>#e2e7eb</Color>
+                <Style>Solid</Style>
+              </Border>
+              <BackgroundColor>White</BackgroundColor>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle91">
+            <ReportItems>
+              <Textbox Name="Textbox92">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>اعتمده</Value>
+                        <Style>
+                          <FontSize>12pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>White</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Left>0.0623cm</Left>
+                <Height>0.67937cm</Height>
+                <Width>4.73076cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <BackgroundColor>#003228</BackgroundColor>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Image Name="Image7">
+                <Source>External</Source>
+                <Value>=Parameters!Approvesign.Value</Value>
+                <Sizing>FitProportional</Sizing>
+                <Top>1.36995cm</Top>
+                <Left>0.17363cm</Left>
+                <Height>2.60468cm</Height>
+                <Width>4.44581cm</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+              <Textbox Name="Textbox287">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Parameters!idapprove.Value</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Right</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>0.68514cm</Top>
+                <Left>0.14147cm</Left>
+                <Height>0.67937cm</Height>
+                <Width>2.48142cm</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox93">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Parameters!approver.Value</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Right</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>0.67808cm</Top>
+                <Left>1.53463cm</Left>
+                <Height>0.67937cm</Height>
+                <Width>3.11696cm</Width>
+                <ZIndex>3</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>0.09261cm</Top>
+            <Left>5.39703cm</Left>
+            <Height>4.07458cm</Height>
+            <Width>4.79306cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Color>#e2e7eb</Color>
+                <Style>Solid</Style>
+              </Border>
+              <BackgroundColor>White</BackgroundColor>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle92">
+            <ReportItems>
+              <Textbox Name="Textbox94">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>الختم الرسم</Value>
+                        <Style>
+                          <FontSize>12pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>White</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Left>0.48988cm</Left>
+                <Height>0.67937cm</Height>
+                <Width>4.79306cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <BackgroundColor>#003228</BackgroundColor>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox95">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>ادارة الاقيم</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>0.7217cm</Top>
+                <Left>1.17131cm</Left>
+                <Height>0.49479cm</Height>
+                <Width>3.59834cm</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Image Name="Image8">
+                <Source>Embedded</Source>
+                <Value>ID3</Value>
+                <Sizing>FitProportional</Sizing>
+                <Top>1.39288cm</Top>
+                <Left>0.52281cm</Left>
+                <Height>2.47001cm</Height>
+                <Width>4.32515cm</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>0.09261cm</Top>
+            <Height>4.07458cm</Height>
+            <Width>5.28294cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Color>#e2e7eb</Color>
+                <Style>Solid</Style>
+              </Border>
+              <BackgroundColor>White</BackgroundColor>
+            </Style>
+          </Rectangle>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>23.96585cm</Top>
+        <Left>0.24314cm</Left>
+        <Height>4.16719cm</Height>
+        <Width>20.11373cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -11452,8 +11611,370 @@
           </Border>
         </Style>
       </Rectangle>
+      <Rectangle Name="Rectangle43">
+        <ReportItems>
+          <Rectangle Name="Rectangle103">
+            <ReportItems>
+              <Textbox Name="Textbox288">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>صور العقار</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>White</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>0.00202cm</Top>
+                <Left>7.515cm</Left>
+                <Height>0.58412cm</Height>
+                <Width>5.37315cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Left>0.25329cm</Left>
+            <Height>0.64964cm</Height>
+            <Width>19.81729cm</Width>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+              <BackgroundColor>Firebrick</BackgroundColor>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle44">
+            <ReportItems>
+              <Image Name="Image13">
+                <Source>External</Source>
+                <Value>=Microsoft.VisualBasic.Strings.Split(Parameters!images.Value, ",").GetValue(0)</Value>
+                <Sizing>Fit</Sizing>
+                <Top>0.1703cm</Top>
+                <Left>0.14027cm</Left>
+                <Height>4.18817cm</Height>
+                <Width>9.57792cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>0.9525cm</Top>
+            <Left>10.26585cm</Left>
+            <Height>4.52217cm</Height>
+            <Width>9.83648cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle104">
+            <ReportItems>
+              <Image Name="Image10">
+                <Source>External</Source>
+                <Value>=Microsoft.VisualBasic.Strings.Split(Parameters!images.Value, ",").GetValue(1)</Value>
+                <Sizing>Fit</Sizing>
+                <Top>0.16236cm</Top>
+                <Left>0.12886cm</Left>
+                <Height>4.18817cm</Height>
+                <Width>9.68824cm</Width>
+                <ToolTip>=Parameters!images.Value</ToolTip>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>0.96044cm</Top>
+            <Left>0.13534cm</Left>
+            <Height>4.51438cm</Height>
+            <Width>9.98916cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle105">
+            <ReportItems>
+              <Image Name="Image11">
+                <Source>External</Source>
+                <Value>=Microsoft.VisualBasic.Strings.Split(Parameters!images.Value, ",").GetValue(2)</Value>
+                <Sizing>Fit</Sizing>
+                <Top>0.16236cm</Top>
+                <Height>4.18817cm</Height>
+                <Width>9.68824cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>5.61578cm</Top>
+            <Left>10.26728cm</Left>
+            <Height>4.51438cm</Height>
+            <Width>9.83648cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle225">
+            <ReportItems>
+              <Image Name="Image12">
+                <Source>External</Source>
+                <Value>=Microsoft.VisualBasic.Strings.Split(Parameters!images.Value, ",").GetValue(3)</Value>
+                <Sizing>Fit</Sizing>
+                <Top>0.16236cm</Top>
+                <Left>0.15267cm</Left>
+                <Height>4.18817cm</Height>
+                <Width>9.68824cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>5.62372cm</Top>
+            <Left>0.13677cm</Left>
+            <Height>4.51438cm</Height>
+            <Width>9.98916cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle226">
+            <ReportItems>
+              <Image Name="Image14">
+                <Source>External</Source>
+                <Value>=Microsoft.VisualBasic.Strings.Split(Parameters!images.Value, ",").GetValue(4)</Value>
+                <Sizing>Fit</Sizing>
+                <Top>0.16236cm</Top>
+                <Height>4.18817cm</Height>
+                <Width>9.68824cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>10.26715cm</Top>
+            <Left>10.26239cm</Left>
+            <Height>4.51438cm</Height>
+            <Width>9.83648cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle227">
+            <ReportItems>
+              <Image Name="Image15">
+                <Source>External</Source>
+                <Value>=Microsoft.VisualBasic.Strings.Split(Parameters!images.Value, ",").GetValue(5)</Value>
+                <Sizing>Fit</Sizing>
+                <Top>0.15442cm</Top>
+                <Left>0.15267cm</Left>
+                <Height>4.18817cm</Height>
+                <Width>9.68824cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>10.27509cm</Top>
+            <Left>0.13188cm</Left>
+            <Height>4.51438cm</Height>
+            <Width>9.98916cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle228">
+            <ReportItems>
+              <Image Name="Image16">
+                <Source>External</Source>
+                <Value>=Microsoft.VisualBasic.Strings.Split(Parameters!images.Value, ",").GetValue(6)</Value>
+                <Sizing>Fit</Sizing>
+                <Top>0.16236cm</Top>
+                <Height>4.18817cm</Height>
+                <Width>9.68824cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>14.95227cm</Top>
+            <Left>10.25662cm</Left>
+            <Height>4.51438cm</Height>
+            <Width>9.83648cm</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle229">
+            <ReportItems>
+              <Image Name="Image17">
+                <Source>External</Source>
+                <Value>=Microsoft.VisualBasic.Strings.Split(Parameters!images.Value, ",").GetValue(7)</Value>
+                <Sizing>Fit</Sizing>
+                <Top>0.16236cm</Top>
+                <Left>0.15267cm</Left>
+                <Height>4.18817cm</Height>
+                <Width>9.68824cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>14.96021cm</Top>
+            <Left>0.12611cm</Left>
+            <Height>4.51438cm</Height>
+            <Width>9.98916cm</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle246">
+            <ReportItems>
+              <Image Name="Image18">
+                <Source>External</Source>
+                <Value>=Microsoft.VisualBasic.Strings.Split(Parameters!images.Value, ",").GetValue(8)</Value>
+                <Sizing>Fit</Sizing>
+                <Top>0.16236cm</Top>
+                <Height>4.18817cm</Height>
+                <Width>9.68824cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>19.60364cm</Top>
+            <Left>10.25173cm</Left>
+            <Height>4.51438cm</Height>
+            <Width>9.83648cm</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle247">
+            <ReportItems>
+              <Image Name="Image19">
+                <Source>External</Source>
+                <Value>=Microsoft.VisualBasic.Strings.Split(Parameters!images.Value, ",").GetValue(9)</Value>
+                <Sizing>Fit</Sizing>
+                <Top>0.15442cm</Top>
+                <Left>0.1271cm</Left>
+                <Height>4.18817cm</Height>
+                <Width>9.68824cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>19.61158cm</Top>
+            <Left>0.12122cm</Left>
+            <Height>4.51438cm</Height>
+            <Width>9.98916cm</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Color>Firebrick</Color>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>53.10246cm</Top>
+        <Left>0.18462cm</Left>
+        <Height>24.18946cm</Height>
+        <Width>20.23076cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Color>Firebrick</Color>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Rectangle>
     </ReportItems>
-    <Height>20.83637in</Height>
+    <Height>30.42989in</Height>
     <Style />
   </Body>
   <Width>20.6cm</Width>
@@ -12311,6 +12832,84 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="totprice">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="muthmen">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="muthminsign">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="idmuthmin">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Auditsign">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="idaudit">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="audit">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Approvesign">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="idapprove">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="approver">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="earthmap">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="map">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="zoommap">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="images">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>
