@@ -8,8 +8,8 @@ using CloudApp.Data;
 namespace CloudApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170401230205_cs5")]
-    partial class cs5
+    [Migration("20170402005825_migr22")]
+    partial class migr22
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
