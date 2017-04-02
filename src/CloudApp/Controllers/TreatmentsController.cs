@@ -408,6 +408,22 @@ namespace CloudApp.Controllers
             return  RedirectToAction("Index");
         }
 
+        public IActionResult Printout(string id)
+        {
+            string[] data = id.Split(';');
+
+            if (data[1] == "1")
+            {
+                return RedirectToAction("GetSample0Report", new { id = data[0] });
+            }
+            if (data[1] == "2")
+            {
+                return RedirectToAction("GetSample1Report", "R1Smaple", new { id = data[0] });
+            }
+
+            return RedirectToAction("Index");
+        }
+
         public IActionResult SendEmailRoute(string id)
         {
             string[] data = id.Split(';');
@@ -416,7 +432,7 @@ namespace CloudApp.Controllers
                 return RedirectToAction("SendEmail", new {id = data[0]});
             }else if (data[1] == "2")
             {
-                return RedirectToAction("", "R1Smaple");
+                return RedirectToAction("", "R1Smaple" , new { id = data[0] });
             }
             return RedirectToAction("Index");
         }
