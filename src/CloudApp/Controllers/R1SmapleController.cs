@@ -120,10 +120,10 @@ namespace CloudApp.Controllers
         }
 
 
-        public IActionResult Create(int id)
+        public IActionResult Create(int ids)
         {
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
-            var cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == id);
+            var cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == ids);
             ViewData["cmsname"] = cms;
             return View(new R1Smaple());
         }

@@ -285,7 +285,7 @@ namespace CloudApp.Controllers
                     ViewData["cmsname"] = cms;
                     return View(new Treatment());
                 case 2:
-                    return RedirectToAction("Create","R1Smaple" , new {id = cms.Id});
+                    return RedirectToAction("Create","R1Smaple" , new {ids = cms.Id});
                 case 3:
                     return RedirectToAction("Create", "R2Smaple");
                 default:
