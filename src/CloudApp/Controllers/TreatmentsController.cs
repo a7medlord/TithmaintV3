@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -27,7 +30,41 @@ namespace CloudApp.Controllers
             _userManager = user;
             _env = env;
         }
-       
+
+
+        public bool SendEmail(long id)
+        {
+            var qu = _context.Treatment.Include(quotation => quotation.Custmer).SingleOrDefault(quotation => quotation.Id == id);
+
+            var fromAddress = new MailAddress("ma3az333333@gmail.com", "‘—ﬂ… «· À„Ì‰«  «·⁄ﬁ«—ÌÂ");
+            string frompassword = "maazahmed1111111";
+
+            var toAddress = new MailAddress(qu.Custmer.Email, qu.Custmer.Name);
+
+            Attachment attacher = new Attachment(new MemoryStream(GetSample0ReportasStreem(id)), MediaTypeNames.Application.Pdf);
+            attacher.ContentDisposition.FileName = qu.Id + ".pdf";
+
+            SmtpClient smptclints = new SmtpClient()
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, frompassword)
+            };
+
+            MailMessage msg = new MailMessage();
+            msg.Attachments.Add(attacher);
+            msg.Subject = "⁄—÷ ”⁄— ⁄„·Ì…  À„Ì‰";
+            msg.Body = "«·—Ã«¡ «·«ÿ·«⁄ ⁄·Ì ⁄—÷ «·”⁄— ";
+            msg.To.Add(toAddress);
+            msg.From = fromAddress;
+            smptclints.Send(msg);
+
+            return true;
+        }
+
         public IActionResult GetSample0Report(long id)
         {
 
@@ -160,18 +197,18 @@ namespace CloudApp.Controllers
                 lists.Add(row);
             }
 
-            foreach (R1Smaple treatment in listoftremantsample2)
+            foreach (R1Smaple sample in listoftremantsample2)
             {
                 TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
                 {
-                    Id = treatment.Id,
-                    Clint = CheckNullValue(treatment.Custmer.Name),
-                    Owner = CheckNullValue(treatment.Owner),
-                    AqarType = CheckNullValue(treatment.AqarType),
-                    CityAndHy = CheckNullValue(treatment.City + " / " + treatment.Gada),
-                    Mothmen = ChekNull(treatment.ApplicationUser),
-                    SampleId = CheckNullValue(treatment.Custmer.Sample.Name),
-                    State = GetState(treatment.IsIntered, treatment.IsThmin, treatment.IsAduit, treatment.IsApproved),
+                    Id = sample.Id,
+                    Clint = CheckNullValue(sample.Custmer.Name),
+                    Owner = CheckNullValue(sample.Owner),
+                    AqarType = CheckNullValue(sample.AqarType),
+                    CityAndHy = CheckNullValue(sample.City + " / " + sample.Gada),
+                    Mothmen = ChekNull(sample.ApplicationUser),
+                    SampleId = CheckNullValue(sample.Custmer.Sample.Name),
+                    State = GetState(sample.IsIntered, sample.IsThmin, sample.IsAduit, sample.IsApproved),
                     Type = 2
                 };
 
@@ -244,22 +281,22 @@ namespace CloudApp.Controllers
      
         public async Task<IActionResult> Create(int id)
         {
-            ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
-
-            ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
+          
 
             Custmer cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == id);
-            var sampleid = cms?.SampleId ?? 1;
+            var sampleid = cms.SampleId;
 
             switch (sampleid)
             {
                 case 1 :
+                   
+                    ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
                     ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d=>d.FlagValue  ==FlagsName.Aqar), "Value", "Value");
                     ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");
-
+                    ViewData["cmsname"] = cms;
                     return View(new Treatment());
                 case 2:
-                    return RedirectToAction("Create","R1Smaple");
+                    return RedirectToAction("Create","R1Smaple" , new {id = cms.Id});
                 case 3:
                     return RedirectToAction("Create", "R2Smaple");
                 default:
@@ -337,7 +374,7 @@ namespace CloudApp.Controllers
                 return NotFound();
             }
 
-            var treatment = await _context.Treatment.Include(treatment1 => treatment1.AttachmentForTreaments).SingleOrDefaultAsync(m => m.Id == id);
+            var treatment = await _context.Treatment.Include(treatment1 => treatment1.AttachmentForTreaments).Include(treatment1 => treatment1.Custmer).SingleOrDefaultAsync(m => m.Id == id);
 
             if (treatment == null)
             {
@@ -351,6 +388,7 @@ namespace CloudApp.Controllers
             }
             ViewData["imgs"] = files;
            await GetListBind(treatment.CustmerId);
+            ViewData["cmsname"] = treatment.Custmer;
             return View(treatment);
         }
 
@@ -368,6 +406,19 @@ namespace CloudApp.Controllers
             }
 
             return  RedirectToAction("Index");
+        }
+
+        public IActionResult SendEmailRoute(string id)
+        {
+            string[] data = id.Split(';');
+            if (data[1] == "1")
+            {
+                return RedirectToAction("SendEmail", new {id = data[0]});
+            }else if (data[1] == "2")
+            {
+                return RedirectToAction("", "R1Smaple");
+            }
+            return RedirectToAction("Index");
         }
 
      
