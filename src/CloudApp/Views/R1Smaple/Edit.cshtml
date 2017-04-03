@@ -1470,6 +1470,10 @@
     }
 
     <script>
+
+
+
+        $(".select2").css("width", "100%");
         //ControlTab For Edit
         function getstattab1() {
 
@@ -1629,10 +1633,10 @@
 
                     handleLocationError(true, infoWindow, map.getCenter());
                 }, {
-                        enableHighAccuracy: false,
-                        timeout: 30000,
-                        maximumAge: 30000
-                    });
+                    enableHighAccuracy: false,
+                    timeout: 30000,
+                    maximumAge: 30000
+                });
             } else {
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
