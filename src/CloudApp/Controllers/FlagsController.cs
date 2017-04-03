@@ -16,13 +16,13 @@ namespace CloudApp.Controllers
             _context = context;    
         }
 
-        // GET: Flags
+    
         public async Task<IActionResult> Index(long flags)
         {
             return View(await _context.Flag.Where(d=>d.FlagValue==flags).ToListAsync());
         }
 
-        // GET: Flags/Details/5
+       
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -41,15 +41,12 @@ namespace CloudApp.Controllers
 
         }
 
-        // GET: Flags/Create
+       
         public IActionResult Create(long ids )
         {
             return View(new Flag(){FlagValue = ids});
         }
-
-        // POST: Flags/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind] Flag flag)
@@ -65,7 +62,7 @@ namespace CloudApp.Controllers
             }
             return View(flag);
         }
-        // GET: Flags/Edit/5
+      
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -81,9 +78,7 @@ namespace CloudApp.Controllers
             return View(flag);
         }
 
-        // POST: Flags/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind("Id,Value,FlagValue")] Flag flag)
@@ -116,7 +111,7 @@ namespace CloudApp.Controllers
             return View(flag);
         }
 
-        // GET: Flags/Delete/5
+        
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -134,7 +129,6 @@ namespace CloudApp.Controllers
             return View(flag);
         }
 
-        // POST: Flags/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)

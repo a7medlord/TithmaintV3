@@ -60,7 +60,7 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "الجار مبني")]
         public string JarIsBulding { get; set; }
 
-        [Display(Name = "نوع المرفق")]
+        [Display(Name = "العقار مرفق")]
         public string AqaraAttachment { get; set; }
 
         [Display(Name = "نوع المرفق")]

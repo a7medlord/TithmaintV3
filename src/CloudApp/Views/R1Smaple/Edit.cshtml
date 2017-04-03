@@ -100,9 +100,56 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="AqarScope" class="control-label"></label>
-                                <input asp-for="AqarScope" class="form-control" />
-                                <span asp-validation-for="AqarScope" class="text-danger" />
+                                <label asp-for="AqarScope" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="AqarScope" class="select2 form-control" asp-items="ViewBag.AqarScope"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="7" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="AqarType" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="AqarType" class="select2 form-control" asp-items="ViewBag.aqartype"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="1" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="ArchDesgin" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="ArchDesgin" class="select2 form-control" asp-items="ViewBag.desinArch"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="3" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Mansob" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="Mansob" class="select2 form-control" asp-items="ViewBag.Mansob"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="4" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="BulState" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="BulState" class="select2 form-control" asp-items="ViewBag.buldingtype"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="5" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -110,68 +157,41 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="AqarType" class="control-label"></label>
-                                <input asp-for="AqarType" class="form-control" />
-                                <span asp-validation-for="AqarType" class="text-danger" />
+                                <label asp-for="BuldingType" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="BuldingType" class="select2 form-control" asp-items="ViewBag.butype"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="6" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="ArchDesgin" class="control-label"></label>
-                                <input asp-for="ArchDesgin" class="form-control" />
-                                <span asp-validation-for="ArchDesgin" class="text-danger" />
+                                <label asp-for="BuldinIsNull" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="BuldinIsNull" class="select2 form-control" asp-items="ViewBag.BuldingBuzy"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="8" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="Mansob" class="control-label"></label>
-                                <input asp-for="Mansob" class="form-control" />
-                                <span asp-validation-for="Mansob" class="text-danger" />
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label asp-for="BulState" class="control-label"></label>
-                                <input asp-for="BulState" class="form-control" />
-                                <span asp-validation-for="BulState" class="text-danger" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label asp-for="BuldingType" class="control-label"></label>
-                                <input asp-for="BuldingType" class="form-control" />
-                                <span asp-validation-for="BuldingType" class="text-danger" />
+                                <label asp-for="RoadSeflt" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="RoadSeflt" class="select2 form-control" asp-items="ViewBag.RoadSeflt"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="9" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="BuldinIsNull" class="control-label"></label>
-                                <input asp-for="BuldinIsNull" class="form-control" />
-                                <span asp-validation-for="BuldinIsNull" class="text-danger" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label asp-for="RoadSeflt" class="control-label"></label>
-                                <input asp-for="RoadSeflt" class="form-control" />
-                                <span asp-validation-for="RoadSeflt" class="text-danger" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label asp-for="RoadLight" class="control-label"></label>
-                                <input asp-for="RoadLight" class="form-control" />
-                                <span asp-validation-for="RoadLight" class="text-danger" />
+                                <label asp-for="RoadLight" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="RoadLight" class="select2 form-control" asp-items="ViewBag.RoadLighting"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="9" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -187,17 +207,21 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="JarIsBulding" class="control-label"></label>
-                                <input asp-for="JarIsBulding" class="form-control" />
-                                <span asp-validation-for="JarIsBulding" class="text-danger" />
+                                <label asp-for="JarIsBulding" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="JarIsBulding" class="select2 form-control" asp-items="ViewBag.JarIsBulding"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="11" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="AqaraAttachment" class="control-label"></label>
-                                <input asp-for="AqaraAttachment" class="form-control" />
-                                <span asp-validation-for="AqaraAttachment" class="text-danger" />
+                                <label asp-for="AqaraAttachment" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="AqaraAttachment" class="select2 form-control" asp-items="ViewBag.AqarIsAttch"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="12" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
@@ -213,9 +237,11 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="TshteebType" class="control-label"></label>
-                                <input asp-for="TshteebType" class="form-control" />
-                                <span asp-validation-for="TshteebType" class="text-danger" />
+                                <label asp-for="TshteebType" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="TshteebType" class="select2 form-control" asp-items="ViewBag.TshteebType"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="13" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
@@ -384,69 +410,41 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="InterfcaesNorth" class="control-label"></label>
-                                <input asp-for="InterfcaesNorth" class="form-control" />
-                                <span asp-validation-for="InterfcaesNorth" class="text-danger" />
+                                <label asp-for="InterfcaesNorth" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="InterfcaesNorth" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="InterfcaesSouth" class="control-label"></label>
-                                <input asp-for="InterfcaesSouth" class="form-control" />
-                                <span asp-validation-for="InterfcaesSouth" class="text-danger" />
+                                <label asp-for="InterfcaesSouth" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="InterfcaesSouth" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="InterfcaesEast" class="control-label"></label>
-                                <input asp-for="InterfcaesEast" class="form-control" />
-                                <span asp-validation-for="InterfcaesEast" class="text-danger" />
+                                <label asp-for="InterfcaesEast" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="InterfcaesEast" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="InterfcaesWest" class="control-label"></label>
-                                <input asp-for="InterfcaesWest" class="form-control" />
-                                <span asp-validation-for="InterfcaesWest" class="text-danger" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label asp-for="XtrenalDoor" class="control-label"></label>
-                                <input asp-for="XtrenalDoor" class="form-control" />
-                                <span asp-validation-for="XtrenalDoor" class="text-danger" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label asp-for="InnerDoor" class="control-label"></label>
-                                <input asp-for="InnerDoor" class="form-control" />
-                                <span asp-validation-for="InnerDoor" class="text-danger" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label asp-for="Ahwash" class="control-label"></label>
-                                <input asp-for="Ahwash" class="form-control" />
-                                <span asp-validation-for="Ahwash" class="text-danger" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label asp-for="Rescptions" class="control-label"></label>
-                                <input asp-for="Rescptions" class="form-control" />
-                                <span asp-validation-for="Rescptions" class="text-danger" />
+                                <label asp-for="InterfcaesWest" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="InterfcaesWest" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -455,33 +453,41 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="Inner" class="control-label"></label>
-                                <input asp-for="Inner" class="form-control" />
-                                <span asp-validation-for="Inner" class="text-danger" />
+                                <label asp-for="XtrenalDoor" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="XtrenalDoor" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="Rooms" class="control-label"></label>
-                                <input asp-for="Rooms" class="form-control" />
-                                <span asp-validation-for="Rooms" class="text-danger" />
+                                <label asp-for="InnerDoor" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="InnerDoor" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="ArchConstract" class="control-label"></label>
-                                <input asp-for="ArchConstract" class="form-control" />
-                                <span asp-validation-for="ArchConstract" class="text-danger" />
+                                <label asp-for="Ahwash" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="Ahwash" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="AsqfType" class="control-label"></label>
-                                <input asp-for="AsqfType" class="form-control" />
-                                <span asp-validation-for="AsqfType" class="text-danger" />
+                                <label asp-for="Rescptions" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="Rescptions" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -490,20 +496,56 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="AzlType" class="control-label"></label>
-                                <input asp-for="AzlType" class="form-control" />
-                                <span asp-validation-for="AzlType" class="text-danger" />
+                                <label asp-for="Inner" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="Inner" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="Rooms" class="control-label"></label>
-                                <input asp-for="Rooms" class="form-control" />
-                                <span asp-validation-for="Rooms" class="text-danger" />
+                                <label asp-for="Rooms" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="Rooms" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
                             </div>
                         </div>
 
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="ArchConstract" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="ArchConstract" class="select2 form-control" asp-items="ViewBag.AsqfType"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="15" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="AsqfType" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="AsqfType" class="select2 form-control" asp-items="ViewBag.AsqfType"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="15" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="AzlType" class="col-md-3 control-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="AzlType" class="select2 form-control" asp-items="ViewBag.azltype"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="16" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <p>نوع التكيف : </p>
