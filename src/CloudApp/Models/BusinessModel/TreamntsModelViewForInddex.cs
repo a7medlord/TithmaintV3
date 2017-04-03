@@ -22,7 +22,7 @@ namespace CloudApp.Models.BusinessModel
         public string Owner { get; set; }
         [Display(Name = "المدينه / الحي")]
         public string CityAndHy { get; set; }
-        [Display(Name = "الحــالة")]
+        [Display(Name = "الحـــــــــــــــــــــالة")]
         public string State { get; set; }
 
         public int Type { get; set; }

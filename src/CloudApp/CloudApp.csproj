@@ -88,7 +88,6 @@
     <EmbeddedResource Include="Report\Sm2Report.rdlc" />
     <EmbeddedResource Include="Report\SupCoReport.rdlc" />
     <EmbeddedResource Include="Report\SupQtReport.rdlc" />
-    <EmbeddedResource Include="Views\Treatments\Sm0Report.rdlc" />
   </ItemGroup>
 
 </Project>
