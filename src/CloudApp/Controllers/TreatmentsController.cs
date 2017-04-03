@@ -261,22 +261,7 @@ namespace CloudApp.Controllers
         }
 
        
-        public async Task<IActionResult> Details(long? id)
-        {
-            
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var treatment = await _context.Treatment.SingleOrDefaultAsync(m => m.Id == id);
-            if (treatment == null)
-            {
-                return NotFound();
-            }
-
-            return View(treatment);
-        }
+      
 
      
         public async Task<IActionResult> Create(int id)
