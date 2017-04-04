@@ -150,6 +150,8 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "تم اطلاق التيار")]
         public bool IsDonForSndElectric { get; set; }
 
+        [Display(Name = "نوع التشطيب")]
+        public string Tashtibtype { get; set; }
 
 
         //الارضيات

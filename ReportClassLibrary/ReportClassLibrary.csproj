@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BusinessModel\ApplicationUser.cs" />
     <Compile Include="BusinessModel\AttachmentForR1Sample.cs" />
+    <Compile Include="BusinessModel\AttachmentForR2Sample.cs" />
     <Compile Include="BusinessModel\AttachmentForTreament.cs" />
     <Compile Include="BusinessModel\Custmer.cs" />
     <Compile Include="BusinessModel\Instrument.cs" />
@@ -65,7 +66,9 @@
     <EmbeddedResource Include="Report2.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sm2Report.rdlc" />
+    <EmbeddedResource Include="Sm2Report.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sm1Report.rdlc" />
     <EmbeddedResource Include="Sm0Report.rdlc">
       <SubType>Designer</SubType>

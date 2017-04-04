@@ -21,7 +21,7 @@
         text-align: center;
         line-height: 20px; /* line-height should be equal to bar height */
         overflow: hidden;
-        color: black;
+        color:black;
         right: 0;
         left: 0;
         top: 0;
@@ -112,8 +112,6 @@
                                         <div   class="progress-bar-title">@Html.DisplayFor(modelItem => item.State)</div>
                                     </div>
 
-                    
-
                                 </td>  
                                 <td>
                                     <i class="data" style="display: none">@string.Format(item.Id + ";" + item.Type)</i>
@@ -136,9 +134,8 @@
 @section scripts
 {
     <script>
-        if ($(".progress-bar-title").text()==("مكتمــلة")) {
-            alert(100);
-
+        if (true) {
+ 
             $('.progress-bar').css("width", "100%");
         }
 

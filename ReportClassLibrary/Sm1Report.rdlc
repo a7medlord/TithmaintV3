@@ -12592,7 +12592,7 @@
         </Field>
         <Field Name="LastTaqeem">
           <DataField>LastTaqeem</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="Latute">
           <DataField>Latute</DataField>
