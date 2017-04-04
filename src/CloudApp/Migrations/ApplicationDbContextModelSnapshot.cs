@@ -89,15 +89,27 @@ namespace CloudApp.Migrations
 
                     b.Property<long>("R1SmapleId");
 
-                    b.Property<long?>("R2SmapleId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("R1SmapleId");
 
+                    b.ToTable("AttachmentForR1Samples");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.AttachmentForR2Sample", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AttachmentId");
+
+                    b.Property<long>("R2SmapleId");
+
+                    b.HasKey("Id");
+
                     b.HasIndex("R2SmapleId");
 
-                    b.ToTable("AttachmentForR1Samples");
+                    b.ToTable("AttachmentForR2Samples");
                 });
 
             modelBuilder.Entity("CloudApp.Models.BusinessModel.AttachmentForTreament", b =>
@@ -546,8 +558,6 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("AqarUse");
 
-                    b.Property<string>("Aqarclass");
-
                     b.Property<string>("Aqarforcity");
 
                     b.Property<string>("Aqarforplane");
@@ -556,7 +566,13 @@ namespace CloudApp.Migrations
 
                     b.Property<bool>("Aqarissoonrent");
 
-                    b.Property<string>("ArchDesgin");
+                    b.Property<bool>("ArchKrsany");
+
+                    b.Property<bool>("ArchMatrialBulding");
+
+                    b.Property<bool>("ArchWallBlanc");
+
+                    b.Property<bool>("ArchWood");
 
                     b.Property<string>("AreaApendxup");
 
@@ -582,21 +598,39 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("AreareptDoor");
 
+                    b.Property<bool>("AsqfKrsany");
+
+                    b.Property<bool>("AsqfMatrialCamer");
+
+                    b.Property<bool>("AsqfOthers");
+
+                    b.Property<bool>("AsqfWoodCamer");
+
                     b.Property<string>("BlockNumber");
 
                     b.Property<string>("BuildType");
-
-                    b.Property<string>("BulState");
 
                     b.Property<string>("BuldinIsNull");
 
                     b.Property<string>("BuldingType");
 
+                    b.Property<bool>("BuldingTypeBad");
+
+                    b.Property<bool>("BuldingTypeExlant");
+
+                    b.Property<bool>("BuldingTypeGood");
+
                     b.Property<string>("CaseNumber");
 
                     b.Property<string>("City");
 
-                    b.Property<string>("Civelprat");
+                    b.Property<bool>("ClassComirctal");
+
+                    b.Property<bool>("ClassHome");
+
+                    b.Property<bool>("ClassHomeAndComrictal");
+
+                    b.Property<bool>("ClassOthers");
 
                     b.Property<string>("CountAprtment");
 
@@ -605,6 +639,12 @@ namespace CloudApp.Migrations
                     b.Property<long>("CustmerId");
 
                     b.Property<DateTime>("DelverDate");
+
+                    b.Property<bool>("DesinBad");
+
+                    b.Property<bool>("DesinExlant");
+
+                    b.Property<bool>("DesinGood");
 
                     b.Property<string>("Doorin");
 
@@ -624,7 +664,13 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("Gada");
 
-                    b.Property<string>("Genloc");
+                    b.Property<bool>("GenralExteranlScope");
+
+                    b.Property<bool>("GenralFirstLevel");
+
+                    b.Property<bool>("GenralInnerScope");
+
+                    b.Property<bool>("GenralTowLevel");
 
                     b.Property<string>("Inner");
 
@@ -694,7 +740,11 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("Longtute");
 
-                    b.Property<string>("Mansob");
+                    b.Property<bool>("MansobHeigh");
+
+                    b.Property<bool>("MansobLevl");
+
+                    b.Property<bool>("MansobLow");
 
                     b.Property<bool>("Mantinance");
 
@@ -753,8 +803,6 @@ namespace CloudApp.Migrations
                     b.Property<string>("RentTretment");
 
                     b.Property<string>("Rescptions");
-
-                    b.Property<string>("Rooftype");
 
                     b.Property<string>("Rooms");
 
@@ -1166,10 +1214,14 @@ namespace CloudApp.Migrations
                         .WithMany("AttachmentForR1Samples")
                         .HasForeignKey("R1SmapleId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
 
-                    b.HasOne("CloudApp.Models.BusinessModel.R2Smaple")
-                        .WithMany("AttachmentForR1Samples")
-                        .HasForeignKey("R2SmapleId");
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.AttachmentForR2Sample", b =>
+                {
+                    b.HasOne("CloudApp.Models.BusinessModel.R2Smaple", "R2Smaple")
+                        .WithMany("AttachmentForR2Samples")
+                        .HasForeignKey("R2SmapleId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CloudApp.Models.BusinessModel.AttachmentForTreament", b =>

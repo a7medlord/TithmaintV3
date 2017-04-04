@@ -116,7 +116,7 @@ namespace CloudApp.Models.BusinessModel
         public bool MansobLow { get; set; }
 
 
-        // Street
+        // الشوارع
         [Display(Name = "مسفلتة")]
         public bool Streetsok { get; set; }
         [Display(Name = "غير مسفلته")]
