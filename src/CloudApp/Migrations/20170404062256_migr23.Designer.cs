@@ -8,9 +8,10 @@ using CloudApp.Data;
 namespace CloudApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170404062256_migr23")]
+    partial class migr23
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -884,7 +885,7 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("Talabnum");
 
-                    b.Property<string>("Tashtibtype");
+                    b.Property<bool>("Tashtibtype");
 
                     b.Property<string>("Toor");
 

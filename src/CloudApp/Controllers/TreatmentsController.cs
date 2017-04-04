@@ -255,6 +255,7 @@ namespace CloudApp.Controllers
            return user.EmployName;
         }
 
+
         string GetState(params bool[] state)
         {
             bool IsIntered = state[0];
@@ -300,7 +301,7 @@ namespace CloudApp.Controllers
                 case 2:
                     return RedirectToAction("Create","R1Smaple" , new {ids = cms.Id});
                 case 3:
-                    return RedirectToAction("Create", "R2Smaple");
+                    return RedirectToAction("Create", "R2Smaple", new { ids = cms.Id });
                 default:
                     return View();
             } 

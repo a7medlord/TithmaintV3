@@ -151,7 +151,7 @@ namespace ReportClassLibrary.BusinessModel
         public bool IsDonForSndElectric { get; set; }
 
         [Display(Name = "نوع التشطيب")]
-        public bool Tashtibtype { get; set; }
+        public string Tashtibtype { get; set; }
 
 
 
