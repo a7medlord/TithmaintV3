@@ -655,7 +655,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!City.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -894,7 +894,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!Gada.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -943,7 +943,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!KotatNumber.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -993,7 +993,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!PiceNumber.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -1043,7 +1043,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!BlockNumber.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -1378,7 +1378,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>شارع 20م</Value>
+                        <Value>=Fields!North.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -1427,7 +1427,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!South.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -1476,7 +1476,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!East.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -1526,7 +1526,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!West.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -2005,7 +2005,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>شارع 20م</Value>
+                        <Value>=Fields!NorthTall.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -2054,7 +2054,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!SouthTall.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -2103,7 +2103,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!EastTall.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -2153,7 +2153,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المدينة المنورة</Value>
+                        <Value>=Fields!WestTall.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -4686,7 +4686,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>شارع عكرمة بن ابي حهل</Value>
+                        <Value>=Fields!NearRoad.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -5199,7 +5199,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsDoublWall.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -5264,7 +5264,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>حراري مائي</Value>
+                    <Value>=Fields!SaprateType.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -5313,7 +5313,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!Rescptions.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -5411,7 +5411,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!Ahwash.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -5509,7 +5509,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!Rooms.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -5607,7 +5607,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!Inner.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -5742,7 +5742,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!InterfcaesWest.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -5840,7 +5840,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!InterfcaesNorth.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -5938,7 +5938,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!InterfcaesSouth.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -6036,7 +6036,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!InterfcaesEast.Value</Value>
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -6103,7 +6103,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IslAder.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6186,7 +6186,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsCetral.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6269,7 +6269,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!ArchKrsany.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6352,7 +6352,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!AsqfKrsany.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6435,7 +6435,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsDoublGlass.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6518,7 +6518,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsKrajEletcru.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6601,7 +6601,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsSeprat.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6684,7 +6684,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!ArchWallBlanc.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6767,7 +6767,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!AsqfMatrialCamer.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6850,7 +6850,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsJebsForSaqf.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6933,7 +6933,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsNormalKraj.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -6947,7 +6947,7 @@
                 </Paragraphs>
                 <rd:DefaultName>AuditAgree</rd:DefaultName>
                 <Top>0.02114cm</Top>
-                <Left>2.06857cm</Left>
+                <Left>2.04308cm</Left>
                 <Height>0.56597cm</Height>
                 <Width>0.79762cm</Width>
                 <ZIndex>1</ZIndex>
@@ -7016,7 +7016,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsWindo.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -7099,7 +7099,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!ArchMatrialBulding.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -7182,7 +7182,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!AsqfWoodCamer.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -7265,7 +7265,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsHidingLight.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -7348,7 +7348,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsGates.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -7514,7 +7514,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!ArchWood.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -7597,7 +7597,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!AsqfOthers.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -7662,7 +7662,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>الغرف</Value>
+                    <Value />
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -7760,7 +7760,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>الجنوبية</Value>
+                    <Value />
                     <Style>
                       <FontWeight>Normal</FontWeight>
                     </Style>
@@ -7876,7 +7876,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsLifts.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -7960,7 +7960,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Ishoter.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -8095,7 +8095,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>زجاج</Value>
+                        <Value>=Fields!Doorout.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -8217,7 +8217,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>خشب</Value>
+                        <Value>=Fields!Doorin.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -8265,7 +8265,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>حمام مغربي</Value>
+                        <Value>حمام عربي</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -8296,7 +8296,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsArbicTut.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -8379,7 +8379,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!Acce.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!IsForinTut.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -9517,7 +9517,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9565,7 +9565,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9613,7 +9613,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9661,7 +9661,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9851,7 +9851,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9899,7 +9899,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -9947,7 +9947,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10042,7 +10042,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10090,7 +10090,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10138,7 +10138,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10186,7 +10186,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10234,7 +10234,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10246,6 +10246,7 @@
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox7</rd:DefaultName>
+                    <Left>0.02408cm</Left>
                     <Height>0.60707cm</Height>
                     <Width>2.52079cm</Width>
                     <Style>
@@ -10260,9 +10261,9 @@
                   </Textbox>
                 </ReportItems>
                 <KeepTogether>true</KeepTogether>
-                <Top>3.81944cm</Top>
+                <Top>3.77235cm</Top>
                 <Left>3.12838cm</Left>
-                <Height>0.63881cm</Height>
+                <Height>0.6859cm</Height>
                 <Width>2.60458cm</Width>
                 <ZIndex>19</ZIndex>
                 <Style>
@@ -10282,7 +10283,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10331,7 +10332,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10380,7 +10381,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10428,7 +10429,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10477,7 +10478,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10526,7 +10527,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10574,7 +10575,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10622,7 +10623,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10671,7 +10672,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المبرز</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10720,7 +10721,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10768,7 +10769,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -10816,7 +10817,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11122,7 +11123,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11134,6 +11135,7 @@
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox7</rd:DefaultName>
+                    <Left>0.05251cm</Left>
                     <Height>0.60707cm</Height>
                     <Width>1.68979cm</Width>
                     <Style>
@@ -11170,7 +11172,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11265,7 +11267,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11313,7 +11315,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11362,7 +11364,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11410,7 +11412,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11459,7 +11461,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11507,7 +11509,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>داخل النطاق</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11555,7 +11557,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11651,7 +11653,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -11748,7 +11750,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>متوفرة</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Normal</FontWeight>
                             </Style>
@@ -13743,7 +13745,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>546456456</Value>
+                        <Value>=Fields!SukNumber.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -13939,7 +13941,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!SukDate.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -13987,7 +13989,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!FushBuild.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -14035,7 +14037,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!FushBuildDate.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -14083,7 +14085,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!AqarAge.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -14131,7 +14133,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!BuildType.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -14179,7 +14181,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!BuldinIsNull.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -14290,7 +14292,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>عمارة</Value>
+                        <Value>=Fields!BuldingType.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -14386,7 +14388,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>المبرز</Value>
+                        <Value>=Fields!Owner.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -14413,9 +14415,9 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.0635cm</Top>
-            <Left>10.34417cm</Left>
+            <Left>10.26393cm</Left>
             <Height>0.63881cm</Height>
-            <Width>4.56192cm</Width>
+            <Width>4.64216cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -14482,7 +14484,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>23-3-2017</Value>
+                        <Value>=Fields!DelverDate.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -14578,7 +14580,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value />
+                        <Value>=Fields!Talabnum.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -14675,7 +14677,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value />
+                        <Value>=Parameters!custmer.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -21652,7 +21654,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>8a479e59-ba6f-457a-b993-efbf32400a22</rd:DataSourceID>
+      <rd:DataSourceID>2b34bb4e-9aae-4916-b105-d0ddc4478b2e</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -21662,24 +21664,180 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Acce">
-          <DataField>Acce</DataField>
+        <Field Name="Adutit">
+          <DataField>Adutit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AhlakPrecentage">
+          <DataField>AhlakPrecentage</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Ahwash">
+          <DataField>Ahwash</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ApplicationUser">
+          <DataField>ApplicationUser</DataField>
+          <rd:TypeName>ReportClassLibrary.BusinessModel.ApplicationUser</rd:TypeName>
+        </Field>
+        <Field Name="ApplicationUserId">
+          <DataField>ApplicationUserId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Approver">
+          <DataField>Approver</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AqarAge">
+          <DataField>AqarAge</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Aqarclass">
+          <DataField>Aqarclass</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Aqarforcity">
+          <DataField>Aqarforcity</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Aqarforplane">
+          <DataField>Aqarforplane</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Aqarisrent">
+          <DataField>Aqarisrent</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="Agbuild">
-          <DataField>Agbuild</DataField>
+        <Field Name="Aqarissoonrent">
+          <DataField>Aqarissoonrent</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AqarPerfect">
+          <DataField>AqarPerfect</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Area">
-          <DataField>Area</DataField>
+        <Field Name="AqarUse">
+          <DataField>AqarUse</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CaseBuild">
-          <DataField>CaseBuild</DataField>
+        <Field Name="ArchDesgin">
+          <DataField>ArchDesgin</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ArchKrsany">
+          <DataField>ArchKrsany</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ArchMatrialBulding">
+          <DataField>ArchMatrialBulding</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ArchWallBlanc">
+          <DataField>ArchWallBlanc</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ArchWood">
+          <DataField>ArchWood</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AreaApendxup">
+          <DataField>AreaApendxup</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaApnedxEarth">
+          <DataField>AreaApnedxEarth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaCars">
+          <DataField>AreaCars</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaDorEarth">
+          <DataField>AreaDorEarth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaEarth">
+          <DataField>AreaEarth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaFirstDoor">
+          <DataField>AreaFirstDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Areagarden">
+          <DataField>Areagarden</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaOthers">
+          <DataField>AreaOthers</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaQabo">
+          <DataField>AreaQabo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreareptDoor">
+          <DataField>AreareptDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaSwar">
+          <DataField>AreaSwar</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AreaSwimingpool">
+          <DataField>AreaSwimingpool</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AsqfKrsany">
+          <DataField>AsqfKrsany</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AsqfMatrialCamer">
+          <DataField>AsqfMatrialCamer</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AsqfOthers">
+          <DataField>AsqfOthers</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AsqfWoodCamer">
+          <DataField>AsqfWoodCamer</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="BlockNumber">
+          <DataField>BlockNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BuildType">
+          <DataField>BuildType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BuldingType">
+          <DataField>BuldingType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BuldinIsNull">
+          <DataField>BuldinIsNull</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BulState">
+          <DataField>BulState</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CaseNumber">
+          <DataField>CaseNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="City">
           <DataField>City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CountAprtment">
+          <DataField>CountAprtment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CountTretment">
+          <DataField>CountTretment</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Custmer">
@@ -21690,21 +21848,81 @@
           <DataField>CustmerId</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
-        <Field Name="DateSNum">
-          <DataField>DateSNum</DataField>
+        <Field Name="DelverDate">
+          <DataField>DelverDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Doorin">
+          <DataField>Doorin</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ElictFire">
-          <DataField>ElictFire</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
+        <Field Name="Doorout">
+          <DataField>Doorout</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="East">
+          <DataField>East</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EastTall">
+          <DataField>EastTall</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ElcrictyCount">
+          <DataField>ElcrictyCount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ElcrictyNumber">
+          <DataField>ElcrictyNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FushBuild">
+          <DataField>FushBuild</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FushBuildDate">
+          <DataField>FushBuildDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Gada">
           <DataField>Gada</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Genloc">
+          <DataField>Genloc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Id">
           <DataField>Id</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="Inner">
+          <DataField>Inner</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InnerDoor">
+          <DataField>InnerDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Intered">
+          <DataField>Intered</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InterfcaesEast">
+          <DataField>InterfcaesEast</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InterfcaesNorth">
+          <DataField>InterfcaesNorth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InterfcaesSouth">
+          <DataField>InterfcaesSouth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InterfcaesWest">
+          <DataField>InterfcaesWest</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="IsAduit">
           <DataField>IsAduit</DataField>
@@ -21714,68 +21932,456 @@
           <DataField>IsApproved</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="IsArbicTut">
+          <DataField>IsArbicTut</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsCetral">
+          <DataField>IsCetral</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsDesrt">
+          <DataField>IsDesrt</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsDonForSndElectric">
+          <DataField>IsDonForSndElectric</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsDoublGlass">
+          <DataField>IsDoublGlass</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsDoublWall">
+          <DataField>IsDoublWall</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsForinTut">
+          <DataField>IsForinTut</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsGates">
+          <DataField>IsGates</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsHidingLight">
+          <DataField>IsHidingLight</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Ishoter">
+          <DataField>Ishoter</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
         <Field Name="IsIntered">
           <DataField>IsIntered</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsJebsForSaqf">
+          <DataField>IsJebsForSaqf</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsKrajEletcru">
+          <DataField>IsKrajEletcru</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IslAder">
+          <DataField>IslAder</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsLifts">
+          <DataField>IsLifts</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsNormalKraj">
+          <DataField>IsNormalKraj</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsSeprat">
+          <DataField>IsSeprat</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="IsThmin">
           <DataField>IsThmin</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="Local">
-          <DataField>Local</DataField>
+        <Field Name="IsWindo">
+          <DataField>IsWindo</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="JarIsBulding">
+          <DataField>JarIsBulding</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="KotatNumber">
+          <DataField>KotatNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Napartment">
-          <DataField>Napartment</DataField>
+        <Field Name="LandShape">
+          <DataField>LandShape</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Npiece">
-          <DataField>Npiece</DataField>
+        <Field Name="LastTaqeem">
+          <DataField>LastTaqeem</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latute">
+          <DataField>Latute</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="OccBuild">
-          <DataField>OccBuild</DataField>
+        <Field Name="Longtute">
+          <DataField>Longtute</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Mansob">
+          <DataField>Mansob</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Mantinance">
+          <DataField>Mantinance</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="MantinancePrice">
+          <DataField>MantinancePrice</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MantinanceReson">
+          <DataField>MantinanceReson</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceApendexErth">
+          <DataField>MeterPriceApendexErth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceapendxup">
+          <DataField>MeterPriceapendxup</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceAsawr">
+          <DataField>MeterPriceAsawr</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceCars">
+          <DataField>MeterPriceCars</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceDorEarth">
+          <DataField>MeterPriceDorEarth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceEarh">
+          <DataField>MeterPriceEarh</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceFirstDoor">
+          <DataField>MeterPriceFirstDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPricegarden">
+          <DataField>MeterPricegarden</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Meterpricehouse">
+          <DataField>Meterpricehouse</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceothers">
+          <DataField>MeterPriceothers</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceQabo">
+          <DataField>MeterPriceQabo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceReptDoor">
+          <DataField>MeterPriceReptDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MeterPriceswiminpoo">
+          <DataField>MeterPriceswiminpoo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Meterpricetreentment">
+          <DataField>Meterpricetreentment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Mothmennote">
+          <DataField>Mothmennote</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MothmenOpnion">
+          <DataField>MothmenOpnion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Muthmen">
+          <DataField>Muthmen</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NearRoad">
+          <DataField>NearRoad</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="North">
+          <DataField>North</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NorthTall">
+          <DataField>NorthTall</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Owner">
           <DataField>Owner</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Plane">
-          <DataField>Plane</DataField>
+        <Field Name="PiceNumber">
+          <DataField>PiceNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PurpApp">
-          <DataField>PurpApp</DataField>
+        <Field Name="ProfitPrecntage">
+          <DataField>ProfitPrecntage</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ResWland">
-          <DataField>ResWland</DataField>
+        <Field Name="RentAprtment">
+          <DataField>RentAprtment</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SCustmer">
-          <DataField>SCustmer</DataField>
+        <Field Name="RentTretment">
+          <DataField>RentTretment</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SNum">
-          <DataField>SNum</DataField>
+        <Field Name="Rescptions">
+          <DataField>Rescptions</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Street">
-          <DataField>Street</DataField>
+        <Field Name="Rooms">
+          <DataField>Rooms</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="StyleBuild">
-          <DataField>StyleBuild</DataField>
+        <Field Name="SaprateType">
+          <DataField>SaprateType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Tbuild">
-          <DataField>Tbuild</DataField>
+        <Field Name="ServicesElectrocitcs">
+          <DataField>ServicesElectrocitcs</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ServicesLamp">
+          <DataField>ServicesLamp</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ServicesPhone">
+          <DataField>ServicesPhone</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ServicesRoad">
+          <DataField>ServicesRoad</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ServicesSanitation">
+          <DataField>ServicesSanitation</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ServicesWater">
+          <DataField>ServicesWater</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="South">
+          <DataField>South</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Wland">
-          <DataField>Wland</DataField>
+        <Field Name="SouthTall">
+          <DataField>SouthTall</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SroundBank">
+          <DataField>SroundBank</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundCentralSoaq">
+          <DataField>SroundCentralSoaq</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundciviliDenfencs">
+          <DataField>SroundciviliDenfencs</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundComirchalCenter">
+          <DataField>SroundComirchalCenter</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundDispensares">
+          <DataField>SroundDispensares</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundFeul">
+          <DataField>SroundFeul</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundGarden">
+          <DataField>SroundGarden</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundGenralSoaq">
+          <DataField>SroundGenralSoaq</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundGovermentDepartMent">
+          <DataField>SroundGovermentDepartMent</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundHospital">
+          <DataField>SroundHospital</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundHotel">
+          <DataField>SroundHotel</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundmedicalCenter">
+          <DataField>SroundmedicalCenter</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Sroundmedicalfacilty">
+          <DataField>Sroundmedicalfacilty</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundmedSecurityFacilty">
+          <DataField>SroundmedSecurityFacilty</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundMosq">
+          <DataField>SroundMosq</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Sroundpartment">
+          <DataField>Sroundpartment</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundPoilceCenter">
+          <DataField>SroundPoilceCenter</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Sroundrasf">
+          <DataField>Sroundrasf</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundRestrant">
+          <DataField>SroundRestrant</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundSchools">
+          <DataField>SroundSchools</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundSeoul">
+          <DataField>SroundSeoul</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundSoaq">
+          <DataField>SroundSoaq</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SroundTree">
+          <DataField>SroundTree</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Streetslite">
+          <DataField>Streetslite</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Streetsno">
+          <DataField>Streetsno</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Streetsnolite">
+          <DataField>Streetsnolite</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Streetsok">
+          <DataField>Streetsok</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SukDate">
+          <DataField>SukDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="SukNumber">
+          <DataField>SukNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Talabnum">
+          <DataField>Talabnum</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Toor">
+          <DataField>Toor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalApendxEarth">
+          <DataField>TotalApendxEarth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Totalapendxup">
+          <DataField>Totalapendxup</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalAswar">
+          <DataField>TotalAswar</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalCars">
+          <DataField>TotalCars</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalDorerath">
+          <DataField>TotalDorerath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalEarh">
+          <DataField>TotalEarh</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalFirstDoor">
+          <DataField>TotalFirstDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Totalgarden">
+          <DataField>Totalgarden</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Totalothers">
+          <DataField>Totalothers</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalQabo">
+          <DataField>TotalQabo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalReptDoor">
+          <DataField>TotalReptDoor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Totalswimingpool">
+          <DataField>Totalswimingpool</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WaterNumber">
+          <DataField>WaterNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WatrerCount">
+          <DataField>WatrerCount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="West">
+          <DataField>West</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WestTall">
+          <DataField>WestTall</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="XtrenalDoor">
+          <DataField>XtrenalDoor</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -21786,6 +22392,14 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="custmer">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <EmbeddedImages>
     <EmbeddedImage Name="ID19_3_58a99643bc5b9_autoX300">
       <MIMEType>image/png</MIMEType>
