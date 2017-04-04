@@ -179,6 +179,7 @@ namespace CloudApp.Controllers
            List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
             var listoftremantsample1 = _context.Treatment.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
             var listoftremantsample2 = _context.R1Smaple.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
+            var listoftremantsample3 = _context.R2Smaple.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
             foreach (Treatment treatment in listoftremantsample1)
             {
                 TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
@@ -214,6 +215,25 @@ namespace CloudApp.Controllers
 
                 lists.Add(row);
             }
+
+            foreach (R2Smaple sample in listoftremantsample3)
+            {
+                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
+                {
+                    Id = sample.Id,
+                    Clint = CheckNullValue(sample.Custmer.Name),
+                    Owner = CheckNullValue(sample.Owner),
+                    AqarType = CheckNullValue(sample.BuildType),
+                    CityAndHy = CheckNullValue(sample.City + " / " + sample.Gada),
+                    Mothmen = ChekNull(sample.ApplicationUser),
+                    SampleId = CheckNullValue(sample.Custmer.Sample.Name),
+                    State = GetState(sample.IsIntered, sample.IsThmin, sample.IsAduit, sample.IsApproved),
+                    Type = 2
+                };
+
+                lists.Add(row);
+            }
+
             return View(lists);
         }
 
@@ -259,10 +279,7 @@ namespace CloudApp.Controllers
             }
             return " Õ  «·«œŒ«·";
         }
-
-       
-      
-
+        
      
         public async Task<IActionResult> Create(int id)
         {
