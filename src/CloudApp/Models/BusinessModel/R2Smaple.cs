@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CloudApp.Models.BusinessModel
 {
@@ -12,7 +10,7 @@ namespace CloudApp.Models.BusinessModel
         //comment
         public long Id { get; set; }
 
-        [Display(Name = "نوع المبني")]
+        [Display(Name = "نوع العقار")]
         public string BuldingType { get; set; }
         [Display(Name = "مالك العقار")]
         public string Owner { get; set; }
@@ -179,12 +177,33 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "منفصل")]
         public bool IsSeprat { get; set; }
 
-        // 
+        // هيكل انشائي
 
-        [Display(Name = "هيكل انشائي")]
-        public string Civelprat { get; set; }
-        [Display(Name = "نوع  الاشقف")]
-        public string Rooftype { get; set; }
+        [Display(Name = "خرساني")]
+        public bool ArchKrsany { get; set; }
+        [Display(Name = "حوائط حاملة")]
+        public bool ArchWallBlanc { get; set; }
+
+        [Display(Name = "مباني معدنية")]
+        public bool ArchMatrialBulding { get; set; }
+
+        [Display(Name = "مباني خشبية")]
+        public bool ArchWood { get; set; }
+
+
+        //نوع الاسقف
+
+        [Display(Name = "خرسانة مسلحة")]
+        public bool AsqfKrsany { get; set; }
+
+        [Display(Name = "كمرات حديدية")]
+        public bool AsqfMatrialCamer { get; set; }
+        [Display(Name = "كمرات خشبية")]
+        public bool AsqfWoodCamer { get; set; }
+
+        [Display(Name = "اخري")]
+        public bool AsqfOthers { get; set; }
+
 
         [Display(Name = "الابوب الخارجية")]
         public string Doorout { get; set; }
@@ -195,6 +214,10 @@ namespace CloudApp.Models.BusinessModel
         public string SaprateType { get; set; }
 
         // تقييم الارض والمباني
+
+
+
+
 
         [Display(Name = "عدد عدادات الكهرباء")]
         public string ElcrictyCount { get; set; }
@@ -266,6 +289,7 @@ namespace CloudApp.Models.BusinessModel
         public string Meterpricehouse { get; set; }
         [Display(Name = "سعر المتر التجاري ")]
         public string Meterpricetreentment { get; set; }
+
         //طريقة التقييم
         [Display(Name = "المساحة")]
         public string AreaEarth { get; set; }
@@ -448,12 +472,7 @@ namespace CloudApp.Models.BusinessModel
         public bool SroundPoilceCenter { get; set; }
         [Display(Name = "دوئر حكومية")]
         public bool SroundGovermentDepartMent { get; set; }
-
-
-
-
-
-
+        
 
         public ApplicationUser ApplicationUser { get; set; }
         [Display(Name = "المثمن")]
@@ -463,7 +482,8 @@ namespace CloudApp.Models.BusinessModel
         public string Approver { get; set; }
         public string Intered { get; set; }
 
-        public List<AttachmentForR1Sample> AttachmentForR1Samples { get; set; }
+        public List<AttachmentForR2Sample> AttachmentForR2Samples { get; set; }
+
         [Display(Name = "خــط طول")]
         public string Longtute { get; set; }
         [Display(Name = "خــط العرض")]

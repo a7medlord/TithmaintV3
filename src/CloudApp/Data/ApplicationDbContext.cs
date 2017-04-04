@@ -44,6 +44,8 @@ namespace CloudApp.Data
 
         public DbSet<AttachmentForR1Sample> AttachmentForR1Samples { get; set; }
 
+        public DbSet<AttachmentForR2Sample> AttachmentForR2Samples { get; set; }
+
 
         
     }
