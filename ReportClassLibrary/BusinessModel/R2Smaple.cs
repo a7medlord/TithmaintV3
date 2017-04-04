@@ -66,18 +66,54 @@ namespace ReportClassLibrary.BusinessModel
         [Display(Name = "اقرب الشارع ")]
         public string NearRoad { get; set; }
 
-        [Display(Name = "الموقع العام")]
-        public string Genloc { get; set; }
+        //الموقع العام
+        [Display(Name = "داخل النطاق")]
+        public bool GenralInnerScope { get; set; }
 
-        [Display(Name = "تصنيف العقار")]
-        public string Aqarclass { get; set; }
+        [Display(Name = "المرحلة الاولي")]
+        public bool GenralFirstLevel { get; set; }
 
-        [Display(Name = "التصميم المعماري")]
-        public string ArchDesgin { get; set; }
+        [Display(Name = "المرحلة الثانية")]
+        public bool GenralTowLevel { get; set; }
 
-        [Display(Name = "المنسوب")]
-        public string Mansob { get; set; }
+        [Display(Name = "خارج النطاق")]
+        public bool GenralExteranlScope { get; set; }
 
+
+        //تصنيف العقار
+
+        [Display(Name = "سكني")]
+        public bool ClassHome { get; set; }
+
+        [Display(Name = "تجاري")]
+        public bool ClassComirctal { get; set; }
+
+        [Display(Name = "سكني تجاري")]
+        public bool ClassHomeAndComrictal { get; set; }
+
+        [Display(Name = "اخري")]
+        public bool ClassOthers { get; set; }
+
+
+        //التصميم
+
+        [Display(Name = "رديئ")]
+        public bool DesinBad { get; set; }
+        [Display(Name = "جيد")]
+        public bool DesinGood { get; set; }
+
+        [Display(Name = "ممتاز")]
+        public bool DesinExlant { get; set; }
+
+
+        //المنسووب
+        [Display(Name = "مرتفع")]
+        public bool MansobHeigh { get; set; }
+        [Display(Name = "مستوي")]
+        public bool MansobLevl { get; set; }
+
+        [Display(Name = "منخفض")]
+        public bool MansobLow { get; set; }
 
 
         // Street
@@ -90,12 +126,35 @@ namespace ReportClassLibrary.BusinessModel
         [Display(Name = "غي مضاءة")]
         public bool Streetsnolite { get; set; }
 
+
+        //الجار
+
         [Display(Name = "الجار مبني")]
         public bool JarIsBulding { get; set; }
-        [Display(Name = "حالة المبني")]
-        public string BulState { get; set; }
+
+
+
+        // حاله المبني
+        [Display(Name = "رديئ")]
+        public bool BuldingTypeBad { get; set; }
+
+        [Display(Name = "جيد")]
+        public bool BuldingTypeGood { get; set; }
+
+        [Display(Name = "ممتاز")]
+        public bool BuldingTypeExlant { get; set; }
+
+
+
+
         [Display(Name = "تم اطلاق التيار")]
         public bool IsDonForSndElectric { get; set; }
+
+        [Display(Name = "نوع التشطيب")]
+        public bool Tashtibtype { get; set; }
+
+
+
         //الارضيات
 
         [Display(Name = "ارضية الاحواش")]
@@ -109,6 +168,10 @@ namespace ReportClassLibrary.BusinessModel
 
         [Display(Name = "ارضية الغرف")]
         public string Rooms { get; set; }
+
+
+
+
 
         // التشطيب
         [Display(Name = "الواجهة الشمالية")]
@@ -126,6 +189,10 @@ namespace ReportClassLibrary.BusinessModel
 
         [Display(Name = "الابواب الداخلة")]
         public string InnerDoor { get; set; }
+
+
+
+
 
         //مميزات العقار
 
@@ -164,6 +231,11 @@ namespace ReportClassLibrary.BusinessModel
         [Display(Name = "حمام افرنجي")]
         public bool IsForinTut { get; set; }
 
+
+
+
+
+
         //التكيف
         [Display(Name = "مركزي")]
         public bool IsCetral { get; set; }
@@ -177,6 +249,9 @@ namespace ReportClassLibrary.BusinessModel
         [Display(Name = "منفصل")]
         public bool IsSeprat { get; set; }
 
+
+
+
         // هيكل انشائي
 
         [Display(Name = "خرساني")]
@@ -189,6 +264,8 @@ namespace ReportClassLibrary.BusinessModel
 
         [Display(Name = "مباني خشبية")]
         public bool ArchWood { get; set; }
+
+
 
 
         //نوع الاسقف
@@ -205,6 +282,8 @@ namespace ReportClassLibrary.BusinessModel
         public bool AsqfOthers { get; set; }
 
 
+
+
         [Display(Name = "الابوب الخارجية")]
         public string Doorout { get; set; }
         [Display(Name = "الأبوب  الداخلية")]
@@ -213,10 +292,9 @@ namespace ReportClassLibrary.BusinessModel
         [Display(Name = "نوع  العزل")]
         public string SaprateType { get; set; }
 
-        // تقييم الارض والمباني
 
 
-
+        // خدمات الكهرباء والمياه بالمبني
 
 
         [Display(Name = "عدد عدادات الكهرباء")]
@@ -239,7 +317,7 @@ namespace ReportClassLibrary.BusinessModel
         public string CountAprtment { get; set; }
 
         [Display(Name = "ايجار  الشقق")]
-        public string  RentAprtment { get; set; }
+        public string RentAprtment { get; set; }
 
         [Display(Name = "عدد المحلات التجارية")]
         public string CountTretment { get; set; }
@@ -269,13 +347,16 @@ namespace ReportClassLibrary.BusinessModel
         [Display(Name = " ملاحظات المثمن")]
         public string Mothmennote { get; set; }
 
+
+        //المسح الشامل
+
         [Display(Name = "شكل الأرض")]
         public string LandShape { get; set; }
 
         [Display(Name = "موقع العقار بالنسبة للمدينة")]
         public string Aqarforcity { get; set; }
         [Display(Name = "موقع العقار بالنسبة للمخطط")]
-        public string Aqarforplane{ get; set; }
+        public string Aqarforplane { get; set; }
 
         [Display(Name = "نظام الادوار المسموح  بها")]
         public string Toor { get; set; }
@@ -290,6 +371,8 @@ namespace ReportClassLibrary.BusinessModel
         [Display(Name = "سعر المتر التجاري ")]
         public string Meterpricetreentment { get; set; }
 
+
+
         //طريقة التقييم
         [Display(Name = "المساحة")]
         public string AreaEarth { get; set; }
@@ -298,7 +381,7 @@ namespace ReportClassLibrary.BusinessModel
         public string MeterPriceEarh { get; set; }
 
         [Display(Name = "المجموع")]
-        public string TotalEarh { get; set; }
+        public string TotalEarh { get; set; }//
 
         [Display(Name = "المساحة")]
         public string AreaQabo { get; set; }
@@ -408,6 +491,9 @@ namespace ReportClassLibrary.BusinessModel
         public double LastTaqeem { get; set; }
 
 
+
+
+
         //Services
         [Display(Name = "مياه")]
         public bool ServicesWater { get; set; }
@@ -422,7 +508,6 @@ namespace ReportClassLibrary.BusinessModel
         [Display(Name = "انارة")]
         public bool ServicesLamp { get; set; }
 
-        //service
         [Display(Name = "مساجد")]
         public bool SroundMosq { get; set; }
         [Display(Name = "تشجير")]
@@ -472,7 +557,12 @@ namespace ReportClassLibrary.BusinessModel
         public bool SroundPoilceCenter { get; set; }
         [Display(Name = "دوئر حكومية")]
         public bool SroundGovermentDepartMent { get; set; }
-        
+
+
+
+
+
+
 
         public ApplicationUser ApplicationUser { get; set; }
         [Display(Name = "المثمن")]
@@ -494,7 +584,6 @@ namespace ReportClassLibrary.BusinessModel
         public bool IsThmin { get; set; }
         public bool IsAduit { get; set; }
         public bool IsApproved { get; set; }
-
 
     }
 }
