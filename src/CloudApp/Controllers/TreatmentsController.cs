@@ -228,7 +228,7 @@ namespace CloudApp.Controllers
                     Mothmen = ChekNull(sample.ApplicationUser),
                     SampleId = CheckNullValue(sample.Custmer.Sample.Name),
                     State = GetState(sample.IsIntered, sample.IsThmin, sample.IsAduit, sample.IsApproved),
-                    Type = 2
+                    Type = 3
                 };
 
                 lists.Add(row);
@@ -300,7 +300,7 @@ namespace CloudApp.Controllers
                 case 2:
                     return RedirectToAction("Create","R1Smaple" , new {ids = cms.Id});
                 case 3:
-                    return RedirectToAction("Create", "R2Smaple");
+                    return RedirectToAction("Create", "R2Smaple", new { ids = cms.Id });
                 default:
                     return View();
             } 
@@ -406,6 +406,10 @@ namespace CloudApp.Controllers
             {
                 return RedirectToAction("Edit", "R1Smaple" , new { id = data[0]});
             }
+            if (data[1] == "3")
+            {
+                return RedirectToAction("Edit", "R2Smaple", new { id = data[0] });
+            }
 
             return  RedirectToAction("Index");
         }
@@ -419,6 +423,10 @@ namespace CloudApp.Controllers
                 return RedirectToAction("GetSample0Report", new { id = data[0] });
             }
             if (data[1] == "2")
+            {
+                return RedirectToAction("GetSample1Report", "R1Smaple", new { id = data[0] });
+            }
+            if (data[1] == "3")
             {
                 return RedirectToAction("GetSample1Report", "R1Smaple", new { id = data[0] });
             }
@@ -508,6 +516,11 @@ namespace CloudApp.Controllers
             } else if (type == 2)
             {
                 _context.Remove(_context.R1Smaple.SingleOrDefault(treatment => treatment.Id == id));
+                _context.SaveChanges();
+            }
+            else if (type == 3)
+            {
+                _context.Remove(_context.R2Smaple.SingleOrDefault(treatment => treatment.Id == id));
                 _context.SaveChanges();
             }
             return Json("true");

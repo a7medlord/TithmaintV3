@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CloudApp.Migrations
 {
-    public partial class migr21 : Migration
+    public partial class cs1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -427,12 +427,14 @@ namespace CloudApp.Migrations
                     AqarAge = table.Column<string>(nullable: true),
                     AqarPerfect = table.Column<string>(nullable: true),
                     AqarUse = table.Column<string>(nullable: true),
-                    Aqarclass = table.Column<string>(nullable: true),
                     Aqarforcity = table.Column<string>(nullable: true),
                     Aqarforplane = table.Column<string>(nullable: true),
                     Aqarisrent = table.Column<bool>(nullable: false),
                     Aqarissoonrent = table.Column<bool>(nullable: false),
-                    ArchDesgin = table.Column<string>(nullable: true),
+                    ArchKrsany = table.Column<bool>(nullable: false),
+                    ArchMatrialBulding = table.Column<bool>(nullable: false),
+                    ArchWallBlanc = table.Column<bool>(nullable: false),
+                    ArchWood = table.Column<bool>(nullable: false),
                     AreaApendxup = table.Column<string>(nullable: true),
                     AreaApnedxEarth = table.Column<string>(nullable: true),
                     AreaCars = table.Column<string>(nullable: true),
@@ -445,18 +447,30 @@ namespace CloudApp.Migrations
                     AreaSwimingpool = table.Column<string>(nullable: true),
                     Areagarden = table.Column<string>(nullable: true),
                     AreareptDoor = table.Column<string>(nullable: true),
+                    AsqfKrsany = table.Column<bool>(nullable: false),
+                    AsqfMatrialCamer = table.Column<bool>(nullable: false),
+                    AsqfOthers = table.Column<bool>(nullable: false),
+                    AsqfWoodCamer = table.Column<bool>(nullable: false),
                     BlockNumber = table.Column<string>(nullable: true),
                     BuildType = table.Column<string>(nullable: true),
-                    BulState = table.Column<string>(nullable: true),
                     BuldinIsNull = table.Column<string>(nullable: true),
                     BuldingType = table.Column<string>(nullable: true),
+                    BuldingTypeBad = table.Column<bool>(nullable: false),
+                    BuldingTypeExlant = table.Column<bool>(nullable: false),
+                    BuldingTypeGood = table.Column<bool>(nullable: false),
                     CaseNumber = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
-                    Civelprat = table.Column<string>(nullable: true),
+                    ClassComirctal = table.Column<bool>(nullable: false),
+                    ClassHome = table.Column<bool>(nullable: false),
+                    ClassHomeAndComrictal = table.Column<bool>(nullable: false),
+                    ClassOthers = table.Column<bool>(nullable: false),
                     CountAprtment = table.Column<string>(nullable: true),
                     CountTretment = table.Column<string>(nullable: true),
                     CustmerId = table.Column<long>(nullable: false),
                     DelverDate = table.Column<DateTime>(nullable: false),
+                    DesinBad = table.Column<bool>(nullable: false),
+                    DesinExlant = table.Column<bool>(nullable: false),
+                    DesinGood = table.Column<bool>(nullable: false),
                     Doorin = table.Column<string>(nullable: true),
                     Doorout = table.Column<string>(nullable: true),
                     East = table.Column<string>(nullable: true),
@@ -466,7 +480,10 @@ namespace CloudApp.Migrations
                     FushBuild = table.Column<string>(nullable: true),
                     FushBuildDate = table.Column<string>(nullable: true),
                     Gada = table.Column<string>(nullable: true),
-                    Genloc = table.Column<string>(nullable: true),
+                    GenralExteranlScope = table.Column<bool>(nullable: false),
+                    GenralFirstLevel = table.Column<bool>(nullable: false),
+                    GenralInnerScope = table.Column<bool>(nullable: false),
+                    GenralTowLevel = table.Column<bool>(nullable: false),
                     Inner = table.Column<string>(nullable: true),
                     InnerDoor = table.Column<string>(nullable: true),
                     Intered = table.Column<string>(nullable: true),
@@ -501,7 +518,9 @@ namespace CloudApp.Migrations
                     LastTaqeem = table.Column<double>(nullable: false),
                     Latute = table.Column<string>(nullable: true),
                     Longtute = table.Column<string>(nullable: true),
-                    Mansob = table.Column<string>(nullable: true),
+                    MansobHeigh = table.Column<bool>(nullable: false),
+                    MansobLevl = table.Column<bool>(nullable: false),
+                    MansobLow = table.Column<bool>(nullable: false),
                     Mantinance = table.Column<bool>(nullable: false),
                     MantinancePrice = table.Column<string>(nullable: true),
                     MantinanceReson = table.Column<string>(nullable: true),
@@ -531,7 +550,6 @@ namespace CloudApp.Migrations
                     RentAprtment = table.Column<string>(nullable: true),
                     RentTretment = table.Column<string>(nullable: true),
                     Rescptions = table.Column<string>(nullable: true),
-                    Rooftype = table.Column<string>(nullable: true),
                     Rooms = table.Column<string>(nullable: true),
                     SaprateType = table.Column<string>(nullable: true),
                     ServicesElectrocitcs = table.Column<bool>(nullable: false),
@@ -736,8 +754,7 @@ namespace CloudApp.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     AttachmentId = table.Column<string>(nullable: true),
-                    R1SmapleId = table.Column<long>(nullable: false),
-                    R2SmapleId = table.Column<long>(nullable: true)
+                    R1SmapleId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -748,12 +765,26 @@ namespace CloudApp.Migrations
                         principalTable: "R1Smaple",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AttachmentForR2Samples",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AttachmentId = table.Column<string>(nullable: true),
+                    R2SmapleId = table.Column<long>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AttachmentForR2Samples", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AttachmentForR1Samples_R2Smaple_R2SmapleId",
+                        name: "FK_AttachmentForR2Samples_R2Smaple_R2SmapleId",
                         column: x => x.R2SmapleId,
                         principalTable: "R2Smaple",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -793,8 +824,8 @@ namespace CloudApp.Migrations
                 column: "R1SmapleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AttachmentForR1Samples_R2SmapleId",
-                table: "AttachmentForR1Samples",
+                name: "IX_AttachmentForR2Samples_R2SmapleId",
+                table: "AttachmentForR2Samples",
                 column: "R2SmapleId");
 
             migrationBuilder.CreateIndex(
@@ -883,6 +914,9 @@ namespace CloudApp.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AttachmentForR1Samples");
+
+            migrationBuilder.DropTable(
+                name: "AttachmentForR2Samples");
 
             migrationBuilder.DropTable(
                 name: "AttachmentForTreaments");

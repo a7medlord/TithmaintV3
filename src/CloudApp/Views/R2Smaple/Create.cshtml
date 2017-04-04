@@ -1670,11 +1670,12 @@
         //Drop Zone Logic
         var imguids = "";
         $("#myId").dropzone({
-            url: "/R1Smaple/UploadFile",
+            url: "/R2Smaple/UploadFile",
             success: function (file, response) {
                 imguids += response + ";";
             }
         });
+
         $("#root").submit(function() {
             $("#ids").val(imguids);
         });

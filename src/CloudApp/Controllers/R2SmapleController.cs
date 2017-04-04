@@ -121,7 +121,7 @@ namespace CloudApp.Controllers
                 return NotFound();
             }
 
-            var r2Smaple = await _context.R2Smaple.SingleOrDefaultAsync(m => m.Id == id);
+            var r2Smaple = await _context.R2Smaple.Include(smaple => smaple.AttachmentForR2Samples).Include(smaple => smaple.Custmer).SingleOrDefaultAsync(m => m.Id == id);
             if (r2Smaple == null)
             {
                 return NotFound();
