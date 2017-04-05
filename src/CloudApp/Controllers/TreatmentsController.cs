@@ -120,9 +120,9 @@ namespace CloudApp.Controllers
             string sigurlauditsign = "http://" + HttpContext.Request.Host + "/ProfPic/" + auditsign + ".jpg";
             string sigurlapprovesign = "http://" + HttpContext.Request.Host + "/ProfPic/" + approvesign + ".jpg";
 
-            string earthmap = Mapgen(longtute, latute, "satellite", "12", "283", "739");
-            string map = Mapgen(longtute, latute, "ROADMAP", "12", "249", "739");
-            string zoommap = Mapgen(longtute, latute, "satellite", "18", "265", "530");
+            string earthmap = Mapgen(longtute, latute, "satellite", "16", "283", "739");
+            string map = Mapgen(longtute, latute, "ROADMAP", "16", "249", "739");
+            string zoommap = Mapgen(longtute, latute, "satellite", "19", "265", "530");
             ReportParameter[] parameters = {
                 new ReportParameter("sample",sample),
                 new ReportParameter("custmer",custmer), 
@@ -155,7 +155,7 @@ namespace CloudApp.Controllers
 
         public string Mapgen(string longtut , string lutit , string type , string zoom , string hight , string with)
         {
-            string url = "https://maps.googleapis.com/maps/api/staticmap?center=" + longtut +","+lutit +"&zoom="+zoom + "&size="+with+"x" + hight+ "&maptype="+type + "&key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs";
+            string url = "https://maps.googleapis.com/maps/api/staticmap?center=" + lutit +","+longtut +"&zoom="+zoom + "&size="+with+"x" + hight+ "&maptype="+type + "&key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs" + "&language=ar" + "&markers=color:red|label:C|"+lutit+","+longtut;
             return url;
         }
 
@@ -223,7 +223,7 @@ namespace CloudApp.Controllers
                     Id = sample.Id,
                     Clint = CheckNullValue(sample.Custmer.Name),
                     Owner = CheckNullValue(sample.Owner),
-                    AqarType = CheckNullValue(sample.BuildType),
+                    AqarType = CheckNullValue(sample.BuldingType),
                     CityAndHy = CheckNullValue(sample.City + " / " + sample.Gada),
                     Mothmen = ChekNull(sample.ApplicationUser),
                     SampleId = CheckNullValue(sample.Custmer.Sample.Name),

@@ -104,102 +104,106 @@
               
               <div class="col-md-3">
                   <div class="form-group">
-                      <label asp-for="AqarScope" class="col-md-3 control-label"></label>
+                      <label asp-for="AqarScope" class="control-label"></label>
                       <div class="input-group">
                           <select asp-for="AqarScope" class="select2 form-control" asp-items="ViewBag.AqarScope"></select>
                           <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="7" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                       </div>
                   </div>
               </div>
-          </div>
-          
-          <div class="row">
-              <div class="col-md-3">
-                  <div class="form-group">
-                      <label asp-for="AqarType" class="col-md-3 control-label"></label>
-                          <div class="input-group">
-                              <select asp-for="AqarType" class="select2 form-control" asp-items="ViewBag.aqartype"></select>
-                              <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="1"  asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
-                         </div>
-                  </div>
-              </div>
-              
-              <div class="col-md-3">
-                  <div class="form-group">
-                      <label asp-for="ArchDesgin" class="col-md-3 control-label"></label>
-                      <div class="input-group">
-                          <select asp-for="ArchDesgin" class="select2 form-control" asp-items="ViewBag.desinArch"></select>
-                          <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="3" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-md-3">
-                  <div class="form-group">
-                      <label asp-for="Mansob" class="col-md-3 control-label"></label>
-                      <div class="input-group">
-                          <select asp-for="Mansob" class="select2 form-control" asp-items="ViewBag.Mansob"></select>
-                          <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="4" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
-                      </div>
-                  </div>
-              </div>
-
-
-              <div class="col-md-3">
-                  <div class="form-group">
-                      <label asp-for="BulState" class="col-md-3 control-label"></label>
-                      <div class="input-group">
-                          <select asp-for="BulState" class="select2 form-control" asp-items="ViewBag.buldingtype"></select>
-                          <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="5" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
-                      </div>
-                  </div>
-              </div>
               
 
           </div>
           
-          <div class="row">
-              <div class="col-md-3">
-                  <div class="form-group">
-                      <label asp-for="BuldingType" class="col-md-3 control-label"></label>
-                      <div class="input-group">
-                          <select asp-for="BuldingType" class="select2 form-control" asp-items="ViewBag.butype"></select>
-                          <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="6" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
-                      </div>
-                  </div>
-              </div>
+   <div class="row">
+       
+       <div class="col-md-3">
+           <div class="form-group">
+               <label asp-for="AqarType" class="control-label"></label>
+               <div class="input-group">
+                   <select asp-for="AqarType" class="select2 form-control" asp-items="ViewBag.aqartype"></select>
+                   <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="1" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+               </div>
+           </div>
+       </div>
 
-              <div class="col-md-3">
-                  <div class="form-group">
-                      <label asp-for="BuldinIsNull" class="col-md-3 control-label"></label>
-                      <div class="input-group">
-                          <select asp-for="BuldinIsNull" class="select2 form-control" asp-items="ViewBag.BuldingBuzy"></select>
-                          <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="8" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
-                      </div>
-                  </div>
-              </div>
+       <div class="col-md-3">
+           <div class="form-group">
+               <label asp-for="ArchDesgin" class="control-label"></label>
+               <div class="input-group">
+                   <select asp-for="ArchDesgin" class="select2 form-control" asp-items="ViewBag.desinArch"></select>
+                   <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="3" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+               </div>
+           </div>
+       </div>
 
-              <div class="col-md-3">
-                  <div class="form-group">
-                      <label asp-for="RoadSeflt" class="col-md-3 control-label"></label>
-                      <div class="input-group">
-                          <select asp-for="RoadSeflt" class="select2 form-control" asp-items="ViewBag.RoadSeflt"></select>
-                          <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="9" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
-                      </div>
-                  </div>
-              </div>
+       <div class="col-md-3">
+           <div class="form-group">
+               <label asp-for="Mansob" class="control-label"></label>
+               <div class="input-group">
+                   <select asp-for="Mansob" class="select2 form-control" asp-items="ViewBag.Mansob"></select>
+                   <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="4" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+               </div>
+           </div>
+       </div>
 
-              <div class="col-md-3">
-                  <div class="form-group">
-                      <label asp-for="RoadLight" class="col-md-3 control-label"></label>
-                      <div class="input-group">
-                          <select asp-for="RoadLight" class="select2 form-control" asp-items="ViewBag.RoadLighting"></select>
-                          <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="10" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
-                      </div>
-                  </div>
-              </div>
 
-          </div>
+       <div class="col-md-3">
+           <div class="form-group">
+               <label asp-for="BulState" class="control-label"></label>
+               <div class="input-group">
+                   <select asp-for="BulState" class="select2 form-control" asp-items="ViewBag.buldingtype"></select>
+                   <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="5" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+               </div>
+           </div>
+       </div>
+
+
+   </div>
+          
+   <div class="row">
+       
+       <div class="col-md-3">
+           <div class="form-group">
+               <label asp-for="BuldingType" class="control-label"></label>
+               <div class="input-group">
+                   <select asp-for="BuldingType" class="select2 form-control" asp-items="ViewBag.butype"></select>
+                   <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="6" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+               </div>
+           </div>
+       </div>
+
+       <div class="col-md-3">
+           <div class="form-group">
+               <label asp-for="BuldinIsNull" class="control-label"></label>
+               <div class="input-group">
+                   <select asp-for="BuldinIsNull" class="select2 form-control" asp-items="ViewBag.BuldingBuzy"></select>
+                   <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="8" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+               </div>
+           </div>
+       </div>
+
+       <div class="col-md-3">
+           <div class="form-group">
+               <label asp-for="RoadSeflt" class=" control-label"></label>
+               <div class="input-group">
+                   <select asp-for="RoadSeflt" class="select2 form-control" asp-items="ViewBag.RoadSeflt"></select>
+                   <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="9" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+               </div>
+           </div>
+       </div>
+
+       <div class="col-md-3">
+           <div class="form-group">
+               <label asp-for="RoadLight" class="control-label"></label>
+               <div class="input-group">
+                   <select asp-for="RoadLight" class="select2 form-control" asp-items="ViewBag.RoadLighting"></select>
+                   <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="10" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+               </div>
+           </div>
+       </div>
+
+   </div>
           
           <div class="row">
           <div class="col-md-3">
@@ -212,7 +216,7 @@
 
           <div class="col-md-3">
               <div class="form-group">
-                  <label asp-for="JarIsBulding" class="col-md-3 control-label"></label>
+                  <label asp-for="JarIsBulding" class="control-label"></label>
                   <div class="input-group">
                       <select asp-for="JarIsBulding" class="select2 form-control" asp-items="ViewBag.JarIsBulding"></select>
                       <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="11" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -222,7 +226,7 @@
 
           <div class="col-md-3">
               <div class="form-group">
-                  <label asp-for="AqaraAttachment" class="col-md-3 control-label"></label>
+                  <label asp-for="AqaraAttachment" class="control-label"></label>
                   <div class="input-group">
                       <select asp-for="AqaraAttachment" class="select2 form-control" asp-items="ViewBag.AqarIsAttch"></select>
                       <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="12" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -242,7 +246,7 @@
       <div class="row">
           <div class="col-md-3">
               <div class="form-group">
-                  <label asp-for="TshteebType" class="col-md-3 control-label"></label>
+                  <label asp-for="TshteebType" class="control-label"></label>
                   <div class="input-group">
                       <select asp-for="TshteebType" class="select2 form-control" asp-items="ViewBag.TshteebType"></select>
                       <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="13" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -415,7 +419,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="InterfcaesNorth" class="col-md-3 control-label"></label>
+                    <label asp-for="InterfcaesNorth" class="control-label"></label>
                     <div class="input-group">
                         <select asp-for="InterfcaesNorth" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -425,7 +429,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="InterfcaesSouth" class="col-md-3 control-label"></label>
+                    <label asp-for="InterfcaesSouth" class="control-label"></label>
                     <div class="input-group">
                         <select asp-for="InterfcaesSouth" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -435,7 +439,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="InterfcaesEast" class="col-md-3 control-label"></label>
+                    <label asp-for="InterfcaesEast" class="control-label"></label>
                     <div class="input-group">
                         <select asp-for="InterfcaesEast" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -445,7 +449,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="InterfcaesWest" class="col-md-3 control-label"></label>
+                    <label asp-for="InterfcaesWest" class=" control-label"></label>
                     <div class="input-group">
                         <select asp-for="InterfcaesWest" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -458,7 +462,7 @@
          
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="XtrenalDoor" class="col-md-3 control-label"></label>
+                    <label asp-for="XtrenalDoor" class="control-label"></label>
                     <div class="input-group">
                         <select asp-for="XtrenalDoor" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -468,7 +472,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="InnerDoor" class="col-md-3 control-label"></label>
+                    <label asp-for="InnerDoor" class=" control-label"></label>
                     <div class="input-group">
                         <select asp-for="InnerDoor" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -478,7 +482,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="Ahwash" class="col-md-3 control-label"></label>
+                    <label asp-for="Ahwash" class="control-label"></label>
                     <div class="input-group">
                         <select asp-for="Ahwash" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -488,7 +492,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="Rescptions" class="col-md-3 control-label"></label>
+                    <label asp-for="Rescptions" class="control-label"></label>
                     <div class="input-group">
                         <select asp-for="Rescptions" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -501,7 +505,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="Inner" class="col-md-3 control-label"></label>
+                    <label asp-for="Inner" class=" control-label"></label>
                     <div class="input-group">
                         <select asp-for="Inner" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -511,7 +515,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="Rooms" class="col-md-3 control-label"></label>
+                    <label asp-for="Rooms" class=" control-label"></label>
                     <div class="input-group">
                         <select asp-for="Rooms" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -521,7 +525,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="ArchConstract" class="col-md-3 control-label"></label>
+                    <label asp-for="ArchConstract" class=" control-label"></label>
                     <div class="input-group">
                         <select asp-for="ArchConstract" class="select2 form-control" asp-items="ViewBag.AsqfType"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="15" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -531,7 +535,7 @@
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="AsqfType" class="col-md-3 control-label"></label>
+                    <label asp-for="AsqfType" class=" control-label"></label>
                     <div class="input-group">
                         <select asp-for="AsqfType" class="select2 form-control" asp-items="ViewBag.AsqfType"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="15" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
@@ -543,7 +547,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="form-group">
-                    <label asp-for="AzlType" class="col-md-3 control-label"></label>
+                    <label asp-for="AzlType" class="control-label"></label>
                     <div class="input-group">
                         <select asp-for="AzlType" class="select2 form-control" asp-items="ViewBag.azltype"></select>
                         <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="16" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>

@@ -97,14 +97,14 @@ namespace CloudApp.Models.BusinessModel
         public string MarkterRoad { get; set; }
 
         // التشطيب
-        [Display(Name = "الواجهة الشمالية")]
+        [Display(Name = "الشمالية")]
         public string InterfcaesNorth { get; set; }
 
-        [Display(Name = "الواجهة الجنوبيه")]
+        [Display(Name = "الجنوبيه")]
         public string InterfcaesSouth { get; set; }
-        [Display(Name = "الواجهة الشرقية")]
+        [Display(Name = "الشرقية")]
         public string InterfcaesEast { get; set; }
-        [Display(Name = "الواجهة الغربيه")]
+        [Display(Name = "الغربيه")]
         public string InterfcaesWest { get; set; }
 
         [Display(Name = "الابواب الخارجية")]
