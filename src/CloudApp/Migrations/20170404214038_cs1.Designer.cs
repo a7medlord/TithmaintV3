@@ -8,7 +8,7 @@ using CloudApp.Data;
 namespace CloudApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170404201125_cs1")]
+    [Migration("20170404214038_cs1")]
     partial class cs1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -884,6 +884,8 @@ namespace CloudApp.Migrations
                     b.Property<string>("SukNumber");
 
                     b.Property<string>("Talabnum");
+
+                    b.Property<string>("Tashtibtype");
 
                     b.Property<string>("Toor");
 

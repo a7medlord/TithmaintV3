@@ -26,6 +26,7 @@
     <Content Include="wwwroot\Dropzone\dropzone-amd-module.min.js" />
     <Content Include="wwwroot\Dropzone\dropzone.min.css" />
     <Content Include="wwwroot\Dropzone\dropzone.min.js" />
+    <Content Include="wwwroot\images\icon-close.png" />
   </ItemGroup>
 
   <ItemGroup>

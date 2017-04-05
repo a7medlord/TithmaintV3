@@ -48,7 +48,7 @@ namespace CloudApp.Controllers
             string images = null;
             foreach (var r2Samples in rsample2)
             {
-                images += "http://" + HttpContext.Request.Host + "/attachs2/" + r2Samples.AttachmentId + ".jpg" + ",";
+                images += "http://" + HttpContext.Request.Host + "/attachs3/" + r2Samples.AttachmentId + ".jpg" + ",";
             }
 
             // R1 Report

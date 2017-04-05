@@ -429,7 +429,7 @@ namespace CloudApp.Controllers
             }
             if (data[1] == "3")
             {
-                return RedirectToAction("GetSample1Report", "R1Smaple", new { id = data[0] });
+                return RedirectToAction("GetSample2Report", "R2Smaple", new { id = data[0] });
             }
 
             return RedirectToAction("Index");

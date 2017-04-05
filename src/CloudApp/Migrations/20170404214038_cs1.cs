@@ -590,6 +590,7 @@ namespace CloudApp.Migrations
                     SukDate = table.Column<DateTime>(nullable: false),
                     SukNumber = table.Column<string>(nullable: true),
                     Talabnum = table.Column<string>(nullable: true),
+                    Tashtibtype = table.Column<string>(nullable: true),
                     Toor = table.Column<string>(nullable: true),
                     TotalApendxEarth = table.Column<string>(nullable: true),
                     TotalAswar = table.Column<string>(nullable: true),

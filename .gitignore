@@ -244,3 +244,5 @@ ModelManifest.xml
 /src/CloudApp/Migrations/20170401183803_cs.Designer.cs
 /src/CloudApp/Migrations/20170401230205_cs5.cs
 /src/CloudApp/Migrations/20170401230205_cs5.Designer.cs
+/src/CloudApp/Migrations/20170404201125_cs1.cs
+/src/CloudApp/Migrations/20170404201125_cs1.Designer.cs
