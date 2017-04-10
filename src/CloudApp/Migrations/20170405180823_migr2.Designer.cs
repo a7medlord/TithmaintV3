@@ -8,8 +8,8 @@ using CloudApp.Data;
 namespace CloudApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170404214038_cs1")]
-    partial class cs1
+    [Migration("20170405180823_migr2")]
+    partial class migr2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -400,6 +400,8 @@ namespace CloudApp.Migrations
                     b.Property<bool>("IsSeprat");
 
                     b.Property<bool>("IsThmin");
+
+                    b.Property<bool>("IsUnlockFin");
 
                     b.Property<bool>("IsWaterConut");
 
@@ -984,6 +986,8 @@ namespace CloudApp.Migrations
                     b.Property<bool>("IsIntered");
 
                     b.Property<bool>("IsThmin");
+
+                    b.Property<bool>("IsUnlockFin");
 
                     b.Property<string>("Latute");
 

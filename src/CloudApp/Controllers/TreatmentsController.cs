@@ -450,7 +450,7 @@ namespace CloudApp.Controllers
 
      
         [HttpPost]
-        [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Edit(long id, [Bind] Treatment treatment , string ids)
         {
             if (id != treatment.Id)
@@ -507,7 +507,15 @@ namespace CloudApp.Controllers
             return View(treatment);
         }
 
-      
+
+        public async Task EditAprove(long id)
+        {
+            var row = _context.Treatment.SingleOrDefault(d => d.Id == id);
+            row.IsApproved = true;
+            _context.Update(row);
+            await _context.SaveChangesAsync();
+        }
+
         public JsonResult Delete(long? id , int type)
         {
             if (type == 1)
@@ -530,6 +538,7 @@ namespace CloudApp.Controllers
         private bool TreatmentExists(long id)
         {
             return _context.Treatment.Any(e => e.Id == id);
+
         }
     }
 }

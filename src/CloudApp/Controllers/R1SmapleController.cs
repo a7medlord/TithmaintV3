@@ -280,6 +280,16 @@ namespace CloudApp.Controllers
             return View(r1Smaple);
         }
 
+
+
+
+        public async Task EditAprove(long id)
+        {
+            var row = _context.R1Smaple.SingleOrDefault(d => d.Id == id);
+            row.IsApproved = true;
+            _context.Update(row);
+            await _context.SaveChangesAsync();
+        }
         void GetBinding()
         {
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");

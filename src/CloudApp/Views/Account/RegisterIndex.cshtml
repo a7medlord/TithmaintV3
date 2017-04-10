@@ -33,7 +33,22 @@
                                    رقم الهاتف
                                 </th>
                                 <th>
-                                   رقم العضوية
+                                    رقم العضوية
+                                </th>
+                                <th>
+                                    نسبة الادخال
+                                </th>
+                                <th>
+                                    نسبة التثمين
+                                </th>
+                                <th>
+                                    نسبة التدقيق
+                                </th>
+                                <th>
+                                    نسبة الاعتماد
+                                </th>
+                                <th>
+                                    نسبة الاشراف
                                 </th>
                                 <th>
                                    رقم الهوية
@@ -58,8 +73,24 @@
                                     <td>
                                         @Html.DisplayFor(modelItem => item.PhoneNumber)
                                     </td>
+                               
                                     <td>
                                         @Html.DisplayFor(modelItem => item.MemberId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.InterPercentage)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MuthminPercentage)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AduitPercentage)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AproverPercentage)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SupervisionPercentage)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.IdentityId)

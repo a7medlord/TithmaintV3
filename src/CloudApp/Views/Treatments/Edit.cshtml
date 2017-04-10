@@ -25,6 +25,7 @@
                     <li class="l1"><a href="#tab2-2" data-toggle="tab"><span>2</span>تحت التثمين</a></li>
                     <li class="l2"><a href="#tab2-3" data-toggle="tab"><span>3</span> المراجعة</a></li>
                     <li class="l3"><a href="#tab2-4" data-toggle="tab"><span>4</span> التعميد</a></li>
+                    <li class="l4"><a href="#tab2-5" data-toggle="tab"><span>5</span> الاقفال المالي</a></li>
                 </ul>
             </div>
 
@@ -36,7 +37,7 @@
 
             <div class="row">
 
-                <div class="col-md-4" style="pointer-events: none">
+                <div class="col-md-3" style="pointer-events: none">
                     <div class="form-group">
                         <label asp-for="CustmerId" class="col-md-2 control-label"></label>
                        
@@ -48,44 +49,61 @@
 
 
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label asp-for="ApplicationUserId" class="control-label"></label>
                         <select asp-for="ApplicationUserId" class="select2 form-control" asp-items="ViewBag.UserId"></select>
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label asp-for="Owner" class="control-label"></label>
                         <input asp-for="Owner" class="form-control" />
                         <span asp-validation-for="Owner" class="text-danger" />
                     </div>
                 </div>
+                
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger" />
+                    </div>
+                </div> 
 
             </div>
-
             <div class="row">
-                <div class="col-md-4">
+        
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="MuthminPrice" class="control-label"></label>
+                        <input asp-for="MuthminPrice" class="form-control"/>
+                        <span asp-validation-for="MuthminPrice" class="text-danger"/>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
                     <div class="form-group">
                         <label asp-for="SNum" class="control-label"></label>
-                        <input asp-for="SNum" class="form-control" />
-                        <span asp-validation-for="SNum" class="text-danger" />
+                        <input asp-for="SNum" class="form-control"/>
+                        <span asp-validation-for="SNum" class="text-danger"/>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label asp-for="City" class="control-label"></label>
-                        <input asp-for="City" class="form-control" />
-                        <span asp-validation-for="City" class="text-danger" />
+                        <input asp-for="City" class="form-control"/>
+                        <span asp-validation-for="City" class="text-danger"/>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label asp-for="Gada" class="control-label"></label>
 
-                        <input asp-for="Gada" class="form-control" />
-                        <span asp-validation-for="Gada" class="text-danger" />
+                        <input asp-for="Gada" class="form-control"/>
+                        <span asp-validation-for="Gada" class="text-danger"/>
                     </div>
                 </div>
             </div>
@@ -668,20 +686,36 @@
         </div>
 
         @*tab4*@
-        <div class="tab-pane" id="tab2-4">
-            <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
-            <p>
-                <strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .
-            </p>
-            <div class="checkbox">
-                <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
-            </div>
-            <br />
-            <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+       <div class="tab-pane" id="tab2-4">
+           <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
+           <p>
+               <strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .
+           </p>
+           <div class="checkbox">
+               <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
+           </div>
+           <br />
+           <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
 
-        </div>
+       </div>
+           
+           @*tab5*@
+           <div class="tab-pane" id="tab2-5">
+               <h3 class="title text-info"> متابعة الجزء المالي الخاص بالمعاملة </h3>
+               <p>
+                   <strong>1.</strong> تمت رصد المبلغ من المعاملة .
+               </p>
+               <div class="checkbox">
+                   <label><input id="nex5" asp-for="IsUnlockFin" type="checkbox">موافق..</label>
+               </div>
+               <br />
+               <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+           </div>
+           
+           
+
             
-        <ul class="pager wizard">
+       <ul class="pager wizard">
             <li class="previous"><a href="javascript:void(0)"><i class="icon-right-open"></i>السابق</a></li>
             <li class="next"><a href="javascript:void(0)">التالي<i class="icon-left-open"></i></a> </li>
         </ul>
@@ -715,9 +749,6 @@
     <script>
 
 
-
-
-
         //ControlTab For Edit
         function getstattab1() {
 
@@ -728,6 +759,7 @@
                 $(".l1").addClass('active');
             }
         }
+
         function getstattab2() {
             if ($("#nex2").prop('checked')) {
                 $(".l1").removeClass('active').addClass('completed');
@@ -737,6 +769,7 @@
                 $(".l2").addClass('active');
             }
         }
+
         function getstattab3() {
             if ($("#nex3").prop('checked')) {
                 $(".l2").removeClass('active').addClass('completed');
@@ -753,18 +786,27 @@
             }
         }
 
+        function getstattab5() {
+            if ($("#nex5").prop('checked')) {
+                $(".l4").removeClass('active').addClass('completed');
+
+            }
+        }
+
         setTimeout(function() {
-            $("#root").ready(function () {
-                getstattab1();
-                getstattab2();
-                getstattab3();
-                getstattab4();
-            });
-        }, 300);
+                $("#root").ready(function() {
+                    getstattab1();
+                    getstattab2();
+                    getstattab3();
+                    getstattab4();
+                    getstattab5();
+                });
+            },
+            300);
         //End
 
         //Contorl Tab In Clint
-        $("#nex1").change(function () {
+        $("#nex1").change(function() {
             if (this.checked) {
 
                 $(".l0").removeClass('active').addClass('completed');
@@ -775,7 +817,7 @@
 
             }
         });
-        $("#nex2").change(function () {
+        $("#nex2").change(function() {
             if (this.checked) {
 
                 $(".l1").removeClass('active').addClass('completed');
@@ -786,7 +828,7 @@
 
             }
         });
-        $("#nex3").change(function () {
+        $("#nex3").change(function() {
             if (this.checked) {
 
                 $(".l2").removeClass('active').addClass('completed');
@@ -797,7 +839,7 @@
 
             }
         });
-        $("#nex4").change(function () {
+        $("#nex4").change(function() {
             if (this.checked) {
 
                 $(".l3").removeClass('active').addClass('completed');
@@ -808,19 +850,30 @@
 
             }
         });
+        $("#nex5").change(function () {
+            if (this.checked) {
+
+                $(".l4").removeClass('active').addClass('completed');
+
+            } else {
+
+                $(".l4").removeClass('completed').addClass('active');
+
+            }
+        });
         //End
 
         //DropZone Logic
         var imguids = "";
         var ob = $("#myId").dropzone({
             url: "/Treatments/UploadFile",
-            success: function (file, response) {
+            success: function(file, response) {
                 imguids += response + ";";
             },
             addRemoveLinks: true,
-            removedfile: function (file) {
+            removedfile: function(file) {
 
-                $.get( "http://192.168.1.6:5002/Treatments/RemoveFile?name="+ file.id ,
+                $.get("http://192.168.1.6:5002/Treatments/RemoveFile?name=" + file.id,
                     function() {
                         alert("تم حذف الملف بنجاح!");
                     });
@@ -833,54 +886,57 @@
         var hostname = $("#hosname").text();
         for (var i = 0; i < files.length - 1; i++) {
             var filepath = "";
-            var mockFile = { name: 'ملف', size: 13450, id : files[i]  };
+            var mockFile = { name: 'ملف', size: 13450, id: files[i] };
             ob[0].dropzone.emit("addedfile", mockFile);
-            ob[0].dropzone.emit("thumbnail", mockFile, hostname + files[i]+ ".jpg" );
+            ob[0].dropzone.emit("thumbnail", mockFile, hostname + files[i] + ".jpg");
             ob[0].dropzone.emit("complete", mockFile);
         }
 
-        $("#root").submit(function () {
+        $("#root").submit(function() {
             $("#ids").val(imguids);
         });
         //End
 
-        
+
         //GoogleMap Logic
         var pos;
         var map;
         var geocoder;
         var infowindowc;
+
         function getlog() {
 
             // begin of Get Current Locations
             var infoWindow = new google.maps.InfoWindow({ map: map });
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
+                navigator.geolocation.getCurrentPosition(function(position) {
+                        pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
 
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('هذا هو الموقع الحالي لك !');
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent('هذا هو الموقع الحالي لك !');
 
-                    var myLatLng = { lat: Number($("#Latute").val()), lng: Number($("#Longtute").val()) };
-                    var marker = new google.maps.Marker({
-                        position: myLatLng,
-                        map: map,
-                        title: 'موقع العقار'
+                        var myLatLng = { lat: Number($("#Latute").val()), lng: Number($("#Longtute").val()) };
+                        var marker = new google.maps.Marker({
+                            position: myLatLng,
+                            map: map,
+                            title: 'موقع العقار'
+                        });
+
+                        map.setCenter(pos);
+                    },
+                    function() {
+
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    },
+                    {
+                        enableHighAccuracy: false,
+                        timeout: 30000,
+                        maximumAge: 30000
                     });
-
-                    map.setCenter(pos);
-                }, function () {
-
-                    handleLocationError(true, infoWindow, map.getCenter());
-                }, {
-                    enableHighAccuracy: false,
-                    timeout: 30000,
-                    maximumAge: 30000
-                });
             } else {
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
@@ -902,12 +958,13 @@
             });
 
 
-            map.addListener('center_changed', function () {
-                var obj = map.getCenter();
-                $("#Latute").val(obj.lat());
-                $("#Longtute").val(obj.lng());
+            map.addListener('center_changed',
+                function() {
+                    var obj = map.getCenter();
+                    $("#Latute").val(obj.lat());
+                    $("#Longtute").val(obj.lng());
 
-            });
+                });
 
 
             geocoder = new google.maps.Geocoder;
@@ -917,7 +974,7 @@
             var searchBox = new google.maps.places.SearchBox(input);
 
             map.addListener('bounds_changed',
-                function () {
+                function() {
                     searchBox.setBounds(map.getBounds());
                 });
 
@@ -925,7 +982,7 @@
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
             searchBox.addListener('places_changed',
-                function () {
+                function() {
                     var places = searchBox.getPlaces();
 
                     if (places.length == 0) {
@@ -933,14 +990,14 @@
                     }
 
                     // Clear out the old markers.
-                    markers.forEach(function (marker) {
+                    markers.forEach(function(marker) {
                         marker.setMap(null);
                     });
                     markers = [];
 
                     // For each place, get the icon, name and location.
                     var bounds = new google.maps.LatLngBounds();
-                    places.forEach(function (place) {
+                    places.forEach(function(place) {
                         if (!place.geometry) {
                             console.log("Returned place contains no geometry");
                             return;
@@ -980,7 +1037,7 @@
                 : 'Error: Your browser doesn\'t support geolocation.');
         }
 
-        $("#is").click(function () {
+        $("#is").click(function() {
 
             map.setCenter({ lat: Number($("#Latute").val()), lng: Number($("#Longtute").val()) });
             var myLatLng = { lat: Number($("#Latute").val()), lng: Number($("#Longtute").val()) };

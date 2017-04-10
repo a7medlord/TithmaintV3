@@ -1,42 +1,43 @@
-﻿@{
+﻿@model List<CloudApp.Models.ManpulateModel.ModelView>
+
+@{
     ViewData["Title"] = "الرئيسية";
 }
 
 
 <div class="row">
 
-        
-        <div class="col-md-3">
-            <div class="panel minimal panel-primary">
-                <div class="panel-heading clearfix">
-                    <div class="panel-title">معاملات تحت التثمين</div>
-                    <ul class="panel-tool-options">
-                        <li class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"><i class="icon-cog"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a href="#"><i class="icon-arrows-ccw"></i> Update data</a></li>
-                                <li><a href="#"><i class="icon-list"></i> Detailed log</a></li>
-                                <li><a href="#"><i class="icon-chart-pie"></i> Statistics</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#"><i class="icon-cancel"></i> Clear list</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <!-- panel body -->
-                <div class="panel-body">
-                    <div class="row col-with-divider">
-                        <div class="col-xs-10 text-center stack-order">
-                            <h1 class="no-margins">87</h1>
-                            <small>معاملة</small>
-                        </div>
-                    
+    <div class="col-md-2">
+        <div class="panel minimal panel-primary">
+            <div class="panel-heading clearfix">
+                <div class="panel-title">معاملات تحت التثمين</div>
+                <ul class="panel-tool-options">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"><i class="icon-cog"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#"><i class="icon-arrows-ccw"></i> Update data</a></li>
+                            <li><a href="#"><i class="icon-list"></i> Detailed log</a></li>
+                            <li><a href="#"><i class="icon-chart-pie"></i> Statistics</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="icon-cancel"></i> Clear list</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- panel body -->
+            <div class="panel-body">
+                <div class="row col-with-divider">
+                    <div class="col-xs-10 text-center stack-order">
+                        <h1 class="no-margins">@ViewBag.thmin</h1>
+                        <small>معاملة</small>
                     </div>
+
                 </div>
             </div>
         </div>
+    </div>
 
-    <div class="col-md-3">
+    <div class="col-md-2">
         <div class="panel minimal panel-primary">
             <div class="panel-heading clearfix">
                 <div class="panel-title">معاملات للتدقيق</div>
@@ -57,7 +58,7 @@
             <div class="panel-body">
                 <div class="row col-with-divider">
                     <div class="col-xs-10 text-center stack-order">
-                        <h1 class="no-margins">87</h1>
+                        <h1 class="no-margins">@ViewBag.aduit</h1>
                         <small>معاملة</small>
                     </div>
 
@@ -65,8 +66,8 @@
             </div>
         </div>
     </div>
-    
-    <div class="col-md-3">
+
+    <div class="col-md-2">
         <div class="panel minimal panel-primary">
             <div class="panel-heading clearfix">
                 <div class="panel-title">معاملات للاعتماد</div>
@@ -87,7 +88,7 @@
             <div class="panel-body">
                 <div class="row col-with-divider">
                     <div class="col-xs-10 text-center stack-order">
-                        <h1 class="no-margins">87</h1>
+                        <h1 class="no-margins">@ViewBag.approved</h1>
                         <small>معاملة</small>
                     </div>
 
@@ -95,7 +96,37 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="col-md-3">
+        <div class="panel minimal panel-primary">
+            <div class="panel-heading clearfix">
+                <div class="panel-title">المعاملات المعتمدة</div>
+                <ul class="panel-tool-options">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"><i class="icon-cog"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#"><i class="icon-arrows-ccw"></i> Update data</a></li>
+                            <li><a href="#"><i class="icon-list"></i> Detailed log</a></li>
+                            <li><a href="#"><i class="icon-chart-pie"></i> Statistics</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="icon-cancel"></i> Clear list</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- panel body -->
+            <div class="panel-body">
+                <div class="row col-with-divider">
+                    <div class="col-xs-10 text-center stack-order">
+                        <h1 class="no-margins">@ViewBag.approveded</h1>
+                        <small>معاملة</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="col-md-3">
         <div class="panel minimal panel-primary">
             <div class="panel-heading clearfix">
@@ -116,8 +147,8 @@
             <!-- panel body -->
             <div class="panel-body">
                 <div class="stack-order">
-                    <h1 class="no-margins">$87,003</h1>
-                    <small>ريال سعودي</small>
+                    <h1 class="no-margins">@ViewBag.financ</h1>
+                    <small> معاملة</small>
                 </div>
                 <div class="bar-chart-icon"></div>
             </div>
@@ -134,36 +165,33 @@
                 <h3>معاملات للتعميد</h3>
             </div>
             <div class="panel-body">
-                
-                <ul class="comments-list removeable-list">
-                    <li>
-                        <div class="comment-head">
-                            نتائج معاينه وتقيم رقم 2 والمؤرخه في تاريخ 1/2/4/6 الواقعة في مدينه الرياض بحي الملز
-                        </div>
-                        <div class="comment-text">
-                            <p> تعميد المستندات والأدخال</p>
-                        </div>
-                        <div class="comment-footer">
-                            <button class="btn btn-sm btn-success">تعميد</button>
-                            <button class="btn btn-sm btn-red">تفاصيل</button>
-                        </div>
-                        <a href="#/" class="remove"><img src="~/images/icon-close.png" alt="Remove" title="Remove"></a>
-                    </li>
 
-                    <li>
-                        <div class="comment-head">
-                            نتائج معاينه وتقيم رقم 2 والمؤرخه في تاريخ 1/2/4/6 الواقعة في مدينه الرياض بحي الملز
-                        </div>
-                        <div class="comment-text">
-                            <p> تعميد المستندات والأدخال</p>
-                        </div>
-                        <div class="comment-footer">
-                            <button class="btn btn-sm btn-success">تعميد</button>
-                            <button class="btn btn-sm btn-red">تفاصيل</button>
-                        </div>
-                        <a href="#/" class="remove"><img src="~/images/icon-close.png" alt="Remove" title="Remove"></a>
-                    </li>
-              
+                <ul class="comments-list removeable-list">
+
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            <div class="comment-head">
+                                نتائج معاينه وتقيم رقم @Html.DisplayFor(modelItem => item.Id) والمؤرخه في تاريخ @Html.DisplayFor(modelItem => item.DateOfBegin)الواقعة في مدينه @Html.DisplayFor(modelItem => item.City) بحي @Html.DisplayFor(modelItem => item.Gada)
+                            </div>
+                
+                            <div class="comment-text">
+                                <p> تعميد المستندات والأدخال</p>
+                            </div>
+                            <div class="comment-footer">
+                                <input id="idmodel" value="@Html.DisplayFor(modelItem => item.Id)" type="hidden" />
+                                <input id="typemodel" value="@Html.DisplayFor(modelItem => item.type)" type="hidden" />
+
+                                <button onclick="dojob(this)" class="btn btn-sm btn-success">تعميد</button>
+                                
+                                <button onclick="dojob2(this)" class="btn btn-sm btn-red">تفاصيل</button>
+                            </div>
+                            <a href="#/" class="remove"><img src="~/images/icon-close.png" alt="Remove" title="Remove"></a>
+                        </li>
+
+                    }
+
+
                 </ul>
             </div>
         </div>
@@ -198,7 +226,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading no-border clearfix">
@@ -225,17 +253,19 @@
             </div>
         </div>
     </div>
+    
+  
 </div>
 
 @section scripts
 {
-   <script src="~/FrameWork/js/plugins/flot/jquery.flot.min.js"></script>
-<script src="~/FrameWork/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-<script src="~/FrameWork/js/plugins/flot/jquery.flot.resize.min.js"></script>
-<script src="~/FrameWork/js/plugins/flot/jquery.flot.selection.min.js"></script>
-<script src="~/FrameWork/js/plugins/flot/jquery.flot.pie.min.js"></script>
-<script src="~/FrameWork/js/plugins/flot/jquery.flot.time.min.js"></script>
-<script src="~/FrameWork/js/plugins/chartjs/Chart.min.js"></script>
+    <script src="~/FrameWork/js/plugins/flot/jquery.flot.min.js"></script>
+    <script src="~/FrameWork/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="~/FrameWork/js/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="~/FrameWork/js/plugins/flot/jquery.flot.selection.min.js"></script>
+    <script src="~/FrameWork/js/plugins/flot/jquery.flot.pie.min.js"></script>
+    <script src="~/FrameWork/js/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="~/FrameWork/js/plugins/chartjs/Chart.min.js"></script>
     <script>
         $(document).ready(function() {
 
@@ -244,23 +274,22 @@
 
         });
 
-
         function chart1() {
             var doughnutData = [
                 {
-                    value: 5742,
+                    value: @ViewBag.smaple3,
                     color: "#2bbfba",
                     highlight: "#1fb3ae",
                     label: "عام الشركات"
                 },
                 {
-                    value: 1762,
+                    value: @ViewBag.smaple1,
                     color: "#00b8ce",
                     highlight: "#00acc2",
                     label: "الرياض الضمانات والتوثيق"
                 },
                 {
-                    value: 1762,
+                    value: @ViewBag.smaple2,
                     color: "#e5e8eb",
                     highlight: "#d9dcdf",
                     label: "الرياض افراد"
@@ -278,7 +307,8 @@
                 animateScale: false,
                 responsive: true,
                 //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+                legendTemplate:
+                    "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
             };
 
             var canvas = document.getElementById("doughnutChart");
@@ -288,38 +318,43 @@
             var legendHolder = document.createElement('div');
             legendHolder.innerHTML = moduleDoughnut.generateLegend();
 
-            helpers.each(legendHolder.firstChild.childNodes, function (legendNode, index) {
-                helpers.addEvent(legendNode, 'mouseover', function () {
-                    var activeSegment = moduleDoughnut.segments[index];
-                    activeSegment.save();
-                    activeSegment.fillColor = activeSegment.highlightColor;
-                    moduleDoughnut.showTooltip([activeSegment]);
-                    activeSegment.restore();
+            helpers.each(legendHolder.firstChild.childNodes,
+                function(legendNode, index) {
+                    helpers.addEvent(legendNode,
+                        'mouseover',
+                        function() {
+                            var activeSegment = moduleDoughnut.segments[index];
+                            activeSegment.save();
+                            activeSegment.fillColor = activeSegment.highlightColor;
+                            moduleDoughnut.showTooltip([activeSegment]);
+                            activeSegment.restore();
+                        });
                 });
-            });
 
-            helpers.addEvent(legendHolder.firstChild, 'mouseout', function () {
-                moduleDoughnut.draw();
-            });
+            helpers.addEvent(legendHolder.firstChild,
+                'mouseout',
+                function() {
+                    moduleDoughnut.draw();
+                });
             canvas.parentNode.parentNode.appendChild(legendHolder.firstChild);
         }
 
         function chart2() {
             var doughnutData = [
                 {
-                    value: 5742,
+                    value: @ViewBag.fsmaple3,
                     color: "#2bbfba",
                     highlight: "#1fb3ae",
                     label: "عام الشركات"
                 },
                 {
-                    value: 1762,
+                    value: @ViewBag.fsmaple1,
                     color: "#00b8ce",
                     highlight: "#00acc2",
                     label: "الرياض الضمانات والتوثيق"
                 },
                 {
-                    value: 1762,
+                    value: @ViewBag.fsmaple2,
                     color: "#e5e8eb",
                     highlight: "#d9dcdf",
                     label: "الرياض افراد"
@@ -337,7 +372,8 @@
                 animateScale: false,
                 responsive: true,
                 //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+                legendTemplate:
+                    "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
             };
 
             var canvas = document.getElementById("doughnutChart1");
@@ -347,20 +383,99 @@
             var legendHolder = document.createElement('div');
             legendHolder.innerHTML = moduleDoughnut.generateLegend();
 
-            helpers.each(legendHolder.firstChild.childNodes, function (legendNode, index) {
-                helpers.addEvent(legendNode, 'mouseover', function () {
-                    var activeSegment = moduleDoughnut.segments[index];
-                    activeSegment.save();
-                    activeSegment.fillColor = activeSegment.highlightColor;
-                    moduleDoughnut.showTooltip([activeSegment]);
-                    activeSegment.restore();
+            helpers.each(legendHolder.firstChild.childNodes,
+                function(legendNode, index) {
+                    helpers.addEvent(legendNode,
+                        'mouseover',
+                        function() {
+                            var activeSegment = moduleDoughnut.segments[index];
+                            activeSegment.save();
+                            activeSegment.fillColor = activeSegment.highlightColor;
+                            moduleDoughnut.showTooltip([activeSegment]);
+                            activeSegment.restore();
+                        });
                 });
-            });
 
-            helpers.addEvent(legendHolder.firstChild, 'mouseout', function () {
-                moduleDoughnut.draw();
-            });
+            helpers.addEvent(legendHolder.firstChild,
+                'mouseout',
+                function() {
+                    moduleDoughnut.draw();
+                });
             canvas.parentNode.parentNode.appendChild(legendHolder.firstChild);
         }
+
+
+        // add new behavire
+        function dojob(e) {
+            var ids = $(e).siblings("#idmodel").val();
+            var type = $(e).siblings("#typemodel").val();
+ 
+            if (confirm("هل انت متاكد من أجراء العملية ؟")) {
+                switch (type) {
+                case "1":
+                    $.post("Treatments/EditAprove/" + ids,
+                        {
+                    
+                        },
+                        function(data, status) {
+                            if (status == "success") {
+                                $(e).parents("li").fadeOut("slow");
+                            }
+                        });
+                    break;
+                case "2":
+                    $.post("R1Smaple/EditAprove/" + ids,
+                        {
+                    
+                        },
+                        function(data, status) {
+                            if (status == "success") {
+                                $(e).parents("li").fadeOut("slow");
+                            }
+                        });
+                    break;
+                case "3":
+                    $.post("R2Smaple/EditAprove/" + ids,
+                        {
+                    
+                        },
+                        function(data, status) {
+                            if (status == "success") {
+                                $(e).parents("li").fadeOut("slow");
+                            }
+                        });
+                    break;
+                default:
+                }
+            }
+
+        }
+
+
+        function dojob2(e) {
+            var ids = $(e).siblings("#idmodel").val();
+            var type = $(e).siblings("#typemodel").val();
+            
+                switch (type) {
+                    case "1":
+                        location.href = "/Treatments/Edit/" + ids;
+        
+                        break;
+                    case "2":
+
+                        location.href = "/R1Smaple/Edit/" + ids;
+
+                        break;
+                    case "3":
+                        location.href = "/R2Smaple/Edit/" + ids;
+                        break;
+                    default:
+                }
+ 
+
+        }
+
+
     </script>
 }
+

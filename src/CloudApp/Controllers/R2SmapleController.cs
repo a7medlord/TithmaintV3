@@ -196,7 +196,6 @@ namespace CloudApp.Controllers
             return Json("true");
         }
 
-
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -281,8 +280,14 @@ namespace CloudApp.Controllers
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", r2Smaple.CustmerId);
             return View(r2Smaple);
         }
-        
-       
+
+        public async Task EditAprove(long id)
+        {
+            var row = _context.R2Smaple.SingleOrDefault(d => d.Id == id);
+            row.IsApproved = true;
+            _context.Update(row);
+            await _context.SaveChangesAsync();
+        }
         private bool R2SmapleExists(long id)
         {
             return _context.R2Smaple.Any(e => e.Id == id);

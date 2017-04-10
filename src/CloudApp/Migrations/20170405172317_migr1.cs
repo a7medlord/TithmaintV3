@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CloudApp.Migrations
 {
-    public partial class cs1 : Migration
+    public partial class migr1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -651,6 +651,7 @@ namespace CloudApp.Migrations
                     IsApproved = table.Column<bool>(nullable: false),
                     IsIntered = table.Column<bool>(nullable: false),
                     IsThmin = table.Column<bool>(nullable: false),
+                    IsUnlockFin = table.Column<bool>(nullable: false),
                     Latute = table.Column<string>(nullable: true),
                     Local = table.Column<string>(nullable: true),
                     Longtute = table.Column<string>(nullable: true),

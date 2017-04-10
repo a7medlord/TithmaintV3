@@ -23,6 +23,10 @@ namespace CloudApp.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<double>("AduitPercentage");
+
+                    b.Property<double>("AproverPercentage");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -37,6 +41,8 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("IdentityId");
 
+                    b.Property<double>("InterPercentage");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -44,6 +50,8 @@ namespace CloudApp.Migrations
                     b.Property<string>("MemberId");
 
                     b.Property<string>("MemberPhotoId");
+
+                    b.Property<double>("MuthminPercentage");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
@@ -62,6 +70,8 @@ namespace CloudApp.Migrations
                     b.Property<string>("SecurityStamp");
 
                     b.Property<string>("SigImage");
+
+                    b.Property<double>("SupervisionPercentage");
 
                     b.Property<bool>("TwoFactorEnabled");
 
@@ -153,6 +163,40 @@ namespace CloudApp.Migrations
                     b.HasIndex("SampleId");
 
                     b.ToTable("Custmer");
+                });
+
+            modelBuilder.Entity("CloudApp.Models.BusinessModel.FinModel", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<double>("AduitPrice");
+
+                    b.Property<double>("AproferPrice");
+
+                    b.Property<string>("Custmer");
+
+                    b.Property<string>("DateOfBegin");
+
+                    b.Property<double>("InterPrice");
+
+                    b.Property<double>("MuthmnPrice");
+
+                    b.Property<double>("Net");
+
+                    b.Property<string>("Owner");
+
+                    b.Property<string>("Place");
+
+                    b.Property<double>("Price");
+
+                    b.Property<string>("Sample");
+
+                    b.Property<string>("Tbuild");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FinModel");
                 });
 
             modelBuilder.Entity("CloudApp.Models.BusinessModel.Flag", b =>
@@ -320,6 +364,9 @@ namespace CloudApp.Migrations
 
                     b.Property<long>("CustmerId");
 
+                    b.Property<DateTime>("DateOfBegin")
+                        .HasColumnType("date");
+
                     b.Property<string>("DetlisApartment");
 
                     b.Property<string>("DetlisOffice");
@@ -400,6 +447,8 @@ namespace CloudApp.Migrations
 
                     b.Property<bool>("IsThmin");
 
+                    b.Property<bool>("IsUnlockFin");
+
                     b.Property<bool>("IsWaterConut");
 
                     b.Property<bool>("IsWaterServicesInGada");
@@ -456,6 +505,8 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("Muthmen");
 
+                    b.Property<double>("MuthminPrice");
+
                     b.Property<string>("North");
 
                     b.Property<string>("NorthTall");
@@ -463,6 +514,8 @@ namespace CloudApp.Migrations
                     b.Property<string>("Owner");
 
                     b.Property<string>("PiceNumber");
+
+                    b.Property<double>("Price");
 
                     b.Property<string>("ProfitPrecntage");
 
@@ -638,6 +691,9 @@ namespace CloudApp.Migrations
 
                     b.Property<long>("CustmerId");
 
+                    b.Property<DateTime>("DateOfBegin")
+                        .HasColumnType("date");
+
                     b.Property<DateTime>("DelverDate");
 
                     b.Property<bool>("DesinBad");
@@ -722,6 +778,8 @@ namespace CloudApp.Migrations
 
                     b.Property<bool>("IsThmin");
 
+                    b.Property<bool>("IsUnlockFin");
+
                     b.Property<bool>("IsWindo");
 
                     b.Property<bool>("Ishoter");
@@ -786,6 +844,8 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("Muthmen");
 
+                    b.Property<double>("MuthminPrice");
+
                     b.Property<string>("NearRoad");
 
                     b.Property<string>("North");
@@ -795,6 +855,8 @@ namespace CloudApp.Migrations
                     b.Property<string>("Owner");
 
                     b.Property<string>("PiceNumber");
+
+                    b.Property<double>("Price");
 
                     b.Property<string>("ProfitPrecntage");
 
@@ -964,6 +1026,9 @@ namespace CloudApp.Migrations
 
                     b.Property<long>("CustmerId");
 
+                    b.Property<DateTime>("DateOfBegin")
+                        .HasColumnType("date");
+
                     b.Property<string>("DateSNum");
 
                     b.Property<string>("East");
@@ -984,6 +1049,8 @@ namespace CloudApp.Migrations
 
                     b.Property<bool>("IsThmin");
 
+                    b.Property<bool>("IsUnlockFin");
+
                     b.Property<string>("Latute");
 
                     b.Property<string>("Local");
@@ -1002,6 +1069,8 @@ namespace CloudApp.Migrations
 
                     b.Property<string>("Muthmen");
 
+                    b.Property<double>("MuthminPrice");
+
                     b.Property<string>("Napartment");
 
                     b.Property<string>("North");
@@ -1015,6 +1084,8 @@ namespace CloudApp.Migrations
                     b.Property<string>("Owner");
 
                     b.Property<string>("Plane");
+
+                    b.Property<double>("Price");
 
                     b.Property<string>("ResWland");
 

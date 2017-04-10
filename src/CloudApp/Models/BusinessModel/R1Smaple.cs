@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,6 +25,10 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "رقم القطعة")]
         public string PiceNumber { get; set; }
 
+        [Display(Name = "التاريخ")]
+        [Column(TypeName = "date")]
+        public DateTime DateOfBegin { get; set; } = DateTime.Now;
+
         [Display(Name = "رقم البلك")]
         public string BlockNumber { get; set; }
 
@@ -32,6 +37,11 @@ namespace CloudApp.Models.BusinessModel
 
         [Display(Name = "نوع العقار")]
         public string AqarType { get; set; }
+        [Display(Name = "قيمة الاتعاب")]
+        public double Price { get; set; }
+
+        [Display(Name = " اتعاب المثمن")]
+        public double MuthminPrice { get; set; }
 
         [Display(Name = "التصميم المعماري")]
         public string ArchDesgin { get; set; }
@@ -427,6 +437,7 @@ namespace CloudApp.Models.BusinessModel
         public bool IsThmin { get; set; }
         public bool IsAduit { get; set; }
         public bool IsApproved { get; set; }
+        public bool IsUnlockFin { get; set; }
 
 
     }

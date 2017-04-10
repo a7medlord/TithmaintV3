@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CloudApp.Models.BusinessModel
 {
@@ -17,6 +18,10 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "تاريخ التسليم")]
         public DateTime DelverDate { get; set; }
 
+        [Display(Name = "التاريخ")]
+        [Column(TypeName = "date")]
+        public DateTime DateOfBegin { get; set; } = DateTime.Now;
+
         [Display(Name = "رقم الطلب ")]
         public string Talabnum { get; set; }
         public Custmer Custmer { get; set; }
@@ -32,6 +37,11 @@ namespace CloudApp.Models.BusinessModel
         public string FushBuildDate { get; set; }
         [Display(Name = "عمر العقار")]
         public string AqarAge { get; set; }
+
+        [Display(Name = "قيمة الاتعاب")]
+        public double Price { get; set; }
+        [Display(Name = " اتعاب المثمن")]
+        public double MuthminPrice { get; set; }
         [Display(Name = "نوع المبني")]
         public string BuildType { get; set; }
         [Display(Name = "شاغلية المبني")]
@@ -583,7 +593,7 @@ namespace CloudApp.Models.BusinessModel
         public bool IsThmin { get; set; }
         public bool IsAduit { get; set; }
         public bool IsApproved { get; set; }
-
+        public bool IsUnlockFin { get; set; }
 
     }
 }

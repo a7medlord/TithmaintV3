@@ -28,6 +28,7 @@
         <li class="l1"><a href="#tab2-2" data-toggle="tab"><span>2</span>تحت التثمين</a></li>
         <li class="l2"><a href="#tab2-3" data-toggle="tab"><span>3</span> المراجعة</a></li>
         <li class="l3"><a href="#tab2-4" data-toggle="tab"><span>4</span> التعميد</a></li>
+        <li class="l4"><a href="#tab2-5" data-toggle="tab"><span>5</span> الاقفال المالي</a></li>
     </ul>
 </div>
 
@@ -42,7 +43,7 @@
 
           <div class="row">
 
-              <div class="col-md-3" style="pointer-events: none">
+              <div class="col-md-2" style="pointer-events: none">
                   <div class="form-group">
                       <label asp-for="CustmerId" class="col-md-2 control-label"></label>
 
@@ -52,14 +53,14 @@
                   </div>
               </div>
 
-              <div class="col-md-3">
+              <div class="col-md-2">
                   <div class="form-group">
                       <label asp-for="ApplicationUserId" class="control-label"></label>
                       <select asp-for="ApplicationUserId" class="select2 form-control" asp-items="ViewBag.UserId"></select>
                   </div>
               </div>
         
-              <div class="col-md-3">
+              <div class="col-md-2">
                   <div class="form-group">
                       <label asp-for="City" class="control-label"></label>
                       <input asp-for="City" class="form-control" />
@@ -67,11 +68,26 @@
                   </div>
               </div>
         
-              <div class="col-md-3">
+              <div class="col-md-2">
                   <div class="form-group">
                       <label asp-for="Gada" class="control-label"></label>
                       <input asp-for="Gada" class="form-control" />
                       <span asp-validation-for="Gada" class="text-danger" />
+                  </div>
+              </div>
+              
+              <div class="col-md-2">
+                  <div class="form-group">
+                      <label asp-for="Price" class="control-label"></label>
+                      <input asp-for="Price" class="form-control" />
+                      <span asp-validation-for="Price" class="text-danger" />
+                  </div>
+              </div> 
+              <div class="col-md-2">
+                  <div class="form-group">
+                      <label asp-for="MuthminPrice" class="control-label"></label>
+                      <input asp-for="MuthminPrice" class="form-control"/>
+                      <span asp-validation-for="MuthminPrice" class="text-danger"/>
                   </div>
               </div>
       
@@ -1427,6 +1443,7 @@
         <label><input asp-for="IsAduit" id="nex3" type="checkbox">موافق..</label>
     </div>
 </div>
+    
 
 @*tab4*@
 <div class="tab-pane" id="tab2-4">
@@ -1438,6 +1455,18 @@
     </div>
 </div>
 
+ @*tab5*@
+<div class="tab-pane" id="tab2-5">
+    <h3 class="title text-info"> متابعة الجزء المالي الخاص بالمعاملة </h3>
+    <p>
+        <strong>1.</strong> تمت رصد المبلغ من المعاملة .
+    </p>
+    <div class="checkbox">
+        <label><input id="nex5" asp-for="IsUnlockFin" type="checkbox">موافق..</label>
+    </div>
+</div>
+    
+    
 
 <ul class="pager wizard">
     <li class="previous"><a href="javascript:void(0)"><i class="icon-right-open"></i>السابق</a></li>
@@ -1512,6 +1541,18 @@
             } else {
 
                 $(".l3").removeClass('completed').addClass('active');
+
+            }
+        });
+
+        $("#nex5").change(function () {
+            if (this.checked) {
+
+                $(".l4").removeClass('active').addClass('completed');
+
+            } else {
+
+                $(".l4").removeClass('completed').addClass('active');
 
             }
         });
@@ -1681,6 +1722,70 @@
         });
 
         //End
+       // multiple input 
+        $("#MeterPriceEarh").focusout(function() {
+            var value = $("#AreaEarth").val() * $("#MeterPriceEarh").val();
+            $("#TotalEarh").val(value);
+        });
+
+        $("#MeterPriceQabo").focusout(function () {
+            var value = $("#AreaQabo").val() * $("#MeterPriceEarh").val();
+            $("#TotalQabo").val(value);
+        });
+
+        $("#MeterPriceDorEarth").focusout(function () {
+            var value = $("#AreaDorEarth").val() * $("#MeterPriceDorEarth").val();
+            $("#TotalDorerath").val(value);
+        });
+
+        $("#MeterPriceFirstDoor").focusout(function () {
+            var value = $("#AreaFirstDoor").val() * $("#MeterPriceFirstDoor").val();
+            $("#TotalFirstDoor").val(value);
+        });
+
+        $("#MeterPriceReptDoor").focusout(function () {
+            var value = $("#AreareptDoor").val() * $("#MeterPriceReptDoor").val();
+            $("#TotalReptDoor").val(value);
+        });
+
+        $("#MeterPriceApendexErth").focusout(function () {
+            var value = $("#AreaApnedxEarth").val() * $("#MeterPriceApendexErth").val();
+            $("#TotalApendxEarth").val(value);
+        });
+
+        $("#MeterPriceapendxup").focusout(function () {
+            var value = $("#AreaApendxup").val() * $("#MeterPriceapendxup").val();
+            $("#Totalapendxup").val(value);
+        });
+
+        $("#MeterPriceAsawr").focusout(function () {
+            var value = $("#AreaSwar").val() * $("#MeterPriceAsawr").val();
+            $("#TotalAswar").val(value);
+        });
+
+
+        $("#MeterPricegarden").focusout(function () {
+            var value = $("#Areagarden").val() * $("#MeterPricegarden").val();
+            $("#Totalgarden").val(value);
+        });
+
+        $("#MeterPriceswiminpoo").focusout(function () {
+            var value = $("#AreaSwimingpool").val() * $("#MeterPriceswiminpoo").val();
+            $("#Totalswimingpool").val(value);
+        });
+
+        $("#MeterPriceCars").focusout(function () {
+            var value = $("#AreaCars").val() * $("#MeterPriceCars").val();
+            $("#TotalCars").val(value);
+        });
+
+        $("#MeterPriceothers").focusout(function () {
+            var value = $("#AreaOthers").val() * $("#MeterPriceothers").val();
+            $("#Totalothers").val(value);
+        });
+
+
+
 
     </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>

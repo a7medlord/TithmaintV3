@@ -140,7 +140,12 @@ namespace CloudApp.Controllers
                 var user = new ApplicationUser
                 {
                     UserName = model.UserName, Email = model.Email , EmployName = model.EmployName , MemberId = model.MemberId 
-                    , PhoneNumber = model.PhoneNumber , IdentityId = model.IdentityId,SigImage = model.SigPic
+                    , PhoneNumber = model.PhoneNumber , IdentityId = model.IdentityId,SigImage = model.SigPic ,
+                    InterPercentage = model.InterPercentage,
+                    MuthminPercentage = model.MuthminPercentage,
+                    AduitPercentage = model.AduitPercentage,
+                    AproverPercentage = model.AproverPercentage,
+                    SupervisionPercentage = model.SupervisionPercentage,
                 };
 
               await SaveFiles(user);
@@ -176,7 +181,12 @@ namespace CloudApp.Controllers
                     IdenetityPic = model.IdenetityPic ,
                     ProfilePic = model.ProfilePic,
                     MemberPhotoId = model.MemberPhotoId ,
-                    SigPic = model.SigImage
+                    SigPic = model.SigImage,
+                    InterPercentage = model.InterPercentage,
+                    MuthminPercentage = model.MuthminPercentage,
+                    AduitPercentage = model.AduitPercentage,
+                    AproverPercentage = model.AproverPercentage,
+                    SupervisionPercentage = model.SupervisionPercentage
                 };
             ViewData["roles"] = await _context.Roles.ToListAsync();
             ViewData["userRoles"] = await _userManager.GetRolesAsync(model);
@@ -195,6 +205,11 @@ namespace CloudApp.Controllers
 
             useris.PhoneNumber = model.PhoneNumber;
             useris.IdentityId = model.IdentityId;
+            useris.InterPercentage = model.InterPercentage;
+            useris.MuthminPercentage = model.MuthminPercentage;
+            useris.AduitPercentage = model.AduitPercentage;
+            useris.AproverPercentage = model.AproverPercentage;
+            useris.SupervisionPercentage = model.SupervisionPercentage;
          
             
             if (ModelState.IsValid)
@@ -238,7 +253,12 @@ namespace CloudApp.Controllers
                 IdenetityPic = model.IdenetityPic,
                 ProfilePic = model.ProfilePic,
                 MemberPhotoId = model.MemberPhotoId ,
-                SigPic = model.SigImage
+                SigPic = model.SigImage,
+                InterPercentage = model.InterPercentage,
+                MuthminPercentage = model.MuthminPercentage,
+                AduitPercentage = model.AduitPercentage,
+                AproverPercentage = model.AproverPercentage,
+                SupervisionPercentage = model.SupervisionPercentage
             };
             return View("RegisterForUser", usermodel);
         }
@@ -255,7 +275,11 @@ namespace CloudApp.Controllers
 
             useris.PhoneNumber = model.PhoneNumber;
             useris.IdentityId = model.IdentityId;
-           
+            useris.InterPercentage = model.InterPercentage;
+            useris.MuthminPercentage = model.MuthminPercentage;
+            useris.AduitPercentage = model.AduitPercentage;
+            useris.AproverPercentage = model.AproverPercentage;
+            useris.SupervisionPercentage = model.SupervisionPercentage;
 
             if (ModelState.IsValid)
             {

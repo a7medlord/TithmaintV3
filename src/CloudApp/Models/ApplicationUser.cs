@@ -12,7 +12,12 @@ namespace CloudApp.Models
         public string IdentityId { get; set; }
 
         public string MemberId { get; set; }
-
+        public double InterPercentage { get; set; }
+        public double MuthminPercentage { get; set; }
+        public double AduitPercentage { get; set; }
+        public double AproverPercentage { get; set; }
+        public double SupervisionPercentage { get; set; }
+        
         public string MemberPhotoId { get; set; }
 
         public string ProfilePic { get; set; }
@@ -20,6 +25,7 @@ namespace CloudApp.Models
         public string IdenetityPic { get; set; }
 
         public string SigImage { get; set; }
+
 
         public List<Quotation> Quotations { get; set; }
 
