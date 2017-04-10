@@ -13,12 +13,12 @@
     <None Remove="Properties\PublishProfiles\cms.pubxml" />
     <None Remove="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Remove="Properties\PublishProfiles\newprofile.pubxml" />
-    <None Remove="Report\QtReport.rdlc" />
-    <None Remove="Report\Sm0Report.rdlc" />
-    <None Remove="Report\Sm1Report.rdlc" />
-    <None Remove="Report\Sm2Report.rdlc" />
-    <None Remove="Report\SupCoReport.rdlc" />
-    <None Remove="Report\SupQtReport.rdlc" />
+    <None Remove="wwwroot\Report\QtReport.rdlc" />
+    <None Remove="wwwroot\Report\Sm0Report.rdlc" />
+    <None Remove="wwwroot\Report\Sm1Report.rdlc" />
+    <None Remove="wwwroot\Report\Sm2Report.rdlc" />
+    <None Remove="wwwroot\Report\SupCoReport.rdlc" />
+    <None Remove="wwwroot\Report\SupQtReport.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
@@ -83,12 +83,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Report\QtReport.rdlc" />
-    <EmbeddedResource Include="Report\Sm0Report.rdlc" />
-    <EmbeddedResource Include="Report\Sm1Report.rdlc" />
-    <EmbeddedResource Include="Report\Sm2Report.rdlc" />
-    <EmbeddedResource Include="Report\SupCoReport.rdlc" />
-    <EmbeddedResource Include="Report\SupQtReport.rdlc" />
+    <EmbeddedResource Include="wwwroot\Report\QtReport.rdlc" />
+    <EmbeddedResource Include="wwwroot\Report\Sm0Report.rdlc" />
+    <EmbeddedResource Include="wwwroot\Report\Sm1Report.rdlc" />
+    <EmbeddedResource Include="wwwroot\Report\Sm2Report.rdlc" />
+    <EmbeddedResource Include="wwwroot\Report\SupCoReport.rdlc" />
+    <EmbeddedResource Include="wwwroot\Report\SupQtReport.rdlc" />
   </ItemGroup>
 
 </Project>

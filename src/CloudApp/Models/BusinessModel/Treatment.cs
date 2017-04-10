@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CloudApp.Models.BusinessModel
@@ -182,5 +183,8 @@ namespace CloudApp.Models.BusinessModel
         public string Longtute { get; set; }
         [Display(Name = "خــط العرض")]
         public string Latute { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime DateOfBegin { get; set; }
     }
 }

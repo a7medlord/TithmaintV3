@@ -427,7 +427,7 @@ namespace CloudApp.Models.BusinessModel
         public bool IsThmin { get; set; }
         public bool IsAduit { get; set; }
         public bool IsApproved { get; set; }
-
-
+        [DataType(DataType.Date)]
+        public DateTime DateOfBegin { get; set; }
     }
 }

@@ -62,7 +62,7 @@ namespace CloudApp.Controllers
             LocalReport local = new LocalReport();
             local.DataSources.Add(reportDataSource);
 
-            local.ReportPath = "Report/Sm2Report.rdlc";
+            local.ReportPath = _env.WebRootPath+"/Report/Sm2Report.rdlc";
             local.EnableExternalImages = true;
 
             double price = r2Sample.Sum(d => d.LastTaqeem);
@@ -142,6 +142,8 @@ namespace CloudApp.Controllers
         {
          GetBinding();   
             var cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == ids);
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = cms;
             return View(new R2Smaple());
         }
@@ -153,6 +155,7 @@ namespace CloudApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                r2Smaple.DateOfBegin = DateTime.Now.Date;
                 if (!string.IsNullOrEmpty(ids))
                 {
                     string[] imgsids = ids.Split(';');
@@ -217,6 +220,8 @@ namespace CloudApp.Controllers
             ViewData["imgs"] = files;
 
          GetBinding();
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = r2Smaple.Custmer;
             return View(r2Smaple);
         }
@@ -295,6 +300,7 @@ namespace CloudApp.Controllers
             ViewData["butype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BulsingType), "Value", "Value");
             ViewData["InterFaces"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Interfaces), "Value", "Value");
             ViewData["azltype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AzlType), "Value", "Value");
+            ViewData["downstair"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DownSir), "Value", "Value");
 
         }
     }

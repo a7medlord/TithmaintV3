@@ -160,21 +160,23 @@
                             <span asp-validation-for="BuldinIsNull" class="text-danger" />
                         </div>
                     </div>
-
                     <div class="col-md-3">
                         <div class="form-group">
                             <label asp-for="City" class="control-label"></label>
-                            <input asp-for="City" class="form-control" />
-                            <span asp-validation-for="City" class="text-danger" />
+                            <div class="input-group">
+                                <select asp-for="City" class="select2 form-control" asp-items="ViewBag.City"></select>
+                                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="17" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                            </div>
                         </div>
                     </div>
-
 
                     <div class="col-md-3">
                         <div class="form-group">
                             <label asp-for="Gada" class="control-label"></label>
-                            <input asp-for="Gada" class="form-control" />
-                            <span asp-validation-for="Gada" class="text-danger" />
+                            <div class="input-group">
+                                <select asp-for="Gada" class="select2 form-control" asp-items="ViewBag.Gada"></select>
+                                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="18" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                            </div>
                         </div>
                     </div>
 
@@ -604,32 +606,33 @@
                         
            
                         <p>حالة المبني : </p>
-                    <div style="border: darkturquoise solid 1px; padding: 10px">
+                <div style="border: darkturquoise solid 1px; padding: 10px">
 
-                        <div class="row" style="margin-right: 1%; margin-left: 1%; margin-top: 1%">
+                    <div class="row" style="margin-right: 1%; margin-left: 1%; margin-top: 1%">
                         <div class="col-md-2 checkbox" style="display: none">
 
                         </div>
-                            <div class="col-md-3 checkbox">
-                                <input asp-for="BuldingTypeBad" />
-                                <label asp-for="BuldingTypeBad"></label>
-                            </div>
+                        <div class="col-md-3 checkbox">
+                            <input asp-for="BuldingTypeBad" />
+                            <label asp-for="BuldingTypeBad"></label>
+                        </div>
 
-                            <div class="col-md-3 checkbox">
-                                <input asp-for="BuldingTypeGood" />
-                                <label asp-for="BuldingTypeGood"></label>
-                            </div>
+                        <div class="col-md-3 checkbox">
+                            <input asp-for="BuldingTypeGood" />
+                            <label asp-for="BuldingTypeGood"></label>
+                        </div>
 
-                            <div class="col-md-3 checkbox">
-                                <input asp-for="BuldingTypeExlant" />
-                                <label asp-for="BuldingTypeExlant"></label>
-                            </div>
-
-
+                        <div class="col-md-3 checkbox">
+                            <input asp-for="BuldingTypeExlant" />
+                            <label asp-for="BuldingTypeExlant"></label>
                         </div>
 
 
                     </div>
+
+
+                </div>
+
                         <div class="checkbox">
                             <label><input id="nex1" asp-for="IsIntered" type="checkbox">اكمال عملية الأدخال...</label>
                         </div>
@@ -764,8 +767,8 @@
                             <div class="form-group">
                                 <label asp-for="Ahwash" class=" control-label"></label>
                                 <div class="input-group">
-                                    <select asp-for="Ahwash" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                    <select asp-for="Ahwash" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                                 </div>
                             </div>
                         </div>
@@ -774,8 +777,8 @@
                             <div class="form-group">
                                 <label asp-for="Rescptions" class=" control-label"></label>
                                 <div class="input-group">
-                                    <select asp-for="Rescptions" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                    <select asp-for="Rescptions" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                                 </div>
                             </div>
                         </div>
@@ -787,8 +790,8 @@
                             <div class="form-group">
                                 <label asp-for="Inner" class="control-label"></label>
                                 <div class="input-group">
-                                    <select asp-for="Inner" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                    <select asp-for="Inner" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                                 </div>
                             </div>
                         </div>
@@ -797,8 +800,8 @@
                             <div class="form-group">
                                 <label asp-for="Rooms" class=" control-label"></label>
                                 <div class="input-group">
-                                    <select asp-for="Rooms" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                    <select asp-for="Rooms" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                                 </div>
                             </div>
                         </div>

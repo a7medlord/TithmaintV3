@@ -46,6 +46,8 @@ namespace CloudApp.Data
 
         public DbSet<AttachmentForR2Sample> AttachmentForR2Samples { get; set; }
 
+        public DbSet<CloudApp.Models.BusinessModel.PriceMapModelView> PriceMapModelView { get; set; }
+
 
         
     }

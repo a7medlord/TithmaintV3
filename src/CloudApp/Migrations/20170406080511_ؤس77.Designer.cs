@@ -8,9 +8,10 @@ using CloudApp.Data;
 namespace CloudApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170406080511_ؤس77")]
+    partial class ؤس77
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -191,32 +192,6 @@ namespace CloudApp.Migrations
                     b.HasIndex("QuotationId");
 
                     b.ToTable("Instrument");
-                });
-
-            modelBuilder.Entity("CloudApp.Models.BusinessModel.PriceMapModelView", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Area");
-
-                    b.Property<string>("Classfications");
-
-                    b.Property<string>("Latutue");
-
-                    b.Property<string>("Longtut");
-
-                    b.Property<string>("PriceOfMeter");
-
-                    b.Property<string>("SoqfPrice");
-
-                    b.Property<int>("Type");
-
-                    b.Property<string>("TypeOfAqar");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PriceMapModelView");
                 });
 
             modelBuilder.Entity("CloudApp.Models.BusinessModel.Quotation", b =>
