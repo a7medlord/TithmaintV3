@@ -61,7 +61,7 @@ namespace CloudApp.Controllers
             LocalReport local = new LocalReport();
             local.DataSources.Add(reportDataSource);
 
-            local.ReportPath = "Report/Sm1Report.rdlc";
+            local.ReportPath = _env.WebRootPath + "/Report/Sm1Report.rdlc";
             local.EnableExternalImages = true;
 
             double price = r1Sample.Sum(d => d.LastTaqeem);
@@ -120,14 +120,13 @@ namespace CloudApp.Controllers
             string url = "https://maps.googleapis.com/maps/api/staticmap?center=" + lutit + "," + longtut + "&zoom=" + zoom + "&size=" + with + "x" + hight + "&maptype=" + type + "&key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs" + "&language=ar" + "&markers=color:red|label:C|" + lutit + "," + longtut;
             return url;
         }
-
-
-
-
+        
         public IActionResult Create(int ids)
         {
            GetBinding();
             var cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == ids);
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = cms;
             return View(new R1Smaple());
         }
@@ -139,6 +138,7 @@ namespace CloudApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                r1Smaple.DateOfBegin = DateTime.Now.Date;
                 if (!string.IsNullOrEmpty(ids))
                 {
                     string[] imgsids = ids.Split(';');
@@ -215,6 +215,8 @@ namespace CloudApp.Controllers
             ViewData["imgs"] = files;
 
            GetBinding();
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = r1Smaple.Custmer;
             return View(r1Smaple);
         }
@@ -308,7 +310,8 @@ namespace CloudApp.Controllers
             ViewData["InterFaces"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Interfaces), "Value", "Value");
             ViewData["AsqfType"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.SqfTypeAndArch), "Value", "Value");
             ViewData["azltype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AzlType), "Value", "Value");
-         
+            ViewData["downstair"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DownSir), "Value", "Value");
+
         }
       
 

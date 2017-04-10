@@ -94,16 +94,20 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label asp-for="City" class="control-label"></label>
-                        <input asp-for="City" class="form-control"/>
-                        <span asp-validation-for="City" class="text-danger"/>
+                        <div class="input-group">
+                            <select asp-for="City" class="select2 form-control" asp-items="ViewBag.City"></select>
+                            <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="17" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="form-group">
                         <label asp-for="Gada" class="control-label"></label>
-
-                        <input asp-for="Gada" class="form-control"/>
-                        <span asp-validation-for="Gada" class="text-danger"/>
+                        <div class="input-group">
+                            <select asp-for="Gada" class="select2 form-control" asp-items="ViewBag.Gada"></select>
+                            <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="18" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -802,7 +806,7 @@
                     getstattab5();
                 });
             },
-            300);
+            400);
         //End
 
         //Contorl Tab In Clint
@@ -873,7 +877,7 @@
             addRemoveLinks: true,
             removedfile: function(file) {
 
-                $.get("http://192.168.1.6:5002/Treatments/RemoveFile?name=" + file.id,
+                $.get( "http://"+"@Context.Request.Host.ToString()"+"/Treatments/RemoveFile?name="+ file.id ,
                     function() {
                         alert("تم حذف الملف بنجاح!");
                     });

@@ -18,5 +18,9 @@
         public static long Interfaces = 14;
         public static long SqfTypeAndArch = 15;
         public static long AzlType = 16;
+        public static long City = 17;
+        public static long Gada = 18;
+        public static long DownSir = 19;
+
     }
 }

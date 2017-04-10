@@ -776,8 +776,8 @@
                             <div class="form-group">
                                 <label asp-for="Ahwash" class=" control-label"></label>
                                 <div class="input-group">
-                                    <select asp-for="Ahwash" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                    <select asp-for="Ahwash" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                                 </div>
                             </div>
                         </div>
@@ -786,8 +786,8 @@
                             <div class="form-group">
                                 <label asp-for="Rescptions" class=" control-label"></label>
                                 <div class="input-group">
-                                    <select asp-for="Rescptions" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                    <select asp-for="Rescptions" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                                 </div>
                             </div>
                         </div>
@@ -799,8 +799,8 @@
                             <div class="form-group">
                                 <label asp-for="Inner" class="control-label"></label>
                                 <div class="input-group">
-                                    <select asp-for="Inner" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                    <select asp-for="Inner" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                                 </div>
                             </div>
                         </div>
@@ -809,8 +809,8 @@
                             <div class="form-group">
                                 <label asp-for="Rooms" class=" control-label"></label>
                                 <div class="input-group">
-                                    <select asp-for="Rooms" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                    <select asp-for="Rooms" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                                 </div>
                             </div>
                         </div>
@@ -1839,7 +1839,7 @@
             addRemoveLinks: true,
             removedfile: function (file) {
 
-                $.get("http://192.168.1.6:5002/R2Smaple/RemoveFile?name=" + file.id,
+                $.get("http://"+"@Context.Request.Host.ToString()"+"/R2Smaple/RemoveFile?name=" + file.id,
                     function () {
                         alert("تم حذف الملف بنجاح!");
                     });

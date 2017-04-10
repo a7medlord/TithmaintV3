@@ -94,28 +94,33 @@
                 <span asp-validation-for="SNum" class="text-danger"/>
             </div>
         </div>
-        <div class="col-md-3">
+
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control"/>
-                <span asp-validation-for="City" class="text-danger"/>
+                <div class="input-group">
+                    <select asp-for="City" class="select2 form-control" asp-items="ViewBag.City"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="17" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
+
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Gada" class="control-label"></label>
-
-                <input asp-for="Gada" class="form-control"/>
-                <span asp-validation-for="Gada" class="text-danger"/>
+                <div class="input-group">
+                    <select asp-for="Gada" class="select2 form-control" asp-items="ViewBag.Gada"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="18" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
             </div>
         </div>
+
     </div>
 
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="DateSNum" class="control-label"></label>
-
                 <div id="date-popup" class="input-group date">
                     <input asp-for="DateSNum" type="text" data-format="D, dd MM yyyy" class="form-control">
                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -123,6 +128,7 @@
                 <span asp-validation-for="DateSNum" class="text-danger"/>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Local" class="control-label"></label>

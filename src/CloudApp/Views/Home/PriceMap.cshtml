@@ -1,0 +1,140 @@
+﻿@using CloudApp.Models.BusinessModel
+@model PricParameter
+
+@{
+    ViewData["title"] = " خريطة الاسعار";
+}
+<form asp-action="PriceMap">
+    
+    <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="TypeOfAqar" class="control-label"></label>
+                <select asp-for="TypeOfAqar" class="select2 form-control" asp-items="ViewBag.Aqartypelist"></select>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="From" class="control-label"></label>
+                <div id="date-popup" class="input-group date">
+                    <input asp-for="From" type="text" data-format="D, dd MM yyyy" class="form-control">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                </div>
+                <span asp-validation-for="From" class="text-danger"/>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="To" class="control-label"></label>
+                <div id="date-popup1" class="input-group date">
+                    <input asp-for="To" type="text" data-format="D, dd MM yyyy" class="form-control">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                </div>
+                <span asp-validation-for="To" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <select asp-for="City" class="select2 form-control" asp-items="ViewBag.city"></select>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="Gada" class="control-label"></label>
+                <select asp-for="Gada" class="select2 form-control" asp-items="ViewBag.gada"></select>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="btn" class="control-label">البحــث</label>
+                <button id="btn" type="submit" class="btn btn-primary form-control">بحــث</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+<br/>
+<p>خريطــة الاسعــار : </p>
+
+
+<div id="maptest" style="width:100%; height: 800px">
+
+</div>
+
+
+@section scripts
+{
+    <script>
+
+        var info = [];
+        @if (ViewBag.data != null)
+        {
+            foreach (PriceMapModelView item in (List<PriceMapModelView>)ViewBag.data)
+            {
+                <text>
+                    info.push({ Longtut:@item.Longtut,Latutue:@item.Latutue ,TypeOfAqar: "@item.TypeOfAqar" , Type: @item.Type , Id: @item.Id , Area: "@item.Area" ,Classfications: "@item.Classfications" , PriceOfMeter: "@item.PriceOfMeter ", SoqfPrice: "@item.SoqfPrice"});
+                </text>
+            }
+        }
+
+        function mapwork() {
+            var myLatLng = { lat: 24.0592891, lng: 49.6009431 };
+
+            var map = new google.maps.Map(document.getElementById('maptest'),
+                {
+                    zoom: 7,
+                    center: myLatLng
+                });
+
+            for (var i = 0; i < info.length; i++) {
+                var marker1 = new google.maps.Marker({
+                    position: { lat: Number(info[i].Latutue), lng: Number(info[0].Longtut) },
+                    map: map,
+                    title: 'Hello World!',
+                    animation: google.maps.Animation.DROP
+                });
+
+                (function(marker1, i) {
+
+                    google.maps.event.addListener(marker1,
+                        'click',
+                        function() {
+                            infowindow = new google.maps.InfoWindow({
+                                content: '<div><p>نوع العقار : ' +
+                                    info[i].TypeOfAqar +
+                                    '</p><p>تصنيف العقار : ' +
+                                    info[i].Classfications +
+                                    '</p><p>المساحه : ' +
+                                    info[i].Area +
+                                    '</p><p>سعر المتر : ' +
+                                    info[i].PriceOfMeter +
+                                    '</p><p>القيمة السوقية : ' +
+                                    info[i].SoqfPrice +
+                                '</p><p><a target="_blank" href="@string.Format("http://"+Context.Request.Host + "/Treatments/EditRouter/")' + info[i].Id + ";" + info[i].Type+'">معاينة</a></p></div>'
+                            });
+
+                            infowindow.open(map, marker1);
+                        });
+                })(marker1, i);
+            }
+
+        }
+
+        $('#date-popup1').datepicker({
+            keyboardNavigation: false,
+            forceParse: false,
+            todayHighlight: true
+        });
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>
+
+}
+

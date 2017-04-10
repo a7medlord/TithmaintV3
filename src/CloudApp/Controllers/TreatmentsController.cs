@@ -97,7 +97,7 @@ namespace CloudApp.Controllers
             LocalReport local = new LocalReport();
             local.DataSources.Add(reportDataSource);
             
-            local.ReportPath = "Report/Sm0Report.rdlc";
+            local.ReportPath = _env.WebRootPath + "/Report/Sm0Report.rdlc";
             local.EnableExternalImages = true;
 
             double price = treatments.Sum(d => d.TotalPriceNumber);
@@ -296,6 +296,8 @@ namespace CloudApp.Controllers
                     ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
                     ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d=>d.FlagValue  ==FlagsName.Aqar), "Value", "Value");
                     ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");
+                    ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+                    ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
                     ViewData["cmsname"] = cms;
                     return View(new Treatment());
                 case 2:
@@ -322,6 +324,7 @@ namespace CloudApp.Controllers
             if (ModelState.IsValid)
             {
              
+                treatment.DateOfBegin = DateTime.Now.Date;
                 if (!string.IsNullOrEmpty(ids))
                 {
                     string[] imgsids = ids.Split(';');
@@ -391,6 +394,8 @@ namespace CloudApp.Controllers
             }
             ViewData["imgs"] = files;
            await GetListBind(treatment.CustmerId);
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = treatment.Custmer;
             return View(treatment);
         }

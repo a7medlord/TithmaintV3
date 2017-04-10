@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using CloudApp.Models;
 using CloudApp.Models.AccountViewModels;
+using CloudApp.Models.BusinessModel;
 using CloudApp.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -50,8 +52,7 @@ namespace CloudApp.Controllers
             
         }
 
-        //
-        // GET: /Account/Login
+   
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login(string returnUrl = null)
@@ -61,8 +62,6 @@ namespace CloudApp.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -117,8 +116,6 @@ namespace CloudApp.Controllers
         }
 
 
-        //
-        // GET: /Account/Register
         [HttpGet]
         
         public async Task<ViewResult> Register()
@@ -127,10 +124,8 @@ namespace CloudApp.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Register
+       
         [HttpPost]
-        
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register([Bind]RegisterViewModel model, string[] rolesids)
         {
@@ -188,6 +183,7 @@ namespace CloudApp.Controllers
                     AproverPercentage = model.AproverPercentage,
                     SupervisionPercentage = model.SupervisionPercentage
                 };
+
             ViewData["roles"] = await _context.Roles.ToListAsync();
             ViewData["userRoles"] = await _userManager.GetRolesAsync(model);
             return View("EditReqisterUsers" , usermodel);
@@ -212,6 +208,8 @@ namespace CloudApp.Controllers
             useris.SupervisionPercentage = model.SupervisionPercentage;
          
             
+            await _userManager.AddPasswordAsync(useris, model.Password);
+
             if (ModelState.IsValid)
             {
                  _context.Update(useris);
@@ -267,7 +265,6 @@ namespace CloudApp.Controllers
         public async Task<IActionResult> RegisterForuser(RegisterViewModel model)
         {
             var useris = _context.Users.SingleOrDefault(user => user.Id == model.Id);
-
             useris.UserName = model.UserName;
             useris.Email = model.Email;
             useris.EmployName = model.EmployName;
@@ -280,6 +277,8 @@ namespace CloudApp.Controllers
             useris.AduitPercentage = model.AduitPercentage;
             useris.AproverPercentage = model.AproverPercentage;
             useris.SupervisionPercentage = model.SupervisionPercentage;
+            await _userManager.RemovePasswordAsync(useris);
+           await _userManager.AddPasswordAsync(useris, model.Password);
 
             if (ModelState.IsValid)
             {
@@ -328,11 +327,7 @@ namespace CloudApp.Controllers
 
             }
         }
-
-
-
-
-
+        
 
         /// <summary>
         /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
