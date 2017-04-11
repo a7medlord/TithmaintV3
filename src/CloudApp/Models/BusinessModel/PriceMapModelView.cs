@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CloudApp.Models.BusinessModel
+﻿namespace CloudApp.Models.BusinessModel
 {
     public class PriceMapModelView
     {
