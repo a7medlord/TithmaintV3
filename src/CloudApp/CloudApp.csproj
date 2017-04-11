@@ -91,4 +91,10 @@
     <EmbeddedResource Include="wwwroot\Report\SupQtReport.rdlc" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\sample1attachment\" />
+    <Folder Include="wwwroot\sample2attachment\" />
+    <Folder Include="wwwroot\sample3attachment\" />
+  </ItemGroup>
+
 </Project>

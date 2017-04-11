@@ -43,8 +43,19 @@ namespace CloudApp.Controllers
                 emp = _userManager.GetUserId(User);
             }
             // intering 
-            ViewBag.Name = _context.Users.SingleOrDefault(d => d.Id == emp).EmployName;
-            double inter = _context.Users.SingleOrDefault(d => d.Id == emp).InterPercentage;
+            ViewBag.Name = "áÇíæÌÏ";
+            
+            var testName = _context.Users.SingleOrDefault(d => d.Id == emp);
+            if (testName !=null)
+            {
+                ViewBag.Name = testName.EmployName;
+            }
+            double inter = 0;
+            var x = _context.Users.SingleOrDefault(d => d.Id == emp);
+            if (x!=null)
+            {
+                inter = x.InterPercentage;
+            }
             ViewBag.interpercen = inter * 100;
             int intercount1 = _context.Treatment.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int intercount2 = _context.R1Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
@@ -70,7 +81,12 @@ namespace CloudApp.Controllers
             double muthminprice = muthminprice1 + muthminprice2 + muthminprice3;
             ViewBag.Totalmuthmin = muthminprice;
             // Aduit
-            double aduit = _context.Users.SingleOrDefault(d => d.Id == emp).AduitPercentage;
+            double aduit = 0;
+            var testaduit =   _context.Users.SingleOrDefault(d => d.Id == emp);
+            if (testaduit!=null)
+            {
+                aduit = testaduit.AduitPercentage;
+            }
             ViewBag.aduitpercen = aduit * 100;
             int aduitcount1 = _context.Treatment.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int aduitcount2 = _context.R1Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
@@ -83,7 +99,12 @@ namespace CloudApp.Controllers
             double aduitprice = aduitprice1 + aduitprice2 + aduitprice3;
             ViewBag.Totaladuit = aduitprice;
             //aprover
-            double aprove = _context.Users.SingleOrDefault(d => d.Id == emp).AproverPercentage;
+            double aprove = 0;
+            var testaprove = _context.Users.SingleOrDefault(d => d.Id == emp);
+            if (testaprove !=null)
+            {
+                aprove = testaprove.AproverPercentage;
+            }
             ViewBag.aprovepercen = aprove * 100;
             int aprovecount1 = _context.Treatment.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int aprovecount2 = _context.R1Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
@@ -190,9 +211,27 @@ namespace CloudApp.Controllers
 
             foreach (var treatment in await _context.Treatment.Include(d=>d.Custmer).ThenInclude(d=>d.Sample).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2).ToListAsync())
             {
-                double inter = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered).InterPercentage * treatment.Price ;
-                double adutit = _context.Users.SingleOrDefault(d => d.Id == treatment.Adutit).AduitPercentage * treatment.Price;
-                double approver = _context.Users.SingleOrDefault(d => d.Id == treatment.Approver).AproverPercentage * treatment.Price;
+
+
+                double inter = 0;
+                double adutit = 0;
+                double approver = 0;
+                var x = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered);
+                if (x !=null)
+                {
+                    inter = x.InterPercentage * treatment.Price;
+                }
+                var y  = _context.Users.SingleOrDefault(d => d.Id == treatment.Adutit);
+                if (y!=null)
+                {
+                    adutit = y.AduitPercentage * treatment.Price;
+                }
+
+                var z = _context.Users.SingleOrDefault(d => d.Id == treatment.Approver);
+                if (z != null)
+                {
+                   approver = z.AproverPercentage * treatment.Price;
+                }
 
                 models.Add(new FinModel()
              {
@@ -205,9 +244,25 @@ namespace CloudApp.Controllers
 
             foreach (var treatment in await _context.R1Smaple.Include(d => d.Custmer).ThenInclude(d => d.Sample).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2).ToListAsync())
             {
-                double inter = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered).InterPercentage * treatment.Price;
-                double adutit = _context.Users.SingleOrDefault(d => d.Id == treatment.Adutit).AduitPercentage * treatment.Price;
-                double approver = _context.Users.SingleOrDefault(d => d.Id == treatment.Approver).AproverPercentage * treatment.Price;
+                double inter = 0;
+                double adutit = 0;
+                double approver = 0;
+                var x = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered);
+                if (x != null)
+                {
+                    inter = x.InterPercentage * treatment.Price;
+                }
+                var y = _context.Users.SingleOrDefault(d => d.Id == treatment.Adutit);
+                if (y != null)
+                {
+                    adutit = y.AduitPercentage * treatment.Price;
+                }
+
+                var z = _context.Users.SingleOrDefault(d => d.Id == treatment.Approver);
+                if (z != null)
+                {
+                    approver = z.AproverPercentage * treatment.Price;
+                }
 
                 models.Add(new FinModel()
                 {
@@ -232,9 +287,25 @@ namespace CloudApp.Controllers
 
             foreach (var treatment in await _context.R2Smaple.Include(d => d.Custmer).ThenInclude(d => d.Sample).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2).ToListAsync())
             {
-                double inter = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered).InterPercentage * treatment.Price;
-                double adutit = _context.Users.SingleOrDefault(d => d.Id == treatment.Adutit).AduitPercentage * treatment.Price;
-                double approver = _context.Users.SingleOrDefault(d => d.Id == treatment.Approver).AproverPercentage * treatment.Price;
+                double inter = 0;
+                double adutit = 0;
+                double approver = 0;
+                var x = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered);
+                if (x != null)
+                {
+                    inter = x.InterPercentage * treatment.Price;
+                }
+                var y = _context.Users.SingleOrDefault(d => d.Id == treatment.Adutit);
+                if (y != null)
+                {
+                    adutit = y.AduitPercentage * treatment.Price;
+                }
+
+                var z = _context.Users.SingleOrDefault(d => d.Id == treatment.Approver);
+                if (z != null)
+                {
+                    approver = z.AproverPercentage * treatment.Price;
+                }
 
                 models.Add(new FinModel()
                 {
