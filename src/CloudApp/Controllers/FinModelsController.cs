@@ -174,6 +174,7 @@ namespace CloudApp.Controllers
         // GET: FinModels
         public async Task<IActionResult> Index(DateTime? date1=null, DateTime? date2=null )
         {
+            // init date
             if (!date1.HasValue)
             {
                 date1 = new DateTime(1753, 1 , 1 );
