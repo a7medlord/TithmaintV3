@@ -7,6 +7,7 @@ namespace CloudApp
     {
         public static void Main(string[] args)
         {
+            // igonreing not work
             var host = new WebHostBuilder()
              .UseIISIntegration()
                 .UseKestrel()

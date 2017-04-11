@@ -168,9 +168,9 @@ namespace CloudApp.Controllers
 
         void GetBindig()
         {
-            ViewData["Aqartypelist"] = new SelectList(_contex.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
-            ViewData["city"] = new SelectList(_contex.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
-            ViewData["gada"] = new SelectList(_contex.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
+            ViewData["Aqartypelist"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
+            ViewData["city"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+            ViewData["gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
         }
 
         [HttpPost]
@@ -261,7 +261,7 @@ namespace CloudApp.Controllers
         {
             List<PriceMapModelView> reslt = new List<PriceMapModelView>();
 
-            var allTrementWith1 = _contex.Treatment.Where(xpr1);
+            var allTrementWith1 = _context.Treatment.Where(xpr1);
 
             foreach (Treatment treatment in allTrementWith1)
             {
@@ -288,7 +288,7 @@ namespace CloudApp.Controllers
         {
             List<PriceMapModelView> reslt = new List<PriceMapModelView>();
 
-            var allTrementWith2 = _contex.R1Smaple.Where(xpr1);
+            var allTrementWith2 = _context.R1Smaple.Where(xpr1);
 
             foreach (R1Smaple treatment in allTrementWith2)
             {
@@ -315,7 +315,7 @@ namespace CloudApp.Controllers
         {
             List<PriceMapModelView> reslt = new List<PriceMapModelView>();
 
-            var allTrementWith3 = _contex.R2Smaple.Where(xpr1);
+            var allTrementWith3 = _context.R2Smaple.Where(xpr1);
 
             foreach (R2Smaple treatment in allTrementWith3)
             {

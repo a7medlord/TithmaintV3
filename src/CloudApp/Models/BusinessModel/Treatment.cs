@@ -195,7 +195,6 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "خــط العرض")]
         public string Latute { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime DateOfBegin { get; set; }
+
     }
 }
