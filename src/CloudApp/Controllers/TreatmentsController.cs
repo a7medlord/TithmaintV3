@@ -334,8 +334,6 @@ namespace CloudApp.Controllers
                         treatment.AttachmentForTreaments.Add(new AttachmentForTreament() { AttachmentId = imgsids[i] });
                     }
                 }
-              
-
                 if (treatment.IsAduit && User.IsInRole("au"))
                 {
                     treatment.Adutit = _userManager.GetUserId(User);
@@ -343,7 +341,8 @@ namespace CloudApp.Controllers
                 if (treatment.IsApproved && User.IsInRole("apr"))
                 {
                     treatment.Approver = _userManager.GetUserId(User);
-                } if (treatment.IsIntered && User.IsInRole("en"))
+                }
+                if (treatment.IsIntered && User.IsInRole("en"))
                 {
                     treatment.Intered = _userManager.GetUserId(User);
                 } if (treatment.IsThmin && User.IsInRole("th"))

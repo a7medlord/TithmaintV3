@@ -190,7 +190,7 @@ namespace CloudApp.Controllers
 
             foreach (var treatment in await _context.Treatment.Include(d=>d.Custmer).ThenInclude(d=>d.Sample).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2).ToListAsync())
             {
-                double inter = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered).InterPercentage * treatment.Price;
+                double inter = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered).InterPercentage * treatment.Price ;
                 double adutit = _context.Users.SingleOrDefault(d => d.Id == treatment.Adutit).AduitPercentage * treatment.Price;
                 double approver = _context.Users.SingleOrDefault(d => d.Id == treatment.Approver).AproverPercentage * treatment.Price;
 
