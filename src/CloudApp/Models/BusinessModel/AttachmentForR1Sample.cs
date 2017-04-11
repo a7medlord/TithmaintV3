@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CloudApp.Models.BusinessModel
+﻿namespace CloudApp.Models.BusinessModel
 {
     public class AttachmentForR1Sample
     {
