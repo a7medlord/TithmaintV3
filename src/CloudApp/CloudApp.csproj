@@ -92,6 +92,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\sample1attachment\" />
     <Folder Include="wwwroot\sample2attachment\" />
     <Folder Include="wwwroot\sample3attachment\" />

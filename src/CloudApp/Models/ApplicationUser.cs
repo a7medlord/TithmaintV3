@@ -13,11 +13,16 @@ namespace CloudApp.Models
 
         public string MemberId { get; set; }
         public double InterPercentage { get; set; }
+        public bool IsInterPercentage { get; set; }
         public double MuthminPercentage { get; set; }
+        public bool IsMuthminPercentage { get; set; }
         public double AduitPercentage { get; set; }
+        public bool IsAduitPercentage { get; set; }
         public double AproverPercentage { get; set; }
+        public bool IsAproverPercentage { get; set; }
         public double SupervisionPercentage { get; set; }
-        
+        public bool IsSupervisionPercentage { get; set; }
+
         public string MemberPhotoId { get; set; }
 
         public string ProfilePic { get; set; }

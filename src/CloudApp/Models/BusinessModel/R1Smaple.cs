@@ -231,113 +231,115 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "ارقام العدادت")]
         public string WaterNumber { get; set; }
 
-        [Display(Name = "المساحة")]
-        public string AreaEarth { get; set; }
-
-        [Display(Name = "سعر المتر")]
-        public string MeterPriceEarh { get; set; }
-
-        [Display(Name = "المجموع")]
-        public string TotalEarh { get; set; }
+       // حساب مسطح البناء
 
         [Display(Name = "المساحة")]
-        public string AreaQabo { get; set; }
+        public double AreaEarth { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPriceQabo { get; set; }
+        public double MeterPriceEarh { get; set; }
 
         [Display(Name = "المجموع")]
-        public string TotalQabo { get; set; }
+        public double TotalEarh { get; set; }
 
         [Display(Name = "المساحة")]
-        public string AreaDorEarth { get; set; }
+        public double AreaQabo { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPriceDorEarth { get; set; }
+        public double MeterPriceQabo { get; set; }
 
         [Display(Name = "المجموع")]
-        public string TotalDorerath { get; set; }
+        public double TotalQabo { get; set; }
 
         [Display(Name = "المساحة")]
-        public string AreaFirstDoor { get; set; }
+        public double AreaDorEarth { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPriceFirstDoor { get; set; }
+        public double MeterPriceDorEarth { get; set; }
 
         [Display(Name = "المجموع")]
-        public string TotalFirstDoor { get; set; }
+        public double TotalDorerath { get; set; }
 
         [Display(Name = "المساحة")]
-        public string AreareptDoor { get; set; }
+        public double AreaFirstDoor { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPriceReptDoor { get; set; }
+        public double MeterPriceFirstDoor { get; set; }
 
         [Display(Name = "المجموع")]
-        public string TotalReptDoor { get; set; }
+        public double TotalFirstDoor { get; set; }
 
         [Display(Name = "المساحة")]
-        public string AreaApnedxEarth { get; set; }
+        public double AreareptDoor { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPriceApendexErth { get; set; }
+        public double MeterPriceReptDoor { get; set; }
 
         [Display(Name = "المجموع")]
-        public string TotalApendxEarth { get; set; }
+        public double TotalReptDoor { get; set; }
 
         [Display(Name = "المساحة")]
-        public string AreaApendxup { get; set; }
+        public double AreaApnedxEarth { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPriceapendxup { get; set; }
+        public double MeterPriceApendexErth { get; set; }
 
         [Display(Name = "المجموع")]
-        public string Totalapendxup { get; set; }
+        public double TotalApendxEarth { get; set; }
 
         [Display(Name = "المساحة")]
-        public string AreaSwar { get; set; }
+        public double AreaApendxup { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPriceAsawr { get; set; }
+        public double MeterPriceapendxup { get; set; }
 
         [Display(Name = "المجموع")]
-        public string TotalAswar { get; set; }
+        public double Totalapendxup { get; set; }
 
         [Display(Name = "المساحة")]
-        public string Areagarden { get; set; }
+        public double AreaSwar { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPricegarden { get; set; }
+        public double MeterPriceAsawr { get; set; }
 
         [Display(Name = "المجموع")]
-        public string Totalgarden { get; set; }
+        public double TotalAswar { get; set; }
 
         [Display(Name = "المساحة")]
-        public string AreaSwimingpool { get; set; }
+        public double Areagarden { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPriceswiminpoo { get; set; }
+        public double MeterPricegarden { get; set; }
 
         [Display(Name = "المجموع")]
-        public string Totalswimingpool { get; set; }
+        public double Totalgarden { get; set; }
 
         [Display(Name = "المساحة")]
-        public string AreaCars { get; set; }
+        public double AreaSwimingpool { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPriceCars { get; set; }
+        public double MeterPriceswiminpoo { get; set; }
 
         [Display(Name = "المجموع")]
-        public string TotalCars { get; set; }
+        public double Totalswimingpool { get; set; }
 
         [Display(Name = "المساحة")]
-        public string AreaOthers { get; set; }
+        public double AreaCars { get; set; }
 
         [Display(Name = "سعر المتر")]
-        public string MeterPriceothers { get; set; }
+        public double MeterPriceCars { get; set; }
 
         [Display(Name = "المجموع")]
-        public string Totalothers { get; set; }
+        public double TotalCars { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreaOthers { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceothers { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double Totalothers { get; set; }
 
         [Display(Name = "نسبه الربح")]
         public string ProfitPrecntage { get; set; }

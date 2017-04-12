@@ -139,6 +139,11 @@ namespace CloudApp.Controllers
                     AduitPercentage = model.AduitPercentage,
                     AproverPercentage = model.AproverPercentage,
                     SupervisionPercentage = model.SupervisionPercentage,
+                    IsInterPercentage = model.IsInterPercentage,
+                    IsMuthminPercentage = model.IsMuthminPercentage,
+                    IsAduitPercentage = model.IsAduitPercentage,
+                    IsAproverPercentage = model.IsAproverPercentage,
+                    IsSupervisionPercentage = model.IsSupervisionPercentage,
                 };
 
               await SaveFiles(user);
@@ -152,7 +157,7 @@ namespace CloudApp.Controllers
                 }
                 AddErrors(result);
             }
-
+            ViewData["roles"] = await _context.Roles.ToListAsync();
             // If we got this far, something failed, redisplay form
             return View(model);
         }
@@ -179,7 +184,12 @@ namespace CloudApp.Controllers
                     MuthminPercentage = model.MuthminPercentage,
                     AduitPercentage = model.AduitPercentage,
                     AproverPercentage = model.AproverPercentage,
-                    SupervisionPercentage = model.SupervisionPercentage
+                    SupervisionPercentage = model.SupervisionPercentage,
+                    IsInterPercentage = model.IsInterPercentage,
+                    IsMuthminPercentage = model.IsMuthminPercentage,
+                    IsAduitPercentage = model.IsAduitPercentage,
+                    IsAproverPercentage = model.IsAproverPercentage,
+                    IsSupervisionPercentage = model.IsSupervisionPercentage,
                 };
 
             ViewData["roles"] = await _context.Roles.ToListAsync();
@@ -204,6 +214,11 @@ namespace CloudApp.Controllers
             useris.AduitPercentage = model.AduitPercentage;
             useris.AproverPercentage = model.AproverPercentage;
             useris.SupervisionPercentage = model.SupervisionPercentage;
+            useris.IsInterPercentage = model.IsInterPercentage;
+            useris.IsMuthminPercentage = model.IsMuthminPercentage;
+            useris.IsAduitPercentage = model.IsAduitPercentage;
+            useris.IsAproverPercentage = model.IsAproverPercentage;
+            useris.IsSupervisionPercentage = model.IsSupervisionPercentage;
          
             
             await _userManager.AddPasswordAsync(useris, model.Password);
@@ -254,7 +269,13 @@ namespace CloudApp.Controllers
                 MuthminPercentage = model.MuthminPercentage,
                 AduitPercentage = model.AduitPercentage,
                 AproverPercentage = model.AproverPercentage,
-                SupervisionPercentage = model.SupervisionPercentage
+                SupervisionPercentage = model.SupervisionPercentage,
+                IsInterPercentage = model.IsInterPercentage,
+                IsMuthminPercentage = model.IsMuthminPercentage,
+                IsAduitPercentage = model.IsAduitPercentage,
+                IsAproverPercentage = model.IsAproverPercentage,
+                IsSupervisionPercentage = model.IsSupervisionPercentage,
+
             };
             return View("RegisterForUser", usermodel);
         }
@@ -275,6 +296,11 @@ namespace CloudApp.Controllers
             useris.AduitPercentage = model.AduitPercentage;
             useris.AproverPercentage = model.AproverPercentage;
             useris.SupervisionPercentage = model.SupervisionPercentage;
+            useris.IsInterPercentage = model.IsInterPercentage;
+            useris.IsMuthminPercentage = model.IsMuthminPercentage;
+            useris.IsAduitPercentage = model.IsAduitPercentage;
+            useris.IsAproverPercentage = model.IsAproverPercentage;
+            useris.IsSupervisionPercentage = model.IsSupervisionPercentage;
             await _userManager.RemovePasswordAsync(useris);
            await _userManager.AddPasswordAsync(useris, model.Password);
 

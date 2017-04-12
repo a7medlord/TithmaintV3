@@ -86,6 +86,118 @@ namespace CloudApp.Models.BusinessModel
         public bool ServicesLamp { get; set; }
 
 
+
+        // حساب مسطح البناء
+
+        [Display(Name = "المساحة")]
+        public double AreaEarth { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceEarh { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double TotalEarh { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreaQabo { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceQabo { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double TotalQabo { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreaDorEarth { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceDorEarth { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double TotalDorerath { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreaFirstDoor { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceFirstDoor { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double TotalFirstDoor { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreareptDoor { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceReptDoor { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double TotalReptDoor { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreaApnedxEarth { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceApendexErth { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double TotalApendxEarth { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreaApendxup { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceapendxup { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double Totalapendxup { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreaSwar { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceAsawr { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double TotalAswar { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double Areagarden { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPricegarden { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double Totalgarden { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreaSwimingpool { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceswiminpoo { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double Totalswimingpool { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreaCars { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceCars { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double TotalCars { get; set; }
+
+        [Display(Name = "المساحة")]
+        public double AreaOthers { get; set; }
+
+        [Display(Name = "سعر المتر")]
+        public double MeterPriceothers { get; set; }
+
+        [Display(Name = "المجموع")]
+        public double Totalothers { get; set; }
+
+
         //Sround
 
         [Display(Name = "جامع")]
@@ -165,11 +277,11 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "الملاحظات والنواقص")]
         public string NotesAndAbstracting { get; set; }
         [Display(Name = "تكاليف الصيانة التقديرية")]
-        public string MantinCost { get; set; }
+        public double MantinCost { get; set; }
         [Display(Name = "القيمة الاجمالية للارض")]
-        public string TotalForEarcth { get; set; }
+        public double TotalForEarcth { get; set; }
         [Display(Name = "القيمة الاجمالية للبناء")]
-        public string TotalBulding { get; set; }
+        public double TotalBulding { get; set; }
         [Display(Name = "سعر متر الارض")]
         public double MeterPriceForEarth { get; set; }
         [Display(Name = "سعر متر البناء")]

@@ -27,14 +27,30 @@ namespace CloudApp.Models.AccountViewModels
         public string MemberId { get; set; }
         [Display(Name = "نسبة الادخال")]
         public double InterPercentage { get; set; }
+        [Display(Name = "نسبة")]
+        public bool IsInterPercentage { get; set; }
+
         [Display(Name = "نسبة التثمين")]
         public double MuthminPercentage { get; set; }
+        [Display(Name = "نسبة ")]
+        public bool IsMuthminPercentage { get; set; }
+
         [Display(Name = "نسبة التدقيق")]
         public double AduitPercentage { get; set; }
+        [Display(Name = "نسبة ")]
+        public bool IsAduitPercentage { get; set; }
+
         [Display(Name = "نسبة الاعتماد")]
         public double AproverPercentage { get; set; }
+        [Display(Name = "نسبة ")]
+        public bool IsAproverPercentage { get; set; }
+
         [Display(Name = "نسبة الاشراف")]
         public double SupervisionPercentage { get; set; }
+        [Display(Name = "نسبة ")]
+        public bool IsSupervisionPercentage { get; set; }
+
+
         public string MemberPhotoId { get; set; }
       
         public string ProfilePic { get; set; }

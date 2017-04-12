@@ -50,24 +50,53 @@ namespace CloudApp.Controllers
             {
                 ViewBag.Name = testName.EmployName;
             }
+
             double inter = 0;
             var x = _context.Users.SingleOrDefault(d => d.Id == emp);
             if (x!=null)
             {
                 inter = x.InterPercentage;
+                if (x.IsInterPercentage)
+                {
+                    ViewBag.interpercen =  inter + " %";
+                }
+                else
+                {
+                    ViewBag.interpercen = inter;
+                }
+            
             }
-            ViewBag.interpercen = inter * 100;
+
             int intercount1 = _context.Treatment.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int intercount2 = _context.R1Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int intercount3 = _context.R2Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int intercount=  intercount1 + intercount2 + intercount3;
             ViewBag.intercount = intercount;
+            double interprice1 = 0, interprice2 = 0, interprice3 = 0;
+            if (x != null)
+            {
+                if (x.IsInterPercentage)
+                {
+                    inter = x.InterPercentage / 100;
 
-            double interprice1 = _context.Treatment.Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * inter);
-            double interprice2 = _context.R1Smaple.Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * inter);
-            double interprice3 = _context.R2Smaple.Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * inter);
+                    interprice1 = _context.Treatment.Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * inter);
+                    interprice2 = _context.R1Smaple.Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * inter);
+                    interprice3 = _context.R2Smaple.Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * inter);
+                }
+                else
+                {
+                    inter = x.InterPercentage;
+                    interprice1 = _context.Treatment.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * inter;
+                    interprice2 = _context.R1Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * inter;
+                    interprice3 = _context.R2Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * inter;
+                }
+
+            }
+
             double interprice = interprice1 + interprice2 + interprice3;
             ViewBag.TotalInter = interprice;
+
+
             // Thminat
             int muthmincount1 = _context.Treatment.Count(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int muthmincount2 = _context.R1Smaple.Count(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
@@ -80,22 +109,49 @@ namespace CloudApp.Controllers
             double muthminprice3 = _context.R2Smaple.Where(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.MuthminPrice);
             double muthminprice = muthminprice1 + muthminprice2 + muthminprice3;
             ViewBag.Totalmuthmin = muthminprice;
+
             // Aduit
             double aduit = 0;
             var testaduit =   _context.Users.SingleOrDefault(d => d.Id == emp);
             if (testaduit!=null)
             {
                 aduit = testaduit.AduitPercentage;
+                if (testaduit.IsAduitPercentage)
+                {
+                    ViewBag.aduitpercen = aduit + " %"; 
+                }
+                else
+                {
+                    ViewBag.aduitpercen = aduit;
+                }
             }
-            ViewBag.aduitpercen = aduit * 100;
+          
             int aduitcount1 = _context.Treatment.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int aduitcount2 = _context.R1Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int aduitcount3 = _context.R2Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int aduitcount = aduitcount1 + aduitcount2 + aduitcount3;
             ViewBag.aduitcount = aduitcount;
-            double aduitprice1 = _context.Treatment.Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aduit);
-            double aduitprice2 = _context.R1Smaple.Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aduit);
-            double aduitprice3 = _context.R2Smaple.Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aduit);
+            double aduitprice1 = 0, aduitprice2 = 0, aduitprice3 = 0;
+            if (testaduit!=null)
+            {
+                if (testaduit.IsAduitPercentage)
+                {
+                    aduit = testaduit.AduitPercentage / 100;
+                    aduitprice1 = _context.Treatment.Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aduit);
+                    aduitprice2 = _context.R1Smaple.Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aduit);
+                    aduitprice3 = _context.R2Smaple.Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aduit);
+                }
+                else
+                {
+                    aduit = testaduit.AduitPercentage;
+                    aduitprice1 = _context.Treatment.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)* aduit;
+                    aduitprice2 = _context.R1Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * aduit;
+                    aduitprice3 = _context.R2Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * aduit;
+                }
+
+            }
+
+         
             double aduitprice = aduitprice1 + aduitprice2 + aduitprice3;
             ViewBag.Totaladuit = aduitprice;
             //aprover
@@ -104,16 +160,40 @@ namespace CloudApp.Controllers
             if (testaprove !=null)
             {
                 aprove = testaprove.AproverPercentage;
+                if (testaprove.IsAproverPercentage)
+                {
+                    ViewBag.aprovepercen = aprove + " %";
+                }
+                else
+                {
+                    ViewBag.aprovepercen = aprove;
+                }
             }
-            ViewBag.aprovepercen = aprove * 100;
+           
             int aprovecount1 = _context.Treatment.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int aprovecount2 = _context.R1Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int aprovecount3 = _context.R2Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
             int aprovecount = aprovecount1 + aprovecount2 + aprovecount3;
             ViewBag.aprovecount = aprovecount;
-            double aproveprice1 = _context.Treatment.Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aprove);
-            double aproveprice2 = _context.R1Smaple.Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aprove);
-            double aproveprice3 = _context.R2Smaple.Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aprove);
+            double aproveprice1 = 0, aproveprice2 = 0, aproveprice3 = 0;
+            if (testaprove!=null)
+            {
+                if (testaprove.IsAproverPercentage)
+                {
+                    aprove = testaprove.AproverPercentage / 100;
+                    aproveprice1 = _context.Treatment.Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aprove);
+                    aproveprice2 = _context.R1Smaple.Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aprove);
+                    aproveprice3 = _context.R2Smaple.Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aprove);
+
+                }
+                else
+                {
+                    aprove = testaprove.AproverPercentage;
+                    aproveprice1 = _context.Treatment.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)* aprove;
+                    aproveprice2 = _context.R1Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * aprove;
+                    aproveprice3 = _context.R2Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * aprove;
+                }
+            }
 
             double aproveprice = aproveprice1 + aproveprice2 + aproveprice3;
             ViewBag.Totalaprove = aproveprice;
@@ -190,8 +270,6 @@ namespace CloudApp.Controllers
         }
 
 
-
-
         // GET: FinModels
         public async Task<IActionResult> Index(DateTime? date1=null, DateTime? date2=null )
         {
@@ -219,18 +297,44 @@ namespace CloudApp.Controllers
                 var x = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered);
                 if (x !=null)
                 {
-                    inter = x.InterPercentage * treatment.Price;
+                    if (x.IsInterPercentage)
+                    {
+                        inter = (x.InterPercentage / 100) * treatment.Price;
+                    
+                    }
+                    else
+                    {
+                        inter = x.InterPercentage;
+                    }
+                    
                 }
                 var y  = _context.Users.SingleOrDefault(d => d.Id == treatment.Adutit);
                 if (y!=null)
                 {
-                    adutit = y.AduitPercentage * treatment.Price;
+                    if (y.IsAduitPercentage)
+                    {
+                        adutit = (y.AduitPercentage / 100) * treatment.Price;
+                       
+                    }
+                    else
+                    {
+                        adutit = y.AduitPercentage;
+                    }
+       
                 }
 
                 var z = _context.Users.SingleOrDefault(d => d.Id == treatment.Approver);
                 if (z != null)
                 {
-                   approver = z.AproverPercentage * treatment.Price;
+                    if (z.IsAproverPercentage)
+                    {
+                        approver = (z.AproverPercentage / 100) * treatment.Price;
+                    }
+                    else
+                    {
+                        approver = z.AproverPercentage;
+                    }
+                  
                 }
 
                 models.Add(new FinModel()
@@ -250,18 +354,44 @@ namespace CloudApp.Controllers
                 var x = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered);
                 if (x != null)
                 {
-                    inter = x.InterPercentage * treatment.Price;
+                    if (x.IsInterPercentage)
+                    {
+                        inter = (x.InterPercentage / 100) * treatment.Price;
+
+                    }
+                    else
+                    {
+                        inter = x.InterPercentage;
+                    }
+
                 }
                 var y = _context.Users.SingleOrDefault(d => d.Id == treatment.Adutit);
                 if (y != null)
                 {
-                    adutit = y.AduitPercentage * treatment.Price;
+                    if (y.IsAduitPercentage)
+                    {
+                        adutit = (y.AduitPercentage / 100) * treatment.Price;
+
+                    }
+                    else
+                    {
+                        adutit = y.AduitPercentage;
+                    }
+
                 }
 
                 var z = _context.Users.SingleOrDefault(d => d.Id == treatment.Approver);
                 if (z != null)
                 {
-                    approver = z.AproverPercentage * treatment.Price;
+                    if (z.IsAproverPercentage)
+                    {
+                        approver = (z.AproverPercentage / 100) * treatment.Price;
+                    }
+                    else
+                    {
+                        approver = z.AproverPercentage;
+                    }
+
                 }
 
                 models.Add(new FinModel()
@@ -293,20 +423,45 @@ namespace CloudApp.Controllers
                 var x = _context.Users.SingleOrDefault(d => d.Id == treatment.Intered);
                 if (x != null)
                 {
-                    inter = x.InterPercentage * treatment.Price;
+                    if (x.IsInterPercentage)
+                    {
+                        inter = (x.InterPercentage / 100) * treatment.Price;
+
+                    }
+                    else
+                    {
+                        inter = x.InterPercentage;
+                    }
+
                 }
                 var y = _context.Users.SingleOrDefault(d => d.Id == treatment.Adutit);
                 if (y != null)
                 {
-                    adutit = y.AduitPercentage * treatment.Price;
+                    if (y.IsAduitPercentage)
+                    {
+                        adutit = (y.AduitPercentage / 100) * treatment.Price;
+
+                    }
+                    else
+                    {
+                        adutit = y.AduitPercentage;
+                    }
+
                 }
 
                 var z = _context.Users.SingleOrDefault(d => d.Id == treatment.Approver);
                 if (z != null)
                 {
-                    approver = z.AproverPercentage * treatment.Price;
-                }
+                    if (z.IsAproverPercentage)
+                    {
+                        approver = (z.AproverPercentage / 100) * treatment.Price;
+                    }
+                    else
+                    {
+                        approver = z.AproverPercentage;
+                    }
 
+                }
                 models.Add(new FinModel()
                 {
                     Id = treatment.Id,

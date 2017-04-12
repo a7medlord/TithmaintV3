@@ -40,7 +40,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                 <div class="row">
-                 <div class="col-md-2" style="pointer-events: none">
+                 <div class="col-md-3" style="pointer-events: none">
                         <div class="form-group">
                             <label asp-for="CustmerId" class="col-md-2 control-label"></label>
 
@@ -50,14 +50,14 @@
                         </div>
                     </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                         <div class="form-group">
                             <label asp-for="ApplicationUserId" class="control-label"></label>
                             <select asp-for="ApplicationUserId" class="select2 form-control" asp-items="ViewBag.UserId"></select>
                         </div>
                     </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                         <div class="form-group">
                             <label asp-for="BuldingType" class="control-label"></label>
                             <div class="input-group">
@@ -67,28 +67,14 @@
                         </div>
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label asp-for="Owner" class="control-label"></label>
                             <input asp-for="Owner" class="form-control" />
                             <span asp-validation-for="Owner" class="text-danger" />
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label asp-for="Price" class="control-label"></label>
-                            <input asp-for="Price" class="form-control" />
-                            <span asp-validation-for="Price" class="text-danger" />
-                        </div>
-                    </div> 
-                    
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label asp-for="MuthminPrice" class="control-label"></label>
-                            <input asp-for="MuthminPrice" class="form-control"/>
-                            <span asp-validation-for="MuthminPrice" class="text-danger"/>
-                        </div>
-                    </div>
+
 
                 </div>
                     
@@ -649,9 +635,19 @@
 
                 </div>
 
+                <div class="row">
+                    <div class="col-md-2">
                         <div class="checkbox">
                             <label><input id="nex1" asp-for="IsIntered" type="checkbox">اكمال عملية الأدخال...</label>
                         </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
 
 
 
@@ -703,11 +699,7 @@
                         <button type="button" class="btn btn-primary" onclick="getlog()">جلب الموقع الحالي</button>
                         <br />
                         <br />
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
-                            </div>
-                        </div>
+
                     </div>
 
                 @* tab2 *@
@@ -1430,7 +1422,7 @@
 
                             </div>
 
-                            <p>الحقيقة : </p>
+                            <p>الحديقة : </p>
                             <div class="row">
 
                                 <div class="col-md-4">
@@ -1643,11 +1635,22 @@
                         <div class="dropzone" id="myId"></div>
                         <br />
 
+      
+                <div class="row">
+                    <div class="col-md-2">
                         <div class="checkbox">
                             <label><input id="nex2" asp-for="IsThmin" type="checkbox">اكمال عملية التثمين...</label>
                         </div>
-
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+                            </div>
+                        </div> 
                     </div>
+                </div>
+
+
+                </div>
 
                 @*tab3*@
                 <div class="tab-pane" id="tab2-3">
@@ -1657,9 +1660,22 @@
                     </p>
                     <br />
 
-                    <div class="checkbox">
-                        <label><input asp-for="IsAduit" id="nex3" type="checkbox">موافق..</label>
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                <label><input asp-for="IsAduit" id="nex3" type="checkbox">موافق..</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+                                </div>
+                            </div> 
+                        </div>
                     </div>
+                    
+
                 </div>
 
                 @*tab4*@
@@ -1668,9 +1684,21 @@
                     <p>
                         <strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .
                     </p>
-                    <div class="checkbox">
-                        <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
+
+                    
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+                                </div>
+                            </div> 
+                        </div>
                     </div>
+
                 </div>
 
                 @*tab5*@
@@ -1679,9 +1707,38 @@
                     <p>
                         <strong>1.</strong> تمت رصد المبلغ من المعاملة .
                     </p>
-                    <div class="checkbox">
-                        <label><input id="nex5" asp-for="IsUnlockFin" type="checkbox">موافق..</label>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label asp-for="Price" class="control-label"></label>
+                                <input asp-for="Price" class="form-control" />
+                                <span asp-validation-for="Price" class="text-danger" />
+                            </div>
+                        </div>    
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label asp-for="MuthminPrice" class="control-label"></label>
+                                <input asp-for="MuthminPrice" class="form-control"/>
+                                <span asp-validation-for="MuthminPrice" class="text-danger"/>
+                            </div>
+                        </div>
                     </div>
+
+                    
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                <label><input id="nex5" asp-for="IsUnlockFin" type="checkbox">موافق..</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+
                 </div>
 
 
