@@ -88,7 +88,7 @@ namespace CloudApp.Controllers
 
             };
 
-            local.ReportPath = "Report/QtReport.rdlc";
+            local.ReportPath = _env.WebRootPath + "Report/QtReport.rdlc";
             local.EnableExternalImages = true;
             double amount = instruments.Sum(d => d.Amount);
 
