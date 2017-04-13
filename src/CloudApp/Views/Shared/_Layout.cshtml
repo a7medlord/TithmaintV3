@@ -85,10 +85,10 @@
                     <a href="#"><i class="icon-bookmarks"></i><span class="title">المعاملات</span></a>
 
                     <ul class="nav collapse">
-                        <li><a asp-controller="Treatments" asp-action="Select_custmer"><span class="title">معاملة جديد* </span></a></li>
+                        <li><a asp-controller="MainSamples" asp-action="Select_custmer"><span class="title">معاملة جديد* </span></a></li>
 
 
-                        <li><a asp-controller="Treatments" asp-action="Index"><span class="title">جميع المعاملات</span></a></li>
+                        <li><a asp-controller="MainSamples" asp-action="Index"><span class="title">جميع المعاملات</span></a></li>
                     </ul>
                 </li>
 
@@ -128,7 +128,7 @@
 
                 <ul class="user-info pull-left">
                     <li class="profile-info dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="No" src="@string.Format("http://"+Context.Request.Host + "/ProfPic/" + AccountController.picId)">@AccountController.userName <span class="caret"></span></a>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="No" src="@string.Format("http://"+Context.Request.Host + "/ProfPic/" + AccountController.picId)">@AccountController.UserName <span class="caret"></span></a>
 
                         <ul class="dropdown-menu">
                             <li><a asp-controller="Account" asp-action="RegisterForuser"><i class="icon-user"></i>البروفايل</a></li>

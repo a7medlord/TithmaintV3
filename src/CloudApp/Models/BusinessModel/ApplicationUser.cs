@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using CloudApp.Models.BusinessModel;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace CloudApp.Models
+namespace CloudApp.Models.BusinessModel
 {
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser

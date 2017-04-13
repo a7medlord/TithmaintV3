@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CloudApp.Models
+namespace CloudApp.Models.ManpulateModel
 {
     public class CurrencyInfo
     {

@@ -7,9 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using CloudApp.Data;
-using CloudApp.ManageViewModels.Services;
-using CloudApp.Models;
-using CloudApp.Services;
+using CloudApp.Models.BusinessModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.FileProviders;
 
@@ -56,12 +54,6 @@ namespace CloudApp
                 .AddDefaultTokenProviders();
           
             services.AddMvc();
-
-          
-            services.AddTransient<IEmailSender, AuthMessageSender>();
-            services.AddTransient<ISmsSender, AuthMessageSender>();
-           
-           
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

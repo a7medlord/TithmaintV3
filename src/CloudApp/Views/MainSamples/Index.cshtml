@@ -115,8 +115,8 @@
                                 </td>  
                                 <td>
                                     <i class="data" style="display: none">@string.Format(item.Id + ";" + item.Type)</i>
-                                    <a asp-action="EditRouter" asp-route-id="@string.Format(item.Id + ";" + item.Type)"><i class="glyphicon glyphicon-edit text-primary"></i></a> &nbsp;&nbsp;
-                                    <a asp-action="Printout" asp-route-id="@string.Format(item.Id + ";" + item.Type)"><i class="icon-print text-primary"></i></a> &nbsp;&nbsp;
+                                    <a asp-action="EditRouter"  asp-route-id="@string.Format(item.Id + ";" + item.Type)"><i class="glyphicon glyphicon-edit text-primary"></i></a> &nbsp;&nbsp;
+                                    <a asp-action="Printout"  asp-route-id="@string.Format(item.Id + ";" + item.Type)"><i class="icon-print text-primary"></i></a> &nbsp;&nbsp;
                                     <a href="#" onclick="Ondelete(this, @item.Type);"><i class="icon-trash text-primary"></i></a>
                                     <a href="#" onclick="Onsendemail(this);" id="sendemail" class="text-primary"><i class="icon-mail"></i></a>
                                 </td>
@@ -138,17 +138,14 @@
  
             $('.progress-bar').css("width", "100%");
         }
-
-
-
-        //Delete Logic
+        
         function Ondelete(event , type) {
         
             var tds = $(event).parent().siblings();
             var idc = tds[0].innerText;
           
             if (confirm("هل تريد حذف المعاملة حقا؟")) {
-                $.get("/Treatments/Delete?id=" + idc + "&" + "type=" + type,
+                $.get("/MainSamples/Delete?id=" + idc + "&" + "type=" + type,
                     function () {
                         alert("تم حذف المعامله بنجاح");
                         $(event).parent().parent().remove();
@@ -160,7 +157,7 @@
             var id = $(event).siblings()[0].innerText;
             alert(id);
             if (confirm("هل تريد ارسال الايميل فعلا؟")) {
-                $.get("/Treatments/SendEmailRoute?id=" + id,
+                $.get("/MainSamples/SendEmailRoute?id=" + id,
                     function () {
                         alert("تم ارسال الايميل بنجاح");
                     });

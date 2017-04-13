@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
 using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
+using CloudApp.Models.ManpulateModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Reporting.WebForms;

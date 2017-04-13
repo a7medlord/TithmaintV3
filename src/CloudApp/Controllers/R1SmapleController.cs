@@ -281,10 +281,7 @@ namespace CloudApp.Controllers
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", r1Smaple.CustmerId);
             return View(r1Smaple);
         }
-
-
-
-
+        
         public async Task EditAprove(long id)
         {
             var row = _context.R1Smaple.SingleOrDefault(d => d.Id == id);

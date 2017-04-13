@@ -10,9 +10,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
+using CloudApp.HelperClass;
 using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
 using CloudApp.Models.ManpulateModel;
+using CloudApp.RepositoriesClasses;
+using CloudApp.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Reporting.WebForms;
@@ -21,146 +24,33 @@ namespace CloudApp.Controllers
 {
     public class TreatmentsController : Controller
     {
+        #region CtorVar
         private readonly ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
         private IHostingEnvironment _env;
+        private readonly SampleOneServices _service;
+        private readonly CustemerRepostry _cmsrepo;
+     
+        #endregion
+        
         public TreatmentsController(ApplicationDbContext context , UserManager<ApplicationUser> user , IHostingEnvironment env)
         {
             _context = context;
             _userManager = user;
             _env = env;
+            _service = new SampleOneServices(context , new CustemerRepostry(context));
+            _cmsrepo = new CustemerRepostry(_context);
+         
         }
-
-
-        public bool SendEmail(long id)
-        {
-            var qu = _context.Treatment.Include(quotation => quotation.Custmer).SingleOrDefault(quotation => quotation.Id == id);
-
-            var fromAddress = new MailAddress("ma3az333333@gmail.com", "‘—ﬂ… «· À„Ì‰«  «·⁄ﬁ«—ÌÂ");
-            string frompassword = "maazahmed1111111";
-
-            var toAddress = new MailAddress(qu.Custmer.Email, qu.Custmer.Name);
-
-            Attachment attacher = new Attachment(new MemoryStream(GetSample0ReportasStreem(id)), MediaTypeNames.Application.Pdf);
-            attacher.ContentDisposition.FileName = qu.Id + ".pdf";
-
-            SmtpClient smptclints = new SmtpClient()
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, frompassword)
-            };
-
-            MailMessage msg = new MailMessage();
-            msg.Attachments.Add(attacher);
-            msg.Subject = "⁄—÷ ”⁄— ⁄„·Ì…  À„Ì‰";
-            msg.Body = "«·—Ã«¡ «·«ÿ·«⁄ ⁄·Ì ⁄—÷ «·”⁄— ";
-            msg.To.Add(toAddress);
-            msg.From = fromAddress;
-            smptclints.Send(msg);
-
-            return true;
-        }
-
+        
         public IActionResult GetSample0Report(long id)
         {
 
-            byte[] rendervalue = GetSample0ReportasStreem(id);
+            byte[] rendervalue = _service.GetSample0ReportasStreem(id, HttpContext, _env);
 
             return File(rendervalue, "application/pdf");
         }
-
-        public byte[] GetSample0ReportasStreem(long id)
-        {
-          
-            ReportDataSource reportDataSource = new ReportDataSource();
-
-            // get attachment  
-            var attament = _context.AttachmentForTreaments.Where(d => d.TreatmentId == id);
-            string images = null;
-            foreach (var attachmentForTreament in attament)
-            {
-                images +=   "http://" + HttpContext.Request.Host + "/attachs1/" + attachmentForTreament.AttachmentId + ".jpg" + ",";
-            }
-
-            // Qoution Report
-            var treatments = _context.Treatment.Include(d=> d.Custmer).ThenInclude(s=>s.Sample).Where(d => d.Id == id);
-            reportDataSource.Name = "DataSetSample0";
-            reportDataSource.Value = treatments;
-            string custmer =  treatments.SingleOrDefault()?.Custmer.Name;
-            string sample = treatments.SingleOrDefault()?.Custmer.Sample.Name;
-            string longtute = treatments.SingleOrDefault()?.Longtute;
-            string latute = treatments.SingleOrDefault()?.Latute;
-            LocalReport local = new LocalReport();
-            local.DataSources.Add(reportDataSource);
-            
-            local.ReportPath = _env.WebRootPath + "/Report/Sm0Report.rdlc";
-            local.EnableExternalImages = true;
-
-            double price = treatments.Sum(d => d.TotalPriceNumber);
-
-            ToWord toWord = new ToWord((decimal)price, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
-            //get name
-            string muthmenname = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.EmployName;
-            string aduitname = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.EmployName;
-            string appovename = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.EmployName;
-            // get member id
-            string muthmenid = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.MemberId;
-            string aduitid = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.MemberId;
-            string appoveid = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.MemberId;
-            //get image sign
-            string muthminsign = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.SigImage;
-            string auditsign = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.SigImage;
-            string approvesign = _context.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.SigImage;
-            //get image url
-            string sigurlmuthmen = "http://" + HttpContext.Request.Host + "/ProfPic/" + muthminsign + ".jpg";
-            string sigurlauditsign = "http://" + HttpContext.Request.Host + "/ProfPic/" + auditsign + ".jpg";
-            string sigurlapprovesign = "http://" + HttpContext.Request.Host + "/ProfPic/" + approvesign + ".jpg";
-
-            string earthmap = Mapgen(longtute, latute, "satellite", "16", "283", "739");
-            string map = Mapgen(longtute, latute, "ROADMAP", "16", "249", "739");
-            string zoommap = Mapgen(longtute, latute, "satellite", "19", "265", "530");
-            ReportParameter[] parameters = {
-                new ReportParameter("sample",sample),
-                new ReportParameter("custmer",custmer), 
-                new ReportParameter("muthmen", muthmenname),
-                 new ReportParameter("audit", aduitname),
-                  new ReportParameter("approver", appovename),
-                new ReportParameter("totprice",  toWord.ConvertToArabic()),
-
-
-                new ReportParameter("muthminsign",  sigurlmuthmen),
-                new ReportParameter("Auditsign",  sigurlauditsign),
-                new ReportParameter("Approvesign", sigurlapprovesign),
-
-
-                new ReportParameter("idmuthmin",  muthmenid),
-                new ReportParameter("idaudit",  aduitid),
-                new ReportParameter("idapprove", appoveid),
-                new ReportParameter("earthmap",  earthmap),
-                new ReportParameter("map", map),
-                new ReportParameter("zoommap", zoommap),
-                new ReportParameter("images",images)
-
-
-               };
-
-            local.SetParameters(parameters);
-
-            return local.Render("Pdf", "");
-        }
-
-        public string Mapgen(string longtut , string lutit , string type , string zoom , string hight , string with)
-        {
-            string url = "https://maps.googleapis.com/maps/api/staticmap?center=" + lutit +","+longtut +"&zoom="+zoom + "&size="+with+"x" + hight+ "&maptype="+type + "&key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs" + "&language=ar" + "&markers=color:red|label:C|"+lutit+","+longtut;
-            return url;
-        }
-
-
-
+        
         [HttpPost]
         public async Task<JsonResult> UploadFile()
         {
@@ -173,149 +63,19 @@ namespace CloudApp.Controllers
             return Json(guid);
         }
 
-       
-        public  IActionResult Index()
+        public async Task<IActionResult> Create(int ids)
         {
-           List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
-            var listoftremantsample1 = _context.Treatment.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
-            var listoftremantsample2 = _context.R1Smaple.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
-            var listoftremantsample3 = _context.R2Smaple.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
-            foreach (Treatment treatment in listoftremantsample1)
-            {
-                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
-                {
-                    Id = treatment.Id,
-                    Clint = CheckNullValue(treatment.Custmer.Name),
-                    Owner = CheckNullValue(treatment.Owner),
-                    AqarType = CheckNullValue(treatment.Tbuild),
-                    CityAndHy = CheckNullValue(treatment.City + " / " + treatment.Gada),
-                    Mothmen =ChekNull(treatment.ApplicationUser),
-                    SampleId = CheckNullValue(treatment.Custmer.Sample.Name) ,
-                    State = GetState(treatment.IsIntered , treatment.IsThmin , treatment.IsAduit , treatment.IsApproved) ,
-                    Type = 1
-                };
-
-                lists.Add(row);
-            }
-
-            foreach (R1Smaple sample in listoftremantsample2)
-            {
-                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
-                {
-                    Id = sample.Id,
-                    Clint = CheckNullValue(sample.Custmer.Name),
-                    Owner = CheckNullValue(sample.Owner),
-                    AqarType = CheckNullValue(sample.AqarType),
-                    CityAndHy = CheckNullValue(sample.City + " / " + sample.Gada),
-                    Mothmen = ChekNull(sample.ApplicationUser),
-                    SampleId = CheckNullValue(sample.Custmer.Sample.Name),
-                    State = GetState(sample.IsIntered, sample.IsThmin, sample.IsAduit, sample.IsApproved),
-                    Type = 2
-                };
-
-                lists.Add(row);
-            }
-
-            foreach (R2Smaple sample in listoftremantsample3)
-            {
-                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
-                {
-                    Id = sample.Id,
-                    Clint = CheckNullValue(sample.Custmer.Name),
-                    Owner = CheckNullValue(sample.Owner),
-                    AqarType = CheckNullValue(sample.BuldingType),
-                    CityAndHy = CheckNullValue(sample.City + " / " + sample.Gada),
-                    Mothmen = ChekNull(sample.ApplicationUser),
-                    SampleId = CheckNullValue(sample.Custmer.Sample.Name),
-                    State = GetState(sample.IsIntered, sample.IsThmin, sample.IsAduit, sample.IsApproved),
-                    Type = 3
-                };
-
-                lists.Add(row);
-            }
-
-            return View(lists);
-        }
-
-        private string CheckNullValue(string item)
-        {
-            if (string.IsNullOrEmpty(item))
-            {
-                return "·« ÌÊÃœ ‘∆ ·⁄—÷Â";
-            }
-            return item;
-        }
-
-        string ChekNull(ApplicationUser user)
-        {
-            if (user == null)
-            {
-                return "·„  À„‰ »⁄œ ";
-            }
-           return user.EmployName;
+            Custmer cms = _cmsrepo.GetbyId(ids);
+            ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
+            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
+            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
+            ViewData["cmsname"] = cms;
+            return View(new Treatment());
         }
 
 
-        string GetState(params bool[] state)
-        {
-            bool IsIntered = state[0];
-            bool IsThmin = state[1];
-            bool IsAduit = state[2];
-            bool IsApproved = state[3];
-            if (IsIntered && IsThmin == false)
-            {
-                return " Õ  «· À„Ì‰";
-            }
-            if (IsThmin && IsAduit == false)
-            {
-                return " Õ  «· œﬁÌﬁ";
-            }
-            if (IsAduit && IsApproved == false)
-            {
-                return " Õ  «· ⁄„Ìœ";
-            }
-            if (IsApproved)
-            {
-                return "„ﬂ „‹‹·…";
-            }
-            return " Õ  «·«œŒ«·";
-        }
-        
-     
-        public async Task<IActionResult> Create(int id)
-        {
-          
-
-            Custmer cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == id);
-            var sampleid = cms.SampleId;
-
-            switch (sampleid)
-            {
-                case 1 :
-                   
-                    ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
-                    ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d=>d.FlagValue  ==FlagsName.Aqar), "Value", "Value");
-                    ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");
-                    ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
-                    ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
-                    ViewData["cmsname"] = cms;
-                    return View(new Treatment());
-                case 2:
-                    return RedirectToAction("Create","R1Smaple" , new {ids = cms.Id});
-                case 3:
-                    return RedirectToAction("Create", "R2Smaple", new { ids = cms.Id });
-                default:
-                    return View();
-            } 
-        }
-
-        public IActionResult Select_custmer()
-        {
-            ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
-            return View("Models_Custmor");
-        }
-        
-       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind ]Treatment treatment , string ids)
@@ -323,7 +83,6 @@ namespace CloudApp.Controllers
           
             if (ModelState.IsValid)
             {
-             
                 treatment.DateOfBegin = DateTime.Now.Date;
                 if (!string.IsNullOrEmpty(ids))
                 {
@@ -349,8 +108,8 @@ namespace CloudApp.Controllers
                 {
                     treatment.Muthmen = _userManager.GetUserId(User);
                 }
-                _context.Add(treatment);
-                await _context.SaveChangesAsync();
+                _service.CreatNewTreamnt(treatment);
+                
                 return RedirectToAction("Edit", new {Id=treatment.Id});
             }
             await GetListBind(treatment.CustmerId);
@@ -359,7 +118,7 @@ namespace CloudApp.Controllers
 
         async Task GetListBind(long cmsSelectId)
         {
-            ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", cmsSelectId);
+            ViewData["CustmerId"] = new SelectList(_cmsrepo.Getall().ToList(), "Id", "Name", cmsSelectId);
             ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
             ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
             ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");
@@ -372,14 +131,9 @@ namespace CloudApp.Controllers
             return Json("true");
         }
      
-        public async Task<IActionResult> Edit(long? id)
+        public async Task<IActionResult> Edit(long id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var treatment = await _context.Treatment.Include(treatment1 => treatment1.AttachmentForTreaments).Include(treatment1 => treatment1.Custmer).SingleOrDefaultAsync(m => m.Id == id);
+            var treatment = _service.GetTrementWithAtTreatment(id);
 
             if (treatment == null)
             {
@@ -398,63 +152,8 @@ namespace CloudApp.Controllers
             ViewData["cmsname"] = treatment.Custmer;
             return View(treatment);
         }
-
-        public IActionResult EditRouter(string id)
-        {
-            string[] data = id.Split(';');
-
-            if (data[1] == "1")
-            {
-             return   RedirectToAction("Edit", new {id= data[0]});
-            }
-            if (data[1] == "2")
-            {
-                return RedirectToAction("Edit", "R1Smaple" , new { id = data[0]});
-            }
-            if (data[1] == "3")
-            {
-                return RedirectToAction("Edit", "R2Smaple", new { id = data[0] });
-            }
-
-            return  RedirectToAction("Index");
-        }
-
-        public IActionResult Printout(string id)
-        {
-            string[] data = id.Split(';');
-
-            if (data[1] == "1")
-            {
-                return RedirectToAction("GetSample0Report", new { id = data[0] });
-            }
-            if (data[1] == "2")
-            {
-                return RedirectToAction("GetSample1Report", "R1Smaple", new { id = data[0] });
-            }
-            if (data[1] == "3")
-            {
-                return RedirectToAction("GetSample2Report", "R2Smaple", new { id = data[0] });
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        public IActionResult SendEmailRoute(string id)
-        {
-            string[] data = id.Split(';');
-            if (data[1] == "1")
-            {
-                return RedirectToAction("SendEmail", new {id = data[0]});
-            }else if (data[1] == "2")
-            {
-                return RedirectToAction("", "R1Smaple" , new { id = data[0] });
-            }
-            return RedirectToAction("Index");
-        }
-
-     
+        
         [HttpPost]
-
         public async Task<IActionResult> Edit(long id, [Bind] Treatment treatment , string ids)
         {
             if (id != treatment.Id)
@@ -493,9 +192,10 @@ namespace CloudApp.Controllers
                     {
                         treatment.Muthmen = _userManager.GetUserId(User);
                     }
-                    _context.Update(treatment);
-                    await _context.SaveChangesAsync();
-                    RedirectToAction("Index");
+
+                    _service.UpdateExistTreament(treatment);
+                   
+                    RedirectToAction("Index" , "MainSamples");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -510,33 +210,13 @@ namespace CloudApp.Controllers
           await  GetListBind(treatment.CustmerId);
             return View(treatment);
         }
-
-
-        public async Task EditAprove(long id)
+        
+        //What is this ??? Single Respon
+        public void EditAprove(long id)
         {
-            var row = _context.Treatment.SingleOrDefault(d => d.Id == id);
+            var row = _service.GetTrementById(id);
             row.IsApproved = true;
-            _context.Update(row);
-            await _context.SaveChangesAsync();
-        }
-
-        public JsonResult Delete(long? id , int type)
-        {
-            if (type == 1)
-            {
-                _context.Remove(_context.Treatment.SingleOrDefault(treatment => treatment.Id == id));
-                _context.SaveChanges();
-            } else if (type == 2)
-            {
-                _context.Remove(_context.R1Smaple.SingleOrDefault(treatment => treatment.Id == id));
-                _context.SaveChanges();
-            }
-            else if (type == 3)
-            {
-                _context.Remove(_context.R2Smaple.SingleOrDefault(treatment => treatment.Id == id));
-                _context.SaveChanges();
-            }
-            return Json("true");
+            _service.UpdateExistTreament(row);
         }
         
         private bool TreatmentExists(long id)
@@ -544,5 +224,7 @@ namespace CloudApp.Controllers
             return _context.Treatment.Any(e => e.Id == id);
 
         }
+
+       
     }
 }

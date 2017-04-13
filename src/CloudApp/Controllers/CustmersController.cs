@@ -22,7 +22,7 @@ namespace CloudApp.Controllers
         public CustmersController(ApplicationDbContext context , IHostingEnvironment env)
         {
             _context = context;
-            ViewData["usernames"] = AccountController.userName;
+            ViewData["usernames"] = AccountController.UserName;
             _env = env;
         }
 
