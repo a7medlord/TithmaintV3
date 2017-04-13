@@ -46,7 +46,8 @@ namespace CloudApp.RepositoriesClasses
         {
             return _db.Set<T>().ToList();
         }
-        
+
+        public ApplicationDbContext DircAccessToDb => _db;
         //Helper Method
         bool SaveChanges()
         {

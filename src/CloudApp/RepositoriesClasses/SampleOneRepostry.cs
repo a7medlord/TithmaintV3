@@ -17,7 +17,6 @@ namespace CloudApp.RepositoriesClasses
         
         }
 
-        public ApplicationDbContext DircAccessToDb => _db;
 
         public IEnumerable<AttachmentForTreament> GetTrementAttchment(long tremntid)
         {

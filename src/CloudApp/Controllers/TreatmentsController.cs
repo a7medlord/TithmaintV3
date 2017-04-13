@@ -205,7 +205,7 @@ namespace CloudApp.Controllers
                     }
                     throw;
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index" , "MainSamples");
             }
           await  GetListBind(treatment.CustmerId);
             return View(treatment);
