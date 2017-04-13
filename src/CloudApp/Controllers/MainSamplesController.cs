@@ -20,6 +20,7 @@ namespace CloudApp.Controllers
         private CustemerRepostry _cmsRepostry;
         private CheckHelper _helper;
         private readonly SampleOneServices _oneservice;
+        private readonly SampleTreeServices _sampleTreeServices;
 
         public MainSamplesController(ApplicationDbContext context)
         {
@@ -27,6 +28,7 @@ namespace CloudApp.Controllers
             _cmsRepostry = new CustemerRepostry(context);
             _helper = new CheckHelper();
             _oneservice = new SampleOneServices(context , _cmsRepostry);
+            _sampleTreeServices =new SampleTreeServices(context ,_cmsRepostry);
         }
 
         public IActionResult Index()
@@ -34,7 +36,7 @@ namespace CloudApp.Controllers
             List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
             var listoftremantsample1 = _oneservice.GetTreamentWithSampleAndAppUserCms();
             var listoftremantsample2 = _context.R1Smaple.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
-            var listoftremantsample3 = _context.R2Smaple.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
+            var listoftremantsample3 = _sampleTreeServices.GetTreamentWithSampleAndAppUserCms();
             foreach (Treatment treatment in listoftremantsample1)
             {
                 TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
@@ -166,8 +168,8 @@ namespace CloudApp.Controllers
             //{
             //    return RedirectToAction("", "R1Smaple" , new { id = data[0] });
             //}
-            //return RedirectToAction("Index");
-            return false;
+            return _sampleTreeServices.SendEmail(Convert.ToInt64(data[0]), contex, env);
+        
         }
 
         public JsonResult Delete(long id, int type)
@@ -181,11 +183,10 @@ namespace CloudApp.Controllers
             //    _context.Remove(_context.R1Smaple.SingleOrDefault(treatment => treatment.Id == id));
             //    _context.SaveChanges();
             //}
-            //else if (type == 3)
-            //{
-            //    _context.Remove(_context.R2Smaple.SingleOrDefault(treatment => treatment.Id == id));
-            //    _context.SaveChanges();
-            //}
+            else if (type == 3)
+            {
+                _sampleTreeServices.DeleteTrement(_sampleTreeServices.GetTrementById(id));
+            }
             return Json("true");
         }
 

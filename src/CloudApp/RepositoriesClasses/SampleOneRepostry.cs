@@ -17,8 +17,6 @@ namespace CloudApp.RepositoriesClasses
         
         }
 
-        public ApplicationDbContext DircAccessToDb => _db;
-
         public IEnumerable<AttachmentForTreament> GetTrementAttchment(long tremntid)
         {
           return  _db.AttachmentForTreaments.Where(treament => treament.TreatmentId == tremntid);
