@@ -1,0 +1,1014 @@
+﻿@model CloudApp.Models.BusinessModel.R1Smaple
+
+<div class="tab-pane" id="tab2-2">
+
+    <div class="row">
+        <p>الواجهات : </p>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="InterfcaesNorth" class="control-label"></label>
+                <div class="input-group">
+                    <select asp-for="InterfcaesNorth" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="InterfcaesSouth" class="control-label"></label>
+                <div class="input-group">
+                    <select asp-for="InterfcaesSouth" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="InterfcaesEast" class="control-label"></label>
+                <div class="input-group">
+                    <select asp-for="InterfcaesEast" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="InterfcaesWest" class=" control-label"></label>
+                <div class="input-group">
+                    <select asp-for="InterfcaesWest" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="XtrenalDoor" class="control-label"></label>
+                <div class="input-group">
+                    <select asp-for="XtrenalDoor" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="InnerDoor" class=" control-label"></label>
+                <div class="input-group">
+                    <select asp-for="InnerDoor" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="Ahwash" class="control-label"></label>
+                <div class="input-group">
+                    <select asp-for="Ahwash" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="Rescptions" class="control-label"></label>
+                <div class="input-group">
+                    <select asp-for="Rescptions" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="Inner" class=" control-label"></label>
+                <div class="input-group">
+                    <select asp-for="Inner" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="Rooms" class=" control-label"></label>
+                <div class="input-group">
+                    <select asp-for="Rooms" class="select2 form-control" asp-items="ViewBag.downstair"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="ArchConstract" class=" control-label"></label>
+                <div class="input-group">
+                    <select asp-for="ArchConstract" class="select2 form-control" asp-items="ViewBag.AsqfType"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="15" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="AsqfType" class=" control-label"></label>
+                <div class="input-group">
+                    <select asp-for="AsqfType" class="select2 form-control" asp-items="ViewBag.AsqfType"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="15" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="AzlType" class="control-label"></label>
+                <div class="input-group">
+                    <select asp-for="AzlType" class="select2 form-control" asp-items="ViewBag.azltype"></select>
+                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="16" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p>نوع التكييف : </p>
+    <div style="border: darkturquoise solid 1px; padding: 10px">
+
+
+        <div class="row" style="margin-right: 1%; margin-left: 1%;margin-top:1%">
+
+            <div class="col-md-2 checkbox" style="display: none">
+
+            </div>
+
+            <div class="col-md-3 checkbox">
+                <input asp-for="IsCetral" />
+                <label asp-for="IsCetral"></label>
+
+            </div>
+            <div class="col-md-3 checkbox">
+                <input asp-for="IsDesrt" />
+                <label asp-for="IsDesrt"></label>
+
+            </div>
+            <div class="col-md-3 checkbox">
+                <input asp-for="IsWindo" />
+                <label asp-for="IsWindo"></label>
+
+            </div>
+
+            <div class="col-md-3 checkbox">
+
+                <input asp-for="IsSeprat" />
+                <label asp-for="IsSeprat"></label>
+            </div>
+
+        </div>
+
+
+    </div>
+    <br />
+
+
+    <p>مميزات العقار : </p>
+    <div style="border: darkturquoise solid 1px; padding: 10px">
+
+        <div class="row" style="margin-right: 1%; margin-left: 1%;margin-top:1%">
+
+            <div class="col-md-2 checkbox" style="display: none">
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="IsDoublWall" />
+                <label asp-for="IsDoublWall"></label>
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="IsDoublGlass" />
+                <label asp-for="IsDoublGlass"></label>
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="IsJebsForSaqf" />
+                <label asp-for="IsJebsForSaqf"></label>
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+
+                <input asp-for="IsHidingLight" />
+                <label asp-for="IsHidingLight"></label>
+            </div>
+
+            <div class="col-md-2 checkbox">
+
+                <input asp-for="IsDonForSndElectric" />
+                <label asp-for="IsDonForSndElectric"></label>
+            </div>
+
+            <div class="col-md-2 checkbox">
+
+                <input asp-for="IsKrajEletcru" />
+                <label asp-for="IsKrajEletcru"></label>
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-right: 1%; margin-left: 1%;margin-top:1%">
+            <div class="col-md-2 checkbox" style="display: none">
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="IslAder" />
+                <label asp-for="IslAder"></label>
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="IsNormalKraj" />
+                <label asp-for="IsNormalKraj"></label>
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="IsGates" />
+                <label asp-for="IsGates"></label>
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+
+                <input asp-for="IsLifts" />
+                <label asp-for="IsLifts"></label>
+            </div>
+
+            <div class="col-md-2 checkbox">
+
+                <input asp-for="Ishoter" />
+                <label asp-for="Ishoter"></label>
+            </div>
+
+            <div class="col-md-2 checkbox">
+
+                <input asp-for="IsArbicTut" />
+                <label asp-for="IsArbicTut"></label>
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-right: 1%; margin-left: 1%;margin-top:1%">
+            <div class="col-md-2 checkbox" style="display: none">
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="IsForinTut" />
+                <label asp-for="IsForinTut"></label>
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="IsElectricCount" />
+                <label asp-for="IsElectricCount"></label>
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="IsWaterConut" />
+                <label asp-for="IsWaterConut"></label>
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+
+                <input asp-for="IsElectricCountMostgl" />
+                <label asp-for="IsElectricCountMostgl"></label>
+            </div>
+
+            <div class="col-md-2 checkbox">
+
+                <input asp-for="IsWatrerCountMostgl" />
+                <label asp-for="IsWatrerCountMostgl"></label>
+            </div>
+
+            <div class="col-md-2 checkbox">
+
+                <input asp-for="IsElectricServicesInGada" />
+                <label asp-for="IsElectricServicesInGada"></label>
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-right: 1%; margin-left: 1%;margin-top:1%">
+            <div class="col-md-2 checkbox" style="display: none">
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="IsWaterServicesInGada" />
+                <label asp-for="IsWaterServicesInGada"></label>
+
+            </div>
+
+            <div class="col-md-2 checkbox">
+                <input asp-for="AqarIsMosas" />
+                <label asp-for="AqarIsMosas"></label>
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="ElcrictyCount" class="control-label"></label>
+                <input asp-for="ElcrictyCount" class="form-control" />
+                <span asp-validation-for="ElcrictyCount" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="ElcrictyNumber" class="control-label"></label>
+                <input asp-for="ElcrictyNumber" class="form-control" />
+                <span asp-validation-for="ElcrictyNumber" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="WatrerCount" class="control-label"></label>
+                <input asp-for="WatrerCount" class="form-control" />
+                <span asp-validation-for="WatrerCount" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="WaterNumber" class="control-label"></label>
+                <input asp-for="WaterNumber" class="form-control" />
+                <span asp-validation-for="WaterNumber" class="text-danger" />
+            </div>
+        </div>
+    </div>
+
+    <p>الارض : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreaEarth" class="control-label"></label>
+                <input asp-for="AreaEarth" class="form-control" />
+                <span asp-validation-for="AreaEarth" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceEarh" class="control-label"></label>
+                <input asp-for="MeterPriceEarh" class="form-control" />
+                <span asp-validation-for="MeterPriceEarh" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TotalEarh" class="control-label"></label>
+                <input asp-for="TotalEarh" class="form-control" />
+                <span asp-validation-for="TotalEarh" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <p>القبو  : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreaQabo" class="control-label"></label>
+                <input asp-for="AreaQabo" class="form-control" />
+                <span asp-validation-for="AreaQabo" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceQabo" class="control-label"></label>
+                <input asp-for="MeterPriceQabo" class="form-control" />
+                <span asp-validation-for="MeterPriceQabo" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TotalQabo" class="control-label"></label>
+                <input asp-for="TotalQabo" class="form-control" />
+                <span asp-validation-for="TotalQabo" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <p>الدور الارضي : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreaDorEarth" class="control-label"></label>
+                <input asp-for="AreaDorEarth" class="form-control" />
+                <span asp-validation-for="AreaDorEarth" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceDorEarth" class="control-label"></label>
+                <input asp-for="MeterPriceDorEarth" class="form-control" />
+                <span asp-validation-for="MeterPriceDorEarth" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TotalDorerath" class="control-label"></label>
+                <input asp-for="TotalDorerath" class="form-control" />
+                <span asp-validation-for="TotalDorerath" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <p>الدور الاول : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreaFirstDoor" class="control-label"></label>
+                <input asp-for="AreaFirstDoor" class="form-control" />
+                <span asp-validation-for="AreaFirstDoor" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceFirstDoor" class="control-label"></label>
+                <input asp-for="MeterPriceFirstDoor" class="form-control" />
+                <span asp-validation-for="MeterPriceFirstDoor" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TotalFirstDoor" class="control-label"></label>
+                <input asp-for="TotalFirstDoor" class="form-control" />
+                <span asp-validation-for="TotalFirstDoor" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+    <p>الدور المتكرر : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreareptDoor" class="control-label"></label>
+                <input asp-for="AreareptDoor" class="form-control" />
+                <span asp-validation-for="AreareptDoor" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceReptDoor" class="control-label"></label>
+                <input asp-for="MeterPriceReptDoor" class="form-control" />
+                <span asp-validation-for="MeterPriceReptDoor" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TotalReptDoor" class="control-label"></label>
+                <input asp-for="TotalReptDoor" class="form-control" />
+                <span asp-validation-for="TotalReptDoor" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <p>الملحق الارضي : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreaApnedxEarth" class="control-label"></label>
+                <input asp-for="AreaApnedxEarth" class="form-control" />
+                <span asp-validation-for="AreaApnedxEarth" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceApendexErth" class="control-label"></label>
+                <input asp-for="MeterPriceApendexErth" class="form-control" />
+                <span asp-validation-for="MeterPriceApendexErth" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TotalApendxEarth" class="control-label"></label>
+                <input asp-for="TotalApendxEarth" class="form-control" />
+                <span asp-validation-for="TotalApendxEarth" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <p>الملحق العلوي : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreaApendxup" class="control-label"></label>
+                <input asp-for="AreaApendxup" class="form-control" />
+                <span asp-validation-for="AreaApendxup" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceapendxup" class="control-label"></label>
+                <input asp-for="MeterPriceapendxup" class="form-control" />
+                <span asp-validation-for="MeterPriceapendxup" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Totalapendxup" class="control-label"></label>
+                <input asp-for="Totalapendxup" class="form-control" />
+                <span asp-validation-for="Totalapendxup" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <p>الاسوار : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreaSwar" class="control-label"></label>
+                <input asp-for="AreaSwar" class="form-control" />
+                <span asp-validation-for="AreaSwar" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceAsawr" class="control-label"></label>
+                <input asp-for="MeterPriceAsawr" class="form-control" />
+                <span asp-validation-for="MeterPriceAsawr" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TotalAswar" class="control-label"></label>
+                <input asp-for="TotalAswar" class="form-control" />
+                <span asp-validation-for="TotalAswar" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <p>الحديقة : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Areagarden" class="control-label"></label>
+                <input asp-for="Areagarden" class="form-control" />
+                <span asp-validation-for="Areagarden" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPricegarden" class="control-label"></label>
+                <input asp-for="MeterPricegarden" class="form-control" />
+                <span asp-validation-for="MeterPricegarden" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Totalgarden" class="control-label"></label>
+                <input asp-for="Totalgarden" class="form-control" />
+                <span asp-validation-for="Totalgarden" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <p>المسبح : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreaSwimingpool" class="control-label"></label>
+                <input asp-for="AreaSwimingpool" class="form-control" />
+                <span asp-validation-for="AreaSwimingpool" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceswiminpoo" class="control-label"></label>
+                <input asp-for="MeterPriceswiminpoo" class="form-control" />
+                <span asp-validation-for="MeterPriceswiminpoo" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Totalswimingpool" class="control-label"></label>
+                <input asp-for="Totalswimingpool" class="form-control" />
+                <span asp-validation-for="Totalswimingpool" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <p>موقف السيارات : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreaCars" class="control-label"></label>
+                <input asp-for="AreaCars" class="form-control" />
+                <span asp-validation-for="AreaCars" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceCars" class="control-label"></label>
+                <input asp-for="MeterPriceCars" class="form-control" />
+                <span asp-validation-for="MeterPriceCars" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TotalCars" class="control-label"></label>
+                <input asp-for="TotalCars" class="form-control" />
+                <span asp-validation-for="TotalCars" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <p>اخري : </p>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AreaOthers" class="control-label"></label>
+                <input asp-for="AreaOthers" class="form-control" />
+                <span asp-validation-for="AreaOthers" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MeterPriceothers" class="control-label"></label>
+                <input asp-for="MeterPriceothers" class="form-control" />
+                <span asp-validation-for="MeterPriceothers" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Totalothers" class="control-label"></label>
+                <input asp-for="Totalothers" class="form-control" />
+                <span asp-validation-for="Totalothers" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="ProfitPrecntage" class="control-label"></label>
+                <input asp-for="ProfitPrecntage" class="form-control" />
+                <span asp-validation-for="ProfitPrecntage" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="AhlakPrecentage" class="control-label"></label>
+                <input asp-for="AhlakPrecentage" class="form-control" />
+                <span asp-validation-for="AhlakPrecentage" class="text-danger" />
+            </div>
+        </div>
+    </div>
+
+    <p>في حالة كون التقيم لعمارة : </p>
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="CountShowromms" class="control-label"></label>
+                <input asp-for="CountShowromms" class="form-control" />
+                <span asp-validation-for="CountShowromms" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="DetlisShowRooms" class="control-label"></label>
+                <input asp-for="DetlisShowRooms" class="form-control" />
+                <span asp-validation-for="DetlisShowRooms" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="EffictiveEjarShowRooms" class="control-label"></label>
+                <input asp-for="EffictiveEjarShowRooms" class="form-control" />
+                <span asp-validation-for="EffictiveEjarShowRooms" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="AqarTgeemShowrooms" class="control-label"></label>
+                <input asp-for="AqarTgeemShowrooms" class="form-control" />
+                <span asp-validation-for="AqarTgeemShowrooms" class="text-danger" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="CountForOffice" class="control-label"></label>
+                <input asp-for="CountForOffice" class="form-control" />
+                <span asp-validation-for="CountForOffice" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="DetlisOffice" class="control-label"></label>
+                <input asp-for="DetlisOffice" class="form-control" />
+                <span asp-validation-for="DetlisOffice" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="EffictiveEjarOffice" class="control-label"></label>
+                <input asp-for="EffictiveEjarOffice" class="form-control" />
+                <span asp-validation-for="EffictiveEjarOffice" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="AqarTgeemOffices" class="control-label"></label>
+                <input asp-for="AqarTgeemOffices" class="form-control" />
+                <span asp-validation-for="AqarTgeemOffices" class="text-danger" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="CountAprtment" class="control-label"></label>
+                <input asp-for="CountAprtment" class="form-control" />
+                <span asp-validation-for="CountAprtment" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="DetlisApartment" class="control-label"></label>
+                <input asp-for="DetlisApartment" class="form-control" />
+                <span asp-validation-for="DetlisApartment" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="EffictiveEjarApartment" class="control-label"></label>
+                <input asp-for="EffictiveEjarApartment" class="form-control" />
+                <span asp-validation-for="EffictiveEjarApartment" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="AqarTgeem" class="control-label"></label>
+                <input asp-for="AqarTgeem" class="form-control" />
+                <span asp-validation-for="AqarTgeem" class="text-danger" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="TotalOfRending" class="control-label"></label>
+                <input asp-for="TotalOfRending" class="form-control" />
+                <span asp-validation-for="TotalOfRending" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="IncomePrecentage" class="control-label"></label>
+                <input asp-for="IncomePrecentage" class="form-control" />
+                <span asp-validation-for="IncomePrecentage" class="text-danger" />
+            </div>
+        </div>
+
+
+    </div>
+
+    <p>تفاصيل عقود الايجار : </p>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="CountshowRoom" class="control-label"></label>
+                <input asp-for="CountshowRoom" class="form-control" />
+                <span asp-validation-for="CountshowRoom" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="RendingCompnyShowRoom" class="control-label"></label>
+                <input asp-for="RendingCompnyShowRoom" class="form-control" />
+                <span asp-validation-for="RendingCompnyShowRoom" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="ContractCountShowRoom" class="control-label"></label>
+                <input asp-for="ContractCountShowRoom" class="form-control" />
+                <span asp-validation-for="ContractCountShowRoom" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="RendingTypeShowRoom" class="control-label"></label>
+                <input asp-for="RendingTypeShowRoom" class="form-control" />
+                <span asp-validation-for="RendingTypeShowRoom" class="text-danger" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="Countoffice" class="control-label"></label>
+                <input asp-for="Countoffice" class="form-control" />
+                <span asp-validation-for="Countoffice" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="RendingCompnyoffice" class="control-label"></label>
+                <input asp-for="RendingCompnyoffice" class="form-control" />
+                <span asp-validation-for="RendingCompnyoffice" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="ContractCountoffice" class="control-label"></label>
+                <input asp-for="ContractCountoffice" class="form-control" />
+                <span asp-validation-for="ContractCountoffice" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="RendingTypeoffice" class="control-label"></label>
+                <input asp-for="RendingTypeoffice" class="form-control" />
+                <span asp-validation-for="RendingTypeoffice" class="text-danger" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="CountAprtmentfor" class="control-label"></label>
+                <input asp-for="CountAprtmentfor" class="form-control" />
+                <span asp-validation-for="CountAprtmentfor" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="RendingCompnyapartment" class="control-label"></label>
+                <input asp-for="RendingCompnyapartment" class="form-control" />
+                <span asp-validation-for="RendingCompnyapartment" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="ContractCountapartment" class="control-label"></label>
+                <input asp-for="ContractCountapartment" class="form-control" />
+                <span asp-validation-for="ContractCountapartment" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="RendingTypeapartment" class="control-label"></label>
+                <input asp-for="RendingTypeapartment" class="form-control" />
+                <span asp-validation-for="RendingTypeapartment" class="text-danger" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="LastTaqeem" class="control-label"></label>
+                <input asp-for="LastTaqeem" class="form-control" />
+                <span asp-validation-for="LastTaqeem" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="MantinancePrice" class="control-label"></label>
+                <input asp-for="MantinancePrice" class="form-control" />
+                <span asp-validation-for="MantinancePrice" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="form-group">
+                <label asp-for="MothmenOpnion" class="control-label"></label>
+                <input asp-for="MothmenOpnion" class="form-control" />
+                <span asp-validation-for="MothmenOpnion" class="text-danger" />
+            </div>
+        </div>
+
+    </div>
+
+    @*DropZone*@
+    <div class="dropzone" id="myId"></div>
+    <br />
+
+    <div class="row">
+        <div class="col-md-2">
+            <div class="checkbox">
+                <label><input id="nex2" asp-for="IsThmin" type="checkbox">اكمال عملية التثمين...</label>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

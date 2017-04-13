@@ -30,6 +30,12 @@
     <Content Include="wwwroot\Dropzone\dropzone.min.css" />
     <Content Include="wwwroot\Dropzone\dropzone.min.js" />
     <Content Include="wwwroot\images\icon-close.png" />
+    <Content Include="wwwroot\js\SampleOneCreate.js" />
+    <Content Include="wwwroot\js\SampleOneEdit.js" />
+    <Content Include="wwwroot\js\SampleThreeCreate.js" />
+    <Content Include="wwwroot\js\SampleTowCreat.js" />
+    <Content Include="wwwroot\js\SampleTowEdit.js" />
+    <Content Include="wwwroot\js\SmapleThreeEdit.js" />
   </ItemGroup>
 
   <ItemGroup>
