@@ -22,12 +22,16 @@ namespace CloudApp.Controllers
         private readonly SampleOneServices _oneservice;
         private readonly SampleTreeServices _sampleTreeServices;
 
+        private readonly SampleTowServices _towServices;
+
         public MainSamplesController(ApplicationDbContext context)
         {
             _context = context;
             _cmsRepostry = new CustemerRepostry(context);
             _helper = new CheckHelper();
             _oneservice = new SampleOneServices(context , _cmsRepostry);
+
+            _towServices = new SampleTowServices(context , _cmsRepostry);
             _sampleTreeServices =new SampleTreeServices(context ,_cmsRepostry);
         }
 
@@ -35,9 +39,9 @@ namespace CloudApp.Controllers
         {
             List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
             var listoftremantsample1 = _oneservice.GetTreamentWithSampleAndAppUserCms();
-            var listoftremantsample2 = _context.R1Smaple.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
-            var listoftremantsample3 = _sampleTreeServices.GetTreamentWithSampleAndAppUserCms();
-            foreach (Treatment treatment in listoftremantsample1)
+              var listoftremantsample3 = _sampleTreeServices.GetTreamentWithSampleAndAppUserCms();
+            var listoftremantsample2 = _towServices.GetTreamentWithSampleAndAppUserCms();
+             foreach (Treatment treatment in listoftremantsample1)
             {
                 TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
                 {
@@ -162,12 +166,13 @@ namespace CloudApp.Controllers
             string[] data = id.Split(';');
             if (data[1] == "1")
             {
-                return _oneservice.SendEmail(Convert.ToInt32(data[0]), contex, env);
+                return _oneservice.SendEmail(Convert.ToInt64(data[0]), contex, env);
             }
-            //else if (data[1] == "2")
-            //{
-            //    return RedirectToAction("", "R1Smaple" , new { id = data[0] });
-            //}
+            else if (data[1] == "2")
+            {
+                return _towServices.SendEmail(Convert.ToInt64(data[0]), contex, env);
+            }
+    
             return _sampleTreeServices.SendEmail(Convert.ToInt64(data[0]), contex, env);
         
         }
@@ -178,11 +183,11 @@ namespace CloudApp.Controllers
             {
                 _oneservice.DeleteTrement(_oneservice.GetTrementById(id));
             }
-            //else if (type == 2)
-            //{
-            //    _context.Remove(_context.R1Smaple.SingleOrDefault(treatment => treatment.Id == id));
-            //    _context.SaveChanges();
-            //}
+            else if (type == 2)
+            {
+                _towServices.DeleteTrement(_towServices.GetTrementById(id));
+            }
+       
             else if (type == 3)
             {
                 _sampleTreeServices.DeleteTrement(_sampleTreeServices.GetTrementById(id));

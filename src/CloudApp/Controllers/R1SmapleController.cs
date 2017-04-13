@@ -10,6 +10,8 @@ using CloudApp.Data;
 using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
 using CloudApp.Models.ManpulateModel;
+using CloudApp.RepositoriesClasses;
+using CloudApp.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Reporting.WebForms;
@@ -20,121 +22,44 @@ namespace CloudApp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        private UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        private IHostingEnvironment _env;
+        private readonly IHostingEnvironment _env;
+
+        private readonly CustemerRepostry _cmsRepostry;
+
+        private readonly SampleTowServices _towServices;
 
         public R1SmapleController(ApplicationDbContext context , UserManager<ApplicationUser> usermanger , IHostingEnvironment env)
         {
             _context = context;
             _userManager = usermanger;
             _env = env;
+            _cmsRepostry = new  CustemerRepostry(context);
+            _towServices = new SampleTowServices(context , _cmsRepostry);
         }
 
         public IActionResult GetSample1Report(long id)
         {
 
-            byte[] rendervalue = GetSample1ReportasStreem(id);
+            byte[] rendervalue = _towServices.GetSample1ReportasStreem(id, HttpContext, _env);
 
             return File(rendervalue, "application/pdf");
-        }
-
-        public byte[] GetSample1ReportasStreem( long id)
-        {
-            ReportDataSource reportDataSource = new ReportDataSource();
-
-            //get attachment
-            var rsample1 = _context.AttachmentForR1Samples.Where(d => d.R1SmapleId == id);
-            string images = null;
-            foreach (var r1Samples in rsample1)
-            {
-                images += "http://" + HttpContext.Request.Host + "/attachs2/" + r1Samples.AttachmentId + ".jpg" + ",";
-            }
-
-            // R1 Report
-            var r1Sample = _context.R1Smaple.Include(d => d.Custmer).ThenInclude(s => s.Sample).Where(d => d.Id == id);
-            reportDataSource.Name = "DataSetR1Sample";
-            reportDataSource.Value = r1Sample;
-            string sample = r1Sample.SingleOrDefault()?.Custmer.Sample.Name;
-            string longtute = r1Sample.SingleOrDefault()?.Longtute;
-            string latute = r1Sample.SingleOrDefault()?.Latute;
-            LocalReport local = new LocalReport();
-            local.DataSources.Add(reportDataSource);
-
-            local.ReportPath = _env.WebRootPath + "/Report/Sm1Report.rdlc";
-            local.EnableExternalImages = true;
-
-            double price = r1Sample.Sum(d => d.LastTaqeem);
-
-            ToWord toWord = new ToWord((decimal)price, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
-            ////get name
-            string muthmenname = _context.Users.SingleOrDefault(d => d.Id == r1Sample.SingleOrDefault().Muthmen)?.EmployName;
-            string aduitname = _context.Users.SingleOrDefault(d => d.Id == r1Sample.SingleOrDefault().Adutit)?.EmployName;
-            string appovename = _context.Users.SingleOrDefault(d => d.Id == r1Sample.SingleOrDefault().Approver)?.EmployName;
-            // get member id
-            string muthmenid = _context.Users.SingleOrDefault(d => d.Id == r1Sample.SingleOrDefault().Muthmen)?.MemberId;
-            string aduitid = _context.Users.SingleOrDefault(d => d.Id == r1Sample.SingleOrDefault().Adutit)?.MemberId;
-            string appoveid = _context.Users.SingleOrDefault(d => d.Id == r1Sample.SingleOrDefault().Approver)?.MemberId;
-            //get image sign
-            string muthminsign = _context.Users.SingleOrDefault(d => d.Id == r1Sample.SingleOrDefault().Muthmen)?.SigImage;
-            string auditsign = _context.Users.SingleOrDefault(d => d.Id == r1Sample.SingleOrDefault().Adutit)?.SigImage;
-            string approvesign = _context.Users.SingleOrDefault(d => d.Id == r1Sample.SingleOrDefault().Approver)?.SigImage;
-            //get image url
-            string sigurlmuthmen = "http://" + HttpContext.Request.Host + "/ProfPic/" + muthminsign + ".jpg";
-            string sigurlauditsign = "http://" + HttpContext.Request.Host + "/ProfPic/" + auditsign + ".jpg";
-            string sigurlapprovesign = "http://" + HttpContext.Request.Host + "/ProfPic/" + approvesign + ".jpg";
-
-            string earthmap = Mapgen(longtute, latute, "satellite", "16", "283", "750");
-            string map = Mapgen(longtute, latute, "ROADMAP", "16", "249", "739");
-            string zoommap = Mapgen(longtute, latute, "satellite", "19", "265", "530");
-            ReportParameter[] parameters = {
-                new ReportParameter("sample",sample),
-                new ReportParameter("muthmen", muthmenname),
-                 new ReportParameter("audit", aduitname),
-                  new ReportParameter("approver", appovename),
-                new ReportParameter("totprice",  toWord.ConvertToArabic()),
-
-
-                    new ReportParameter("muthminsign",  sigurlmuthmen),
-                    new ReportParameter("Auditsign",  sigurlauditsign),
-                    new ReportParameter("Approvesign", sigurlapprovesign),
-
-
-                    new ReportParameter("idmuthmin",  muthmenid),
-                    new ReportParameter("idaudit",  aduitid),
-                    new ReportParameter("idapprove", appoveid),
-                    new ReportParameter("earthmap",  earthmap),
-                    new ReportParameter("map", map),
-                    new ReportParameter("zoommap", zoommap),
-                    new ReportParameter("images",images)
-
-
-                   };
-
-            local.SetParameters(parameters);
-
-            return local.Render("Pdf", "");
-        }
-        public string Mapgen(string longtut, string lutit, string type, string zoom, string hight, string with)
-        {
-            string url = "https://maps.googleapis.com/maps/api/staticmap?center=" + lutit + "," + longtut + "&zoom=" + zoom + "&size=" + with + "x" + hight + "&maptype=" + type + "&key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs" + "&language=ar" + "&markers=color:red|label:C|" + lutit + "," + longtut;
-            return url;
         }
         
         public IActionResult Create(int ids)
         {
            GetBinding();
-            var cms = _context.Custmer.SingleOrDefault(custmer => custmer.Id == ids);
+            var cms = _cmsRepostry.GetbyId(ids);
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = cms;
             return View(new R1Smaple());
         }
-
-       
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind] R1Smaple r1Smaple , string ids)
+        public  IActionResult Create([Bind] R1Smaple r1Smaple , string ids)
         {
             if (ModelState.IsValid)
             {
@@ -166,8 +91,8 @@ namespace CloudApp.Controllers
                     r1Smaple.Muthmen = _userManager.GetUserId(User);
                 }
 
-                _context.Add(r1Smaple);
-                await _context.SaveChangesAsync();
+                _towServices.CreatNewTreamnt(r1Smaple);
+
                 return RedirectToAction("Edit" , new {id= r1Smaple.Id});
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", r1Smaple.ApplicationUserId);
@@ -194,14 +119,9 @@ namespace CloudApp.Controllers
             return Json(guid);
         }
 
-        public async Task<IActionResult> Edit(long? id)
+        public  IActionResult Edit(long id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var r1Smaple = await _context.R1Smaple.Include(smaple => smaple.AttachmentForR1Samples).Include(smaple => smaple.Custmer).SingleOrDefaultAsync(m => m.Id == id);
+            var r1Smaple = _towServices.GetTrementWithAttachmentFiles(id);
             if (r1Smaple == null)
             {
                 return NotFound();
@@ -220,11 +140,10 @@ namespace CloudApp.Controllers
             ViewData["cmsname"] = r1Smaple.Custmer;
             return View(r1Smaple);
         }
-
-       
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind] R1Smaple r1Smaple , string ids)
+        public  IActionResult Edit(long id, [Bind] R1Smaple r1Smaple , string ids)
         {
             if (id != r1Smaple.Id)
             {
@@ -261,8 +180,7 @@ namespace CloudApp.Controllers
                     {
                         r1Smaple.Muthmen = _userManager.GetUserId(User);
                     }
-                    _context.Update(r1Smaple);
-                    await _context.SaveChangesAsync();
+                    _towServices.UpdateExistTreament(r1Smaple);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -270,25 +188,22 @@ namespace CloudApp.Controllers
                     {
                         return NotFound();
                     }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
-                return RedirectToAction("Index" , "Treatments");
+                return RedirectToAction("Index" , "MainSamples");
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", r1Smaple.ApplicationUserId);
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name", r1Smaple.CustmerId);
             return View(r1Smaple);
         }
         
-        public async Task EditAprove(long id)
+        public  void EditAprove(long id)
         {
-            var row = _context.R1Smaple.SingleOrDefault(d => d.Id == id);
+            var row = _towServices.GetTrementById(id);
             row.IsApproved = true;
-            _context.Update(row);
-            await _context.SaveChangesAsync();
+            _towServices.UpdateExistTreament(row);
         }
+
         void GetBinding()
         {
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
