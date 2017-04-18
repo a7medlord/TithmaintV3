@@ -21,6 +21,8 @@
         public static long City = 17;
         public static long Gada = 18;
         public static long DownSir = 19;
+        public static long ArchConstract = 20;
+        
 
     }
 }

@@ -63,7 +63,7 @@ namespace CloudApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                r1Smaple.DateOfBegin = DateTime.Now.Date;
+                r1Smaple.Id = _towServices.GetAutoIncreesNumber(r1Smaple.DateOfBegin);
                 if (!string.IsNullOrEmpty(ids))
                 {
                     string[] imgsids = ids.Split(';');
@@ -223,6 +223,8 @@ namespace CloudApp.Controllers
             ViewData["AsqfType"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.SqfTypeAndArch), "Value", "Value");
             ViewData["azltype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AzlType), "Value", "Value");
             ViewData["downstair"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DownSir), "Value", "Value");
+
+            ViewData["ArchConstract"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.ArchConstract), "Value", "Value");
 
         }
       

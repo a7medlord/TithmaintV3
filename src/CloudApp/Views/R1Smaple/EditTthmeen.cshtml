@@ -10,7 +10,7 @@
             <label asp-for="InterfcaesNorth" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="InterfcaesNorth" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagFprInterfcaesNorth" data-toggle="modal" data-id="14" data-se="InterfcaesNorth"  class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
             <label asp-for="InterfcaesSouth" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="InterfcaesSouth" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForInterfcaesSouth" data-toggle="modal" data-id="14" data-se="InterfcaesSouth" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
             <label asp-for="InterfcaesEast" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="InterfcaesEast" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForInterfcaesEast" data-toggle="modal" data-id="14" data-se="InterfcaesEast" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
             <label asp-for="InterfcaesWest" class=" control-label"></label>
             <div class="input-group">
                 <select asp-for="InterfcaesWest" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a  id="FlagFOrInterfcaesWest" data-toggle="modal" data-id="14" data-se="InterfcaesWest" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
             <label asp-for="XtrenalDoor" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="XtrenalDoor" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a  id="FlagForXtrenalDoor" data-toggle="modal" data-id="14" data-se="XtrenalDoor" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@
             <label asp-for="InnerDoor" class=" control-label"></label>
             <div class="input-group">
                 <select asp-for="InnerDoor" class="select2 form-control" asp-items="ViewBag.InterFaces"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="14" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a  id="FlagForInnerDoor" data-toggle="modal" data-id="14" data-se="InnerDoor" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
             <label asp-for="Ahwash" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="Ahwash" class="select2 form-control" asp-items="ViewBag.downstair"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForAhwash" data-toggle="modal" data-id="19" data-se="Ahwash" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@
             <label asp-for="Rescptions" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="Rescptions" class="select2 form-control" asp-items="ViewBag.downstair"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForRescptions" data-toggle="modal" data-id="19" data-se="Rescptions" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -96,7 +96,7 @@
             <label asp-for="Inner" class=" control-label"></label>
             <div class="input-group">
                 <select asp-for="Inner" class="select2 form-control" asp-items="ViewBag.downstair"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForInner" data-toggle="modal" data-id="19" data-se="Inner"  class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -106,7 +106,7 @@
             <label asp-for="Rooms" class=" control-label"></label>
             <div class="input-group">
                 <select asp-for="Rooms" class="select2 form-control" asp-items="ViewBag.downstair"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="19" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForRooms" data-toggle="modal" data-id="19" data-se="Rooms" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -115,8 +115,8 @@
         <div class="form-group">
             <label asp-for="ArchConstract" class=" control-label"></label>
             <div class="input-group">
-                <select asp-for="ArchConstract" class="select2 form-control" asp-items="ViewBag.AsqfType"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="15" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <select asp-for="ArchConstract" class="select2 form-control" asp-items="ViewBag.ArchConstract"></select>
+                <span class="input-group-btn"><a id="FlagForArchConstract" data-toggle="modal" data-id="20" data-se="ArchConstract"  class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -126,7 +126,7 @@
             <label asp-for="AsqfType" class=" control-label"></label>
             <div class="input-group">
                 <select asp-for="AsqfType" class="select2 form-control" asp-items="ViewBag.AsqfType"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="15" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForAsqfType" data-toggle="modal" data-id="15" data-se="AsqfType" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -138,7 +138,7 @@
             <label asp-for="AzlType" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="AzlType" class="select2 form-control" asp-items="ViewBag.azltype"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="16" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForAzlType" data-toggle="modal" data-id="16" data-se="AzlType"  class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -1011,4 +1011,52 @@
     </div>
 </div>
 
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="pac-input">البحــث</label>
+                <input id="pac-input" class="form-control" type="text" placeholder="ابحث عن موقع">
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="Longtute" class="control-label"></label>
+                <input asp-for="Longtute" class="form-control" />
+                <span asp-validation-for="Longtute" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="Latute" class="control-label"></label>
+                <input asp-for="Latute" class="form-control" />
+                <br />
+                <button type="button" id="is" class="btn btn-primary">عرض الخريطــة</button>
+                <span asp-validation-for="Latute" class="text-danger" />
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <br />
+    <br />
+
+    <div id="maptest" style="width: 90%; height: 400px; margin-right: 5%">
+
+    </div>
+
+    <br />
+    <br />
+    <button type="button" class="btn btn-primary" onclick="getlog()">جلب الموقع الحالي</button>
+    <br />
+    <br />
 </div>

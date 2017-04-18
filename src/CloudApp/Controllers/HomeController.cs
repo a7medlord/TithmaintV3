@@ -141,10 +141,7 @@ namespace CloudApp.Controllers
             ViewBag.fsmaple1 = FSample1();
             ViewBag.fsmaple2 = FSample2();
             ViewBag.fsmaple3 = FSample3();
-            WebClient clint = new WebClient();
-            clint.DownloadFile(new Uri(@"https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&size=600x600&maptype=satellite&key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs") , Path.Combine(_env.WebRootPath, "ProfileImg/map.png"));
-
-
+           
 
             return View(GetSamples());
         }

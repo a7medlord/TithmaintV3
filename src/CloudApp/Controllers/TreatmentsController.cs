@@ -18,6 +18,7 @@ using CloudApp.RepositoriesClasses;
 using CloudApp.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Reporting.WebForms;
 
 namespace CloudApp.Controllers
@@ -75,6 +76,15 @@ namespace CloudApp.Controllers
             return View(new Treatment());
         }
 
+        private bool Comparer(Flag flag, Flag flag1)
+        {
+            if (flag.Value == flag1.Value)
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -83,7 +93,7 @@ namespace CloudApp.Controllers
           
             if (ModelState.IsValid)
             {
-                treatment.DateOfBegin = DateTime.Now.Date;
+                treatment.Id = _service.GetAutoIncreesNumber(treatment.DateOfBegin);
                 if (!string.IsNullOrEmpty(ids))
                 {
                     string[] imgsids = ids.Split(';');

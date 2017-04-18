@@ -42,9 +42,12 @@ namespace CloudApp.Controllers
         }
 
        
-        public IActionResult Create(long ids )
+        public bool Create(long id , string value)
         {
-            return View(new Flag(){FlagValue = ids});
+            Flag flg = new Flag(){Value = value , FlagValue = id};
+            _context.Add(flg);
+            _context.SaveChanges();
+            return true;
         }
         
         [HttpPost]
@@ -54,9 +57,7 @@ namespace CloudApp.Controllers
 
             if (ModelState.IsValid)
             {
-
                 _context.Add(flag);
-   
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index",new{ flags = flag.FlagValue } );
             }
@@ -77,8 +78,7 @@ namespace CloudApp.Controllers
             }
             return View(flag);
         }
-
-       
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind("Id,Value,FlagValue")] Flag flag)

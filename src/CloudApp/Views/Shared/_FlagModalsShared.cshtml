@@ -1,0 +1,43 @@
+﻿
+<div class="modal fade" id="mymodal" role="dialog" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">انشاء قيمه مضافة</h4>
+            </div>
+            <div class="modal-body">
+
+                
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="realvalue" class="col-md-3 control-label">القيمة المضافة</label>
+                            <div class="col-md-8">
+                                <input type="text" id="realvalue" class="form-control" />
+                                <input type="hidden" id="flagid" class="form-control" />
+                                <input type="hidden" id="idofselect" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div style="float: right">
+                    <button type="button" class="btn btn-primary" id="closeAndnew">حفــظ & جديد</button>
+                    <button type="button" class="btn btn-primary" id="SaveAndClose">حفـــظ & اغلاق</button>
+                    <button type="button" class="btn btn-default" id="CLose">اغــلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+}

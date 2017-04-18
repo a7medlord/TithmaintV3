@@ -88,7 +88,7 @@
                         <li><a asp-controller="MainSamples" asp-action="Select_custmer"><span class="title">معاملة جديد* </span></a></li>
 
 
-                        <li><a asp-controller="MainSamples" asp-action="Index"><span class="title">جميع المعاملات</span></a></li>
+                        <li><a href="#" id="GotoIndex" ><span class="title">جميع المعاملات</span></a></li>
                     </ul>
                 </li>
 
@@ -186,7 +186,16 @@
 
     $(document).ready(function () {
 
+        $("#GotoIndex").click(function() {
+            var today = new Date();
+            var spliter = today.toString("HH:MM tt").split(" ");
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
 
+            location.href = "/MainSamples/Index?currentTime=" + mm + "/" + dd + "/" + yyyy + " " + spliter[4];
+
+        });
 
        
         var $Window = $(window), $Container = $('div.page-container');
@@ -287,115 +296,7 @@
 
 
     // form wizerd
-    if ($.isFunction($.fn.bootstrapWizard)) {
-        $('#rootwizard').bootstrapWizard({
-            tabClass: 'wizard-steps',
-            onTabShow: function ($tab, $navigation, index) {
-                $tab.prevAll().addClass('completed');
-                $tab.nextAll().removeClass('completed');
-                $tab.removeClass('completed');
-            }
-
-        });
-
-        $(".validate-form-wizard").each(function (i, formwizard) {
-            var $this = $(formwizard);
-            var $progress = $this.find(".steps-progress div");
-
-            var $validator = $this.validate({
-                rules: {
-                    username: {
-                        required: true,
-                        minlength: 3
-                    },
-                    password: {
-                        required: true,
-                        minlength: 3
-                    },
-                    confirmpassword: {
-                        required: true,
-                        minlength: 3
-                    },
-                    email: {
-                        required: true,
-                        email: true,
-                        minlength: 3,
-                    }
-                }
-            });
-            // Validation
-            var checkValidaion = function (tab, navigation, index) {
-                if ($this.hasClass('validate')) {
-                    var $valid = $this.valid();
-                    if (!$valid) {
-                        $validator.focusInvalid();
-                        return false;
-                    }
-                }
-
-                return true;
-            };
-
-            $this.bootstrapWizard({
-                tabClass: 'wizard-steps',
-                onNext: checkValidaion,
-                onTabClick: checkValidaion,
-                onTabShow: function ($tab, $navigation, index) {
-                
-                    switch(index) {
-                        case 0:
-                            if ($("#nex1").prop('checked')) {
-                                $tab.removeClass('active').addClass('completed');       
-
-                            } else {
-                                $tab.removeClass('completed').addClass('active');
-                            }
-                            break;
-                        case 1:
-                            if ($("#nex2").prop('checked')) {
-                                $tab.removeClass('active').addClass('completed');
-
-                            } else {
-                                $tab.removeClass('completed').addClass('active');
-                            }
-                            break;
-                        case 2:
-                            if ($("#nex3").prop('checked')) {
-                                $tab.removeClass('active').addClass('completed');
-
-                            } else {
-                                $tab.removeClass('completed').addClass('active');
-                            }
-                            break;
-                        case 3:
-                            if ($("#nex4").prop('checked')) {
-                                $tab.removeClass('active').addClass('completed');
-
-                            } else {
-                                $tab.removeClass('completed').addClass('active');
-                            }
-                            break;
-                        case 4:
-                            if ($("#nex5").prop('checked')) {
-                                $tab.removeClass('active').addClass('completed');
-
-                            } else {
-                                $tab.removeClass('completed').addClass('active');
-                            }
-                        default:
-                         
-                    } 
-
-
-               
-
-                    //$tab.removeClass('completed');
-                    //$tab.prevAll().addClass('completed');
-                    //$tab.nextAll().removeClass('completed');
-                }
-            });
-        });
-    }
+    
  
 
 </script>

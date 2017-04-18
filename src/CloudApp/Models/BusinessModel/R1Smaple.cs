@@ -7,12 +7,14 @@ namespace CloudApp.Models.BusinessModel
 {
     public class R1Smaple
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long Id { get; set; }
-
+       
         public Custmer Custmer { get; set; }
         [Display(Name = "العميل")]
         public long CustmerId { get; set; }
         [Display(Name = "المدينة")]
+       
         public string City { get; set; }
         [Display(Name = "الحي")]
         public string Gada { get; set; }
@@ -25,7 +27,7 @@ namespace CloudApp.Models.BusinessModel
 
         [Display(Name = "التاريخ")]
         [Column(TypeName = "date")]
-        public DateTime DateOfBegin { get; set; } = DateTime.Now;
+        public DateTime DateOfBegin { get; set; } 
 
         [Display(Name = "رقم البلك")]
         public string BlockNumber { get; set; }
@@ -439,6 +441,9 @@ namespace CloudApp.Models.BusinessModel
         public bool IsApproved { get; set; }
         public bool IsUnlockFin { get; set; }
 
+        public DateTime DateRiminder { get; set; }
 
+        [NotMapped]
+        public DateTime CurrentDateFromClint { get; set; }
     }
 }

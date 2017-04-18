@@ -8,9 +8,8 @@ namespace CloudApp.Models.BusinessModel
     public class R2Smaple
     {
 
-        //comment
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long Id { get; set; }
-
         [Display(Name = "نوع العقار")]
         public string BuldingType { get; set; }
         [Display(Name = "مالك العقار")]
@@ -20,7 +19,7 @@ namespace CloudApp.Models.BusinessModel
 
         [Display(Name = "التاريخ")]
         [Column(TypeName = "date")]
-        public DateTime DateOfBegin { get; set; } = DateTime.Now;
+        public DateTime DateOfBegin { get; set; } 
 
         [Display(Name = "رقم الطلب ")]
         public string Talabnum { get; set; }
@@ -594,6 +593,11 @@ namespace CloudApp.Models.BusinessModel
         public bool IsAduit { get; set; }
         public bool IsApproved { get; set; }
         public bool IsUnlockFin { get; set; }
+
+        public DateTime DateRiminder { get; set; }
+
+        [NotMapped]
+        public DateTime CurrentDateFromClint { get; set; }
 
     }
 }

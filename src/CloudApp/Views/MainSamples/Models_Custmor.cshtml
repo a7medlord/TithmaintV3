@@ -43,8 +43,13 @@
 
         $("#btn_close") .click(function() {
                 $('#mymodal').modal('hide');
-                // similar behavior as clicking on a link
-                window.location.href = "/MainSamples/Index";
+            var today = new Date();
+            var spliter = today.toString("HH:MM tt").split(" ");
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+
+            location.href = "/MainSamples/Index?currentTime=" + mm + "/" + dd + "/" + yyyy + " " + spliter[4];
             });
 
     </script>

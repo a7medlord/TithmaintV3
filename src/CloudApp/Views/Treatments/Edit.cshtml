@@ -34,9 +34,9 @@
         <div class="tab-content">
        @{
         @* tab1 *@
-           Html.RenderPartial("SampleOneEditEntering");
+           Html.RenderPartial("EditEnring");
         @* tab2 *@
-           Html.RenderPartial("SampleOneEditTthmen");
+           Html.RenderPartial("EditTthmeen");
     }
 
         @*tab3*@
@@ -134,7 +134,6 @@
         <i id="hosname" style="display: none">@string.Format("http://" + Context.Request.Host + "/attachs1/")</i>
         <i style="display: none" id="jsuthost">>@string.Format(Context.Request.Host + "/RemoveFile?name=")</i>
             
-
         </form>
     </div>
 </div>
@@ -143,7 +142,9 @@
     <a class="btn btn-primary" asp-action="Index" asp-controller="MainSamples">الرجوع للقائمة الرئيسيه</a>
 </div>
 
-
+@{
+    await Html.RenderPartialAsync("_FlagModalsShared");
+}
 
 
 
@@ -154,9 +155,11 @@
     }
 
     <script src="~/js/SampleOneEdit.js">
-
-
+        
     </script>
+    @{
+        await Html.RenderPartialAsync("_JsmodalPartial");
+    }
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>
 
 }

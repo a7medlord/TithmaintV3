@@ -28,7 +28,7 @@
             <label asp-for="City" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="City" class="select2 form-control" asp-items="ViewBag.City"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="17" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagOfcity" data-toggle="modal" data-id="17" data-se="City" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
             <label asp-for="Gada" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="Gada" class="select2 form-control" asp-items="ViewBag.Gada"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="18" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlageForGada" data-toggle="modal" data-id="18" data-se="Gada" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -75,7 +75,7 @@
             <label asp-for="AqarScope" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="AqarScope" class="select2 form-control" asp-items="ViewBag.AqarScope"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="7" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForAqarScope" data-toggle="modal" data-id="7" data-se="AqarScope" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -90,7 +90,7 @@
             <label asp-for="AqarType" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="AqarType" class="select2 form-control" asp-items="ViewBag.aqartype"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="1" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagforAqarType" data-toggle="modal" data-id="1" data-se="AqarType" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -100,7 +100,7 @@
             <label asp-for="ArchDesgin" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="ArchDesgin" class="select2 form-control" asp-items="ViewBag.desinArch"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="3" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForArchDesgin" data-toggle="modal" data-id="3" data-se="ArchDesgin" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -110,7 +110,7 @@
             <label asp-for="Mansob" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="Mansob" class="select2 form-control" asp-items="ViewBag.Mansob"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="4" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForMansob" data-toggle="modal" data-id="4" data-se="Mansob" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -121,7 +121,7 @@
             <label asp-for="BulState" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="BulState" class="select2 form-control" asp-items="ViewBag.buldingtype"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="5" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagFOrBulState" data-toggle="modal" data-id="5" data-se="BulState" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -136,7 +136,7 @@
             <label asp-for="BuldingType" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="BuldingType" class="select2 form-control" asp-items="ViewBag.butype"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="6" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForBuldingType" data-toggle="modal" data-id="6" data-se="BuldingType" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -146,7 +146,7 @@
             <label asp-for="BuldinIsNull" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="BuldinIsNull" class="select2 form-control" asp-items="ViewBag.BuldingBuzy"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="8" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForBuldinIsNull" data-toggle="modal" data-id="8" data-se="BuldinIsNull" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -156,7 +156,7 @@
             <label asp-for="RoadSeflt" class=" control-label"></label>
             <div class="input-group">
                 <select asp-for="RoadSeflt" class="select2 form-control" asp-items="ViewBag.RoadSeflt"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="9" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForRoadSeflt" data-toggle="modal" data-id="9" data-se="RoadSeflt" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -166,7 +166,7 @@
             <label asp-for="RoadLight" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="RoadLight" class="select2 form-control" asp-items="ViewBag.RoadLighting"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="10" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForRoadLight" data-toggle="modal" data-id="10" data-se="RoadLight" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -187,7 +187,7 @@
             <label asp-for="JarIsBulding" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="JarIsBulding" class="select2 form-control" asp-items="ViewBag.JarIsBulding"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="11" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForJarIsBulding" data-toggle="modal" data-id="11" data-se="JarIsBulding" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -197,7 +197,7 @@
             <label asp-for="AqaraAttachment" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="AqaraAttachment" class="select2 form-control" asp-items="ViewBag.AqarIsAttch"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="12" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForAqaraAttachment" data-toggle="modal" data-id="12" data-se="AqaraAttachment" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -217,7 +217,7 @@
             <label asp-for="TshteebType" class="control-label"></label>
             <div class="input-group">
                 <select asp-for="TshteebType" class="select2 form-control" asp-items="ViewBag.TshteebType"></select>
-                <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="13" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                <span class="input-group-btn"><a id="FlagForTshteebType" data-toggle="modal" data-id="13" data-se="TshteebType"  class="btn btn-primary"><i class="icon-plus"></i> </a></span>
             </div>
         </div>
     </div>
@@ -331,53 +331,5 @@
     </div>
 </div>
 
-<br/>
-<br/>
-
-<div class="row" >
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="pac-input">البحــث</label>
-            <input id="pac-input" class="form-control" type="text" placeholder="ابحث عن موقع">
-                
-        </div>
-    </div>
-
-    <div class="col-md-2">
-        <div class="form-group">
-            <label asp-for="Longtute" class="control-label"></label>
-            <input asp-for="Longtute" class="form-control" />
-            <span asp-validation-for="Longtute" class="text-danger" />
-        </div>
-    </div>
-        
-    <div class="col-md-2">
-        <div class="form-group">
-            <label asp-for="Latute" class="control-label"></label>
-            <input asp-for="Latute" class="form-control" />
-            <br/>
-            <button type="button" id="is" class="btn btn-primary">عرض الخريطــة</button>
-            <span asp-validation-for="Latute" class="text-danger" />
-               
-        </div>
-
-    </div>
-    
-
-</div>
-    
-
-<br/>
-<br/>
-
-<div id="maptest" style="width: 90%; height: 400px; margin-right: 5%">
-
-</div>
-
-<br/>
-<br/>
-<button type="button" class="btn btn-primary" onclick="getlog()">جلب الموقع الحالي</button>
-<br/>
-<br/>
 
 </div>

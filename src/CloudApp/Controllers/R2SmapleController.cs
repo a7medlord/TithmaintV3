@@ -77,7 +77,8 @@ namespace CloudApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                r2Smaple.DateOfBegin = DateTime.Now.Date;
+                r2Smaple.Id = _sampleTreeServices.GetAutoIncreesNumber(r2Smaple.DateOfBegin);
+              
                 if (!string.IsNullOrEmpty(ids))
                 {
                     string[] imgsids = ids.Split(';');

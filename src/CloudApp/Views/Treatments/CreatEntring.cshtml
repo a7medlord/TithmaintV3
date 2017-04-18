@@ -1,7 +1,8 @@
 ﻿@model CloudApp.Models.BusinessModel.Treatment
 
 <div class="tab-pane  active" id="tab2-1">
-
+    <input type="hidden"  data-format="D, dd MM yyyy" asp-for="DateRiminder" />
+    
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="row">
@@ -51,7 +52,7 @@
                 <label asp-for="City" class="control-label"></label>
                 <div class="input-group">
                     <select asp-for="City" class="select2 form-control" asp-items="ViewBag.City"></select>
-                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="17" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                    <span class="input-group-btn"><a id="cityflag" data-toggle="modal" data-id="17" data-se="City" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                 </div>
             </div>
         </div>
@@ -61,7 +62,7 @@
                 <label asp-for="Gada" class="control-label"></label>
                 <div class="input-group">
                     <select asp-for="Gada" class="select2 form-control" asp-items="ViewBag.Gada"></select>
-                    <span class="input-group-btn"><a asp-controller="Flags" asp-route-ids="18" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                    <span class="input-group-btn"><a id="Gadaflag" data-toggle="modal" data-id="18" data-se="Gada" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                 </div>
             </div>
         </div>
@@ -111,7 +112,7 @@
                     <div class="col-md-12">
                         <div class="input-group">
                             <select asp-for="Tbuild" class="select2 form-control" data-placeholder="اختيار" asp-items="ViewBag.Aqartype"></select>
-                            <span class="input-group-btn"><a id="test1" asp-controller="Flags" asp-route-ids="1" asp-action="Create" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                            <span class="input-group-btn"><a id="TbulidFlag" data-toggle="modal" data-id="1" data-se="Tbuild" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
                         </div>
                     </div>
                 </div>
@@ -140,51 +141,7 @@
     </div>
 
     <br />
-    <br />
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="pac-input">البحــث</label>
-                <input id="pac-input" class="form-control" type="text" placeholder="ابحث عن موقع">
-
-            </div>
-        </div>
-
-        <div class="col-md-2">
-            <div class="form-group">
-                <label asp-for="Longtute" class="control-label"></label>
-                <input asp-for="Longtute" class="form-control" />
-                <span asp-validation-for="Longtute" class="text-danger" />
-            </div>
-        </div>
-
-        <div class="col-md-2">
-            <div class="form-group">
-                <label asp-for="Latute" class="control-label"></label>
-                <input asp-for="Latute" class="form-control" />
-                <br />
-                <button type="button" id="is" class="btn btn-primary">عرض الخريطــة</button>
-                <span asp-validation-for="Latute" class="text-danger" />
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <br />
-    <br />
-
-    <div id="maptest" style="width: 90%; height: 400px; margin-right: 5%">
-
-    </div>
-    <br />
-    <br />
-    <button type="button" class="btn btn-primary" onclick="getlog()">جلب الموقع الحالي</button>
-    <br />
-    <br />
+   
 
 
 </div>

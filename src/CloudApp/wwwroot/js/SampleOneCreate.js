@@ -14,6 +14,7 @@ $("#nex1").change(function () {
 });
 
 $("#nex2").change(function () {
+    
     if (this.checked) {
 
         $(".l1").removeClass('active').addClass('completed');
@@ -71,38 +72,73 @@ $("#myId").dropzone({
         imguids += response + ";";
     }
 });
+
 $("#root").submit(function () {
     $("#ids").val(imguids);
+    
+    var today = new Date();
+    var spliter = today.toString("HH:MM tt").split(" ");
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    
+    $("#DateRiminder").val(mm + "/" + dd + "/" + yyyy + " " + spliter[4]);
+
+    $("#DateOfBegin").val(mm + "/" + dd + "/" + yyyy + " " + "00:00:00");
+    
 });
 //end
 
 //Google Map Logic
 var pos;
-var map;
 var geocoder;
 var infowindowc;
-function getlog() {
+var isloaded = false;
+var map;
+var markerstotal = [];
+var markers = [];
 
-    // begin of Get Current Locations
-    var infoWindow = new google.maps.InfoWindow({ map: map });
-    // Try HTML5 geolocation.
+function cleramarkers() {
+    for (var i = 0; i < markerstotal.length; i++) {
+        markerstotal[i].setMap(null);
+    }
+
+    for (var n = 0; n < markers.length; n++) {
+        markers[n].setMap(null);
+    }
+}
+
+function getlog() {
+   
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('هذا هو الموقع الحالي لك !');
-            var myLatLng = { lat: Number($("#Latute").val()), lng: Number($("#Longtute").val()) };
+            cleramarkers();
             var marker = new google.maps.Marker({
-                position: myLatLng,
+                position: pos,
                 map: map,
-                title: 'موقع العقار'
+                title: 'موقع العقار' ,
+                draggable: true
             });
 
+            google.maps.event.addListener(marker, "dragend", function (e) {
+                var lat, lng, address;
+                geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        lat = marker.getPosition().lat();
+                        lng = marker.getPosition().lng();
+                        address = results[0].formatted_address;
+                        $("#Latute").val(lat);
+                        $("#Longtute").val(lng);
+                    }
+                });
+            });
+            markerstotal.push(marker);
             map.setCenter(pos);
+            
         }, function () {
 
             handleLocationError(true, infoWindow, map.getCenter());
@@ -119,18 +155,37 @@ function getlog() {
 }
 
 function mapwork() {
+
     var mapProp = {
         center: new google.maps.LatLng(51.508742, -0.120850),
         zoom: 18
     };
+
     map = new google.maps.Map(document.getElementById("maptest"), mapProp);
     var myLatLng = { lat: Number($("#Latute").val()), lng: Number($("#Longtute").val()) };
-    var marker = new google.maps.Marker({
+    cleramarkers();
+    var marker3 = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'موقع العقار'
+        title: 'موقع العقار',
+        draggable: true
     });
 
+    google.maps.event.addListener(marker3, "dragend", function (e) {
+        var lat, lng, address;
+        geocoder.geocode({ 'latLng': marker3.getPosition() }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+
+                lat = marker3.getPosition().lat();
+                lng = marker3.getPosition().lng();
+                address = results[0].formatted_address;
+              
+                $("#Latute").val(lat);
+                $("#Longtute").val(lng);
+            }
+        });
+    });
+    markerstotal.push(marker3);
 
     map.addListener('center_changed', function () {
         var obj = map.getCenter();
@@ -151,7 +206,7 @@ function mapwork() {
             searchBox.setBounds(map.getBounds());
         });
 
-    var markers = [];
+    
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
     searchBox.addListener('places_changed',
@@ -175,22 +230,30 @@ function mapwork() {
                     console.log("Returned place contains no geometry");
                     return;
                 }
-                var icon = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25)
-                };
 
-                // Create a marker for each place.
-                markers.push(new google.maps.Marker({
+                cleramarkers();
+                var marker2 = new google.maps.Marker({
                     map: map,
-                    icon: icon,
                     title: place.name,
-                    position: place.geometry.location
-                }));
+                    position: place.geometry.location,
+                    draggable: true
+                });
+                markers.push(marker2);
 
+
+                google.maps.event.addListener(marker2, "dragend", function (e) {
+                    var lat, lng, address;
+                    geocoder.geocode({ 'latLng': marker2.getPosition() }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+
+                            lat = marker2.getPosition().lat();
+                            lng = marker2.getPosition().lng();
+                            address = results[0].formatted_address;
+                            $("#Latute").val(lat);
+                            $("#Longtute").val(lng);
+                        }
+                    });
+                });
                 if (place.geometry.viewport) {
                     // Only geocodes have viewport.
                     bounds.union(place.geometry.viewport);
@@ -200,6 +263,7 @@ function mapwork() {
             });
             map.fitBounds(bounds);
         });
+    
 
 }
 
@@ -310,4 +374,154 @@ $("#Musteh").focusin(function () {
 
 $("#TotalBulding").focusout(function () {
     $("#TotalPriceNumber").val(parseInt($("#TotalForEarcth").val()) + parseInt($("#TotalBulding").val()));
+});
+
+if ($.isFunction($.fn.bootstrapWizard)) {
+    $('#rootwizard').bootstrapWizard({
+        tabClass: 'wizard-steps',
+        onTabShow: function ($tab, $navigation, index) {
+            $tab.prevAll().addClass('completed');
+            $tab.nextAll().removeClass('completed');
+            $tab.removeClass('completed');
+        }
+
+    });
+
+    $(".validate-form-wizard").each(function (i, formwizard) {
+        var $this = $(formwizard);
+        var $progress = $this.find(".steps-progress div");
+
+        var $validator = $this.validate({
+            rules: {
+                username: {
+                    required: true,
+                    minlength: 3
+                },
+                password: {
+                    required: true,
+                    minlength: 3
+                },
+                confirmpassword: {
+                    required: true,
+                    minlength: 3
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    minlength: 3,
+                }
+            }
+        });
+        // Validation
+        var checkValidaion = function (tab, navigation, index) {
+            if ($this.hasClass('validate')) {
+                var $valid = $this.valid();
+                if (!$valid) {
+                    $validator.focusInvalid();
+                    return false;
+                }
+            }
+
+            return true;
+        };
+
+        $this.bootstrapWizard({
+            tabClass: 'wizard-steps',
+            onNext: checkValidaion,
+            onTabClick: checkValidaion,
+            onTabShow: function ($tab, $navigation, index) {
+
+                switch (index) {
+                case 0:
+                    if ($("#nex1").prop('checked')) {
+                        $tab.removeClass('active').addClass('completed');
+
+                    } else {
+                        $tab.removeClass('completed').addClass('active');
+                    }
+                    break;
+                case 1:
+                       
+                        if(!isloaded)
+                    {
+                            mapwork();
+                        isloaded = true;
+                    }
+                    if ($("#nex2").prop('checked')) {
+                        $tab.removeClass('active').addClass('completed');
+
+                    } else {
+                        $tab.removeClass('completed').addClass('active');
+                    }
+                    break;
+                case 2:
+                    if ($("#nex3").prop('checked')) {
+                        $tab.removeClass('active').addClass('completed');
+
+                    } else {
+                        $tab.removeClass('completed').addClass('active');
+                    }
+                    break;
+                case 3:
+                    if ($("#nex4").prop('checked')) {
+                        $tab.removeClass('active').addClass('completed');
+
+                    } else {
+                        $tab.removeClass('completed').addClass('active');
+                    }
+                    break;
+                case 4:
+                    if ($("#nex5").prop('checked')) {
+                        $tab.removeClass('active').addClass('completed');
+
+                    } else {
+                        $tab.removeClass('completed').addClass('active');
+                    }
+                default:
+
+                }
+
+
+
+
+                //$tab.removeClass('completed');
+                //$tab.prevAll().addClass('completed');
+                //$tab.nextAll().removeClass('completed');
+            }
+        });
+    });
+}
+
+
+$("#cityflag").click(function () {
+    $("#flagid").val($(this).data('id'));
+    $("#idofselect").val($(this).data('se'));
+    $('#mymodal').modal('show');
+});
+
+
+$("#Gadaflag").click(function () {
+
+    $("#flagid").val($(this).data('id'));
+    $("#idofselect").val($(this).data('se'));
+    $('#mymodal').modal('show');
+
+});
+
+$("#TbulidFlag").click(function () {
+
+    $("#flagid").val($(this).data('id'));
+    $("#idofselect").val($(this).data('se'));
+    $('#mymodal').modal('show');
+
+});
+
+//Tthmen
+
+$("#GenlocFlag").click(function () {
+
+    $("#flagid").val($(this).data('id'));
+    $("#idofselect").val($(this).data('se'));
+    $('#mymodal').modal('show');
+
 });

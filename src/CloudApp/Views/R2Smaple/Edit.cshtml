@@ -32,9 +32,9 @@
         <div class="tab-content">
         @{
             @* tab1 *@
-            Html.RenderPartial("SampleThreeEditEnting");
+            Html.RenderPartial("EditEntring");
             @* tab2 *@
-        Html.RenderPartial("SampleThreeEditTthmeen");
+        Html.RenderPartial("EditThmeen");
         }
 
         @*tab3*@
@@ -148,6 +148,10 @@
     <a class="btn btn-primary" asp-controller="MainSamples" asp-action="Index">الرجوع للقائمة الرئيسيه</a>
 </div>
 
+@{
+    await Html.RenderPartialAsync("_FlagModalsShared");
+}
+
 
 @section Scripts {
     @{
@@ -158,6 +162,10 @@
     <script src="~/js/SmapleThreeEdit.js">
         
     </script>
+    
+@{
+    await Html.RenderPartialAsync("_JsmodalPartial");
+}
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>
 
 }

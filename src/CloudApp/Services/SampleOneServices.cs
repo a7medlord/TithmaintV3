@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -173,6 +174,15 @@ namespace CloudApp.Services
         {
             string url = "https://maps.googleapis.com/maps/api/staticmap?center=" + lutit + "," + longtut + "&zoom=" + zoom + "&size=" + with + "x" + hight + "&maptype=" + type + "&key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs" + "&language=ar" + "&markers=color:red|label:C|" + lutit + "," + longtut;
             return url;
+        }
+
+        public long GetAutoIncreesNumber(DateTime date)
+        {
+            string time = date.ToString("yy-MM-dd");
+            string[] data = time.Split('-');
+            long id = _repostry.GetAutoIncreesNumber();
+            string dateformater = data[0] + "" + data[1] + "" + id;
+             return Convert.ToInt32(dateformater);
         }
 
     }

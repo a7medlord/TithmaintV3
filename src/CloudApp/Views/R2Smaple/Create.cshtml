@@ -33,13 +33,13 @@
             @*TabContent*@
 
             <div class="tab-content">
-               
+                <input type="hidden" data-format="D, dd MM yyyy" asp-for="DateOfBegin" />
                 @{
                     
                     @* tab1 *@
-                    Html.RenderPartial("SampleThreeEntring");
+                    Html.RenderPartial("CreatEntring");
                     @* tab2 *@
-                Html.RenderPartial("SampleThreeTthmeen");
+                Html.RenderPartial("CraetTthmeen");
                 }
 
                 @*tab3*@
@@ -148,7 +148,9 @@
 <div>
     <a class="btn btn-primary" asp-action="Index" asp-controller="MainSamples">الرجوع للقائمة الرئيسيه</a>
 </div>
-
+@{
+    await Html.RenderPartialAsync("_FlagModalsShared");
+}
 
 
 
@@ -160,6 +162,9 @@
 
     <script src="~/js/SampleThreeCreate.js">
     </script>
+    @{
+        await Html.RenderPartialAsync("_JsmodalPartial");
+    }
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>
 
 }

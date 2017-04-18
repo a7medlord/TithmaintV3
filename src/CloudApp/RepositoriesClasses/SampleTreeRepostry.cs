@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CloudApp.Data;
+using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
 using CloudApp.RepoInterFace;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +37,26 @@ namespace CloudApp.RepositoriesClasses
         public IEnumerable<R2Smaple> GetTreamentWithSampleAndAppUserCms()
         {
            return _db.R2Smaple.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
+        }
+
+        public long GetAutoIncreesNumber()
+        {
+            AutoIncresTable incresTable = _db.AutoIncresTable.LastOrDefault();
+            if (incresTable != null)
+            {
+                long number = incresTable.LastId;
+                SaveToDataBase(number);
+                _db.SaveChanges();
+                return number + 1;
+            }
+            SaveToDataBase(0);
+            return 0;
+        }
+        void SaveToDataBase(long idof)
+        {
+            AutoIncresTable incres = new AutoIncresTable() { LastId = idof + 1 };
+            _db.Add(incres);
+            _db.SaveChanges();
         }
     }
 }

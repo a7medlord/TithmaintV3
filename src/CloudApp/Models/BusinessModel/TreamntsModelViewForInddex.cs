@@ -18,8 +18,13 @@ namespace CloudApp.Models.BusinessModel
         public string Owner { get; set; }
         [Display(Name = "المدينه / الحي")]
         public string CityAndHy { get; set; }
-        [Display(Name = "الحـــــــــــــــــــــالة")]
+        [Display(Name = "الحـــــــــــــالة")]
         public string State { get; set; }
+
+        [Display(Name = "الزمن المتبقي علي انتهاء المعاملة")]
+        public string TimeRimnder { get; set; }
+
+        public int StateColor { get; set; }
 
         public int Type { get; set; }
 

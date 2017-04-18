@@ -12,5 +12,7 @@ namespace CloudApp.RepoInterFace
       Treatment GetTrementWithAttachmentFiles(long treamnetid);
 
       IEnumerable<Treatment> GetTreamentWithSampleAndAppUserCms();
+
+      long GetAutoIncreesNumber();
   }
 }

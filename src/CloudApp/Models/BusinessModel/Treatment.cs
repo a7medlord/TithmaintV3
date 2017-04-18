@@ -7,12 +7,16 @@ namespace CloudApp.Models.BusinessModel
 {
     public class Treatment
     {
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long Id { get; set; }
+      
         public Custmer Custmer { get; set; }
         [Display(Name = "العميل")]
         public long CustmerId { get; set; }
         [Display(Name = "المالك")]
         public string Owner { get; set; }
+       
         [ Display(Name = "رقم الصك")]
         public string SNum { get; set; }
         [Display(Name = "تاريخ الصك")]
@@ -24,7 +28,7 @@ namespace CloudApp.Models.BusinessModel
 
         [Display(Name = "التاريخ")]
         [Column(TypeName = "date")]
-        public DateTime DateOfBegin { get; set; } = DateTime.Now;
+        public DateTime DateOfBegin { get; set; }
         [Display(Name = "الموقع")]
         public string Local { get; set; }
         [Display(Name = "اسم الشارع")]
@@ -307,6 +311,9 @@ namespace CloudApp.Models.BusinessModel
         [Display(Name = "خــط العرض")]
         public string Latute { get; set; }
 
+        public DateTime DateRiminder { get; set; }
 
+        [NotMapped]
+        public DateTime CurrentDateFromClint { get; set; }
     }
 }

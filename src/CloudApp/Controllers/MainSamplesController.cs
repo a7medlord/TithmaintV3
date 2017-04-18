@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using CloudApp.Data;
 using CloudApp.HelperClass;
 using CloudApp.Models.BusinessModel;
@@ -10,18 +9,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace CloudApp.Controllers
 {
     public class MainSamplesController : Controller
     {
         private ApplicationDbContext _context;
-        private CustemerRepostry _cmsRepostry;
-        private CheckHelper _helper;
+        private readonly CustemerRepostry _cmsRepostry;
+        private readonly CheckHelper _helper;
         private readonly SampleOneServices _oneservice;
         private readonly SampleTreeServices _sampleTreeServices;
-
+        private readonly DateTimeHlper _dateTimeHlper;
         private readonly SampleTowServices _towServices;
 
         public MainSamplesController(ApplicationDbContext context)
@@ -32,70 +30,13 @@ namespace CloudApp.Controllers
             _oneservice = new SampleOneServices(context , _cmsRepostry);
 
             _towServices = new SampleTowServices(context , _cmsRepostry);
-            _sampleTreeServices =new SampleTreeServices(context ,_cmsRepostry);
+            _sampleTreeServices = new SampleTreeServices(context, _cmsRepostry);
+            _dateTimeHlper = new DateTimeHlper();
         }
 
-        public IActionResult Index()
+        public IActionResult Index(DateTime currentTime)
         {
-            List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
-            var listoftremantsample1 = _oneservice.GetTreamentWithSampleAndAppUserCms();
-              var listoftremantsample3 = _sampleTreeServices.GetTreamentWithSampleAndAppUserCms();
-            var listoftremantsample2 = _towServices.GetTreamentWithSampleAndAppUserCms();
-             foreach (Treatment treatment in listoftremantsample1)
-            {
-                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
-                {
-                    Id = treatment.Id,
-                    Clint = _helper.CheckNullValue(treatment.Custmer.Name),
-                    Owner = _helper.CheckNullValue(treatment.Owner),
-                    AqarType = _helper.CheckNullValue(treatment.Tbuild),
-                    CityAndHy = _helper.CheckNullValue(treatment.City + " / " + treatment.Gada),
-                    Mothmen = _helper.ChekNull(treatment.ApplicationUser),
-                    SampleId = _helper.CheckNullValue(treatment.Custmer.Sample.Name),
-                    State = _helper.GetState(treatment.IsIntered, treatment.IsThmin, treatment.IsAduit, treatment.IsApproved),
-                    Type = 1
-                };
-
-                lists.Add(row);
-            }
-
-            foreach (R1Smaple sample in listoftremantsample2)
-            {
-                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
-                {
-                    Id = sample.Id,
-                    Clint = _helper.CheckNullValue(sample.Custmer.Name),
-                    Owner = _helper.CheckNullValue(sample.Owner),
-                    AqarType = _helper.CheckNullValue(sample.AqarType),
-                    CityAndHy = _helper.CheckNullValue(sample.City + " / " + sample.Gada),
-                    Mothmen = _helper.ChekNull(sample.ApplicationUser),
-                    SampleId = _helper.CheckNullValue(sample.Custmer.Sample.Name),
-                    State = _helper.GetState(sample.IsIntered, sample.IsThmin, sample.IsAduit, sample.IsApproved),
-                    Type = 2
-                };
-
-                lists.Add(row);
-            }
-
-            foreach (R2Smaple sample in listoftremantsample3)
-            {
-                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
-                {
-                    Id = sample.Id,
-                    Clint = _helper.CheckNullValue(sample.Custmer.Name),
-                    Owner = _helper.CheckNullValue(sample.Owner),
-                    AqarType = _helper.CheckNullValue(sample.BuldingType),
-                    CityAndHy = _helper.CheckNullValue(sample.City + " / " + sample.Gada),
-                    Mothmen = _helper.ChekNull(sample.ApplicationUser),
-                    SampleId = _helper.CheckNullValue(sample.Custmer.Sample.Name),
-                    State = _helper.GetState(sample.IsIntered, sample.IsThmin, sample.IsAduit, sample.IsApproved),
-                    Type = 3
-                };
-
-                lists.Add(row);
-            }
-
-            return View(lists);
+            return View(GetALlWithNoConstrain(currentTime));
         }
 
         public IActionResult Select_custmer()
@@ -195,5 +136,89 @@ namespace CloudApp.Controllers
             return Json("true");
         }
 
+        List<TreamntsModelViewForInddex> GetALlWithNoConstrain(DateTime currentTime)
+        {
+            List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
+            var listoftremantsample1 = _oneservice.GetTreamentWithSampleAndAppUserCms();
+            var listoftremantsample3 = _sampleTreeServices.GetTreamentWithSampleAndAppUserCms();
+            var listoftremantsample2 = _towServices.GetTreamentWithSampleAndAppUserCms();
+           
+            DisplaySampleOne(lists , listoftremantsample1 , currentTime);
+
+            DisplaySampleTow(lists , listoftremantsample2 , currentTime);
+           
+            DisplaySampleThree(lists , listoftremantsample3 , currentTime);
+
+            return lists;
+        }
+
+        void DisplaySampleOne(List<TreamntsModelViewForInddex> listToShow , IEnumerable<Treatment> repo , DateTime currentTime)
+        {
+            foreach (Treatment treatment in repo)
+            {
+                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
+                {
+                    Id = treatment.Id,
+                    Clint = _helper.CheckNullValue(treatment.Custmer.Name),
+                    Owner = _helper.CheckNullValue(treatment.Owner),
+                    AqarType = _helper.CheckNullValue(treatment.Tbuild),
+                    CityAndHy = _helper.CheckNullValue(treatment.City + " / " + treatment.Gada),
+                    Mothmen = _helper.ChekNull(treatment.ApplicationUser),
+                    SampleId = _helper.CheckNullValue(treatment.Custmer.Sample.Name),
+                    State = _helper.GetState(treatment.IsIntered, treatment.IsThmin, treatment.IsAduit, treatment.IsApproved),
+                    Type = 1 ,
+                    TimeRimnder = _dateTimeHlper.GetDateTimeRimnder(treatment.DateRiminder , currentTime), 
+                    StateColor = _dateTimeHlper.GetSatate()
+                };
+
+                listToShow.Add(row);
+            }
+        }
+
+        void DisplaySampleTow(List<TreamntsModelViewForInddex> listToShow, IEnumerable<R1Smaple> repo, DateTime currentTime)
+        {
+            foreach (R1Smaple sample in repo)
+            {
+                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
+                {
+                    Id = sample.Id,
+                    Clint = _helper.CheckNullValue(sample.Custmer.Name),
+                    Owner = _helper.CheckNullValue(sample.Owner),
+                    AqarType = _helper.CheckNullValue(sample.AqarType),
+                    CityAndHy = _helper.CheckNullValue(sample.City + " / " + sample.Gada),
+                    Mothmen = _helper.ChekNull(sample.ApplicationUser),
+                    SampleId = _helper.CheckNullValue(sample.Custmer.Sample.Name),
+                    State = _helper.GetState(sample.IsIntered, sample.IsThmin, sample.IsAduit, sample.IsApproved),
+                    Type = 2,
+                    TimeRimnder = _dateTimeHlper.GetDateTimeRimnder(sample.DateRiminder , currentTime),
+                    StateColor = _dateTimeHlper.GetSatate()
+                };
+
+                listToShow.Add(row);
+            }
+        }
+
+        void DisplaySampleThree(List<TreamntsModelViewForInddex> listToShow, IEnumerable<R2Smaple> repo, DateTime currentTime)
+        {
+            foreach (R2Smaple sample in repo)
+            {
+                TreamntsModelViewForInddex row = new TreamntsModelViewForInddex()
+                {
+                    Id = sample.Id,
+                    Clint = _helper.CheckNullValue(sample.Custmer.Name),
+                    Owner = _helper.CheckNullValue(sample.Owner),
+                    AqarType = _helper.CheckNullValue(sample.BuldingType),
+                    CityAndHy = _helper.CheckNullValue(sample.City + " / " + sample.Gada),
+                    Mothmen = _helper.ChekNull(sample.ApplicationUser),
+                    SampleId = _helper.CheckNullValue(sample.Custmer.Sample.Name),
+                    State = _helper.GetState(sample.IsIntered, sample.IsThmin, sample.IsAduit, sample.IsApproved),
+                    Type = 3 ,
+                    TimeRimnder = _dateTimeHlper.GetDateTimeRimnder(sample.DateRiminder , currentTime),
+                    StateColor = _dateTimeHlper.GetSatate()
+                };
+
+                listToShow.Add(row);
+            }
+        }
     }
 }

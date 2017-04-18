@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
-using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
 using CloudApp.Models.ManpulateModel;
 using Microsoft.AspNetCore.Authorization;
@@ -89,7 +88,7 @@ namespace CloudApp.Controllers
 
             };
 
-            local.ReportPath = _env.WebRootPath + "Report/QtReport.rdlc";
+            local.ReportPath = _env.WebRootPath + "/Report/QtReport.rdlc";
             local.EnableExternalImages = true;
             double amount = instruments.Sum(d => d.Amount);
 

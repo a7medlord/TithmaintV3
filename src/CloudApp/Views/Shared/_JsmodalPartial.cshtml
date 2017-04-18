@@ -1,0 +1,49 @@
+﻿
+<script>
+     var flagvalue;
+     var value;
+     var hostname = "@string.Format("http://"+Context.Request.Host)";
+
+     $("#closeAndnew").click(function() {
+         var realvalue = $("#realvalue").val();
+
+         $.get(hostname + "/Flags/Create?id=" + $("#flagid").val() + "&value=" + realvalue,
+             function () {
+
+                 $("#realvalue").val("");
+
+                 var idof = $("#idofselect").val();
+
+                 $("#" + idof).append($("<option></option>")
+                     .attr("value", realvalue).attr("selected", "selected")
+                     .text(realvalue)).trigger('change');
+                 $("#realvalue").val("");
+             });
+
+        
+
+     });
+
+     $("#SaveAndClose").click(function() {
+         var realvalue = $("#realvalue").val();
+
+         $.get(hostname + "/Flags/Create?id=" + $("#flagid").val() + "&value=" + realvalue,
+             function () {
+                 $('#mymodal').modal('hide');
+                 var idof = $("#idofselect").val();
+                 $("#" + idof).append($("<option></option>")
+                     .attr("value", realvalue).attr("selected", "selected")
+                     .text(realvalue)).trigger('change');
+
+                 $("#realvalue").val("");
+             });
+         
+     });
+
+     $("#CLose").click(function () {
+         $('#mymodal').modal('hide');
+         $("#realvalue").val("");
+     });
+
+</script>    
+

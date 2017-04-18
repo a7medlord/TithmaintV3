@@ -15,5 +15,7 @@ namespace CloudApp.RepoInterFace
         R1Smaple GetTrementWithAttachmentFiles(long treamnetid);
 
         IEnumerable<R1Smaple> GetTreamentWithSampleAndAppUserCms();
+
+        long GetAutoIncreesNumber();
     }
 }

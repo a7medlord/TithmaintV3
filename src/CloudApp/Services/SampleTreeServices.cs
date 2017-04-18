@@ -177,5 +177,13 @@ namespace CloudApp.Services
             return _repostry.GetTreamentWithSampleAndAppUserCms();
         }
 
+        public long GetAutoIncreesNumber(DateTime date)
+        {
+            string time = date.ToString("yy-MM-dd");
+            string[] data = time.Split('-');
+            long id = _repostry.GetAutoIncreesNumber();
+            string dateformater = data[0] + "" + data[1] + "" + id;
+            return Convert.ToInt32(dateformater);
+        }
     }
 }

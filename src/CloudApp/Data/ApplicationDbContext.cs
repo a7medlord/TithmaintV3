@@ -16,14 +16,6 @@ namespace CloudApp.Data
 
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
-        }
-
         public DbSet<Custmer> Custmer { get; set; }
 
         public DbSet<Quotation> Quotation { get; set; }
@@ -42,9 +34,11 @@ namespace CloudApp.Data
 
         public DbSet<AttachmentForR2Sample> AttachmentForR2Samples { get; set; }
 
-        public DbSet<CloudApp.Models.BusinessModel.FinModel> FinModel { get; set; }
+        public DbSet<FinModel> FinModel { get; set; }
+
+        public DbSet<AutoIncresTable> AutoIncresTable { get; set; }
 
 
-        
+
     }
 }
