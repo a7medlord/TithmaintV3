@@ -67,7 +67,8 @@ namespace CloudApp.Controllers
         public async Task<IActionResult> Create(int ids)
         {
             Custmer cms = _cmsrepo.GetbyId(ids);
-            ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
+            IList<ApplicationUser> data = await _userManager.GetUsersInRoleAsync("th");
+            ViewData["UserId"] = new SelectList(data.ToList() , "Id", "EmployName");
             ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
             ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");

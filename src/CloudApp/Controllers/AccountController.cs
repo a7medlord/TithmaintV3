@@ -91,6 +91,7 @@ namespace CloudApp.Controllers
         public async Task<RedirectToActionResult> Addroles(IdentityRole role)
         {
            await _roleManager.CreateAsync(role);
+            
             return RedirectToAction("Addroles");
         }
 
