@@ -5,7 +5,10 @@
 }
 
 <p>
-    <a asp-action="Select_custmer" class="btn btn-primary">اضافه جديد</a>
+   @if (!IsMothmen())
+   {
+       <a asp-action="Select_custmer" class="btn btn-primary">اضافه جديد</a>
+   }
 </p>
 
 <style>
@@ -138,10 +141,19 @@
                               
                                 <td>
                                     <i class="data" style="display: none">@string.Format(item.Id + ";" + item.Type)</i>
-                                    <a asp-action="EditRouter"  asp-route-id="@string.Format(item.Id + ";" + item.Type)"><i class="glyphicon glyphicon-edit text-primary"></i></a> &nbsp;&nbsp;
-                                    <a asp-action="Printout"  asp-route-id="@string.Format(item.Id + ";" + item.Type)"><i class="icon-print text-primary"></i></a> &nbsp;&nbsp;
-                                    <a href="#" onclick="Ondelete(this, @item.Type);"><i class="icon-trash text-primary"></i></a>
-                                    <a href="#" onclick="Onsendemail(this);" id="sendemail" class="text-primary"><i class="icon-mail"></i></a>
+
+                                    
+                                    <a asp-action="EditRouter" asp-route-id="@string.Format(item.Id + ";" + item.Type)"><i class="glyphicon glyphicon-edit text-primary"></i></a> &nbsp; &nbsp;
+                                    @if (!IsMothmen())
+                                    {
+                                        <a asp-action="Printout"  asp-route-id="@string.Format(item.Id + ";" + item.Type)"><i class="icon-print text-primary"></i></a>@: &nbsp;&nbsp;
+                                        if (Isapr())
+                                         {
+                                             <a href="#" onclick="Ondelete(this, @item.Type);"><i class="icon-trash text-primary"></i></a>
+                                         }
+                                        <a href="#" onclick="Onsendemail(this);" id="sendemail" class="text-primary"><i class="icon-mail"></i></a>
+                                    }
+                                   
                                 </td>
                             </tr>
                         }
@@ -187,4 +199,38 @@
             }
         }
     </script>
+}
+
+
+@functions
+{
+
+    bool IsEntring()
+    {
+        bool value = User.IsInRole("en");
+        return value;
+    }
+
+    bool IsMothmen()
+    {
+        return User.IsInRole("th");
+    }
+
+    bool IsAud()
+    {
+        return User.IsInRole("au");
+    }
+
+    bool Isapr()
+    {
+        return User.IsInRole("apr");
+    }
+
+    bool IsFincal()
+    {
+        return User.IsInRole("fn");
+    }
+
+
+
 }

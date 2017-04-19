@@ -7,14 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
-using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
 using CloudApp.Models.ManpulateModel;
 using CloudApp.RepositoriesClasses;
 using CloudApp.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Reporting.WebForms;
 
 namespace CloudApp.Controllers
 {
@@ -47,9 +45,9 @@ namespace CloudApp.Controllers
             return File(rendervalue, "application/pdf");
         }
         
-        public IActionResult Create(int ids)
+        public async Task<IActionResult> Create(int ids)
         {
-           GetBinding();
+          await GetBinding();
             var cms = _cmsRepostry.GetbyId(ids);
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
@@ -204,9 +202,11 @@ namespace CloudApp.Controllers
             _towServices.UpdateExistTreament(row);
         }
 
-        void GetBinding()
+       async Task GetBinding()
         {
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
+            IList<ApplicationUser> data = await _userManager.GetUsersInRoleAsync("th");
+
+            ViewData["ApplicationUserId"] = new SelectList(data.ToList(), "Id", "EmployName");
             ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
             ViewData["desinArch"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DesginArch), "Value", "Value");
             ViewData["Mansob"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Mansob), "Value", "Value");

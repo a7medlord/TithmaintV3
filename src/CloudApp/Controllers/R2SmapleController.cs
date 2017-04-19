@@ -60,9 +60,9 @@ namespace CloudApp.Controllers
             return Json(guid);
         }
 
-        public IActionResult Create(int ids)
+        public async Task<IActionResult> Create(int ids)
         {
-         GetBinding();
+        await GetBinding();
             var cms = _custemerRepostry.GetbyId(ids);
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
@@ -210,14 +210,17 @@ namespace CloudApp.Controllers
             row.IsApproved = true;
             _sampleTreeServices.UpdateExistTreament(row);
         }
+
         private bool R2SmapleExists(long id)
         {
             return _context.R2Smaple.Any(e => e.Id == id);
         }
 
-        void GetBinding()
+        async Task GetBinding()
         {
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
+            IList<ApplicationUser> data = await _userManager.GetUsersInRoleAsync("th");
+
+            ViewData["ApplicationUserId"] = new SelectList(data.ToList(), "Id", "EmployName");
             ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
             ViewData["butype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BulsingType), "Value", "Value");
             ViewData["InterFaces"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Interfaces), "Value", "Value");

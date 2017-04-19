@@ -2,24 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Net.Mime;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
-using CloudApp.HelperClass;
-using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
 using CloudApp.Models.ManpulateModel;
 using CloudApp.RepositoriesClasses;
 using CloudApp.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.Internal;
-using Microsoft.Reporting.WebForms;
 
 namespace CloudApp.Controllers
 {

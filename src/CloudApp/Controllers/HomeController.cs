@@ -129,23 +129,54 @@ namespace CloudApp.Controllers
         }
         public IActionResult Index()
         {
+            if (!IsEntring() && !IsMothmen() && !IsAud())
+            {
+                ViewBag.thmin = Isthmin();
+                ViewBag.aduit = IsAduit();
+                ViewBag.approved = IsApproved();
+                ViewBag.approveded = Approved();
+                ViewBag.financ = Financial();
+                ViewBag.smaple1 = Sample1();
+                ViewBag.smaple2 = Sample2();
+                ViewBag.smaple3 = Sample3();
+                ViewBag.fsmaple1 = FSample1();
+                ViewBag.fsmaple2 = FSample2();
+                ViewBag.fsmaple3 = FSample3();
 
-            ViewBag.thmin = Isthmin();
-            ViewBag.aduit = IsAduit();
-            ViewBag.approved = IsApproved();
-            ViewBag.approveded = Approved();
-            ViewBag.financ = Financial();
-            ViewBag.smaple1 = Sample1();
-            ViewBag.smaple2 = Sample2();
-            ViewBag.smaple3 = Sample3();
-            ViewBag.fsmaple1 = FSample1();
-            ViewBag.fsmaple2 = FSample2();
-            ViewBag.fsmaple3 = FSample3();
-           
 
-            return View(GetSamples());
+                return View(GetSamples());
+            }
+
+            return RedirectToAction("Index", "MainSamples");
         }
-        
+
+
+        bool IsEntring()
+        {
+            bool value = User.IsInRole("en");
+            return value;
+        }
+
+        bool IsMothmen()
+        {
+            return User.IsInRole("th");
+        }
+
+        bool IsAud()
+        {
+            return User.IsInRole("au");
+        }
+
+        bool Isapr()
+        {
+            return User.IsInRole("apr");
+        }
+
+        bool IsFincal()
+        {
+            return User.IsInRole("fn");
+        }
+
         public IActionResult Error()
         {
             return View();

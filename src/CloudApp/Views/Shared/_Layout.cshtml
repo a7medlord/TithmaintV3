@@ -1,47 +1,49 @@
 ﻿@using CloudApp.Controllers
 <!DOCTYPE html>
 <html>
+
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CloudApp</title>
-    <link href="~/FrameWork/css/entypo.css" rel="stylesheet" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - اداره التثمينات</title>
+    <link href="~/FrameWork/css/entypo.css" rel="stylesheet"/>
 
-    <link href="~/FrameWork/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/FrameWork/css/font-awesome.min.css" rel="stylesheet"/>
 
 
 
-    <link href="~/FrameWork/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/FrameWork/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <link href="~/FrameWork/css/mouldifi-core.css" rel="stylesheet" />
+    <link href="~/FrameWork/css/mouldifi-core.css" rel="stylesheet"/>
 
-    <link href="~/FrameWork/css/plugins/select2/select2.css" rel="stylesheet" />
+    <link href="~/FrameWork/css/plugins/select2/select2.css" rel="stylesheet"/>
 
-    <link href="~/FrameWork/css/mouldifi-forms.css" rel="stylesheet" />
+    <link href="~/FrameWork/css/mouldifi-forms.css" rel="stylesheet"/>
 
-    <link href="~/FrameWork/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="~/FrameWork/css/bootstrap-rtl.min.css" rel="stylesheet"/>
 
-    <link href="~/FrameWork/css/mouldifi-rtl-core.css" rel="stylesheet" />
+    <link href="~/FrameWork/css/mouldifi-rtl-core.css" rel="stylesheet"/>
 
-    <link href="~/FrameWork/css/plugins/datepicker/bootstrap-datepicker.css" rel="stylesheet" />
-   
-    <link href="~/FrameWork/css/plugins/datatables/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/FrameWork/css/plugins/datepicker/bootstrap-datepicker.css" rel="stylesheet"/>
 
-    <link href="~/FrameWork/js/plugins/datatables/extensions/Buttons/css/buttons.bootstrap4.css" rel="stylesheet" />
-    
+    <link href="~/FrameWork/css/plugins/datatables/jquery.dataTables.css" rel="stylesheet"/>
 
-    <link href="~/FrameWork/js/plugins/datatables/extensions/Buttons/css/buttons.dataTables.css" rel="stylesheet" />
-   
-    
-    <link href="~/Dropzone/basic.min.css" rel="stylesheet" />
-    <link href="~/Dropzone/dropzone.min.css" rel="stylesheet" />
+    <link href="~/FrameWork/js/plugins/datatables/extensions/Buttons/css/buttons.bootstrap4.css" rel="stylesheet"/>
+
+
+    <link href="~/FrameWork/js/plugins/datatables/extensions/Buttons/css/buttons.dataTables.css" rel="stylesheet"/>
+
+
+    <link href="~/Dropzone/basic.min.css" rel="stylesheet"/>
+    <link href="~/Dropzone/dropzone.min.css" rel="stylesheet"/>
 
 </head>
 
 
 <body>
 <div class="page-container">
-    
+
     <div class="page-sidebar">
         <div class="sidebar-fixed">
             <header class="site-header">
@@ -55,12 +57,16 @@
             <ul id="side-nav" class="main-menu navbar-collapse collapse">
 
 
+                @if (!IsEntring() && !IsMothmen() && !IsAud())
+                {
+                    <li><a asp-controller="Home" asp-action="Index"><i class="icon-home"></i><span class="title">الرئيسة</span> <span class="label label-secondary pull-right">@ViewBag.approved</span></a></li>
+                    <li><a asp-controller="Home" asp-action="PriceMap"><i class="icon-map"></i><span class="title">خريطة الاسعار</span> </a></li>
+                }
+                
+                
 
-                <li><a asp-controller="Home" asp-action="Index"><i class="icon-home"></i><span class="title">الرئيسة</span> <span class="label label-secondary pull-right">@ViewBag.approved</span></a></li>
-
-
-                <li><a asp-controller="Home" asp-action="PriceMap"><i class="icon-map"></i><span class="title">خريطة الاسعار</span> </a></li>
-
+            @if (!IsMothmen())
+            {
                 <li class="has-sub">
                     <a asp-controller="Quotations" asp-action="Index"><i class="icon-doc-text"></i><span class="title">عـــروض الأسعــار</span></a>
                     <ul class="nav collapse">
@@ -68,6 +74,7 @@
                         <li><a asp-controller="Quotations" asp-action="Index"><span class="title"> جميع عروض الأسعار</span></a></li>
                     </ul>
                 </li>
+
                 <li class="has-sub">
 
                     <a href="#"><i class="icon-user"></i><span class="title"> العمــلاء</span></a>
@@ -79,42 +86,54 @@
                         <li><a asp-controller="Custmers" asp-action="Index"><span class="title">جميع العملاء</span></a></li>
                     </ul>
                 </li>
+            }
 
                 <li class="has-sub">
 
                     <a href="#"><i class="icon-bookmarks"></i><span class="title">المعاملات</span></a>
 
                     <ul class="nav collapse">
-                        <li><a asp-controller="MainSamples" asp-action="Select_custmer"><span class="title">معاملة جديد* </span></a></li>
+                        
 
-
-                        <li><a href="#" id="GotoIndex" ><span class="title">جميع المعاملات</span></a></li>
+                        @if (!IsMothmen())
+                        {
+                            <li><a asp-controller="MainSamples" asp-action="Select_custmer"><span class="title">معاملة جديد* </span></a></li>
+                        }
+                        <li><a href="#" id="GotoIndex"><span class="title">جميع المعاملات</span></a></li>
                     </ul>
                 </li>
 
-                <li class="has-sub">
+               @if (!IsEntring() && !IsMothmen() && !IsAud())
+               {
+                   <li class="has-sub">
 
-                    <a href="#"><i class="icon-user"></i><span class="title"> اداره المستحدمين</span></a>
+                       <a href="#"><i class="icon-chart-area"></i><span class="title"> ادارة المالية </span></a>
 
-                    <ul class="nav collapse">
-                        <li><a asp-controller="Account" asp-action="Register"><span class="title">مستخدم جديد* </span></a></li>
+                       <ul class="nav collapse">
+                           <li><a asp-controller="FinModels" asp-action="Index"><span class="title">تقرير الايــرادات والمصروفات </span></a></li>
 
 
-                        <li><a asp-controller="Account" asp-action="RegisterIndex"><span class="title">جميع المستخدمين</span></a></li>
-                    </ul>
-                </li>
+                           <li><a asp-controller="FinModels" asp-action="GetEmployee"><span class="title"> تقرير الموظفين</span></a></li>
+                       </ul>
+                   </li>
+               }
                 
-                <li class="has-sub">
+                @if (!IsEntring() && !IsMothmen() && !IsAud() && !IsFincal())
+                {
+                    <li class="has-sub">
 
-                    <a href="#"><i class="icon-chart-area"></i><span class="title"> ادارة المالية </span></a>
+                        <a href="#"><i class="icon-user"></i><span class="title"> اداره المستحدمين</span></a>
 
-                    <ul class="nav collapse">
-                        <li><a asp-controller="FinModels" asp-action="Index"><span class="title">تقرير الايــرادات والمصروفات </span></a></li>
+                        <ul class="nav collapse">
+                            <li><a asp-controller="Account" asp-action="Register"><span class="title">مستخدم جديد* </span></a></li>
 
 
-                        <li><a asp-controller="FinModels" asp-action="GetEmployee"><span class="title"> تقرير الموظفين</span></a></li>
-                    </ul>
-                </li>
+                            <li><a asp-controller="Account" asp-action="RegisterIndex"><span class="title">جميع المستخدمين</span></a></li>
+                        </ul>
+                    </li>
+                }
+
+
 
             </ul>
         </div>
@@ -128,7 +147,7 @@
 
                 <ul class="user-info pull-left">
                     <li class="profile-info dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="No" src="@string.Format("http://"+Context.Request.Host + "/ProfPic/" + AccountController.picId)">@AccountController.UserName <span class="caret"></span></a>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="No" src="@string.Format("http://" + Context.Request.Host + "/ProfPic/" + AccountController.picId)">@AccountController.UserName <span class="caret"></span></a>
 
                         <ul class="dropdown-menu">
                             <li><a asp-controller="Account" asp-action="RegisterForuser"><i class="icon-user"></i>البروفايل</a></li>
@@ -180,11 +199,11 @@
 <script src="~/FrameWork/js/plugins/datepicker/bootstrap-datepicker.js"></script>
 <script src="~/FrameWork/js/plugins/wizard/jquery.bootstrap.wizard.min.js"></script>
 
-    <script src="~/Dropzone/dropzone.min.js"></script>
-    <script src="~/Dropzone/dropzone-amd-module.min.js"></script>
+<script src="~/Dropzone/dropzone.min.js"></script>
+<script src="~/Dropzone/dropzone-amd-module.min.js"></script>
 <script>
 
-    $(document).ready(function () {
+    $(document).ready(function() {
 
         $("#GotoIndex").click(function() {
             var today = new Date();
@@ -197,10 +216,10 @@
 
         });
 
-       
+
         var $Window = $(window), $Container = $('div.page-container');
 
-        $(".sidebar-collapse-icon").click(function (event) {
+        $(".sidebar-collapse-icon").click(function(event) {
             event.preventDefault();
 
             if ($Container.hasClass('sidebar-collapsed')) {
@@ -224,11 +243,11 @@
     });
 
     $(document).ready(function() {
-        
+
         $(".select2").select2({
             dir: "rtl"
         });
-       
+
         $(".select2-placeholer").select2({
             allowClear: true
         });
@@ -252,55 +271,85 @@
         });
     });
 
-    $(document).ready(function () {
-        
-       var table = $('.dataTables-example').DataTable({
-          
+    $(document).ready(function() {
 
-            "language" : {
+        var table = $('.dataTables-example').DataTable({
+            "language": {
                 "search": "بحـــث",
                 "lengthMenu": "عرض _MENU_ صفوف لكل صفحة",
                 "info": "عرض الصفحة _PAGE_ من _PAGES_"
-            } ,
+            },
 
             dom: '<"html5buttons" B>lTfgitp',
             buttons: [
-              {
-                  extend: 'copyHtml5',
-                  exportOptions: {
-                      columns: [0, ':visible']
-                  },
-                  text: 'نسخ'
-                 
-                 
-              },
-              {
-                  extend: 'excelHtml5',
-                  exportOptions: {
-                      columns: ':visible'
-                  },
-                  text: 'اكسل'
-              },
-              {
-                  extend: 'pdfHtml5',
-                  exportOptions: {
-                      columns: [0, 1, 2, 3, 4]
-                  },
-                  text: 'ملف'
-              },
-              'colvis'
+                {
+                    extend: 'copyHtml5',
+                    exportOptions: {
+                        columns: [0, ':visible']
+                    },
+                    text: 'نسخ'
+
+
+                },
+                {
+                    extend: 'excelHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    text: 'اكسل'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    },
+                    text: 'ملف'
+                },
+                'colvis'
             ]
-       });
-       
+        });
+
     });
 
 
     // form wizerd
-    
- 
+
 
 </script>
 
 @RenderSection("scripts", required: false)
 </body>
 </html>
+
+@functions
+{
+
+    bool IsEntring()
+    {
+        bool value = User.IsInRole("en");
+        return value;
+    }
+
+    bool IsMothmen()
+    {
+        return User.IsInRole("th");
+    }
+
+    bool IsAud()
+    {
+        return User.IsInRole("au");
+    }
+
+    bool Isapr()
+    {
+        return User.IsInRole("apr");
+    }
+
+    bool IsFincal()
+    {
+        return User.IsInRole("fn");
+    }
+
+
+
+}

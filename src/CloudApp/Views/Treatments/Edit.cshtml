@@ -39,85 +39,125 @@
            Html.RenderPartial("EditTthmeen");
     }
 
-        @*tab3*@
-        <div class="tab-pane" id="tab2-3">
-            <h3 class="title text-info"> تدقيق المستندات والأدخال</h3>
-            <p><strong>1.</strong> تمت مراجعة وتدقيق كافة الاواراق والصكوك والمدخلات بعد عمليتي الأدخال و التثمين.
-            </p>
-            <br/>
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="checkbox">
-                        <label><input asp-for="IsAduit" id="nex3" type="checkbox">موافق..</label>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
-                        </div>
-                    </div>
-                </div>
+      @if (!IsEntring())
+      {
+            @*tab3*@
+          <div class="tab-pane" id="tab2-3">
+              <h3 class="title text-info"> تدقيق المستندات والأدخال</h3>
+              <p><strong>1.</strong> تمت مراجعة وتدقيق كافة الاواراق والصكوك والمدخلات بعد عمليتي الأدخال و التثمين.
+              </p>
+              <br/>
+              <div class="row">
+                  <div class="col-md-2">
+                      <div class="checkbox">
+                          <label><input asp-for="IsAduit" id="nex3" type="checkbox">موافق..</label>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-md-offset-2 col-md-10">
+                              <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
+                          </div>
+                      </div>
+                  </div>
        
-            </div>
+              </div>
 
-        </div>
+          </div>
+      }else
+      {
+          <div class="tab-pane" id="tab2-3">
+              <div style="margin-right: 40%">
+                  <img src="~/images/accssDenit.jpg" width="300" height="250" />
+                  <br/>
+                  <br />
+                  <h3>ليست لديك صلاحية مراجع للمعاملات</h3>
+              </div>
+          </div>
+      }
 
-        @*tab4*@
-        <div class="tab-pane" id="tab2-4">
-            <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
-            <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .
-            </p>
-        <div class="row">
-            <div class="col-md-2">
-            <div class="checkbox">
-                <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
-            </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
+       @if (!IsEntring())
+       {
+            @*tab4*@
+           <div class="tab-pane" id="tab2-4">
+               <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
+               <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .
+               </p>
+               <div class="row">
+                   <div class="col-md-2">
+                       <div class="checkbox">
+                           <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
+                       </div>
+                       <div class="form-group">
+                           <div class="col-md-offset-2 col-md-10">
+                               <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       }
+       else
+       {
+           <div class="tab-pane" id="tab2-4">
+               <div style="margin-right: 40%">
+                   <img src="~/images/accssDenit.jpg" width="300" height="250" />
+                   <br/>
+                   <br />
+                   <h3> ليس لديك صلاحية مشرف علي المعاملات</h3>
+               </div>
+               </div>
+       }
+
+        @if (!IsEntring())
+        {
+            @*tab5*@
+            <div class="tab-pane" id="tab2-5">
+                <h3 class="title text-info"> متابعة الجزء المالي الخاص بالمعاملة </h3>
+                <p>
+                    <strong>1.</strong> تمت رصد المبلغ من المعاملة .
+                </p>
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label asp-for="MuthminPrice" class="control-label"></label>
+                            <input asp-for="MuthminPrice" class="form-control" />
+                            <span asp-validation-for="MuthminPrice" class="text-danger" />
+                        </div>
                     </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label asp-for="Price" class="control-label"></label>
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger" />
+                        </div>
+                    </div> 
                 </div>
-            </div>
-        </div>
-        </div>
-
-        @*tab5*@
-        <div class="tab-pane" id="tab2-5">
-            <h3 class="title text-info"> متابعة الجزء المالي الخاص بالمعاملة </h3>
-            <p>
-                <strong>1.</strong> تمت رصد المبلغ من المعاملة .
-            </p>
-            <div class="row">
-
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label asp-for="MuthminPrice" class="control-label"></label>
-                        <input asp-for="MuthminPrice" class="form-control" />
-                        <span asp-validation-for="MuthminPrice" class="text-danger" />
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label asp-for="Price" class="control-label"></label>
-                        <input asp-for="Price" class="form-control" />
-                        <span asp-validation-for="Price" class="text-danger" />
-                    </div>
-                </div> 
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="checkbox">
-                        <label><input id="nex5" asp-for="IsUnlockFin" type="checkbox">موافق..</label>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label><input id="nex5" asp-for="IsUnlockFin" type="checkbox">موافق..</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
     
-        </div>
+            </div>
+        }else
+        {
+            <div class="tab-pane" id="tab2-5">
+                <div style="margin-right: 40%">
+                    <img src="~/images/accssDenit.jpg" width="300" height="250" />
+                    <br/>
+                    <br />
+                    <h3>ليس لديك صلاحية محاسب لاقفال المعاملات ماليآ</h3>
+                </div>
+            </div>
+        }
 
         <ul class="pager wizard">
             <li class="previous"><a href="javascript:void(0)"><i class="icon-right-open"></i>السابق</a></li>
@@ -161,6 +201,41 @@
         await Html.RenderPartialAsync("_JsmodalPartial");
     }
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>
+
+}
+
+
+
+@functions
+{
+
+    bool IsEntring()
+    {
+        bool value = User.IsInRole("en");
+        return value;
+    }
+
+    bool IsMothmen()
+    {
+        return User.IsInRole("th");
+    }
+
+    bool IsAud()
+    {
+        return User.IsInRole("au");
+    }
+
+    bool Isapr()
+    {
+        return User.IsInRole("apr");
+    }
+
+    bool IsFincal()
+    {
+        return User.IsInRole("fn");
+    }
+
+
 
 }
 

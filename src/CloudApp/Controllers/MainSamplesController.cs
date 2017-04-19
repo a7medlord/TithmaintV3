@@ -38,7 +38,8 @@ namespace CloudApp.Controllers
         {
             return View(GetALlWithNoConstrain(currentTime));
         }
-
+        
+        
         public IActionResult Select_custmer()
         {
             ViewData["CustmerId"] = new SelectList(_cmsRepostry.Getall(), "Id", "Name");
