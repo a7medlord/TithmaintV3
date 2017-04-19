@@ -39,7 +39,7 @@
            Html.RenderPartial("EditTthmeen");
     }
 
-      @if (!IsEntring())
+      @if (!IsEntring() && !IsMothmen() && !IsFincal())
       {
             @*tab3*@
           <div class="tab-pane" id="tab2-3">
@@ -74,7 +74,7 @@
           </div>
       }
 
-       @if (!IsEntring())
+       @if (!IsEntring() && !IsMothmen() && !IsFincal())
        {
             @*tab4*@
            <div class="tab-pane" id="tab2-4">
@@ -107,7 +107,7 @@
                </div>
        }
 
-        @if (!IsEntring())
+        @if (!IsEntring() && !IsMothmen())
         {
             @*tab5*@
             <div class="tab-pane" id="tab2-5">

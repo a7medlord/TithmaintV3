@@ -60,9 +60,9 @@ namespace CloudApp.Controllers
             return Json(guid);
         }
 
-        public async Task<IActionResult> Create(int ids)
+        public  IActionResult Create(int ids)
         {
-        await GetBinding();
+         GetBinding();
             var cms = _custemerRepostry.GetbyId(ids);
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
@@ -216,9 +216,9 @@ namespace CloudApp.Controllers
             return _context.R2Smaple.Any(e => e.Id == id);
         }
 
-        async Task GetBinding()
+         void GetBinding()
         {
-            IList<ApplicationUser> data = await _userManager.GetUsersInRoleAsync("th");
+            IList<ApplicationUser> data =  _userManager.GetUsersInRoleAsync("th").Result;
 
             ViewData["ApplicationUserId"] = new SelectList(data.ToList(), "Id", "EmployName");
             ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");

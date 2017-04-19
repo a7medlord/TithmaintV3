@@ -57,10 +57,10 @@ namespace CloudApp.Controllers
             return Json(guid);
         }
 
-        public async Task<IActionResult> Create(int ids)
+        public  IActionResult Create(int ids)
         {
             Custmer cms = _cmsrepo.GetbyId(ids);
-            IList<ApplicationUser> data = await _userManager.GetUsersInRoleAsync("th");
+            IList<ApplicationUser> data =  _userManager.GetUsersInRoleAsync("th").Result;
             ViewData["UserId"] = new SelectList(data.ToList() , "Id", "EmployName");
             ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
             ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");

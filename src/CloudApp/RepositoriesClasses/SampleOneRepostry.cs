@@ -40,7 +40,7 @@ namespace CloudApp.RepositoriesClasses
         {
             return _db.Treatment.Include(treatment => treatment.Custmer)
                 .ThenInclude(custmer => custmer.Sample)
-                .Include(treatment => treatment.ApplicationUser)
+                .Include(treatment => treatment.ApplicationUser).Where(treatment => !treatment.IsUnlockFin)
                 .ToList();
         }
 
@@ -55,6 +55,14 @@ namespace CloudApp.RepositoriesClasses
             }
             SaveToDataBase(0);
             return 0;
+        }
+
+        public IEnumerable<Treatment> TrementMothmenWhere()
+        {
+            return _db.Treatment.Include(treatment => treatment.Custmer)
+                .ThenInclude(custmer => custmer.Sample)
+                .Include(treatment => treatment.ApplicationUser).Where(treatment => !treatment.IsUnlockFin && !treatment.IsThmin)
+                .ToList();
         }
 
         void SaveToDataBase(long idof)

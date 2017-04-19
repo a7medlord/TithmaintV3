@@ -36,7 +36,11 @@ namespace CloudApp.Controllers
 
         public IActionResult Index(DateTime currentTime)
         {
-            return View(GetALlWithNoConstrain(currentTime));
+            if (!User.IsInRole("th"))
+            {
+                return View(GetALlWithNoConstrain(currentTime));
+            }
+            return  View(GetALlWithMothmenConstrain(currentTime));
         }
         
         
@@ -149,6 +153,22 @@ namespace CloudApp.Controllers
             DisplaySampleTow(lists , listoftremantsample2 , currentTime);
            
             DisplaySampleThree(lists , listoftremantsample3 , currentTime);
+
+            return lists;
+        }
+
+        List<TreamntsModelViewForInddex> GetALlWithMothmenConstrain(DateTime currentTime)
+        {
+            List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
+            var listoftremantsample1 = _oneservice.TremntWihtMothmenwhere();
+            var listoftremantsample3 = _sampleTreeServices.TremntWihtMothmenwhere();
+            var listoftremantsample2 = _towServices.TremntWihtMothmenwhere();
+
+            DisplaySampleOne(lists, listoftremantsample1, currentTime);
+
+            DisplaySampleTow(lists, listoftremantsample2, currentTime);
+
+            DisplaySampleThree(lists, listoftremantsample3, currentTime);
 
             return lists;
         }

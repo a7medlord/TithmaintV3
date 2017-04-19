@@ -177,6 +177,11 @@ namespace CloudApp.Services
             return _repostry.GetTreamentWithSampleAndAppUserCms();
         }
 
+        public IEnumerable<R2Smaple> TremntWihtMothmenwhere()
+        {
+            return _repostry.TrementMothmenWhere();
+        }
+
         public long GetAutoIncreesNumber(DateTime date)
         {
             string time = date.ToString("yy-MM-dd");

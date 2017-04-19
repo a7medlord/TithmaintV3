@@ -45,9 +45,9 @@ namespace CloudApp.Controllers
             return File(rendervalue, "application/pdf");
         }
         
-        public async Task<IActionResult> Create(int ids)
+        public  IActionResult Create(int ids)
         {
-          await GetBinding();
+            GetBinding();
             var cms = _cmsRepostry.GetbyId(ids);
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
@@ -202,9 +202,9 @@ namespace CloudApp.Controllers
             _towServices.UpdateExistTreament(row);
         }
 
-       async Task GetBinding()
+        void GetBinding()
         {
-            IList<ApplicationUser> data = await _userManager.GetUsersInRoleAsync("th");
+            IList<ApplicationUser> data = _userManager.GetUsersInRoleAsync("th").Result;
 
             ViewData["ApplicationUserId"] = new SelectList(data.ToList(), "Id", "EmployName");
             ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");

@@ -36,7 +36,9 @@ namespace CloudApp.RepositoriesClasses
 
         public IEnumerable<R2Smaple> GetTreamentWithSampleAndAppUserCms()
         {
-           return _db.R2Smaple.Include(treatment => treatment.Custmer).ThenInclude(custmer => custmer.Sample).Include(treatment => treatment.ApplicationUser).ToList();
+           return _db.R2Smaple.Include(treatment => treatment.Custmer).
+                ThenInclude(custmer => custmer.Sample).
+                Include(treatment => treatment.ApplicationUser).Where(treatment => !treatment.IsUnlockFin).ToList();
         }
 
         public long GetAutoIncreesNumber()
@@ -52,6 +54,15 @@ namespace CloudApp.RepositoriesClasses
             SaveToDataBase(0);
             return 0;
         }
+
+        public IEnumerable<R2Smaple> TrementMothmenWhere()
+        {
+            return _db.R2Smaple.Include(treatment => treatment.Custmer)
+                .ThenInclude(custmer => custmer.Sample)
+                .Include(treatment => treatment.ApplicationUser).Where(treatment => !treatment.IsUnlockFin && !treatment.IsThmin)
+                .ToList();
+        }
+
         void SaveToDataBase(long idof)
         {
             AutoIncresTable incres = new AutoIncresTable() { LastId = idof + 1 };

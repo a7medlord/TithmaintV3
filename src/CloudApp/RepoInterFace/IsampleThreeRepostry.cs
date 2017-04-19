@@ -18,5 +18,7 @@ namespace CloudApp.RepoInterFace
         IEnumerable<R2Smaple> GetTreamentWithSampleAndAppUserCms();
 
         long GetAutoIncreesNumber();
+
+        IEnumerable<R2Smaple> TrementMothmenWhere();
     }
 }
