@@ -15,7 +15,7 @@ namespace CloudApp.RepositoriesClasses
         public SampleOneRepostry(ApplicationDbContext db ) : base(db)
         {
             _db = db;
-        
+            
         }
 
         public IEnumerable<AttachmentForTreament> GetTrementAttchment(long tremntid)

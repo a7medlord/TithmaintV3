@@ -34,13 +34,22 @@ namespace CloudApp.Controllers
             _dateTimeHlper = new DateTimeHlper();
         }
 
-        public IActionResult Index(DateTime currentTime)
+        public IActionResult Index(DateTime? currentTime)
         {
+            if (currentTime != null)
+            {
+                if (!User.IsInRole("th"))
+                {
+                    return View(GetALlWithNoConstrain(currentTime.Value));
+                }
+                return View(GetALlWithMothmenConstrain(currentTime.Value));
+            }
+            DateTime time = Convert.ToDateTime(DateTime.Now.ToString("HH:m:s"));
             if (!User.IsInRole("th"))
             {
-                return View(GetALlWithNoConstrain(currentTime));
+                return View(GetALlWithNoConstrain(time));
             }
-            return  View(GetALlWithMothmenConstrain(currentTime));
+            return View(GetALlWithMothmenConstrain(time));
         }
         
         

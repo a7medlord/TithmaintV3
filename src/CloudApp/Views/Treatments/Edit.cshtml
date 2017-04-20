@@ -197,11 +197,14 @@
     <script src="~/js/SampleOneEdit.js">
         
     </script>
+
     @{
         await Html.RenderPartialAsync("_JsmodalPartial");
-    }
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>
 
+        await Html.RenderPartialAsync("PermationForMap");
+    }
+    
+    
 }
 
 
@@ -235,8 +238,7 @@
         return User.IsInRole("fn");
     }
 
-
-
+    
 }
 
 

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,24 +19,26 @@ namespace CloudApp.Controllers
     public class TreatmentsController : Controller
     {
         #region CtorVar
+
         private readonly ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
         private IHostingEnvironment _env;
         private readonly SampleOneServices _service;
         private readonly CustemerRepostry _cmsrepo;
-     
+
         #endregion
-        
-        public TreatmentsController(ApplicationDbContext context , UserManager<ApplicationUser> user , IHostingEnvironment env)
+
+        public TreatmentsController(ApplicationDbContext context, UserManager<ApplicationUser> user,
+            IHostingEnvironment env)
         {
             _context = context;
             _userManager = user;
             _env = env;
-            _service = new SampleOneServices(context , new CustemerRepostry(context));
+            _service = new SampleOneServices(context, new CustemerRepostry(context));
             _cmsrepo = new CustemerRepostry(_context);
-         
+
         }
-        
+
         public IActionResult GetSample0Report(long id)
         {
 
@@ -44,28 +46,32 @@ namespace CloudApp.Controllers
 
             return File(rendervalue, "application/pdf");
         }
-        
+
         [HttpPost]
         public async Task<JsonResult> UploadFile()
         {
-                string guid = Guid.NewGuid().ToString();
-                string filepath = "sample1attachment/" + guid + ".jpg";
-                var strem = new FileStream(Path.Combine(_env.WebRootPath, filepath), FileMode.Create);
-                await Request.Form.Files[0].CopyToAsync(strem);
-                strem.Close();
-                strem.Dispose();
+            string guid = Guid.NewGuid().ToString();
+            string filepath = "sample1attachment/" + guid + ".jpg";
+            var strem = new FileStream(Path.Combine(_env.WebRootPath, filepath), FileMode.Create);
+            await Request.Form.Files[0].CopyToAsync(strem);
+            strem.Close();
+            strem.Dispose();
             return Json(guid);
         }
 
-        public  IActionResult Create(int ids)
+        public IActionResult Create(int ids)
         {
             Custmer cms = _cmsrepo.GetbyId(ids);
-            IList<ApplicationUser> data =  _userManager.GetUsersInRoleAsync("th").Result;
-            ViewData["UserId"] = new SelectList(data.ToList() , "Id", "EmployName");
-            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
-            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");
-            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
-            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
+            IList<ApplicationUser> data = _userManager.GetUsersInRoleAsync("th").Result;
+            ViewData["UserId"] = new SelectList(data.ToList(), "Id", "EmployName");
+            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value",
+                "Value");
+            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value",
+                "Value");
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value",
+                "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value",
+                "Value");
             ViewData["cmsname"] = cms;
             return View(new Treatment());
         }
@@ -82,9 +88,9 @@ namespace CloudApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind ]Treatment treatment , string ids)
+        public async Task<IActionResult> Create([Bind] Treatment treatment, string ids)
         {
-          
+
             if (ModelState.IsValid)
             {
                 treatment.Id = _service.GetAutoIncreesNumber(treatment.DateOfBegin);
@@ -94,7 +100,7 @@ namespace CloudApp.Controllers
                     treatment.AttachmentForTreaments = new List<AttachmentForTreament>();
                     for (int i = 0; i < imgsids.Length - 1; i++)
                     {
-                        treatment.AttachmentForTreaments.Add(new AttachmentForTreament() { AttachmentId = imgsids[i] });
+                        treatment.AttachmentForTreaments.Add(new AttachmentForTreament() {AttachmentId = imgsids[i]});
                     }
                 }
                 if (treatment.IsAduit && User.IsInRole("au"))
@@ -108,24 +114,27 @@ namespace CloudApp.Controllers
                 if (treatment.IsIntered && User.IsInRole("en"))
                 {
                     treatment.Intered = _userManager.GetUserId(User);
-                } if (treatment.IsThmin && User.IsInRole("th"))
+                }
+                if (treatment.IsThmin && User.IsInRole("th"))
                 {
                     treatment.Muthmen = _userManager.GetUserId(User);
                 }
                 _service.CreatNewTreamnt(treatment);
-                
-                return RedirectToAction("Edit", new {Id=treatment.Id});
+
+                return RedirectToAction("Edit", new {Id = treatment.Id});
             }
             await GetListBind(treatment.CustmerId);
-            return View("Create",treatment);
+            return View("Create", treatment);
         }
 
         async Task GetListBind(long cmsSelectId)
         {
             ViewData["CustmerId"] = new SelectList(_cmsrepo.Getall().ToList(), "Id", "Name", cmsSelectId);
             ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
-            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
-            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value", "Value");
+            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value",
+                "Value");
+            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value",
+                "Value");
         }
 
         public JsonResult RemoveFile(string name)
@@ -134,7 +143,7 @@ namespace CloudApp.Controllers
             _context.SaveChanges();
             return Json("true");
         }
-     
+
         public async Task<IActionResult> Edit(long id)
         {
             var treatment = _service.GetTrementWithAtTreatment(id);
@@ -147,18 +156,26 @@ namespace CloudApp.Controllers
             string files = "";
             foreach (AttachmentForTreament file in treatment.AttachmentForTreaments)
             {
-                    files += file.AttachmentId + ";";
+                files += file.AttachmentId + ";";
             }
             ViewData["imgs"] = files;
-           await GetListBind(treatment.CustmerId);
-            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
-            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
+            await GetListBind(treatment.CustmerId);
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value",
+                "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value",
+                "Value");
             ViewData["cmsname"] = treatment.Custmer;
+            if (User.IsInRole("apr") || User.IsInRole("au"))
+            {
+                var data = GetData();
+
+                ViewData["data"] = data;
+            }
             return View(treatment);
         }
-        
+
         [HttpPost]
-        public async Task<IActionResult> Edit(long id, [Bind] Treatment treatment , string ids)
+        public async Task<IActionResult> Edit(long id, [Bind] Treatment treatment, string ids)
         {
             if (id != treatment.Id)
             {
@@ -175,7 +192,8 @@ namespace CloudApp.Controllers
                         treatment.AttachmentForTreaments = new List<AttachmentForTreament>();
                         for (int i = 0; i < imgsids.Length - 1; i++)
                         {
-                            treatment.AttachmentForTreaments.Add(new AttachmentForTreament() { AttachmentId = imgsids[i] });
+                            treatment.AttachmentForTreaments.Add(
+                                new AttachmentForTreament() {AttachmentId = imgsids[i]});
                         }
                     }
 
@@ -198,8 +216,8 @@ namespace CloudApp.Controllers
                     }
 
                     _service.UpdateExistTreament(treatment);
-                   
-                    RedirectToAction("Index" , "MainSamples");
+
+                    RedirectToAction("Index", "MainSamples");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -209,12 +227,12 @@ namespace CloudApp.Controllers
                     }
                     throw;
                 }
-                return RedirectToAction("Index" , "MainSamples");
+                return RedirectToAction("Index", "MainSamples");
             }
-          await  GetListBind(treatment.CustmerId);
+            await GetListBind(treatment.CustmerId);
             return View(treatment);
         }
-        
+
         //What is this ??? Single Respon
         public void EditAprove(long id)
         {
@@ -222,13 +240,110 @@ namespace CloudApp.Controllers
             row.IsApproved = true;
             _service.UpdateExistTreament(row);
         }
-        
+
         private bool TreatmentExists(long id)
         {
             return _context.Treatment.Any(e => e.Id == id);
 
         }
 
-       
+
+
+
+        public List<PriceMapModelView> FilterExpr1()
+        {
+            List<PriceMapModelView> reslt = new List<PriceMapModelView>();
+
+            var allTrementWith1 = _context.Treatment.ToList();
+
+            foreach (Treatment treatment in allTrementWith1)
+            {
+                PriceMapModelView item = new PriceMapModelView()
+                {
+                    TypeOfAqar = treatment.Tbuild,
+                    Type = 1,
+                    Id = treatment.Id,
+                    Area = treatment.Area,
+                    Classfications = "لا يوجد",
+                    PriceOfMeter = treatment.MeterPriceForBulding.ToString(),
+                    SoqfPrice = treatment.TotalPriceNumber.ToString(),
+                    Longtut = treatment.Longtute,
+                    Latutue = treatment.Latute
+                };
+                reslt.Add(item);
+            }
+
+            return reslt;
+        }
+
+        public List<PriceMapModelView> FilterExpr2()
+        {
+            List<PriceMapModelView> reslt = new List<PriceMapModelView>();
+
+            var allTrementWith2 = _context.R1Smaple.ToList();
+
+            foreach (R1Smaple treatment in allTrementWith2)
+            {
+                PriceMapModelView item = new PriceMapModelView()
+                {
+                    TypeOfAqar = treatment.AqarType,
+                    Type = 2,
+                    Id = treatment.Id,
+                    Area = "لا يوجد",
+                    Classfications = "لا يوجد",
+                    PriceOfMeter = "لا يوجد",
+                    SoqfPrice = "لا يوجد",
+                    Longtut = treatment.Longtute,
+                    Latutue = treatment.Latute
+                };
+                reslt.Add(item);
+            }
+
+            return reslt;
+        }
+
+        public List<PriceMapModelView> FilterExpr3()
+        {
+            List<PriceMapModelView> reslt = new List<PriceMapModelView>();
+
+            var allTrementWith3 = _context.R2Smaple.ToList();
+
+            foreach (R2Smaple treatment in allTrementWith3)
+            {
+                PriceMapModelView item = new PriceMapModelView()
+                {
+                    TypeOfAqar = treatment.BuldingType,
+                    Type = 3,
+                    Id = treatment.Id,
+                    Area = "لا يوجد",
+                    Classfications = "لا يوجد",
+                    PriceOfMeter = "لا يوجد",
+                    SoqfPrice = "لا يوجد",
+                    Longtut = treatment.Longtute,
+                    Latutue = treatment.Latute
+                };
+                reslt.Add(item);
+            }
+
+            return reslt;
+        }
+
+
+        List<PriceMapModelView> GetData()
+        {
+            List<PriceMapModelView> reslt = new List<PriceMapModelView>();
+            var data1 = FilterExpr1();
+            var data2 = FilterExpr2();
+            var data3 = FilterExpr3();
+
+            reslt.AddRange(data1);
+            reslt.AddRange(data2);
+            reslt.AddRange(data3);
+
+
+            return reslt;
+
+
+        }
     }
 }

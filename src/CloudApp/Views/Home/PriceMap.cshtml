@@ -71,15 +71,16 @@
 @section scripts
 {
     <script>
-        var info = [];
-        @if (ViewBag.data != null) {
+        var info = [] = @Html.Raw(Json.Serialize(ViewBag.data));
+        console.log("arry : " , info);
+        @*@if (ViewBag.data != null) {
     foreach(PriceMapModelView item in (List<PriceMapModelView>)ViewBag.data)
     {
         <text>
             info.push({Longtut:@item.Longtut,Latutue:@item.Latutue ,TypeOfAqar: "@item.TypeOfAqar" , Type: @item.Type , Id: @item.Id , Area: "@item.Area" ,Classfications: "@item.Classfications" , PriceOfMeter: "@item.PriceOfMeter ", SoqfPrice: "@item.SoqfPrice"});
         </text>
     }
-}
+}*@
 
         function mapwork() {
             var myLatLng = { lat: 24.0592891, lng: 49.6009431 };

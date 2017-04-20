@@ -146,8 +146,9 @@ namespace CloudApp.Controllers
 
                 return View(GetSamples());
             }
+            DateTime time = Convert.ToDateTime(DateTime.Now.ToString("HH:m:s"));
 
-            return RedirectToAction("Index", "MainSamples");
+            return RedirectToAction("Index", "MainSamples" , new { currentTime =  time});
         }
 
 

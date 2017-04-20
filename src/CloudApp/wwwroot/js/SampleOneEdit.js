@@ -399,3 +399,9 @@ $("#GenlocFlag").click(function () {
     $('#mymodal').modal('show');
 
 });
+
+$('#date-popup1').datepicker({
+    keyboardNavigation: false,
+    forceParse: false,
+    todayHighlight: true
+});
