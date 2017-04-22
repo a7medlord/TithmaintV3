@@ -11581,7 +11581,6 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>9.40596cm</Top>
-            <Left>0cm</Left>
             <Height>0.61902cm</Height>
             <Width>9.86592cm</Width>
             <ZIndex>2</ZIndex>
@@ -12709,7 +12708,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>c6bcf882-a057-4f16-b887-2e2ae18c5825</rd:DataSourceID>
+      <rd:DataSourceID>23d6b01e-e78c-4e75-8c97-49b1a98bf898</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
