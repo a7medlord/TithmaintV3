@@ -11,7 +11,12 @@ namespace CloudApp.Models.BusinessModel
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long Id { get; set; }
         [Display(Name = "نوع العقار")]
-        public string BuldingType { get; set; }
+        public string AqarType { get; set; }
+        public BankModel BankModel { get; set; }
+        [Display(Name = "البنك")]
+        public long BankModelId { get; set; }
+        [Display(Name = "الخاص بالعميل")]
+        public string Scustmer { get; set; }
         [Display(Name = "مالك العقار")]
         public string Owner { get; set; }
         [Display(Name = "تاريخ التسليم")]
@@ -145,13 +150,13 @@ namespace CloudApp.Models.BusinessModel
 
         // حاله المبني
         [Display(Name = "رديئ")]
-        public bool BuldingTypeBad { get; set; }
+        public bool AqarTypeBad { get; set; }
 
         [Display(Name = "جيد")]
-        public bool BuldingTypeGood { get; set; }
+        public bool AqarTypeGood { get; set; }
 
         [Display(Name = "ممتاز")]
-        public bool BuldingTypeExlant { get; set; }
+        public bool AqarTypeExlant { get; set; }
 
 
 
@@ -593,7 +598,19 @@ namespace CloudApp.Models.BusinessModel
         public bool IsAduit { get; set; }
         public bool IsApproved { get; set; }
         public bool IsUnlockFin { get; set; }
+        [Display(Name = "ملاحظات")]
+        public string FinNote { get; set; }
 
+
+
+
+        [Display(Name = "تاريخ الاقفال المالي")]
+        [Column(TypeName = "date")]
+        public DateTime FinDateClose { get; set; } = DateTime.Now.Date;
+        [Display(Name = "قيمة الاقفال المالي")]
+        public double FinPriceClose { get; set; }
+        [Display(Name = "خالص")]
+        public bool FinPartClose { get; set; }
         public DateTime DateRiminder { get; set; }
 
         [NotMapped]

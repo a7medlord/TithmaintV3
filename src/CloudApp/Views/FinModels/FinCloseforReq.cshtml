@@ -1,0 +1,201 @@
+﻿@model IEnumerable<CloudApp.Models.ManpulateModel.FinCloseModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2> مطالبات مالية  </h2>
+        <div class="row">
+            
+
+            <div class="col-md-3">
+                <label class="control-label">العميل</label>
+                <select id="cms" asp-items="ViewBag.CustmerId" class="select2 form-control" >  </select>
+            </div>
+
+            <div class="col-md-3">
+                <label class="control-label">من</label>
+                <div id="date-popup" class="input-group date">
+                    <input id="date1" type="text" data-format="D, dd MM yyyy" class="form-control">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="control-label">الي</label>
+
+                <div id="date-popup1" class="input-group date">
+                    <input id="date2" type="text" data-format="D, dd MM yyyy" class="form-control">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <label class="control-label">البنك</label>
+                <select id="my_multiselect" name="selectMultiple" class="select2 form-control" asp-items="ViewBag.BankId" data-placeholder="اختيار البنك" multiple>
+
+                </select>
+            </div> 
+            
+
+
+            <div class="col-md-8">
+                <br/>
+                <a id="btn_filter" class="btn btn-primary">
+                    فــرز
+                </a>
+                
+                <a id="print" target="_blank" class="btn btn-danger">
+                    طباعة
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<br/>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title"></h3>
+                <ul class="panel-tool-options"> 
+                    <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                    <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                    <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+         
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Custmer)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Scustmer)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Bank)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Owner)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Tbuild)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Place)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SNum)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FinDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Price)
+                            </th>
+                        
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Custmer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Scustmer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Bank)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Owner)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tbuild)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Place)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SNum)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FinDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                                
+                    
+                            </tr>
+                        }
+                        </tbody>
+          
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+
+    <script>
+     
+  
+
+        $("#btn_filter").click(function() {
+
+            location.href = "/FinModels/FinCloseforReq?date1=" + $("#date1").val() + "&date2=" + $("#date2").val() + "&cms=" + $("#cms").val();
+        });
+
+        $("#print").click(function () {
+
+            var selVal = "";
+     
+            $("#my_multiselect option:selected").each(function () {
+                var $this = $(this);
+                if ($this.length) {
+                    selVal += $this.val() + ";" + $this.text() + ",";;
+                    
+                }
+            });
+
+            window.open(
+                    "/FinModels/FinReqReport?date1=" + $("#date1").val() + "&date2=" + $("#date2").val() + "&cms=" + $("#cms").val() + "&bank=" + selVal        
+                ,
+                '_blank' // <- This is what makes it open in a new window.
+            );
+    
+        });
+
+
+    </script>
+}
+

@@ -34,9 +34,13 @@ namespace CloudApp.Data
 
         public DbSet<AttachmentForR2Sample> AttachmentForR2Samples { get; set; }
 
-        public DbSet<FinModel> FinModel { get; set; }
+
 
         public DbSet<AutoIncresTable> AutoIncresTable { get; set; }
+
+        public DbSet<CloudApp.Models.BusinessModel.FinModel> FinModel { get; set; }
+
+        public DbSet<CloudApp.Models.BusinessModel.BankModel> BankModel { get; set; }
 
 
 

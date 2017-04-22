@@ -37,6 +37,9 @@
     <Content Include="wwwroot\js\SampleTowCreat.js" />
     <Content Include="wwwroot\js\SampleTowEdit.js" />
     <Content Include="wwwroot\js\SmapleThreeEdit.js" />
+    <Content Include="wwwroot\Report\FinREqReport.rdlc" />
+    <Content Include="wwwroot\Report\Report1.rdlc" />
+    <Content Include="wwwroot\Report\SupFinREqReport.rdlc" />
   </ItemGroup>
 
   <ItemGroup>

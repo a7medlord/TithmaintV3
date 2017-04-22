@@ -52,6 +52,7 @@ namespace CloudApp.Controllers
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = cms;
+            ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
             return View(new R1Smaple());
         }
         
@@ -136,6 +137,8 @@ namespace CloudApp.Controllers
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = r1Smaple.Custmer;
+
+            ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
             if (User.IsInRole("apr") || User.IsInRole("au"))
             {
                 var data = GetData(r1Smaple.Id);
@@ -216,7 +219,7 @@ namespace CloudApp.Controllers
             ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
             ViewData["desinArch"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DesginArch), "Value", "Value");
             ViewData["Mansob"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Mansob), "Value", "Value");
-            ViewData["buldingtype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BuildingStatus), "Value", "Value");
+            ViewData["AqarType"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BuildingStatus), "Value", "Value");
             ViewData["butype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BulsingType), "Value", "Value");
             ViewData["AqarScope"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AqarScope), "Value", "Value");
             ViewData["BuldingBuzy"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BuldingBuzy), "Value", "Value");
@@ -239,6 +242,18 @@ namespace CloudApp.Controllers
             return _context.R1Smaple.Any(e => e.Id == id);
         }
 
+        public void EditFin(long id, double partprice, long bankid, DateTime date, bool close)
+        {
+            var row = _context.R1Smaple.SingleOrDefault(d => d.Id == id);
+            row.FinPriceClose = partprice;
+            row.BankModelId = bankid;
+            row.FinDateClose = date;
+            row.FinPartClose = close;
+            _context.Update(row);
+            _context.SaveChanges();
+
+        }
+
         public List<PriceMapModelView> FilterExpr1()
         {
             List<PriceMapModelView> reslt = new List<PriceMapModelView>();
@@ -249,7 +264,7 @@ namespace CloudApp.Controllers
             {
                 PriceMapModelView item = new PriceMapModelView()
                 {
-                    TypeOfAqar = treatment.Tbuild,
+                    TypeOfAqar = treatment.AqarType,
                     Type = 1,
                     Id = treatment.Id,
                     Area = treatment.Area,
@@ -303,7 +318,7 @@ namespace CloudApp.Controllers
             {
                 PriceMapModelView item = new PriceMapModelView()
                 {
-                    TypeOfAqar = treatment.BuldingType,
+                    TypeOfAqar = treatment.AqarType,
                     Type = 3,
                     Id = treatment.Id,
                     Area = "لا يوجد",

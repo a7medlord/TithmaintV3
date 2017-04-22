@@ -73,6 +73,7 @@ namespace CloudApp.Controllers
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value",
                 "Value");
             ViewData["cmsname"] = cms;
+            ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
             return View(new Treatment());
         }
 
@@ -165,6 +166,7 @@ namespace CloudApp.Controllers
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value",
                 "Value");
             ViewData["cmsname"] = treatment.Custmer;
+            ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
             if (User.IsInRole("apr") || User.IsInRole("au"))
             {
                 var data = GetData(treatment.Id);
@@ -248,6 +250,17 @@ namespace CloudApp.Controllers
         }
 
 
+        public void EditFin(long id, double partprice, long bankid, DateTime date, bool close)
+        {
+            var row = _service.GetTrementById(id);
+            row.FinPriceClose = partprice;
+            row.BankModelId = bankid;
+            row.FinDateClose = date;
+            row.FinPartClose = close;
+            _service.UpdateExistTreament(row);
+
+        }
+
 
 
         public List<PriceMapModelView> FilterExpr1(long id)
@@ -260,7 +273,7 @@ namespace CloudApp.Controllers
             {
                 PriceMapModelView item = new PriceMapModelView()
                 {
-                    TypeOfAqar = treatment.Tbuild,
+                    TypeOfAqar = treatment.AqarType,
                     Type = 1,
                     Id = treatment.Id,
                     Area = treatment.Area,
@@ -314,7 +327,7 @@ namespace CloudApp.Controllers
             {
                 PriceMapModelView item = new PriceMapModelView()
                 {
-                    TypeOfAqar = treatment.BuldingType,
+                    TypeOfAqar = treatment.AqarType,
                     Type = 3,
                     Id = treatment.Id,
                     Area = "لا يوجد",

@@ -50,7 +50,10 @@
     <Compile Include="BusinessModel\AttachmentForR2Sample.cs" />
     <Compile Include="BusinessModel\AttachmentForTreament.cs" />
     <Compile Include="BusinessModel\Custmer.cs" />
+    <Compile Include="BusinessModel\FinCloseModel.cs" />
+    <Compile Include="BusinessModel\HelpBank.cs" />
     <Compile Include="BusinessModel\Instrument.cs" />
+    <Compile Include="BusinessModel\InvoiceModel.cs" />
     <Compile Include="BusinessModel\Quotation.cs" />
     <Compile Include="BusinessModel\R1Smaple.cs" />
     <Compile Include="BusinessModel\R2Smaple.cs" />
@@ -59,6 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FinREqReport.rdlc" />
     <EmbeddedResource Include="QtReport.rdlc" />
     <EmbeddedResource Include="Report1.rdlc">
       <SubType>Designer</SubType>
@@ -77,8 +81,14 @@
     <EmbeddedResource Include="SupQtReport.rdlc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.AttachmentForTreament.datasource" />
     <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.Custmer.datasource" />
+    <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.FinCloseModel.datasource" />
+    <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.HelpBank.datasource" />
     <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.Instrument.datasource" />
+    <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.InvoiceModel.datasource" />
+    <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.InvoiceModel1.datasource" />
+    <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.InvoiceModel2.datasource" />
     <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.Quotation.datasource" />
     <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.R1Smaple.datasource" />
     <None Include="Properties\DataSources\ReportClassLibrary.BusinessModel.R2Smaple.datasource" />

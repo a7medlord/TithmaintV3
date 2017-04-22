@@ -1,4 +1,4 @@
-﻿
+﻿$(".select2").css("width", "100%");
 //ControlTab For Edit
 function getstattab1() {
 

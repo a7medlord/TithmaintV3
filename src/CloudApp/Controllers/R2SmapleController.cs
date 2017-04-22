@@ -67,6 +67,8 @@ namespace CloudApp.Controllers
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = cms;
+            ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
+
             return View(new R2Smaple());
         }
 
@@ -140,6 +142,8 @@ namespace CloudApp.Controllers
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = r2Smaple.Custmer;
+            ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
+
             if (User.IsInRole("apr") || User.IsInRole("au"))
             {
                 var data = GetData(r2Smaple.Id);
@@ -222,7 +226,19 @@ namespace CloudApp.Controllers
             return _context.R2Smaple.Any(e => e.Id == id);
         }
 
-         void GetBinding()
+        public void EditFin(long id, double partprice, long bankid, DateTime date, bool close)
+        {
+            var row = _context.R2Smaple.SingleOrDefault(d => d.Id == id);
+            row.FinPriceClose = partprice;
+            row.BankModelId = bankid;
+            row.FinDateClose = date;
+            row.FinPartClose = close;
+            _context.Update(row);
+            _context.SaveChanges();
+
+        }
+
+        void GetBinding()
         {
             IList<ApplicationUser> data =  _userManager.GetUsersInRoleAsync("th").Result;
 
@@ -246,7 +262,7 @@ namespace CloudApp.Controllers
             {
                 PriceMapModelView item = new PriceMapModelView()
                 {
-                    TypeOfAqar = treatment.Tbuild,
+                    TypeOfAqar = treatment.AqarType,
                     Type = 1,
                     Id = treatment.Id,
                     Area = treatment.Area,
@@ -300,7 +316,7 @@ namespace CloudApp.Controllers
             {
                 PriceMapModelView item = new PriceMapModelView()
                 {
-                    TypeOfAqar = treatment.BuldingType,
+                    TypeOfAqar = treatment.AqarType,
                     Type = 3,
                     Id = treatment.Id,
                     Area = "لا يوجد",

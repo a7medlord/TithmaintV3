@@ -110,10 +110,19 @@
                        <a href="#"><i class="icon-chart-area"></i><span class="title"> ادارة المالية </span></a>
 
                        <ul class="nav collapse">
+                           <li><a asp-controller="FinModels" asp-action="GetInvoice"><span class="title"> فارتورة المبيعات</span></a></li>
                            <li><a asp-controller="FinModels" asp-action="Index"><span class="title">تقرير الايــرادات والمصروفات </span></a></li>
 
 
                            <li><a asp-controller="FinModels" asp-action="GetEmployee"><span class="title"> تقرير الموظفين</span></a></li>
+
+                           <li><a asp-controller="BankModels" asp-action="Index"><span class="title"> ادارة البنوك</span></a></li>
+                         
+                           <li><a asp-controller="FinModels" asp-action="FinClose"><span class="title"> التحصيل المالي للحسابات البنكية</span></a></li>
+                           <li><a asp-controller="FinModels" asp-action="FinCloseforReq"><span class="title">المطالبات المالية</span></a></li>
+                           <li><a asp-controller="FinModels" asp-action="FinCloseReport"><span class="title"> تقرير الحسابات البنكية</span></a></li>
+                           <li><a asp-controller="FinModels" asp-action="FinFilter"><span class="title"> تقرير المعاملات </span></a></li>
+
                        </ul>
                    </li>
                }
