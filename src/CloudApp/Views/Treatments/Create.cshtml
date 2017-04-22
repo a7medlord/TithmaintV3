@@ -87,7 +87,7 @@
           }
       }
 
-     @if (!IsEntring() && !IsMothmen() && !IsFincal())
+     @if (Isapr())
      {
             @*tab4*@
          <div class="tab-pane" id="tab2-4">
@@ -122,7 +122,7 @@
          }
      }
 
-        @if (!IsEntring() && !IsMothmen())
+        @if (!IsEntring() && !IsMothmen() && ! IsAud())
         {
             @*tab5*@
             <div class="tab-pane" id="tab2-5">
@@ -211,8 +211,6 @@
         
     </script>
     
-
-
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>
     
 }
@@ -221,7 +219,6 @@
 
 @functions
 {
-
     bool IsEntring()
     {
         bool value = User.IsInRole("en");
@@ -247,7 +244,5 @@
     {
         return User.IsInRole("fn");
     }
-
-
-
+    
 }

@@ -53,11 +53,11 @@ namespace CloudApp.RepositoriesClasses
             return 0;
         }
 
-        public IEnumerable<R1Smaple> TrementMothmenWhere()
+        public IEnumerable<R1Smaple> TrementMothmenWhere(string userid)
         {
             return _db.R1Smaple.Include(treatment => treatment.Custmer)
                 .ThenInclude(custmer => custmer.Sample)
-                .Include(treatment => treatment.ApplicationUser).Where(treatment => !treatment.IsUnlockFin && !treatment.IsThmin)
+                .Include(treatment => treatment.ApplicationUser).Where(treatment => !treatment.IsUnlockFin && !treatment.IsThmin && treatment.ApplicationUserId == userid)
                 .ToList();
         }
 

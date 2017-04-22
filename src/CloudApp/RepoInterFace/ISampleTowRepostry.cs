@@ -18,6 +18,6 @@ namespace CloudApp.RepoInterFace
 
         long GetAutoIncreesNumber();
 
-        IEnumerable<R1Smaple> TrementMothmenWhere();
+        IEnumerable<R1Smaple> TrementMothmenWhere(string userid);
     }
 }

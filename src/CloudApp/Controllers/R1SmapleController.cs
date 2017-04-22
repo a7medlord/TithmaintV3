@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -136,6 +136,12 @@ namespace CloudApp.Controllers
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["cmsname"] = r1Smaple.Custmer;
+            if (User.IsInRole("apr") || User.IsInRole("au"))
+            {
+                var data = GetData(r1Smaple.Id);
+
+                ViewData["pricemap"] = data;
+            }
             return View(r1Smaple);
         }
         
@@ -228,10 +234,107 @@ namespace CloudApp.Controllers
 
         }
       
-
         private bool R1SmapleExists(long id)
         {
             return _context.R1Smaple.Any(e => e.Id == id);
+        }
+
+        public List<PriceMapModelView> FilterExpr1()
+        {
+            List<PriceMapModelView> reslt = new List<PriceMapModelView>();
+
+            var allTrementWith1 = _context.Treatment.ToList();
+
+            foreach (Treatment treatment in allTrementWith1)
+            {
+                PriceMapModelView item = new PriceMapModelView()
+                {
+                    TypeOfAqar = treatment.Tbuild,
+                    Type = 1,
+                    Id = treatment.Id,
+                    Area = treatment.Area,
+                    Classfications = "لا يوجد",
+                    PriceOfMeter = treatment.MeterPriceForBulding.ToString(),
+                    SoqfPrice = treatment.TotalPriceNumber.ToString(),
+                    Longtut = treatment.Longtute,
+                    Latutue = treatment.Latute,
+                    IconUrl = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                };
+                reslt.Add(item);
+            }
+
+            return reslt;
+        }
+
+        public List<PriceMapModelView> FilterExpr2(long id)
+        {
+            List<PriceMapModelView> reslt = new List<PriceMapModelView>();
+
+            var allTrementWith2 = _context.R1Smaple.Where(treatment => treatment.Id != id).ToList();
+
+            foreach (R1Smaple treatment in allTrementWith2)
+            {
+                PriceMapModelView item = new PriceMapModelView()
+                {
+                    TypeOfAqar = treatment.AqarType,
+                    Type = 2,
+                    Id = treatment.Id,
+                    Area = "لا يوجد",
+                    Classfications = "لا يوجد",
+                    PriceOfMeter = "لا يوجد",
+                    SoqfPrice = "لا يوجد",
+                    Longtut = treatment.Longtute,
+                    Latutue = treatment.Latute,
+                    IconUrl = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                };
+                reslt.Add(item);
+            }
+
+            return reslt;
+        }
+
+        public List<PriceMapModelView> FilterExpr3()
+        {
+            List<PriceMapModelView> reslt = new List<PriceMapModelView>();
+
+            var allTrementWith3 = _context.R2Smaple.ToList();
+
+            foreach (R2Smaple treatment in allTrementWith3)
+            {
+                PriceMapModelView item = new PriceMapModelView()
+                {
+                    TypeOfAqar = treatment.BuldingType,
+                    Type = 3,
+                    Id = treatment.Id,
+                    Area = "لا يوجد",
+                    Classfications = "لا يوجد",
+                    PriceOfMeter = "لا يوجد",
+                    SoqfPrice = "لا يوجد",
+                    Longtut = treatment.Longtute,
+                    Latutue = treatment.Latute,
+                    IconUrl = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                };
+                reslt.Add(item);
+            }
+
+            return reslt;
+        }
+        
+        List<PriceMapModelView> GetData(long id)
+        {
+            List<PriceMapModelView> reslt = new List<PriceMapModelView>();
+            var data1 = FilterExpr1();
+            var data2 = FilterExpr2(id);
+            var data3 = FilterExpr3();
+
+            reslt.AddRange(data1);
+            reslt.AddRange(data2);
+            reslt.AddRange(data3);
+
+
+            return reslt;
+
+
         }
     }
 }

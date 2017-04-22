@@ -17,7 +17,7 @@ namespace CloudApp.HelperClass
             int newhoures = 0;
             int newminute = 0;
 
-            if (curentdate.Day >= fromdb.Day && curentdate.Hour < fromdb.Hour || fromdb.Day == curentdate.Day)
+            if (curentdate.Day  <= fromdb.Day +1 && curentdate.Hour < fromdb.Hour || fromdb.Day == curentdate.Day)
             {
                 int valhors = fromdb.Hour - curentdate.Hour ;
                 if (valhors > 0)
@@ -42,9 +42,7 @@ namespace CloudApp.HelperClass
 
                 return new[] { newhoures, newminute };
             }
-
-           
-
+            
             return new[] { newhoures, newminute };
         }
       

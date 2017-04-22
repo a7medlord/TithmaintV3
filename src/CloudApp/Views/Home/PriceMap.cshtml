@@ -71,17 +71,12 @@
 @section scripts
 {
     <script>
-        var info = [] = @Html.Raw(Json.Serialize(ViewBag.data));
-        console.log("arry : " , info);
-        @*@if (ViewBag.data != null) {
-    foreach(PriceMapModelView item in (List<PriceMapModelView>)ViewBag.data)
-    {
-        <text>
-            info.push({Longtut:@item.Longtut,Latutue:@item.Latutue ,TypeOfAqar: "@item.TypeOfAqar" , Type: @item.Type , Id: @item.Id , Area: "@item.Area" ,Classfications: "@item.Classfications" , PriceOfMeter: "@item.PriceOfMeter ", SoqfPrice: "@item.SoqfPrice"});
-        </text>
-    }
-}*@
 
+       
+        var info =  @Html.Raw(Json.Serialize(ViewBag.pricemap));
+        
+        console.log("Data", info[0]);
+   
         function mapwork() {
             var myLatLng = { lat: 24.0592891, lng: 49.6009431 };
 
@@ -92,8 +87,9 @@
                 });
 
             for (var i = 0; i < info.length; i++) {
+                
                 var marker1 = new google.maps.Marker({
-                    position: { lat: Number(info[i].Latutue), lng: Number(info[0].Longtut) },
+                    position: { lat: Number(info[i].latutue), lng: Number(info[i].longtut) },
                     map: map,
                     title: 'Hello World!',
                     animation: google.maps.Animation.DROP
@@ -106,16 +102,16 @@
                         function () {
                             infowindow = new google.maps.InfoWindow({
                                 content: '<div><p>نوع العقار : ' +
-                                    info[i].TypeOfAqar +
+                                info[i].typeOfAqar +
                                     '</p><p>تصنيف العقار : ' +
-                                    info[i].Classfications +
+                                info[i].classfications +
                                     '</p><p>المساحه : ' +
-                                    info[i].Area +
+                                info[i].area +
                                     '</p><p>سعر المتر : ' +
-                                    info[i].PriceOfMeter +
+                                info[i].priceOfMeter +
                                     '</p><p>القيمة السوقية : ' +
-                                    info[i].SoqfPrice +
-                                    '</p><p><a target="_blank" href="@string.Format("http://"+Context.Request.Host + "/Treatments/EditRouter/")' + info[i].Id + ";" + info[i].Type + '">معاينة</a></p></div>'
+                                info[i].soqfPrice +
+                                '</p><p><a target="_blank" href="@string.Format("http://"+Context.Request.Host + "/MainSamples/EditRouter/")' + info[i].id + ";" + info[i].type + '">معاينة</a></p></div>'
                             });
 
                             infowindow.open(map, marker1);
@@ -131,7 +127,6 @@
             todayHighlight: true
         });
     </script>
-
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_nL0Zh0BYDb5iZTndmJCr-uHjd1Pvhs&language=ar&libraries=places&callback=mapwork"></script>
 
 }

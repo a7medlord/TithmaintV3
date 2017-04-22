@@ -55,9 +55,9 @@ namespace CloudApp.Services
         {
             return _repostry.GetTreamentWithSampleAndAppUserCms();
         }
-        public IEnumerable<R1Smaple> TremntWihtMothmenwhere()
+        public IEnumerable<R1Smaple> TremntWihtMothmenwhere(string userid)
         {
-            return _repostry.TrementMothmenWhere();
+            return _repostry.TrementMothmenWhere(userid);
         }
         public bool SendEmail(long id, HttpContext context, IHostingEnvironment env)
         {

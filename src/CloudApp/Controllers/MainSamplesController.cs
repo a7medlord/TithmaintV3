@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using Microsoft.AspNetCore.Identity;
 namespace CloudApp.Controllers
 {
     public class MainSamplesController : Controller
@@ -21,8 +21,8 @@ namespace CloudApp.Controllers
         private readonly SampleTreeServices _sampleTreeServices;
         private readonly DateTimeHlper _dateTimeHlper;
         private readonly SampleTowServices _towServices;
-
-        public MainSamplesController(ApplicationDbContext context)
+        private UserManager<ApplicationUser> userManager;
+        public MainSamplesController(ApplicationDbContext context , UserManager<ApplicationUser> _userManager)
         {
             _context = context;
             _cmsRepostry = new CustemerRepostry(context);
@@ -32,6 +32,8 @@ namespace CloudApp.Controllers
             _towServices = new SampleTowServices(context , _cmsRepostry);
             _sampleTreeServices = new SampleTreeServices(context, _cmsRepostry);
             _dateTimeHlper = new DateTimeHlper();
+
+            userManager = _userManager;
         }
 
         public IActionResult Index(DateTime? currentTime)
@@ -42,14 +44,14 @@ namespace CloudApp.Controllers
                 {
                     return View(GetALlWithNoConstrain(currentTime.Value));
                 }
-                return View(GetALlWithMothmenConstrain(currentTime.Value));
+                return View(GetALlWithMothmenConstrain(currentTime.Value , userManager.GetUserId(User)));
             }
             DateTime time = Convert.ToDateTime(DateTime.Now.ToString("HH:m:s"));
             if (!User.IsInRole("th"))
             {
                 return View(GetALlWithNoConstrain(time));
             }
-            return View(GetALlWithMothmenConstrain(time));
+            return View(GetALlWithMothmenConstrain(time, userManager.GetUserId(User)));
         }
         
         
@@ -166,12 +168,12 @@ namespace CloudApp.Controllers
             return lists;
         }
 
-        List<TreamntsModelViewForInddex> GetALlWithMothmenConstrain(DateTime currentTime)
+        List<TreamntsModelViewForInddex> GetALlWithMothmenConstrain(DateTime currentTime , string userid)
         {
             List<TreamntsModelViewForInddex> lists = new List<TreamntsModelViewForInddex>();
-            var listoftremantsample1 = _oneservice.TremntWihtMothmenwhere();
-            var listoftremantsample3 = _sampleTreeServices.TremntWihtMothmenwhere();
-            var listoftremantsample2 = _towServices.TremntWihtMothmenwhere();
+            var listoftremantsample1 = _oneservice.TremntWihtMothmenwhere(userid);
+            var listoftremantsample3 = _sampleTreeServices.TremntWihtMothmenwhere(userid);
+            var listoftremantsample2 = _towServices.TremntWihtMothmenwhere(userid);
 
             DisplaySampleOne(lists, listoftremantsample1, currentTime);
 

@@ -177,9 +177,9 @@ namespace CloudApp.Services
             return _repostry.GetTreamentWithSampleAndAppUserCms();
         }
 
-        public IEnumerable<R2Smaple> TremntWihtMothmenwhere()
+        public IEnumerable<R2Smaple> TremntWihtMothmenwhere(string userid)
         {
-            return _repostry.TrementMothmenWhere();
+            return _repostry.TrementMothmenWhere(userid);
         }
 
         public long GetAutoIncreesNumber(DateTime date)

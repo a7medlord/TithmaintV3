@@ -19,5 +19,7 @@
 
         public string Latutue { get; set; }
 
+        public string IconUrl { get; set; }
+
     }
 }

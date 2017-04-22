@@ -201,7 +201,7 @@ namespace CloudApp.Controllers
         public IActionResult PriceMap(PricParameter pric)
         {
             var data = GetDataByFilter(pric);
-            ViewData["data"] = data;
+            ViewData["pricemap"] = data;
             GetBindig();
             return View();
         }

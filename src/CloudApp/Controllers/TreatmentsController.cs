@@ -167,9 +167,9 @@ namespace CloudApp.Controllers
             ViewData["cmsname"] = treatment.Custmer;
             if (User.IsInRole("apr") || User.IsInRole("au"))
             {
-                var data = GetData();
+                var data = GetData(treatment.Id);
 
-                ViewData["data"] = data;
+                ViewData["pricemap"] = data;
             }
             return View(treatment);
         }
@@ -250,11 +250,11 @@ namespace CloudApp.Controllers
 
 
 
-        public List<PriceMapModelView> FilterExpr1()
+        public List<PriceMapModelView> FilterExpr1(long id)
         {
             List<PriceMapModelView> reslt = new List<PriceMapModelView>();
 
-            var allTrementWith1 = _context.Treatment.ToList();
+            var allTrementWith1 = _context.Treatment.Where(treatment => treatment.Id !=id).ToList();
 
             foreach (Treatment treatment in allTrementWith1)
             {
@@ -268,7 +268,8 @@ namespace CloudApp.Controllers
                     PriceOfMeter = treatment.MeterPriceForBulding.ToString(),
                     SoqfPrice = treatment.TotalPriceNumber.ToString(),
                     Longtut = treatment.Longtute,
-                    Latutue = treatment.Latute
+                    Latutue = treatment.Latute,
+                    IconUrl = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
                 };
                 reslt.Add(item);
             }
@@ -294,7 +295,8 @@ namespace CloudApp.Controllers
                     PriceOfMeter = "لا يوجد",
                     SoqfPrice = "لا يوجد",
                     Longtut = treatment.Longtute,
-                    Latutue = treatment.Latute
+                    Latutue = treatment.Latute,
+                    IconUrl = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
                 };
                 reslt.Add(item);
             }
@@ -320,7 +322,8 @@ namespace CloudApp.Controllers
                     PriceOfMeter = "لا يوجد",
                     SoqfPrice = "لا يوجد",
                     Longtut = treatment.Longtute,
-                    Latutue = treatment.Latute
+                    Latutue = treatment.Latute,
+                    IconUrl = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
                 };
                 reslt.Add(item);
             }
@@ -329,10 +332,10 @@ namespace CloudApp.Controllers
         }
 
 
-        List<PriceMapModelView> GetData()
+        List<PriceMapModelView> GetData(long id)
         {
             List<PriceMapModelView> reslt = new List<PriceMapModelView>();
-            var data1 = FilterExpr1();
+            var data1 = FilterExpr1(id);
             var data2 = FilterExpr2();
             var data3 = FilterExpr3();
 

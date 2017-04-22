@@ -1,15 +1,15 @@
 ﻿@if (User.IsInRole("au") || User.IsInRole("apr"))
 {
-    
+
     <script>
 
         var isloaded = false;
-       
+
         var info =  @Html.Raw(Json.Serialize(ViewBag.pricemap));
-        
+
         function mapwork() {
             var myLatLng = { lat: Number($("#Latute").val()), lng: Number($("#Longtute").val()) };
-           
+
 
             var map = new google.maps.Map(document.getElementById('maptest'),
                 {
@@ -25,15 +25,15 @@
 
             for (var i = 0; i < info.length; i++) {
 
-                
-                
+
+
                 var marker1 = new google.maps.Marker({
                     position: { lat: Number(info[i].latutue), lng: Number(info[i].longtut) },
                     map: map,
                     Icon: info[i].iconUrl,
                     animation: google.maps.Animation.DROP
                 });
-                
+
                 (function (marker1, i) {
 
                     google.maps.event.addListener(marker1,
@@ -124,51 +124,51 @@
                     onTabShow: function ($tab, $navigation, index) {
 
                         switch (index) {
-                            case 0:
-                                if ($("#nex1").prop('checked')) {
-                                    $tab.removeClass('active').addClass('completed');
+                        case 0:
+                            if ($("#nex1").prop('checked')) {
+                                $tab.removeClass('active').addClass('completed');
 
-                                } else {
-                                    $tab.removeClass('completed').addClass('active');
-                                }
-                                break;
-                            case 1:
+                            } else {
+                                $tab.removeClass('completed').addClass('active');
+                            }
+                            break;
+                        case 1:
 
-                                if (!isloaded) {
-                                    mapwork();
-                                    isloaded = true;
-                                }
-                                if ($("#nex2").prop('checked')) {
-                                    $tab.removeClass('active').addClass('completed');
+                            if (!isloaded) {
+                                mapwork();
+                                isloaded = true;
+                            }
+                            if ($("#nex2").prop('checked')) {
+                                $tab.removeClass('active').addClass('completed');
 
-                                } else {
-                                    $tab.removeClass('completed').addClass('active');
-                                }
-                                break;
-                            case 2:
-                                if ($("#nex3").prop('checked')) {
-                                    $tab.removeClass('active').addClass('completed');
+                            } else {
+                                $tab.removeClass('completed').addClass('active');
+                            }
+                            break;
+                        case 2:
+                            if ($("#nex3").prop('checked')) {
+                                $tab.removeClass('active').addClass('completed');
 
-                                } else {
-                                    $tab.removeClass('completed').addClass('active');
-                                }
-                                break;
-                            case 3:
-                                if ($("#nex4").prop('checked')) {
-                                    $tab.removeClass('active').addClass('completed');
+                            } else {
+                                $tab.removeClass('completed').addClass('active');
+                            }
+                            break;
+                        case 3:
+                            if ($("#nex4").prop('checked')) {
+                                $tab.removeClass('active').addClass('completed');
 
-                                } else {
-                                    $tab.removeClass('completed').addClass('active');
-                                }
-                                break;
-                            case 4:
-                                if ($("#nex5").prop('checked')) {
-                                    $tab.removeClass('active').addClass('completed');
+                            } else {
+                                $tab.removeClass('completed').addClass('active');
+                            }
+                            break;
+                        case 4:
+                            if ($("#nex5").prop('checked')) {
+                                $tab.removeClass('active').addClass('completed');
 
-                                } else {
-                                    $tab.removeClass('completed').addClass('active');
-                                }
-                            default:
+                            } else {
+                                $tab.removeClass('completed').addClass('active');
+                            }
+                        default:
 
                         }
 
@@ -191,7 +191,7 @@
 else
 {
     <script>
-        
+
         //Google Map Logic
         var pos;
         var geocoder;
@@ -376,7 +376,7 @@ else
                 ? 'Error: الخدمه فشلت في جلب الموقع'
                 : 'Error: Your browser doesn\'t support geolocation.');
         }
-        
+
         if ($.isFunction($.fn.bootstrapWizard)) {
             $('#rootwizard').bootstrapWizard({
                 tabClass: 'wizard-steps',
@@ -442,7 +442,7 @@ else
                             }
                             break;
                         case 1:
-                   
+
                             if (!isloaded) {
                                 mapwork();
                                 isloaded = true;
@@ -491,7 +491,7 @@ else
                 });
             });
         }
-         
+
 
     </script>
 
