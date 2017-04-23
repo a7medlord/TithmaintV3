@@ -20,15 +20,32 @@
             
             <div asp-validation-summary="All" class="text-danger"></div>
             <input type="hidden" asp-for="Id"/>
-            <div class="form-group">
-                <label asp-for="UserName" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="UserName" class="form-control"/>
-                    <span asp-validation-for="UserName" class="text-danger"></span>
-                </div>
+        <div class="form-group">
+            <label asp-for="UserName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="UserName" class="form-control"/>
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
+        </div>
+            
+            
+        <div class="form-group">
+            <label asp-for="Password" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Password" class="form-control"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
 
-            <div class="form-group">
+        <div class="form-group">
+            <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ConfirmPassword" class="form-control"/>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
                 <label asp-for="Email" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
                     <input asp-for="Email" class="form-control"/>
@@ -50,23 +67,6 @@
                     <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                 </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="Password" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="Password" class="form-control"/>
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="ConfirmPassword" class="form-control"/>
-                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                </div>
-            </div>
-
             <div class="form-group">
                 <label asp-for="IdentityId" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
@@ -129,7 +129,7 @@
                     <label asp-for="IsAproverPercentage"></label>
                 </div>
             </div>
-
+            
             <div class="form-group">
                 <label asp-for="SupervisionPercentage" class="col-md-2 control-label"></label>
                 <div class="col-md-2">
@@ -141,34 +141,88 @@
                     <label asp-for="IsSupervisionPercentage"></label>
                 </div>
             </div>
+            
 
-
-
-
-            <div class="form-group">
+        <div class="form-group">
                 <ol class="list-group">
+                    <li class="list-group-item">
+                      @if (IsInRole("fn"))
+                      {
+                          <input type="checkbox" checked="checked" id="rolesids" name="rolesids" value="FN"/>
 
-                    @foreach (IdentityRole role in ViewBag.roles)
-                    {
-                        if (IsInRole(role.Name))
+                        <label for="rolesids" class="control-label">مــحاسب</label>
+                          <br/>
+                      }
+                      else
+                      {
+                          <input type="checkbox"  id="rolesids" name="rolesids" value="FN" />
+
+                        <label for="rolesids" class="control-label">مــحاسب</label>
+                        <br />
+                      }
+                        
+                        @if (IsInRole("apr"))
                         {
-                            <li class="list-group-item">
-                                <label for="rolesids" class="control-label">@role.Name</label>
+                            
+                            <input type="checkbox" checked="checked" id="rolesids" name="rolesids" value="APR"/>
 
-                                <input type="checkbox" checked="checked" id="rolesids" name="rolesids" value="@role.Name"/>
-
-                            </li>
+                            <label for="rolesids" class="control-label">مــشرف</label>
+                            <br />
                         }
                         else
                         {
-                            <li class="list-group-item">
-                                <label for="rolesids" class="control-label">@role.NormalizedName</label>
+                            <input type="checkbox" id="rolesids" name="rolesids" value="APR" />
 
-                                <input type="checkbox" id="rolesids" name="rolesids" value="@role.Name"/>
-
-                            </li>
+                            <label for="rolesids" class="control-label">مــشرف</label>
+                            <br />
                         }
-                    }
+
+
+                       @if (IsInRole("au"))
+                       {
+                           <input type="checkbox" checked="checked" id="rolesids" name="rolesids" value="AU" />
+
+                           <label for="rolesids" class="control-label">مــدقق</label>
+                        <br />
+                       }
+                       else
+                       {
+                           <input type="checkbox" id="rolesids" name="rolesids" value="AU" />
+
+                           <label for="rolesids" class="control-label">مــدقق</label>
+                        <br />
+                       }
+
+                        @if (IsInRole("th"))
+                        {
+                            <input type="checkbox" checked="checked" id="rolesids" name="rolesids" value="TH"/>
+                            <label for="rolesids" class="control-label">مــثمن</label>
+                            <br />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="rolesids" name="rolesids" value="TH" />
+
+                            <label for="rolesids" class="control-label">مــثمن</label>
+                            <br />
+                        }
+
+                       @if (IsInRole(""))
+                       {
+                           <input type="checkbox" checked="checked" id="rolesids" name="rolesids" value="EN" />
+
+                        <label for="rolesids" class="control-label">مــدخل</label>
+                        <br />
+                       }
+                       else
+                       {
+                           <input type="checkbox" id="rolesids" name="rolesids" value="EN" />
+
+                           <label for="rolesids" class="control-label">مــدخل</label>
+                        <br />
+                       }
+
+                    </li>
 
                 </ol>
 
