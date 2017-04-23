@@ -70,7 +70,7 @@ namespace CloudApp.Controllers
             {
                 
 
-                 foreach (var treatment in  GlobelFilter(cms.ToString(),aqartype ,city ,gada , date1 , date2))
+                 foreach (var treatment in  GlobelFilter1(cms.ToString(),aqartype ,city ,gada , date1.ToString() , date2.ToString()))
             {
                 if (treatment != null)
                 {
@@ -92,7 +92,7 @@ namespace CloudApp.Controllers
                 }
             }
 
-                foreach (var treatment in GlobelFilter(cms.ToString(), aqartype, city, gada, date1, date2))
+                foreach (var treatment in GlobelFilter2(cms.ToString(), aqartype, city, gada, date1.ToString(), date2.ToString()))
                 {
                     if (treatment != null)
                     {
@@ -114,7 +114,7 @@ namespace CloudApp.Controllers
                         });
                     }
                 }
-                foreach (var treatment in GlobelFilter(cms.ToString(), aqartype, city, gada, date1, date2))
+                foreach (var treatment in GlobelFilter3(cms.ToString(), aqartype, city, gada, date1.ToString(), date2.ToString()))
                 {
                     if (treatment != null)
                     {
@@ -151,16 +151,37 @@ namespace CloudApp.Controllers
             return View(models);
         }
 
-        public List<Treatment> GlobelFilter(string cms , string aqartype, string city, string gada , DateTime? date1 , DateTime? date2)
+        public List<Treatment> GlobelFilter1(string cms , string aqartype, string city, string gada , string date1 ,string date2)
         {
-
-            string baseSqlString = $"SELECT * FROM Treatment where DateOfBegin >= {date1} AND DateOfBegin <= {date2} ";
+            string[] d1 = date1.Split(' ');
+            string[] d2 = date1.Split(' ');
+            string baseSqlString = $"SELECT * FROM Treatment where DateOfBegin >= '{d1[0]}' AND DateOfBegin <= '{d2[0]}' ";
             string query = $"{baseSqlString} {AllWhereCluse(cms, aqartype, city,gada ) } ";
 
             var rows = _context.Treatment.FromSql(query).Include(d => d.Custmer).Include(d=>d.BankModel).ToList();
             return rows;
         }
+        public List<R1Smaple> GlobelFilter2(string cms, string aqartype, string city, string gada, string date1, string date2)
+        {
+            string[] d1 = date1.Split(' ');
+            string[] d2 = date1.Split(' ');
+            string baseSqlString = $"SELECT * FROM R1Smaple where DateOfBegin >= '{d1[0]}' AND DateOfBegin <= '{d2[0]}' ";
+            string query = $"{baseSqlString} {AllWhereCluse(cms, aqartype, city, gada) } ";
 
+            var rows = _context.R1Smaple.FromSql(query).Include(d => d.Custmer).Include(d => d.BankModel).ToList();
+            return rows;
+        }
+
+        public List<R2Smaple> GlobelFilter3(string cms, string aqartype, string city, string gada, string date1, string date2)
+        {
+            string[] d1 = date1.Split(' ');
+            string[] d2 = date1.Split(' ');
+            string baseSqlString = $"SELECT * FROM R2Smaple where DateOfBegin >= '{d1[0]}' AND DateOfBegin <= '{d2[0]}' ";
+            string query = $"{baseSqlString} {AllWhereCluse(cms, aqartype, city, gada) } ";
+
+            var rows = _context.R2Smaple.FromSql(query).Include(d => d.Custmer).Include(d => d.BankModel).ToList();
+            return rows;
+        }
         static string AllWhereCluse(string cms, string aqartype, string city, string gada)
         {
             string cmswhere = $"CustmerId = {cms}";
