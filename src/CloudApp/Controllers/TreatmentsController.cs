@@ -13,6 +13,7 @@ using CloudApp.RepositoriesClasses;
 using CloudApp.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace CloudApp.Controllers
 {
@@ -64,13 +65,13 @@ namespace CloudApp.Controllers
             Custmer cms = _cmsrepo.GetbyId(ids);
             IList<ApplicationUser> data = _userManager.GetUsersInRoleAsync("th").Result;
             ViewData["UserId"] = new SelectList(data.ToList(), "Id", "EmployName");
-            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value",
+            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value",
                 "Value");
-            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value",
+            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen).Distinct(Comparer), "Value",
                 "Value");
-            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value",
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value",
                 "Value");
-            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value",
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value",
                 "Value");
             ViewData["cmsname"] = cms;
             ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
@@ -132,9 +133,9 @@ namespace CloudApp.Controllers
         {
             ViewData["CustmerId"] = new SelectList(_cmsrepo.Getall().ToList(), "Id", "Name", cmsSelectId);
             ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
-            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value",
+            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value",
                 "Value");
-            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen), "Value",
+            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen).Distinct(Comparer), "Value",
                 "Value");
         }
 

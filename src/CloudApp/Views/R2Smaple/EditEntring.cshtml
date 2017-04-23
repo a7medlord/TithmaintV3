@@ -4,44 +4,51 @@
 
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<div class="row">
-    <div class="col-md-3" style="pointer-events: none">
-        <div class="form-group">
-            <label asp-for="CustmerId" class="col-md-2 control-label"></label>
+    <div class="row">
+        <div class="col-md-3" style="pointer-events: none">
+            <div class="form-group">
+                <label asp-for="CustmerId" class="col-md-2 control-label"></label>
 
-            <select asp-for="CustmerId" class="select2 form-control">
-                <option value="@ViewBag.cmsname.Id">@ViewBag.cmsname.Name</option>
-               </select>
-           </div>
-       </div>
+                <select asp-for="CustmerId" class="select2 form-control">
+                    <option value="@ViewBag.cmsname.Id">@ViewBag.cmsname.Name</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="Scustmer" class="control-label"></label>
+                <input asp-for="Scustmer" class="form-control" />
+                <span asp-validation-for="Scustmer" class="text-danger" />
+            </div>
+        </div>
 
-       <div class="col-md-3">
-           <div class="form-group">
-               <label asp-for="ApplicationUserId" class="control-label"></label>
-               <select asp-for="ApplicationUserId" class="select2 form-control" asp-items="ViewBag.ApplicationUserId"></select>
-           </div>
-       </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="ApplicationUserId" class="control-label"></label>
+                <select asp-for="ApplicationUserId" class="select2 form-control" asp-items="ViewBag.ApplicationUserId"></select>
+            </div>
+        </div>
 
-       <div class="col-md-3">
-           <div class="form-group">
-               <label asp-for="AqarType" class="control-label"></label>
-               <div class="input-group">
-                   <select asp-for="AqarType" class="select2 form-control" asp-items="ViewBag.butype"></select>
-                   <span class="input-group-btn"><a id="FlagForAqarType" data-toggle="modal" data-id="6" data-se="AqarType" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
-               </div>
-           </div>
-       </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="AqarType" class="control-label"></label>
+                <div class="input-group">
+                    <select asp-for="AqarType" class="select2 form-control" asp-items="ViewBag.butype"></select>
+                    <span class="input-group-btn"><a id="FlagForAqarType" data-toggle="modal" data-id="6" data-se="AqarType" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                </div>
+            </div>
+        </div>
 
-       <div class="col-md-3">
-           <div class="form-group">
-               <label asp-for="Owner" class="control-label"></label>
-               <input asp-for="Owner" class="form-control" />
-               <span asp-validation-for="Owner" class="text-danger" />
-           </div>
-       </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label asp-for="Owner" class="control-label"></label>
+                <input asp-for="Owner" class="form-control" />
+                <span asp-validation-for="Owner" class="text-danger" />
+            </div>
+        </div>
 
 
-   </div>
+    </div>
                     
    <div class="row">
 

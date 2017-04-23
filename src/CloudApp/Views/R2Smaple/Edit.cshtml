@@ -76,6 +76,30 @@
                        <br />
                        <h3>ليست لديك صلاحية مراجع للمعاملات</h3>
                    </div>
+                   
+                <div style="display: none">
+                    <h3 class="title text-info"> تدقيق المستندات والأدخال</h3>
+                    <p>
+                        <strong>1.</strong> تمت مراجعة وتدقيق كافة الاواراق والصكوك والمدخلات بعد عمليتي الأدخال و التثمين.
+                    </p>
+                    <br />
+
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                <label><input asp-for="IsAduit" id="nex3" type="checkbox">موافق..</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    
+                </div>
 
                   
                </div>
@@ -116,6 +140,27 @@
                        <br />
                        <h3> ليس لديك صلاحية مشرف علي المعاملات</h3>
                    </div>
+                   
+            <div style="display: none">
+                <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
+                <p>
+                    <strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .
+                </p>
+
+                    
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
                </div>
            }
        }
@@ -221,6 +266,94 @@
                        <br />
                        <h3>ليس لديك صلاحية محاسب لاقفال المعاملات ماليآ</h3>
                    </div>
+                   
+            <div style="display: none">
+                <h3 class="title text-info"> متابعة الجزء المالي الخاص بالمعاملة </h3>
+                <p>
+                    <strong>1.</strong> تمت رصد المبلغ من المعاملة .
+                </p>
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label asp-for="MuthminPrice" class="control-label"></label>
+                            <input asp-for="MuthminPrice" class="form-control" />
+                            <span asp-validation-for="MuthminPrice" class="text-danger" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label asp-for="Price" class="control-label"></label>
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger" />
+                        </div>
+                    </div> 
+        
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label asp-for="FinNote" class="control-label"></label>
+                            <input asp-for="FinNote" class="form-control" />
+                            <span asp-validation-for="FinNote" class="text-danger" />
+                        </div>
+
+                    </div> 
+                </div>   
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="BankModelId" class="control-label"></label>
+                            <select asp-for="BankModelId" class="select2 form-control" asp-items="ViewBag.BankId"></select>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label asp-for="FinPriceClose" class="control-label"></label>
+                                    <input asp-for="FinPriceClose" class="form-control"/>
+                                    <span asp-validation-for="FinPriceClose" class="text-danger"/>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="checkbox">
+                                    <input asp-for="FinPartClose" />
+                                    <label asp-for="FinPartClose"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+            
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="FinDateClose" class="control-label"></label>
+                            <div id="date-popup_FinDateClose" class="input-group date">
+                                <input asp-for="FinDateClose" type="text" data-format="D, dd MM yyyy" class="form-control">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                            <span asp-validation-for="FinDateClose" class="text-danger" />
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label><input id="nex5" asp-for="IsUnlockFin" type="checkbox">موافق..</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
                </div>
            }
        }

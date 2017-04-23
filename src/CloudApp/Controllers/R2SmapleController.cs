@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CloudApp.Data;
-using CloudApp.Models;
 using CloudApp.Models.BusinessModel;
 using CloudApp.Models.ManpulateModel;
 using CloudApp.RepositoriesClasses;
 using CloudApp.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Reporting.WebForms;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace CloudApp.Controllers
 {
@@ -45,7 +44,14 @@ namespace CloudApp.Controllers
             return File(rendervalue, "application/pdf");
         }
 
-
+        private bool Comparer(Flag flag, Flag flag1)
+        {
+            if (flag.Value == flag1.Value)
+            {
+                return true;
+            }
+            return false;
+        }
 
 
         [HttpPost]
@@ -64,8 +70,8 @@ namespace CloudApp.Controllers
         {
          GetBinding();
             var cms = _custemerRepostry.GetbyId(ids);
-            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
-            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value", "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value", "Value");
             ViewData["cmsname"] = cms;
             ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
 
@@ -139,8 +145,8 @@ namespace CloudApp.Controllers
             ViewData["imgs"] = files;
 
          GetBinding();
-            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
-            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value", "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value", "Value");
             ViewData["cmsname"] = r2Smaple.Custmer;
             ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
 
@@ -243,11 +249,11 @@ namespace CloudApp.Controllers
             IList<ApplicationUser> data =  _userManager.GetUsersInRoleAsync("th").Result;
 
             ViewData["ApplicationUserId"] = new SelectList(data.ToList(), "Id", "EmployName");
-            ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
-            ViewData["butype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BulsingType), "Value", "Value");
-            ViewData["InterFaces"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Interfaces), "Value", "Value");
-            ViewData["azltype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AzlType), "Value", "Value");
-            ViewData["downstair"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DownSir), "Value", "Value");
+            ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value", "Value");
+            ViewData["butype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BulsingType).Distinct(Comparer), "Value", "Value");
+            ViewData["InterFaces"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Interfaces).Distinct(Comparer), "Value", "Value");
+            ViewData["azltype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AzlType).Distinct(Comparer), "Value", "Value");
+            ViewData["downstair"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DownSir).Distinct(Comparer), "Value", "Value");
 
         }
 

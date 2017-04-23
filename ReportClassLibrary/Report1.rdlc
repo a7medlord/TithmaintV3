@@ -182,9 +182,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!Price.Value</Value>
+                    <Value>=Sum(Fields!Price.Value)</Value>
                     <Style>
-                      <FontFamily>Arial (Body CS)</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>Underline</TextDecoration>
+                      <Color>#c2185b</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -552,7 +554,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>3.38695cm</Height>
+              <Height>0.79403cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -580,6 +582,12 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
+                        <TopBorder>
+                          <Color>White</Color>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>White</Color>
+                        </BottomBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -614,6 +622,12 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
+                        <TopBorder>
+                          <Color>White</Color>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>White</Color>
+                        </BottomBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -648,6 +662,12 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
+                        <TopBorder>
+                          <Color>White</Color>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>White</Color>
+                        </BottomBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -793,7 +813,7 @@
         <DataSetName>DataSet1Invoice</DataSetName>
         <Top>6.77552cm</Top>
         <Left>0.5389cm</Left>
-        <Height>4.89563cm</Height>
+        <Height>2.30271cm</Height>
         <Width>19.87022cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
