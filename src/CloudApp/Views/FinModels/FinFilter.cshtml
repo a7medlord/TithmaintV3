@@ -174,9 +174,37 @@
     }
 
     <script>
+        var cms, d1, d2, t, city, gada;
+
+        $(document).ready(function(){
+ 
+            cms = localStorage.getItem("cmsid");
+            d1 = localStorage.getItem("date1");
+            d2 = localStorage.getItem("date2");
+            t = localStorage.getItem("aqartype");
+            city = localStorage.getItem("city");
+            gada = localStorage.getItem("gada");
+            $("#cms").val(cms).trigger('change');
+            $("#city").val(city).trigger('change');
+            $("#gada").val(gada).trigger('change');
+            $("#aqartype").val(t).trigger('change');
+
+
+            $("#date1").val(d1);
+            $("#date2").val(d2);
+   
+
+        });
 
        
         $("#btn_filter").click(function() {
+
+            localStorage.setItem("cmsid", $("#cms").val()); 
+            localStorage.setItem("date1", $("#date1").val()); 
+            localStorage.setItem("date2", $("#date2").val()); 
+            localStorage.setItem("aqartype", $("#aqartype").val()); 
+            localStorage.setItem("city", $("#city").val()); 
+            localStorage.setItem("gada", $("#gada").val()); 
 
             location.href = "/FinModels/FinFilter?date1=" + $("#date1").val() + "&date2=" + $("#date2").val() + "&cms=" + $("#cms").val() + "&aqartype=" + $("#aqartype").val() + "&city=" + $("#city").val() + "&gada=" + $("#gada").val();
         });

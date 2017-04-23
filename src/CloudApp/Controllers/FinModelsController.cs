@@ -50,10 +50,7 @@ namespace CloudApp.Controllers
             {
                 date2 = DateTime.Now.Date;
             }
-            if (!cms.HasValue)
-            {
-                cms = _context.Custmer.FirstOrDefault()?.Id;
-            }
+        
             if (aqartype == null)
             {
                 aqartype = "الكل";
@@ -69,8 +66,11 @@ namespace CloudApp.Controllers
 
 
             List<FinCloseModel> models = new List<FinCloseModel>();
+            if (cms!=null)
+            {
+                
 
-            foreach (var treatment in  GlobelFilter(cms.ToString(),aqartype ,city ,gada))
+                 foreach (var treatment in  GlobelFilter(cms.ToString(),aqartype ,city ,gada , date1 , date2))
             {
                 if (treatment != null)
                 {
@@ -84,6 +84,7 @@ namespace CloudApp.Controllers
                         Price = treatment.Price,
                         Id = treatment.Id,
                         Owner = treatment.Owner,
+
                     
                         Type = 1
                     };
@@ -91,57 +92,57 @@ namespace CloudApp.Controllers
                 }
             }
 
+                foreach (var treatment in GlobelFilter(cms.ToString(), aqartype, city, gada, date1, date2))
+                {
+                    if (treatment != null)
+                    {
+
+
+                        models.Add(new FinCloseModel()
+                        {
+                            Custmer = treatment.Custmer.Name,
+                            Scustmer = treatment.Scustmer,
+                            Bank = treatment.BankModel.Name,
+                            Place = treatment.City + " - " + treatment.Gada,
+                            Tbuild = treatment.AqarType,
+                            Price = treatment.Price,
+                            Id = treatment.Id,
+                            Owner = treatment.Owner,
+
+                            Type = 2
+
+                        });
+                    }
+                }
+                foreach (var treatment in GlobelFilter(cms.ToString(), aqartype, city, gada, date1, date2))
+                {
+                    if (treatment != null)
+                    {
+
+
+                        models.Add(new FinCloseModel()
+                        {
+                            Custmer = treatment.Custmer.Name,
+                            Scustmer = treatment.Scustmer,
+                            Bank = treatment.BankModel.Name,
+                            Place = treatment.City + " - " + treatment.Gada,
+                            Tbuild = treatment.AqarType,
+                            Price = treatment.Price,
+                            Id = treatment.Id,
+                            Owner = treatment.Owner,
+
+                            Type = 3
+
+
+                        });
+                    }
+                }
+
+            }
+
 
 
             #region Tables for R1 and R2
-            //foreach (var treatment in await _context.R1Smaple.Include(s => s.BankModel).Include(d => d.Custmer).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && d.IsUnlockFin && d.FinPartClose == false && d.CustmerId == cms).ToListAsync())
-            //{
-            //    if (treatment != null)
-            //    {
-
-
-            //        models.Add(new FinCloseModel()
-            //        {
-            //            Custmer = treatment.Custmer.Name,
-            //            Scustmer = treatment.Scustmer,
-            //            Bank = treatment.BankModel.Name,
-            //            Place = treatment.City + " - " + treatment.Gada,
-            //            Tbuild = treatment.AqarType,
-            //            Price = treatment.Price,
-            //            Id = treatment.Id,
-            //            Owner = treatment.Owner,
-            //            FinDate = treatment.DateOfBegin.ToShortDateString(),
-            //            SNum = treatment.SukNumber,
-            //            FinPriceClose = treatment.FinPriceClose,
-            //            Type = 2
-
-            //        });
-            //    }
-            //}
-            //foreach (var treatment in await _context.R2Smaple.Include(s => s.BankModel).Include(d => d.Custmer).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && d.IsUnlockFin && d.FinPartClose == false && d.CustmerId == cms).ToListAsync())
-            //{
-            //    if (treatment != null)
-            //    {
-
-
-            //        models.Add(new FinCloseModel()
-            //        {
-            //            Custmer = treatment.Custmer.Name,
-            //            Scustmer = treatment.Scustmer,
-            //            Bank = treatment.BankModel.Name,
-            //            Place = treatment.City + " - " + treatment.Gada,
-            //            Tbuild = treatment.AqarType,
-            //            Price = treatment.Price,
-            //            Id = treatment.Id,
-            //            Owner = treatment.Owner,
-            //            FinDate = treatment.DateOfBegin.ToShortDateString(),
-            //            SNum = treatment.SukNumber,
-            //            FinPriceClose = treatment.FinPriceClose,
-            //            Type = 3
-
-            //        });
-            //    }
-            //}
 
             #endregion
 
@@ -150,10 +151,10 @@ namespace CloudApp.Controllers
             return View(models);
         }
 
-        public List<Treatment> GlobelFilter(string cms , string aqartype, string city, string gada)
+        public List<Treatment> GlobelFilter(string cms , string aqartype, string city, string gada , DateTime? date1 , DateTime? date2)
         {
 
-            string baseSqlString = "SELECT * FROM Treatment ";
+            string baseSqlString = $"SELECT * FROM Treatment where DateOfBegin >= {date1} AND DateOfBegin <= {date2} ";
             string query = $"{baseSqlString} {AllWhereCluse(cms, aqartype, city,gada ) } ";
 
             var rows = _context.Treatment.FromSql(query).Include(d => d.Custmer).Include(d=>d.BankModel).ToList();
@@ -172,59 +173,33 @@ namespace CloudApp.Controllers
 
 
             string lastwhere = null;
-            string where = "where ";
-
-            int count = 0;
 
 
             if (cms != "الكل")
             {
-                count = 1;
-                lastwhere += where+ cmswhere;
-            
+
+                  lastwhere += " AND " + cmswhere; 
             }
 
             if (aqartype != "الكل")
             {
-                if (count == 1)
-                {
+               
                     lastwhere += " AND " + aqartypewhere;
-                    count = 1;
-                }
-                else
-                {
-                    lastwhere += where+ aqartypewhere;
-                    count = 1;
-                }
+              
             }
 
             if (city != "الكل")
             {
-                if (count == 1)
-                {
+              
                     lastwhere += " AND " + citywhere;
-                    count = 1;
-                }
-                else
-                {
-                    lastwhere += where + citywhere;
-                    count = 1;
-                }
-
+         
             }
 
 
             if (gada != "الكل")
             {
 
-                if (count == 1)
-                {
                     lastwhere += " AND " + gadawhere;
-                }
-                else
-                {
-                    lastwhere += where+ gadawhere;
-                }
 
             }
             return lastwhere;
