@@ -231,11 +231,6 @@ namespace CloudApp.Controllers
 
         }
 
-
-
-
-
-
         public async Task<IActionResult> FinCloseforReq(DateTime? date1 = null, DateTime? date2 = null, long? cms = null)
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
@@ -249,13 +244,14 @@ namespace CloudApp.Controllers
             {
                 date2 = DateTime.Now.Date;
             }
-            if (!cms.HasValue)
-            {
-                cms = _context.Custmer.FirstOrDefault()?.Id;
-            }
+           
 
             List<FinCloseModel> models = new List<FinCloseModel>();
 
+            if (cms!=null)
+            {
+                
+       
             foreach (var treatment in await _context.Treatment.Include(s => s.BankModel).Include(d => d.Custmer).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && d.IsUnlockFin && d.FinPartClose == false  && d.CustmerId == cms).ToListAsync())
             {
                 if (treatment != null)
@@ -327,6 +323,7 @@ namespace CloudApp.Controllers
                     });
                 }
             }
+            }
 
             return View(models);
         }
@@ -343,10 +340,7 @@ namespace CloudApp.Controllers
             {
                 date2 = DateTime.Now.Date;
             }
-            if (!cms.HasValue)
-            {
-                cms = _context.Custmer.FirstOrDefault()?.Id;
-            }
+
             List<HelpBank> banks = new List<HelpBank>();
             if (bank!=null)
             {
@@ -368,6 +362,11 @@ namespace CloudApp.Controllers
 
             List<FinCloseModel> models = new List<FinCloseModel>();
 
+
+            if (cms!=null)
+            {
+                
+      
             foreach (var treatment in await _context.Treatment.Include(s => s.BankModel).Include(d => d.Custmer).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && d.IsUnlockFin && d.FinPartClose == false && d.CustmerId ==cms).ToListAsync())
             {
                 if (treatment != null)
@@ -442,7 +441,7 @@ namespace CloudApp.Controllers
                 }
             }
 
-
+            }
 
             ReportDataSource reportDataSource = new ReportDataSource();
             ReportDataSource bankDataSource = new ReportDataSource();
@@ -663,6 +662,8 @@ namespace CloudApp.Controllers
             return View(models);
         }
 
+
+
         public async Task<IActionResult> GetInvoice(DateTime? date1 = null, DateTime? date2 = null, long? cms = null, string type = null)
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
@@ -675,10 +676,7 @@ namespace CloudApp.Controllers
             {
                 date2 = DateTime.Now.Date;
             }
-            if (!cms.HasValue)
-            {
-                cms = _context.Custmer.FirstOrDefault()?.Id;
-            }
+
             if (type ==null)
             {
                 type = "التقييم العقاري";
@@ -686,7 +684,10 @@ namespace CloudApp.Controllers
 
 
             List<InvoiceModel> models  = new List<InvoiceModel>();
-
+            if (cms!=null)
+            {
+                
+      
             foreach (var treatment in await _context.Treatment.Include(d => d.Custmer).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && d.IsUnlockFin && d.CustmerId == cms).ToListAsync())
             {
                 if (treatment != null)
@@ -743,9 +744,14 @@ namespace CloudApp.Controllers
             }
 
             ViewBag.totalprice = models.Sum(d => d.Price);
+            }
 
             return View(models);
         }
+
+
+
+
 
 
         public async Task<IActionResult> GetInvoiceReport(DateTime? date1 = null, DateTime? date2 = null, long? cms = null,string type = null)
@@ -760,16 +766,15 @@ namespace CloudApp.Controllers
             {
                 date2 = DateTime.Now.Date;
             }
-            if (!cms.HasValue)
-            {
-                cms = _context.Custmer.FirstOrDefault()?.Id;
-            }
+      
             if (type == null)
             {
                 type = "التقييم العقاري";
             }
 
             List<InvoiceModel> models = new List<InvoiceModel>();
+            if (cms!=null)
+            {
 
             foreach (var treatment in await _context.Treatment.Include(d => d.Custmer).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && d.IsUnlockFin && d.CustmerId == cms).ToListAsync())
             {
@@ -790,7 +795,6 @@ namespace CloudApp.Controllers
                     });
                 }
             }
-
 
             foreach (var treatment in await _context.R1Smaple.Include(d => d.Custmer).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && d.IsUnlockFin && d.CustmerId == cms).ToListAsync())
             {
@@ -832,6 +836,7 @@ namespace CloudApp.Controllers
                 }
             }
 
+            }
 
             ReportDataSource reportDataSource = new ReportDataSource();
 
@@ -856,6 +861,11 @@ namespace CloudApp.Controllers
             return  File(rendervalue, "application/pdf"); 
         }
 
+
+
+
+
+
         // GET: FinModels
         public async Task<IActionResult> GetEmployee(DateTime? date1 = null, DateTime? date2 = null , string emp=null)
         {
@@ -870,232 +880,299 @@ namespace CloudApp.Controllers
             {
                 date2 = new DateTime(9999, 1, 1);
             }
-            if (string.IsNullOrEmpty(emp))
-            {
-                emp = _userManager.GetUserId(User);
-            }
-            // intering 
-            ViewBag.Name = "لا يوجد";
-            
-            var testName = _context.Users.SingleOrDefault(d => d.Id == emp);
-            if (testName !=null)
-            {
-                ViewBag.Name = testName.EmployName;
-            }
 
-            double inter = 0;
-            var x = _context.Users.SingleOrDefault(d => d.Id == emp);
-            if (x!=null)
-            {
-                inter = x.InterPercentage;
-                if (x.IsInterPercentage)
-                {
-                    ViewBag.interpercen =  inter + " %";
-                }
-                else
-                {
-                    ViewBag.interpercen = inter;
-                }
-            
-            }
-
-            int intercount1 = _context.Treatment.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int intercount2 = _context.R1Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int intercount3 = _context.R2Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int intercount=  intercount1 + intercount2 + intercount3;
-            ViewBag.intercount = intercount;
-            double interprice1 = 0, interprice2 = 0, interprice3 = 0;
-            if (x != null)
-            {
-                if (x.IsInterPercentage)
-                {
-                    inter = x.InterPercentage / 100;
-
-                    interprice1 = _context.Treatment.Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * inter);
-                    interprice2 = _context.R1Smaple.Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * inter);
-                    interprice3 = _context.R2Smaple.Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * inter);
-                }
-                else
-                {
-                    inter = x.InterPercentage;
-                    interprice1 = _context.Treatment.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * inter;
-                    interprice2 = _context.R1Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * inter;
-                    interprice3 = _context.R2Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * inter;
-                }
-
-            }
-
-            double interprice = interprice1 + interprice2 + interprice3;
-            ViewBag.TotalInter = interprice;
-
-
-            // Thminat
-            int muthmincount1 = _context.Treatment.Count(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int muthmincount2 = _context.R1Smaple.Count(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int muthmincount3 = _context.R2Smaple.Count(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int muthmincount = muthmincount1 + muthmincount2 + muthmincount3;
-            ViewBag.muthmincount = muthmincount;
-
-            double muthminprice1 = _context.Treatment.Where(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.MuthminPrice);
-            double muthminprice2 = _context.R1Smaple.Where(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.MuthminPrice);
-            double muthminprice3 = _context.R2Smaple.Where(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.MuthminPrice);
-            double muthminprice = muthminprice1 + muthminprice2 + muthminprice3;
-            ViewBag.Totalmuthmin = muthminprice;
-
-            // Aduit
-            double aduit = 0;
-            var testaduit =   _context.Users.SingleOrDefault(d => d.Id == emp);
-            if (testaduit!=null)
-            {
-                aduit = testaduit.AduitPercentage;
-                if (testaduit.IsAduitPercentage)
-                {
-                    ViewBag.aduitpercen = aduit + " %"; 
-                }
-                else
-                {
-                    ViewBag.aduitpercen = aduit;
-                }
-            }
-          
-            int aduitcount1 = _context.Treatment.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int aduitcount2 = _context.R1Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int aduitcount3 = _context.R2Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int aduitcount = aduitcount1 + aduitcount2 + aduitcount3;
-            ViewBag.aduitcount = aduitcount;
-            double aduitprice1 = 0, aduitprice2 = 0, aduitprice3 = 0;
-            if (testaduit!=null)
-            {
-                if (testaduit.IsAduitPercentage)
-                {
-                    aduit = testaduit.AduitPercentage / 100;
-                    aduitprice1 = _context.Treatment.Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aduit);
-                    aduitprice2 = _context.R1Smaple.Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aduit);
-                    aduitprice3 = _context.R2Smaple.Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aduit);
-                }
-                else
-                {
-                    aduit = testaduit.AduitPercentage;
-                    aduitprice1 = _context.Treatment.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)* aduit;
-                    aduitprice2 = _context.R1Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * aduit;
-                    aduitprice3 = _context.R2Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * aduit;
-                }
-
-            }
-
-         
-            double aduitprice = aduitprice1 + aduitprice2 + aduitprice3;
-            ViewBag.Totaladuit = aduitprice;
-            //aprover
-            double aprove = 0;
-            var testaprove = _context.Users.SingleOrDefault(d => d.Id == emp);
-            if (testaprove !=null)
-            {
-                aprove = testaprove.AproverPercentage;
-                if (testaprove.IsAproverPercentage)
-                {
-                    ViewBag.aprovepercen = aprove + " %";
-                }
-                else
-                {
-                    ViewBag.aprovepercen = aprove;
-                }
-            }
-           
-            int aprovecount1 = _context.Treatment.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int aprovecount2 = _context.R1Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int aprovecount3 = _context.R2Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-            int aprovecount = aprovecount1 + aprovecount2 + aprovecount3;
-            ViewBag.aprovecount = aprovecount;
-            double aproveprice1 = 0, aproveprice2 = 0, aproveprice3 = 0;
-            if (testaprove!=null)
-            {
-                if (testaprove.IsAproverPercentage)
-                {
-                    aprove = testaprove.AproverPercentage / 100;
-                    aproveprice1 = _context.Treatment.Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aprove);
-                    aproveprice2 = _context.R1Smaple.Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aprove);
-                    aproveprice3 = _context.R2Smaple.Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.Price * aprove);
-
-                }
-                else
-                {
-                    aprove = testaprove.AproverPercentage;
-                    aproveprice1 = _context.Treatment.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)* aprove;
-                    aproveprice2 = _context.R1Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * aprove;
-                    aproveprice3 = _context.R2Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2) * aprove;
-                }
-            }
-
-            double aproveprice = aproveprice1 + aproveprice2 + aproveprice3;
-            ViewBag.Totalaprove = aproveprice;
-
-            ViewBag.TotalCount = intercount + muthmincount + aduitcount + aprovecount;
-            ViewBag.TotalPrice = interprice + muthminprice + aduitprice + aproveprice;
             List<FinModel> models = new List<FinModel>();
 
-
-            foreach (var treatment in await _context.Treatment.Include(d => d.Custmer).ThenInclude(d => d.Sample).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && (d.Intered==emp ||d.Muthmen == emp || d.Adutit ==emp ||  d.Approver == emp) ).ToListAsync())
+            if (!string.IsNullOrEmpty(emp))
             {
-                if (treatment != null)
-                {
-                    models.Add(new FinModel()
-                    {
-                        Id = treatment.Id,
-                        Custmer = treatment.Custmer.Name,
-                        Tbuild = treatment.AqarType,
-                        Owner = treatment.Owner,
-                        DateOfBegin = treatment.DateOfBegin.ToShortDateString(),
-                        Sample = treatment.Custmer.Sample.Name,
-                        Place = treatment.City + " " + treatment.Gada,
-                        Price = treatment.Price
-                    });
-                }
-           
-            }
 
+                // intering 
+                ViewBag.Name = "لا يوجد";
 
-            foreach (var treatment in await _context.R1Smaple.Include(d => d.Custmer).ThenInclude(d => d.Sample).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && (d.Intered == emp || d.Muthmen == emp || d.Adutit == emp || d.Approver == emp)).ToListAsync())
-            {
-                if (treatment != null)
+                var testName = _context.Users.SingleOrDefault(d => d.Id == emp);
+                if (testName != null)
                 {
-                    models.Add(new FinModel()
-                    {
-                        Id = treatment.Id,
-                        Custmer = treatment.Custmer.Name,
-                        Tbuild = treatment.AqarType,
-                        Owner = treatment.Owner,
-                        DateOfBegin = treatment.DateOfBegin.ToShortDateString(),
-                        Sample = treatment.Custmer.Sample.Name,
-                        Place = treatment.City + " " + treatment.Gada,
-                        Price = treatment.Price
-                    });
+                    ViewBag.Name = testName.EmployName;
                 }
 
-            }
-
-            foreach (var treatment in await _context.R2Smaple.Include(d => d.Custmer).ThenInclude(d => d.Sample).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && (d.Intered == emp || d.Muthmen == emp || d.Adutit == emp || d.Approver == emp)).ToListAsync())
-            {
-                if (treatment != null)
+                double inter = 0;
+                var x = _context.Users.SingleOrDefault(d => d.Id == emp);
+                if (x != null)
                 {
-                    models.Add(new FinModel()
+                    inter = x.InterPercentage;
+                    if (x.IsInterPercentage)
                     {
-                        Id = treatment.Id,
-                        Custmer = treatment.Custmer.Name,
-                        Tbuild = treatment.AqarType,
-                        Owner = treatment.Owner,
-                        DateOfBegin = treatment.DateOfBegin.ToShortDateString(),
-                        Sample = treatment.Custmer.Sample.Name,
-                        Place = treatment.City + " " + treatment.Gada,
-                        Price = treatment.Price
-                    });
+                        ViewBag.interpercen = inter + " %";
+                    }
+                    else
+                    {
+                        ViewBag.interpercen = inter;
+                    }
+
                 }
 
+                int intercount1 = _context.Treatment.Count(
+                    d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int intercount2 = _context.R1Smaple.Count(
+                    d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int intercount3 = _context.R2Smaple.Count(
+                    d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int intercount = intercount1 + intercount2 + intercount3;
+                ViewBag.intercount = intercount;
+                double interprice1 = 0, interprice2 = 0, interprice3 = 0;
+                if (x != null)
+                {
+                    if (x.IsInterPercentage)
+                    {
+                        inter = x.InterPercentage / 100;
+
+                        interprice1 = _context.Treatment
+                            .Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                            .Sum(d => d.Price * inter);
+                        interprice2 = _context.R1Smaple
+                            .Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                            .Sum(d => d.Price * inter);
+                        interprice3 = _context.R2Smaple
+                            .Where(d => d.Intered == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                            .Sum(d => d.Price * inter);
+                    }
+                    else
+                    {
+                        inter = x.InterPercentage;
+                        interprice1 =
+                            _context.Treatment.Count(d => d.Intered == emp & d.DateOfBegin >= date1 &
+                                                          d.DateOfBegin <= date2) * inter;
+                        interprice2 =
+                            _context.R1Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 &
+                                                         d.DateOfBegin <= date2) * inter;
+                        interprice3 =
+                            _context.R2Smaple.Count(d => d.Intered == emp & d.DateOfBegin >= date1 &
+                                                         d.DateOfBegin <= date2) * inter;
+                    }
+
+                }
+
+                double interprice = interprice1 + interprice2 + interprice3;
+                ViewBag.TotalInter = interprice;
+
+
+                // Thminat
+                int muthmincount1 =
+                    _context.Treatment.Count(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int muthmincount2 = _context.R1Smaple.Count(
+                    d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int muthmincount3 = _context.R2Smaple.Count(
+                    d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int muthmincount = muthmincount1 + muthmincount2 + muthmincount3;
+                ViewBag.muthmincount = muthmincount;
+
+                double muthminprice1 = _context.Treatment
+                    .Where(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                    .Sum(d => d.MuthminPrice);
+                double muthminprice2 = _context.R1Smaple
+                    .Where(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                    .Sum(d => d.MuthminPrice);
+                double muthminprice3 = _context.R2Smaple
+                    .Where(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                    .Sum(d => d.MuthminPrice);
+                double muthminprice = muthminprice1 + muthminprice2 + muthminprice3;
+                ViewBag.Totalmuthmin = muthminprice;
+
+                // Aduit
+                double aduit = 0;
+                var testaduit = _context.Users.SingleOrDefault(d => d.Id == emp);
+                if (testaduit != null)
+                {
+                    aduit = testaduit.AduitPercentage;
+                    if (testaduit.IsAduitPercentage)
+                    {
+                        ViewBag.aduitpercen = aduit + " %";
+                    }
+                    else
+                    {
+                        ViewBag.aduitpercen = aduit;
+                    }
+                }
+
+                int aduitcount1 = _context.Treatment.Count(
+                    d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int aduitcount2 = _context.R1Smaple.Count(
+                    d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int aduitcount3 = _context.R2Smaple.Count(
+                    d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int aduitcount = aduitcount1 + aduitcount2 + aduitcount3;
+                ViewBag.aduitcount = aduitcount;
+                double aduitprice1 = 0, aduitprice2 = 0, aduitprice3 = 0;
+                if (testaduit != null)
+                {
+                    if (testaduit.IsAduitPercentage)
+                    {
+                        aduit = testaduit.AduitPercentage / 100;
+                        aduitprice1 = _context.Treatment
+                            .Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                            .Sum(d => d.Price * aduit);
+                        aduitprice2 = _context.R1Smaple
+                            .Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                            .Sum(d => d.Price * aduit);
+                        aduitprice3 = _context.R2Smaple
+                            .Where(d => d.Adutit == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                            .Sum(d => d.Price * aduit);
+                    }
+                    else
+                    {
+                        aduit = testaduit.AduitPercentage;
+                        aduitprice1 =
+                            _context.Treatment.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 &
+                                                          d.DateOfBegin <= date2) * aduit;
+                        aduitprice2 =
+                            _context.R1Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 &
+                                                         d.DateOfBegin <= date2) * aduit;
+                        aduitprice3 =
+                            _context.R2Smaple.Count(d => d.Adutit == emp & d.DateOfBegin >= date1 &
+                                                         d.DateOfBegin <= date2) * aduit;
+                    }
+
+                }
+
+
+                double aduitprice = aduitprice1 + aduitprice2 + aduitprice3;
+                ViewBag.Totaladuit = aduitprice;
+                //aprover
+                double aprove = 0;
+                var testaprove = _context.Users.SingleOrDefault(d => d.Id == emp);
+                if (testaprove != null)
+                {
+                    aprove = testaprove.AproverPercentage;
+                    if (testaprove.IsAproverPercentage)
+                    {
+                        ViewBag.aprovepercen = aprove + " %";
+                    }
+                    else
+                    {
+                        ViewBag.aprovepercen = aprove;
+                    }
+                }
+
+                int aprovecount1 = _context.Treatment.Count(
+                    d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int aprovecount2 = _context.R1Smaple.Count(
+                    d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int aprovecount3 = _context.R2Smaple.Count(
+                    d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int aprovecount = aprovecount1 + aprovecount2 + aprovecount3;
+                ViewBag.aprovecount = aprovecount;
+                double aproveprice1 = 0, aproveprice2 = 0, aproveprice3 = 0;
+                if (testaprove != null)
+                {
+                    if (testaprove.IsAproverPercentage)
+                    {
+                        aprove = testaprove.AproverPercentage / 100;
+                        aproveprice1 = _context.Treatment
+                            .Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                            .Sum(d => d.Price * aprove);
+                        aproveprice2 = _context.R1Smaple
+                            .Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                            .Sum(d => d.Price * aprove);
+                        aproveprice3 = _context.R2Smaple
+                            .Where(d => d.Approver == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
+                            .Sum(d => d.Price * aprove);
+
+                    }
+                    else
+                    {
+                        aprove = testaprove.AproverPercentage;
+                        aproveprice1 =
+                            _context.Treatment.Count(d => d.Approver == emp & d.DateOfBegin >= date1 &
+                                                          d.DateOfBegin <= date2) * aprove;
+                        aproveprice2 =
+                            _context.R1Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 &
+                                                         d.DateOfBegin <= date2) * aprove;
+                        aproveprice3 =
+                            _context.R2Smaple.Count(d => d.Approver == emp & d.DateOfBegin >= date1 &
+                                                         d.DateOfBegin <= date2) * aprove;
+                    }
+                }
+
+                double aproveprice = aproveprice1 + aproveprice2 + aproveprice3;
+                ViewBag.Totalaprove = aproveprice;
+
+                ViewBag.TotalCount = intercount + muthmincount + aduitcount + aprovecount;
+                ViewBag.TotalPrice = interprice + muthminprice + aduitprice + aproveprice;
+              
+
+                foreach (var treatment in await _context.Treatment.Include(d => d.Custmer)
+                    .ThenInclude(d => d.Sample)
+                    .Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 &&
+                                (d.Intered == emp || d.Muthmen == emp || d.Adutit == emp || d.Approver == emp))
+                    .ToListAsync())
+                {
+                    if (treatment != null)
+                    {
+                        models.Add(new FinModel()
+                        {
+                            Id = treatment.Id,
+                            Custmer = treatment.Custmer.Name,
+                            Tbuild = treatment.AqarType,
+                            Owner = treatment.Owner,
+                            DateOfBegin = treatment.DateOfBegin.ToShortDateString(),
+                            Sample = treatment.Custmer.Sample.Name,
+                            Place = treatment.City + " " + treatment.Gada,
+                            Price = treatment.Price
+                        });
+                    }
+
+                }
+
+
+                foreach (var treatment in await _context.R1Smaple.Include(d => d.Custmer)
+                    .ThenInclude(d => d.Sample)
+                    .Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 &&
+                                (d.Intered == emp || d.Muthmen == emp || d.Adutit == emp || d.Approver == emp))
+                    .ToListAsync())
+                {
+                    if (treatment != null)
+                    {
+                        models.Add(new FinModel()
+                        {
+                            Id = treatment.Id,
+                            Custmer = treatment.Custmer.Name,
+                            Tbuild = treatment.AqarType,
+                            Owner = treatment.Owner,
+                            DateOfBegin = treatment.DateOfBegin.ToShortDateString(),
+                            Sample = treatment.Custmer.Sample.Name,
+                            Place = treatment.City + " " + treatment.Gada,
+                            Price = treatment.Price
+                        });
+                    }
+
+                }
+
+                foreach (var treatment in await _context.R2Smaple.Include(d => d.Custmer)
+                    .ThenInclude(d => d.Sample)
+                    .Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 &&
+                                (d.Intered == emp || d.Muthmen == emp || d.Adutit == emp || d.Approver == emp))
+                    .ToListAsync())
+                {
+                    if (treatment != null)
+                    {
+                        models.Add(new FinModel()
+                        {
+                            Id = treatment.Id,
+                            Custmer = treatment.Custmer.Name,
+                            Tbuild = treatment.AqarType,
+                            Owner = treatment.Owner,
+                            DateOfBegin = treatment.DateOfBegin.ToShortDateString(),
+                            Sample = treatment.Custmer.Sample.Name,
+                            Place = treatment.City + " " + treatment.Gada,
+                            Price = treatment.Price
+                        });
+                    }
+
+                }
+
+
+
             }
-
-
-
-
 
 
             return View(models);

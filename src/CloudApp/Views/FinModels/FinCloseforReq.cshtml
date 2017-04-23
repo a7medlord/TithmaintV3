@@ -167,10 +167,25 @@
     }
 
     <script>
-     
+        var cms  , d1,d2;
+
+        $(document).ready(function(){
+ 
+            cms = localStorage.getItem("cmsid");
+            d1 = localStorage.getItem("date1");
+            d2 = localStorage.getItem("date2");
+            $("#cms").val(cms).trigger('change');
+            $("#date1").val(d1);
+            $("#date2").val(d2);
+   
+        });
+
   
 
-        $("#btn_filter").click(function() {
+        $("#btn_filter").click(function () {
+            localStorage.setItem("cmsid", $("#cms").val()); 
+            localStorage.setItem("date1", $("#date1").val()); 
+            localStorage.setItem("date2", $("#date2").val()); 
 
             location.href = "/FinModels/FinCloseforReq?date1=" + $("#date1").val() + "&date2=" + $("#date2").val() + "&cms=" + $("#cms").val();
         });

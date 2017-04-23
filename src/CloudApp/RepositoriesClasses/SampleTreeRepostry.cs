@@ -38,7 +38,7 @@ namespace CloudApp.RepositoriesClasses
         {
            return _db.R2Smaple.Include(treatment => treatment.Custmer).
                 ThenInclude(custmer => custmer.Sample).
-                Include(treatment => treatment.ApplicationUser).Where(treatment => !treatment.IsUnlockFin).ToList();
+                Include(treatment => treatment.ApplicationUser).ToList();
         }
 
         public long GetAutoIncreesNumber()
