@@ -6,229 +6,233 @@
 
 <div class="panel panel-primary">
 
-    <div class="panel-heading clearfix">
-        <h3 class="panel-title">المعاملة الجارية...</h3>
-        <ul class="panel-tool-options">
-            <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
-            <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
-            <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
-        </ul>
-    </div>
+<div class="panel-heading clearfix">
+    <h3 class="panel-title">المعاملة الجارية...</h3>
+    <ul class="panel-tool-options">
+        <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+        <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+        <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+    </ul>
+</div>
 
-    <div class="panel-body">
-        <form asp-action="Edit" id="root" class="form-wizard validate-form-wizard validate">
-        <input type="hidden" asp-for="Id" />
-        <input type="hidden" asp-for="DateOfBegin"/>
-        <input type="hidden" asp-for="DateRiminder"/>
+<div class="panel-body">
+<form asp-action="Edit" id="root" class="form-wizard validate-form-wizard validate">
+<input type="hidden" asp-for="Id" />
+<input type="hidden" asp-for="DateOfBegin"/>
+<input type="hidden" asp-for="DateRiminder"/>
      
-       <div class="wizard-navbar">
-                <ul>
-                    <li class="l0 active"><a href="#tab2-1" data-toggle="tab"><span>1</span> تحت الأدخال </a></li>
-                    <li class="l1"><a href="#tab2-2" data-toggle="tab"><span>2</span>تحت التثمين</a></li>
-                    <li class="l2"><a href="#tab2-3" data-toggle="tab"><span>3</span> المراجعة</a></li>
-                    <li class="l3"><a href="#tab2-4" data-toggle="tab"><span>4</span> التعميد</a></li>
-                    <li class="l4"><a href="#tab2-5" data-toggle="tab"><span>5</span> الاقفال المالي</a></li>
-                </ul>
-            </div>
+<div class="wizard-navbar">
+    <ul>
+        <li class="l0 active"><a href="#tab2-1" data-toggle="tab"><span>1</span> تحت الأدخال </a></li>
+        <li class="l1"><a href="#tab2-2" data-toggle="tab"><span>2</span>تحت التثمين</a></li>
+        <li class="l2"><a href="#tab2-3" data-toggle="tab"><span>3</span> المراجعة</a></li>
+        <li class="l3"><a href="#tab2-4" data-toggle="tab"><span>4</span> التعميد</a></li>
+        <li class="l4"><a href="#tab2-5" data-toggle="tab"><span>5</span> الاقفال المالي</a></li>
+    </ul>
+</div>
 
 
 
-        <div class="tab-content">
-       @{
+<div class="tab-content">
+    @{
         @* tab1 *@
-           Html.RenderPartial("EditEnring");
+        Html.RenderPartial("EditEnring");
         @* tab2 *@
-           Html.RenderPartial("EditTthmeen");
+        Html.RenderPartial("EditTthmeen");
     }
 
-      @if (!IsEntring() && !IsMothmen() && !IsFincal())
-      {
+    @if (!IsEntring() && !IsMothmen() && !IsFincal())
+    {
             @*tab3*@
-          <div class="tab-pane" id="tab2-3">
-              <h3 class="title text-info"> تدقيق المستندات والأدخال</h3>
-              <p><strong>1.</strong> تمت مراجعة وتدقيق كافة الاواراق والصكوك والمدخلات بعد عمليتي الأدخال و التثمين.
-              </p>
-              <br/>
-              <div class="row">
-                  <div class="col-md-2">
-                      <div class="checkbox">
-                          <label><input asp-for="IsAduit" id="nex3" type="checkbox">موافق..</label>
-                      </div>
-                      <div class="form-group">
-                          <div class="col-md-offset-2 col-md-10">
-                              <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
-                          </div>
-                      </div>
-                  </div>
+        <div class="tab-pane" id="tab2-3">
+            <h3 class="title text-info"> تدقيق المستندات والأدخال</h3>
+            <p><strong>1.</strong> تمت مراجعة وتدقيق كافة الاواراق والصكوك والمدخلات بعد عمليتي الأدخال و التثمين.
+            </p>
+            <br/>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="checkbox">
+                        <label><input asp-for="IsAduit" id="nex3" type="checkbox">موافق..</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
+                        </div>
+                    </div>
+                </div>
        
-              </div>
-
-          </div>
-      }else
-      {
-          <div class="tab-pane" id="tab2-3">
-              <div style="margin-right: 40%">
-                  <img src="~/images/accssDenit.jpg" width="300" height="250" />
-                  <br/>
-                  <br />
-                  <h3>ليست لديك صلاحية مراجع للمعاملات</h3>
-              </div>
-          </div>
-      }
-
-       @if (Isapr())
-       {
-            @*tab4*@
-           <div class="tab-pane" id="tab2-4">
-               <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
-               <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .
-               </p>
-               <div class="row">
-                   <div class="col-md-2">
-                       <div class="checkbox">
-                           <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
-                       </div>
-                       <div class="form-group">
-                           <div class="col-md-offset-2 col-md-10">
-                               <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       }
-       else
-       {
-           <div class="tab-pane" id="tab2-4">
-               <div style="margin-right: 40%">
-                   <img src="~/images/accssDenit.jpg" width="300" height="250" />
-                   <br/>
-                   <br />
-                   <h3> ليس لديك صلاحية مشرف علي المعاملات</h3>
-               </div>
-               </div>
-       }
-
-        @if (!IsEntring() && !IsMothmen() && !IsAud())
-        {
-            @*tab5*@
-            <div class="tab-pane" id="tab2-5">
-                <h3 class="title text-info"> متابعة الجزء المالي الخاص بالمعاملة </h3>
-                <p>
-                    <strong>1.</strong> تمت رصد المبلغ من المعاملة .
-                </p>
-                <div class="row">
-
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label asp-for="MuthminPrice" class="control-label"></label>
-                            <input asp-for="MuthminPrice" class="form-control" />
-                            <span asp-validation-for="MuthminPrice" class="text-danger" />
-                        </div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label asp-for="Price" class="control-label"></label>
-                            <input asp-for="Price" class="form-control" />
-                            <span asp-validation-for="Price" class="text-danger" />
-                        </div>
-                    </div> 
-        
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <label asp-for="FinNote" class="control-label"></label>
-                            <input asp-for="FinNote" class="form-control" />
-                            <span asp-validation-for="FinNote" class="text-danger" />
-                        </div>
-
-                    </div> 
-                </div>   
-
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label asp-for="BankModelId" class="control-label"></label>
-                            <select asp-for="BankModelId" class="select2 form-control" asp-items="ViewBag.BankId"></select>
-                        </div>
-                    </div>
-            
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <div class="form-group">
-                                    <label asp-for="FinPriceClose" class="control-label"></label>
-                                    <input asp-for="FinPriceClose" class="form-control"/>
-                                    <span asp-validation-for="FinPriceClose" class="text-danger"/>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="checkbox">
-                                    <input asp-for="FinPartClose" />
-                                    <label asp-for="FinPartClose"></label>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-            
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label asp-for="FinDateClose" class="control-label"></label>
-                            <div id="date-popup_FinDateClose" class="input-group date">
-                                <input asp-for="FinDateClose" type="text" data-format="D, dd MM yyyy" class="form-control">
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            </div>
-                            <span asp-validation-for="FinDateClose" class="text-danger" />
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            <label><input id="nex5" asp-for="IsUnlockFin" type="checkbox">موافق..</label>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
             </div>
-        }else
-        {
-            <div class="tab-pane" id="tab2-5">
-                <div style="margin-right: 40%">
-                    <img src="~/images/accssDenit.jpg" width="300" height="250" />
-                    <br/>
-                    <br />
-                    <h3>ليس لديك صلاحية محاسب لاقفال المعاملات ماليآ</h3>
-                </div>
-            </div>
-        }
-
-        <ul class="pager wizard">
-            <li class="previous"><a href="javascript:void(0)"><i class="icon-right-open"></i>السابق</a></li>
-            <li class="next"><a href="javascript:void(0)">التالي<i class="icon-left-open"></i></a> </li>
-        </ul>
-    
 
         </div>
+    }else
+    {
+        <div class="tab-pane" id="tab2-3">
+            <div style="margin-right: 40%">
+                <img src="~/images/accssDenit.jpg" width="300" height="250" />
+                <br/>
+                <br />
+                <h3>ليست لديك صلاحية مراجع للمعاملات</h3>
+            </div>
+        </div>
+    }
+
+    @if (Isapr())
+    {
+            @*tab4*@
+        <div class="tab-pane" id="tab2-4">
+            <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
+            <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .
+            </p>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="checkbox">
+                        <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="tab-pane" id="tab2-4">
+            <div style="margin-right: 40%">
+                <img src="~/images/accssDenit.jpg" width="300" height="250" />
+                <br/>
+                <br />
+                <h3> ليس لديك صلاحية مشرف علي المعاملات</h3>
+            </div>
+        </div>
+    }
+
+    @if (!IsEntring() && !IsMothmen() && !IsAud())
+    {
+            @*tab5*@
+        <div class="tab-pane" id="tab2-5">
+            <h3 class="title text-info"> متابعة الجزء المالي الخاص بالمعاملة </h3>
+            <p>
+                <strong>1.</strong> تمت رصد المبلغ من المعاملة .
+            </p>
+            <div class="row">
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="MuthminPrice" class="control-label"></label>
+                        <input asp-for="MuthminPrice" class="form-control" />
+                        <span asp-validation-for="MuthminPrice" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger" />
+                    </div>
+                </div> 
+        
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label asp-for="FinNote" class="control-label"></label>
+                        <input asp-for="FinNote" class="form-control" />
+                        <span asp-validation-for="FinNote" class="text-danger" />
+                    </div>
+
+                </div> 
+            </div>   
+
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="BankModelId" class="control-label"></label>
+                        <select asp-for="BankModelId" class="select2 form-control" asp-items="ViewBag.BankId"></select>
+                    </div>
+                </div>
+            
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label asp-for="FinPriceClose" class="control-label"></label>
+                                <input asp-for="FinPriceClose" class="form-control"/>
+                                <span asp-validation-for="FinPriceClose" class="text-danger"/>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                <input asp-for="FinPartClose" />
+                                <label asp-for="FinPartClose"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="FinDateClose" class="control-label"></label>
+                        <div id="date-popup_FinDateClose" class="input-group date">
+                            <input asp-for="FinDateClose" type="text" data-format="D, dd MM yyyy" class="form-control">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                        <span asp-validation-for="FinDateClose" class="text-danger" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="checkbox">
+                        <label><input id="nex5" asp-for="IsUnlockFin" type="checkbox">موافق..</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    }else
+    {
+        <div class="tab-pane" id="tab2-5">
+            <div style="margin-right: 40%">
+                <img src="~/images/accssDenit.jpg" width="300" height="250" />
+                <br/>
+                <br />
+                <h3>ليس لديك صلاحية محاسب لاقفال المعاملات ماليآ</h3>
+            </div>
+        </div>
+    }
+
+    <ul class="pager wizard">
+        <li class="previous"><a href="javascript:void(0)"><i class="icon-right-open"></i>السابق</a></li>
+        <li class="next"><a href="javascript:void(0)">التالي<i class="icon-left-open"></i></a> </li>
+    </ul>
+    
+
+</div>
     
             
-            @*StoreData*@
-        <input type="hidden" name="ids" id="ids" />
-        <i id="imgs" style="display: none">@ViewBag.imgs</i>
-        <i id="hosname" style="display: none">@string.Format("http://" + Context.Request.Host + "/attachs1/")</i>
-        <i style="display: none" id="jsuthost">>@string.Format(Context.Request.Host + "/RemoveFile?name=")</i>
-            
-        </form>
-    </div>
+@*StoreData*@
+<input type="hidden" name="ids" id="ids" />
+<i id="imgs" style="display: none">@ViewBag.imgs</i>
+<i id="hosname" style="display: none">@string.Format("http://" + Context.Request.Host + "/attachs1/")</i>
+<i style="display: none" id="jsuthost">>@string.Format(Context.Request.Host + "/RemoveFile?name=")</i>
+
+</form>
 </div>
+</div>
+
+
+
+
 
 <div>
     <a class="btn btn-primary" asp-action="Index" asp-controller="MainSamples">الرجوع للقائمة الرئيسيه</a>

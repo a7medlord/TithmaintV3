@@ -196,7 +196,27 @@
     }
 
     <script>
+
+
+        var emp  , d1,d2;
+
+        $(document).ready(function(){
+ 
+            emp = localStorage.getItem("empid");
+            d1 = localStorage.getItem("date1");
+            d2 = localStorage.getItem("date2");
+            $("#emp").val(emp).trigger('change');
+            $("#date1").val(d1);
+            $("#date2").val(d2);
+         
+        });
+
+
         $("#btn_filter").click(function () {
+
+            localStorage.setItem("empid", $("#emp").val()); 
+            localStorage.setItem("date1", $("#date1").val()); 
+            localStorage.setItem("date2", $("#date2").val()); 
 
             location.href = "/FinModels/GetEmployee?date1=" + $("#date1").val() + "&date2=" + $("#date2").val() +"&emp="+ $("#emp").val();           
   

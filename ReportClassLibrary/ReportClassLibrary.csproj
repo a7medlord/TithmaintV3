@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore">
-      <HintPath>..\..\..\..\.nuget\packages\microsoft.aspnetcore.identity.entityframeworkcore\1.1.1\lib\net451\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\.nuget\packages\microsoft.aspnetcore.identity.entityframeworkcore\1.1.1\lib\net451\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="System" />
