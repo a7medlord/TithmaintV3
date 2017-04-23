@@ -4297,7 +4297,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!AqarTypeBad.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!BuldingTypeBad.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -4382,7 +4382,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!AqarTypeExlant.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!BuldingTypeExlant.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -4467,7 +4467,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!AqarTypeGood.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
+                        <Value>=Microsoft.VisualBasic.Interaction.Switch(Fields!BuldingTypeGood.Value = True, Microsoft.VisualBasic.Strings.Chr(252))</Value>
                         <Style>
                           <FontFamily>Wingdings</FontFamily>
                           <FontSize>12pt</FontSize>
@@ -13829,7 +13829,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!AqarType.Value</Value>
+                        <Value>=Fields!BuldingType.Value</Value>
                         <Style>
                           <FontWeight>Normal</FontWeight>
                         </Style>
@@ -15113,7 +15113,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!AqarType.Value</Value>
+                        <Value>=Fields!BuldingType.Value</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Normal</FontWeight>
@@ -22301,20 +22301,20 @@
           <DataField>BuildType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="AqarType">
-          <DataField>AqarType</DataField>
+        <Field Name="BuldingType">
+          <DataField>BuldingType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="AqarTypeBad">
-          <DataField>AqarTypeBad</DataField>
+        <Field Name="BuldingTypeBad">
+          <DataField>BuldingTypeBad</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="AqarTypeExlant">
-          <DataField>AqarTypeExlant</DataField>
+        <Field Name="BuldingTypeExlant">
+          <DataField>BuldingTypeExlant</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="AqarTypeGood">
-          <DataField>AqarTypeGood</DataField>
+        <Field Name="BuldingTypeGood">
+          <DataField>BuldingTypeGood</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="BuldinIsNull">
