@@ -231,11 +231,6 @@ namespace CloudApp.Controllers
 
         }
 
-
-
-
-
-
         public async Task<IActionResult> FinCloseforReq(DateTime? date1 = null, DateTime? date2 = null, long? cms = null)
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
@@ -663,6 +658,8 @@ namespace CloudApp.Controllers
             return View(models);
         }
 
+
+
         public async Task<IActionResult> GetInvoice(DateTime? date1 = null, DateTime? date2 = null, long? cms = null, string type = null)
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
@@ -675,10 +672,7 @@ namespace CloudApp.Controllers
             {
                 date2 = DateTime.Now.Date;
             }
-            if (!cms.HasValue)
-            {
-                cms = _context.Custmer.FirstOrDefault()?.Id;
-            }
+
             if (type ==null)
             {
                 type = "التقييم العقاري";
@@ -686,7 +680,10 @@ namespace CloudApp.Controllers
 
 
             List<InvoiceModel> models  = new List<InvoiceModel>();
-
+            if (cms!=null)
+            {
+                
+      
             foreach (var treatment in await _context.Treatment.Include(d => d.Custmer).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && d.IsUnlockFin && d.CustmerId == cms).ToListAsync())
             {
                 if (treatment != null)
@@ -743,9 +740,14 @@ namespace CloudApp.Controllers
             }
 
             ViewBag.totalprice = models.Sum(d => d.Price);
+            }
 
             return View(models);
         }
+
+
+
+
 
 
         public async Task<IActionResult> GetInvoiceReport(DateTime? date1 = null, DateTime? date2 = null, long? cms = null,string type = null)
@@ -760,16 +762,15 @@ namespace CloudApp.Controllers
             {
                 date2 = DateTime.Now.Date;
             }
-            if (!cms.HasValue)
-            {
-                cms = _context.Custmer.FirstOrDefault()?.Id;
-            }
+      
             if (type == null)
             {
                 type = "التقييم العقاري";
             }
 
             List<InvoiceModel> models = new List<InvoiceModel>();
+            if (cms!=null)
+            {
 
             foreach (var treatment in await _context.Treatment.Include(d => d.Custmer).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && d.IsUnlockFin && d.CustmerId == cms).ToListAsync())
             {
@@ -790,7 +791,6 @@ namespace CloudApp.Controllers
                     });
                 }
             }
-
 
             foreach (var treatment in await _context.R1Smaple.Include(d => d.Custmer).Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 && d.IsUnlockFin && d.CustmerId == cms).ToListAsync())
             {
@@ -832,6 +832,7 @@ namespace CloudApp.Controllers
                 }
             }
 
+            }
 
             ReportDataSource reportDataSource = new ReportDataSource();
 
@@ -855,6 +856,11 @@ namespace CloudApp.Controllers
 
             return  File(rendervalue, "application/pdf"); 
         }
+
+
+
+
+
 
         // GET: FinModels
         public async Task<IActionResult> GetEmployee(DateTime? date1 = null, DateTime? date2 = null , string emp=null)

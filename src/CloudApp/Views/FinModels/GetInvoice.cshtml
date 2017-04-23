@@ -142,19 +142,36 @@
 
     <script>
 
+        var cms  , d1,d2,t;
 
+        $(document).ready(function(){
+ 
+            cms = localStorage.getItem("cmsid");
+            d1 = localStorage.getItem("date1");
+            d2 = localStorage.getItem("date2");
+            t = localStorage.getItem("type");
+            $("#cms").val(cms).trigger('change');
+            $("#date1").val(d1);
+            $("#date2").val(d2);
+            $("#timelist").val(t);
+        });
 
 
         $("#btn_filter").click(function () {
- 
+
+            localStorage.setItem("cmsid", $("#cms").val()); 
+            localStorage.setItem("date1", $("#date1").val()); 
+            localStorage.setItem("date2", $("#date2").val()); 
+            localStorage.setItem("type", $("#timelist").val()); 
+       
             location.href = "/FinModels/GetInvoice?date1=" + $("#date1").val() + "&date2=" + $("#date2").val() + "&cms=" + $("#cms").val() + "&type=" + $("#timelist").val();
 
-
+      
         });
 
         $("#print").click(function () {
-
-            location.href = "/FinModels/GetInvoiceReport?date1=" + $("#date1").val() + "&date2=" + $("#date2").val() + "&cms=" + $("#cms").val() + "&type=" + $("#timelist").val() ;           
+            window.open(
+                "/FinModels/GetInvoiceReport?date1=" + $("#date1").val() + "&date2=" + $("#date2").val() + "&cms=" + $("#cms").val() + "&type=" + $("#timelist").val(),"_blank"      );     
   
         });
 

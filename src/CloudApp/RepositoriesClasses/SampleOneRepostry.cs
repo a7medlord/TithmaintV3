@@ -40,7 +40,7 @@ namespace CloudApp.RepositoriesClasses
         {
             return _db.Treatment.Include(treatment => treatment.Custmer)
                 .ThenInclude(custmer => custmer.Sample)
-                .Include(treatment => treatment.ApplicationUser).Where(treatment => !treatment.IsUnlockFin)
+                .Include(treatment => treatment.ApplicationUser)
                 .ToList();
         }
 
