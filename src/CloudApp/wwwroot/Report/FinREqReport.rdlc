@@ -500,7 +500,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>0.00202cm</Top>
-            <Left>7.1975cm</Left>
+            <Left>7.43964cm</Left>
             <Height>0.58412cm</Height>
             <Width>5.37315cm</Width>
             <Style>
@@ -516,9 +516,9 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>3.75754in</Top>
-        <Left>0.47072cm</Left>
+        <Left>0.20613cm</Left>
         <Height>0.64964cm</Height>
-        <Width>19.65855cm</Width>
+        <Width>20.1859cm</Width>
         <ZIndex>14</ZIndex>
         <Style>
           <Border>
@@ -1449,7 +1449,7 @@
         <Top>2.33475in</Top>
         <Left>0.47072cm</Left>
         <Height>0.67312cm</Height>
-        <Width>19.65855cm</Width>
+        <Width>19.58448cm</Width>
         <ZIndex>18</ZIndex>
         <Style>
           <Border>
