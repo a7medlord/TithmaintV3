@@ -113,6 +113,10 @@ namespace CloudApp.Controllers
                 {
                     r2Smaple.Muthmen = _userManager.GetUserId(User);
                 }
+                if (r2Smaple.IsUnlockFin && User.IsInRole("fn"))
+                {
+                    r2Smaple.Fincial = _userManager.GetUserId(User);
+                }
                 _sampleTreeServices.CreatNewTreamnt(r2Smaple);
  
                 return RedirectToAction("Edit", new { id = r2Smaple.Id });
@@ -198,6 +202,10 @@ namespace CloudApp.Controllers
                     if (r2Smaple.IsThmin && User.IsInRole("th"))
                     {
                         r2Smaple.Muthmen = _userManager.GetUserId(User);
+                    }
+                    if (r2Smaple.IsUnlockFin && User.IsInRole("fn"))
+                    {
+                        r2Smaple.Fincial = _userManager.GetUserId(User);
                     }
 
                     _sampleTreeServices.UpdateExistTreament(r2Smaple);
