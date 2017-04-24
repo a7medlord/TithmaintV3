@@ -99,6 +99,10 @@ namespace CloudApp.Controllers
                 {
                     r1Smaple.Muthmen = _userManager.GetUserId(User);
                 }
+                if (r1Smaple.IsUnlockFin && User.IsInRole("fn"))
+                {
+                    r1Smaple.Fincial = _userManager.GetUserId(User);
+                }
 
                 _towServices.CreatNewTreamnt(r1Smaple);
 
@@ -196,6 +200,10 @@ namespace CloudApp.Controllers
                     if (r1Smaple.IsThmin && User.IsInRole("th"))
                     {
                         r1Smaple.Muthmen = _userManager.GetUserId(User);
+                    }
+                    if (r1Smaple.IsUnlockFin && User.IsInRole("fn"))
+                    {
+                        r1Smaple.Fincial = _userManager.GetUserId(User);
                     }
                     _towServices.UpdateExistTreament(r1Smaple);
                 }

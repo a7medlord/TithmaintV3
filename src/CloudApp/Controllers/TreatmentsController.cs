@@ -105,7 +105,7 @@ namespace CloudApp.Controllers
                         treatment.AttachmentForTreaments.Add(new AttachmentForTreament() {AttachmentId = imgsids[i]});
                     }
                 }
-                if (treatment.IsAduit && User.IsInRole("au"))
+                if (treatment.IsAduit && User.IsInRole("au") || User.IsInRole("apr"))
                 {
                     treatment.Adutit = _userManager.GetUserId(User);
                 }
@@ -113,13 +113,17 @@ namespace CloudApp.Controllers
                 {
                     treatment.Approver = _userManager.GetUserId(User);
                 }
-                if (treatment.IsIntered && User.IsInRole("en"))
+                if (treatment.IsIntered && User.IsInRole("en") || User.IsInRole("apr") || User.IsInRole("au"))
                 {
                     treatment.Intered = _userManager.GetUserId(User);
                 }
                 if (treatment.IsThmin && User.IsInRole("th"))
                 {
                     treatment.Muthmen = _userManager.GetUserId(User);
+                }
+                if (treatment.IsUnlockFin && User.IsInRole("fn"))
+                {
+                    treatment.Fincial = _userManager.GetUserId(User);
                 }
                 _service.CreatNewTreamnt(treatment);
 
@@ -196,7 +200,7 @@ namespace CloudApp.Controllers
                         for (int i = 0; i < imgsids.Length - 1; i++)
                         {
                             treatment.AttachmentForTreaments.Add(
-                                new AttachmentForTreament() {AttachmentId = imgsids[i]});
+                                new AttachmentForTreament {AttachmentId = imgsids[i]});
                         }
                     }
 
@@ -216,6 +220,11 @@ namespace CloudApp.Controllers
                     if (treatment.IsThmin && User.IsInRole("th"))
                     {
                         treatment.Muthmen = _userManager.GetUserId(User);
+                    }
+
+                    if (treatment.IsUnlockFin && User.IsInRole("fn"))
+                    {
+                    treatment.Fincial = _userManager.GetUserId(User);
                     }
 
                     _service.UpdateExistTreament(treatment);

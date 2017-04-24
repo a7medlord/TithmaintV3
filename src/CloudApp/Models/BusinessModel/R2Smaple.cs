@@ -616,5 +616,7 @@ namespace CloudApp.Models.BusinessModel
         [NotMapped]
         public DateTime CurrentDateFromClint { get; set; }
 
+
+        public string Fincial { get; set; }
     }
 }
