@@ -63,16 +63,10 @@ namespace CloudApp.Controllers
         public IActionResult Create(int ids)
         {
             Custmer cms = _cmsrepo.GetbyId(ids);
-            IList<ApplicationUser> data = _userManager.GetUsersInRoleAsync("th").Result;
-            ViewData["UserId"] = new SelectList(data.ToList(), "Id", "EmployName");
-            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value",
-                "Value");
-          
-            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value",
-                "Value");
-            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value",
-                "Value");
+
             ViewData["cmsname"] = cms;
+
+           GetListBindForCreat().Wait();
             
             return View(new Treatment());
         }
@@ -103,11 +97,43 @@ namespace CloudApp.Controllers
 
                 return RedirectToAction("Edit", new {Id = treatment.Id});
             }
-            await GetListBind(treatment.CustmerId);
+            await GetListBindForCreat(treatment.CustmerId);
             return View("Create", treatment);
         }
 
-        async Task GetListBind(long cmsSelectId)
+        async Task GetListBindForCreat(long cmsSelectId)
+        {
+            ViewData["CustmerId"] = new SelectList(_cmsrepo.Getall().ToList(), "Id", "Name", cmsSelectId);
+
+            ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
+
+            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value",
+                "Value");
+           
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value",
+                "Value");
+
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value",
+                "Value");
+        }
+
+        async Task GetListBindForCreat()
+        {
+            ViewData["CustmerId"] = new SelectList(_cmsrepo.Getall().ToList(), "Id", "Name");
+
+            ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
+
+            ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value",
+                "Value");
+
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value",
+                "Value");
+
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value",
+                "Value");
+        }
+
+        async Task GetListBindForEdit(long cmsSelectId)
         {
             ViewData["CustmerId"] = new SelectList(_cmsrepo.Getall().ToList(), "Id", "Name", cmsSelectId);
             ViewData["UserId"] = new SelectList(await _userManager.GetUsersInRoleAsync("th"), "Id", "EmployName");
@@ -115,8 +141,13 @@ namespace CloudApp.Controllers
                 "Value");
             ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen).Distinct(Comparer), "Value",
                 "Value");
-        }
 
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value",
+                "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value",
+                "Value");
+        }
+        
         public JsonResult RemoveFile(string name)
         {
             _context.Remove(_context.AttachmentForTreaments.SingleOrDefault(treament => treament.AttachmentId == name));
@@ -139,7 +170,7 @@ namespace CloudApp.Controllers
                 files += file.AttachmentId + ";";
             }
             ViewData["imgs"] = files;
-            await GetListBind(treatment.CustmerId);
+            await GetListBindForEdit(treatment.CustmerId);
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value",
                 "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada), "Value",
@@ -178,13 +209,15 @@ namespace CloudApp.Controllers
                         }
                     }
 
+
                     if (treatment.IsAduit)
                     {
                         if (string.IsNullOrEmpty(treatment.Adutit) && User.IsInRole("apr"))
                         {
                             treatment.Adutit = _userManager.GetUserId(User);
 
-                        }else if (User.IsInRole("au"))
+                        }
+                        else if (User.IsInRole("au"))
                         {
                             treatment.Adutit = _userManager.GetUserId(User);
                         }
@@ -214,7 +247,7 @@ namespace CloudApp.Controllers
                 }
                 return RedirectToAction("Index", "MainSamples");
             }
-            await GetListBind(treatment.CustmerId);
+            await GetListBindForEdit(treatment.CustmerId);
             return View(treatment);
         }
 
@@ -231,8 +264,7 @@ namespace CloudApp.Controllers
             return _context.Treatment.Any(e => e.Id == id);
 
         }
-
-
+        
         public void EditFin(long id, double partprice, long bankid, DateTime date, bool close)
         {
             var row = _service.GetTrementById(id);
@@ -243,9 +275,7 @@ namespace CloudApp.Controllers
             _service.UpdateExistTreament(row);
 
         }
-
-
-
+        
         public List<PriceMapModelView> FilterExpr1(long id)
         {
             List<PriceMapModelView> reslt = new List<PriceMapModelView>();
@@ -326,8 +356,7 @@ namespace CloudApp.Controllers
 
             return reslt;
         }
-
-
+        
         List<PriceMapModelView> GetData(long id)
         {
             List<PriceMapModelView> reslt = new List<PriceMapModelView>();

@@ -157,22 +157,24 @@ namespace CloudApp.Controllers
                         }
                     }
 
-                    if (r2Smaple.IsAduit && User.IsInRole("au"))
+                    if (r2Smaple.IsAduit)
                     {
-                        r2Smaple.Adutit = _userManager.GetUserId(User);
+                        if (string.IsNullOrEmpty(r2Smaple.Adutit) && User.IsInRole("apr"))
+                        {
+                            r2Smaple.Adutit = _userManager.GetUserId(User);
+
+                        }
+                        else if (User.IsInRole("au"))
+                        {
+                            r2Smaple.Adutit = _userManager.GetUserId(User);
+                        }
                     }
+
                     if (r2Smaple.IsApproved && User.IsInRole("apr"))
                     {
                         r2Smaple.Approver = _userManager.GetUserId(User);
                     }
-                    if (r2Smaple.IsIntered && User.IsInRole("en"))
-                    {
-                        r2Smaple.Intered = _userManager.GetUserId(User);
-                    }
-                    if (r2Smaple.IsThmin && User.IsInRole("th"))
-                    {
-                        r2Smaple.Muthmen = _userManager.GetUserId(User);
-                    }
+
                     if (r2Smaple.IsUnlockFin && User.IsInRole("fn"))
                     {
                         r2Smaple.Fincial = _userManager.GetUserId(User);
@@ -221,27 +223,37 @@ namespace CloudApp.Controllers
 
         void GetBindingForCreat()
         {
+            List<Flag> localData = _context.Flag.Distinct(Comparer).ToList();
             IList<ApplicationUser> data =  _userManager.GetUsersInRoleAsync("th").Result;
-            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value", "Value");
-            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value", "Value");
+            ViewData["City"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+            ViewData["Gada"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
             ViewData["ApplicationUserId"] = new SelectList(data.ToList(), "Id", "EmployName");
-            ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value", "Value");
-            ViewData["butype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BulsingType).Distinct(Comparer), "Value", "Value");
+            ViewData["aqartype"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
+            ViewData["butype"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.BulsingType), "Value", "Value");
         }
 
         void GetBindingForEdit()
         {
+            List<Flag> localData = _context.Flag.Distinct(Comparer).ToList();
             IList<ApplicationUser> data = _userManager.GetUsersInRoleAsync("th").Result;
 
             ViewData["ApplicationUserId"] = new SelectList(data.ToList(), "Id", "EmployName");
-            ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value", "Value");
-            ViewData["butype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BulsingType).Distinct(Comparer), "Value", "Value");
-            ViewData["InterFaces"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Interfaces).Distinct(Comparer), "Value", "Value");
-            ViewData["azltype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AzlType).Distinct(Comparer), "Value", "Value");
-            ViewData["downstair"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DownSir).Distinct(Comparer), "Value", "Value");
+
+            ViewData["aqartype"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
+
+            ViewData["butype"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.BulsingType), "Value", "Value");
+
+            ViewData["InterFaces"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Interfaces), "Value", "Value");
+
+            ViewData["azltype"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.AzlType), "Value", "Value");
+
+            ViewData["downstair"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.DownSir), "Value", "Value");
+
             ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
-            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value", "Value");
-            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value", "Value");
+
+            ViewData["City"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+
+            ViewData["Gada"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
 
         }
 

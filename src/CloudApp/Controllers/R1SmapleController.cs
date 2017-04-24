@@ -60,6 +60,7 @@ namespace CloudApp.Controllers
            GetBindingForCrete();
 
             var cms = _cmsRepostry.GetbyId(ids);
+
             ViewData["cmsname"] = cms;
            
             return View(new R1Smaple());
@@ -159,22 +160,24 @@ namespace CloudApp.Controllers
                         }
                     }
 
-                    if (r1Smaple.IsAduit && User.IsInRole("au"))
+                    if (r1Smaple.IsAduit)
                     {
-                        r1Smaple.Adutit = _userManager.GetUserId(User);
+                        if (string.IsNullOrEmpty(r1Smaple.Adutit) && User.IsInRole("apr"))
+                        {
+                            r1Smaple.Adutit = _userManager.GetUserId(User);
+
+                        }
+                        else if (User.IsInRole("au"))
+                        {
+                            r1Smaple.Adutit = _userManager.GetUserId(User);
+                        }
                     }
+
                     if (r1Smaple.IsApproved && User.IsInRole("apr"))
                     {
                         r1Smaple.Approver = _userManager.GetUserId(User);
                     }
-                    if (r1Smaple.IsIntered && User.IsInRole("en"))
-                    {
-                        r1Smaple.Intered = _userManager.GetUserId(User);
-                    }
-                    if (r1Smaple.IsThmin && User.IsInRole("th"))
-                    {
-                        r1Smaple.Muthmen = _userManager.GetUserId(User);
-                    }
+
                     if (r1Smaple.IsUnlockFin && User.IsInRole("fn"))
                     {
                         r1Smaple.Fincial = _userManager.GetUserId(User);
@@ -205,50 +208,54 @@ namespace CloudApp.Controllers
 
         void GetBindingForCrete()
         {
+            List<Flag> localData = _context.Flag.Distinct(Comparer).ToList();
+
             IList<ApplicationUser> data = _userManager.GetUsersInRoleAsync("th").Result;
 
             ViewData["ApplicationUserId"] = new SelectList(data.ToList(), "Id", "EmployName");
-            ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value", "Value");
-            ViewData["desinArch"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DesginArch).Distinct(Comparer), "Value", "Value");
-            ViewData["Mansob"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Mansob).Distinct(Comparer), "Value", "Value");
-            ViewData["AqarType"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BuildingStatus).Distinct(Comparer), "Value", "Value");
-            ViewData["butype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BulsingType).Distinct(Comparer), "Value", "Value");
-            ViewData["AqarScope"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AqarScope).Distinct(Comparer), "Value", "Value");
-            ViewData["BuldingBuzy"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BuldingBuzy).Distinct(Comparer), "Value", "Value");
-            ViewData["RoadSeflt"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.RoadSeflt).Distinct(Comparer), "Value", "Value");
-            ViewData["RoadLighting"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.RoadLighting).Distinct(Comparer), "Value", "Value");
-            ViewData["JarIsBulding"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.JarIsBulding).Distinct(Comparer), "Value", "Value");
-            ViewData["AqarIsAttch"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AqarIsAttch).Distinct(Comparer), "Value", "Value");
+            ViewData["aqartype"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
+            ViewData["desinArch"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.DesginArch), "Value", "Value");
+            ViewData["Mansob"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Mansob), "Value", "Value");
+            ViewData["AqarType"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.BuildingStatus), "Value", "Value");
+            ViewData["butype"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.BulsingType), "Value", "Value");
+            ViewData["AqarScope"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.AqarScope), "Value", "Value");
+            ViewData["BuldingBuzy"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.BuldingBuzy), "Value", "Value");
+            ViewData["RoadSeflt"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.RoadSeflt), "Value", "Value");
+            ViewData["RoadLighting"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.RoadLighting), "Value", "Value");
+            ViewData["JarIsBulding"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.JarIsBulding), "Value", "Value");
+            ViewData["AqarIsAttch"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.AqarIsAttch), "Value", "Value");
             ViewData["TshteebType"] = new SelectList(
-                _context.Flag.Where(d => d.FlagValue == FlagsName.TshteebType).Distinct(Comparer), "Value", "Value");
+                localData.Where(d => d.FlagValue == FlagsName.TshteebType), "Value", "Value");
 
-            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value", "Value");
-            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value", "Value");
+            ViewData["City"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
+            ViewData["Gada"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Gada), "Value", "Value");
         }
 
         void GetBindingForEdit()
         {
+            List<Flag> localData = _context.Flag.Distinct(Comparer).ToList();
+
             IList<ApplicationUser> data = _userManager.GetUsersInRoleAsync("th").Result;
 
             ViewData["ApplicationUserId"] = new SelectList(data.ToList(), "Id", "EmployName");
-            ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value", "Value");
-            ViewData["desinArch"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DesginArch).Distinct(Comparer), "Value", "Value");
-            ViewData["Mansob"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Mansob).Distinct(Comparer), "Value", "Value");
-            ViewData["AqarType"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BuildingStatus).Distinct(Comparer), "Value", "Value");
-            ViewData["butype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BulsingType).Distinct(Comparer), "Value", "Value");
-            ViewData["AqarScope"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AqarScope).Distinct(Comparer), "Value", "Value");
-            ViewData["BuldingBuzy"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BuldingBuzy).Distinct(Comparer), "Value", "Value");
-            ViewData["RoadSeflt"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.RoadSeflt).Distinct(Comparer), "Value", "Value");
-            ViewData["RoadLighting"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.RoadLighting).Distinct(Comparer), "Value", "Value");
-            ViewData["JarIsBulding"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.JarIsBulding).Distinct(Comparer), "Value", "Value");
-            ViewData["AqarIsAttch"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AqarIsAttch).Distinct(Comparer), "Value", "Value");
-            ViewData["TshteebType"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.TshteebType).Distinct(Comparer), "Value", "Value");
-            ViewData["InterFaces"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Interfaces).Distinct(Comparer), "Value", "Value");
-            ViewData["AsqfType"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.SqfTypeAndArch).Distinct(Comparer), "Value", "Value");
-            ViewData["azltype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AzlType).Distinct(Comparer), "Value", "Value");
-            ViewData["downstair"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DownSir).Distinct(Comparer), "Value", "Value");
+            ViewData["aqartype"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Aqar), "Value", "Value");
+            ViewData["desinArch"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.DesginArch), "Value", "Value");
+            ViewData["Mansob"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Mansob), "Value", "Value");
+            ViewData["AqarType"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.BuildingStatus), "Value", "Value");
+            ViewData["butype"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.BulsingType), "Value", "Value");
+            ViewData["AqarScope"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.AqarScope), "Value", "Value");
+            ViewData["BuldingBuzy"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.BuldingBuzy), "Value", "Value");
+            ViewData["RoadSeflt"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.RoadSeflt), "Value", "Value");
+            ViewData["RoadLighting"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.RoadLighting), "Value", "Value");
+            ViewData["JarIsBulding"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.JarIsBulding), "Value", "Value");
+            ViewData["AqarIsAttch"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.AqarIsAttch), "Value", "Value");
+            ViewData["TshteebType"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.TshteebType), "Value", "Value");
+            ViewData["InterFaces"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.Interfaces), "Value", "Value");
+            ViewData["AsqfType"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.SqfTypeAndArch), "Value", "Value");
+            ViewData["azltype"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.AzlType), "Value", "Value");
+            ViewData["downstair"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.DownSir), "Value", "Value");
 
-            ViewData["ArchConstract"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.ArchConstract).Distinct(Comparer), "Value", "Value");
+            ViewData["ArchConstract"] = new SelectList(localData.Where(d => d.FlagValue == FlagsName.ArchConstract), "Value", "Value");
 
         }
 
