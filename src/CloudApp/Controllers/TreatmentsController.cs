@@ -67,14 +67,13 @@ namespace CloudApp.Controllers
             ViewData["UserId"] = new SelectList(data.ToList(), "Id", "EmployName");
             ViewData["Aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value",
                 "Value");
-            ViewData["Gentype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gen).Distinct(Comparer), "Value",
-                "Value");
+          
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value",
                 "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value",
                 "Value");
             ViewData["cmsname"] = cms;
-            ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
+            
             return View(new Treatment());
         }
 
@@ -96,35 +95,10 @@ namespace CloudApp.Controllers
             if (ModelState.IsValid)
             {
                 treatment.Id = _service.GetAutoIncreesNumber(treatment.DateOfBegin);
-                if (!string.IsNullOrEmpty(ids))
-                {
-                    string[] imgsids = ids.Split(';');
-                    treatment.AttachmentForTreaments = new List<AttachmentForTreament>();
-                    for (int i = 0; i < imgsids.Length - 1; i++)
-                    {
-                        treatment.AttachmentForTreaments.Add(new AttachmentForTreament() {AttachmentId = imgsids[i]});
-                    }
-                }
-                if (treatment.IsAduit && User.IsInRole("au") || User.IsInRole("apr"))
-                {
-                    treatment.Adutit = _userManager.GetUserId(User);
-                }
-                if (treatment.IsApproved && User.IsInRole("apr"))
-                {
-                    treatment.Approver = _userManager.GetUserId(User);
-                }
-                if (treatment.IsIntered && User.IsInRole("en") || User.IsInRole("apr") || User.IsInRole("au"))
-                {
+                treatment.BankModel = _context.BankModel.FirstOrDefault();
+
                     treatment.Intered = _userManager.GetUserId(User);
-                }
-                if (treatment.IsThmin && User.IsInRole("th"))
-                {
-                    treatment.Muthmen = _userManager.GetUserId(User);
-                }
-                if (treatment.IsUnlockFin && User.IsInRole("fn"))
-                {
-                    treatment.Fincial = _userManager.GetUserId(User);
-                }
+
                 _service.CreatNewTreamnt(treatment);
 
                 return RedirectToAction("Edit", new {Id = treatment.Id});
@@ -204,24 +178,21 @@ namespace CloudApp.Controllers
                         }
                     }
 
-
-                    if (treatment.IsAduit && User.IsInRole("au"))
+                    if (treatment.IsAduit)
                     {
-                        treatment.Adutit = _userManager.GetUserId(User);
+                        if (string.IsNullOrEmpty(treatment.Adutit) && User.IsInRole("apr"))
+                        {
+                            treatment.Adutit = _userManager.GetUserId(User);
+
+                        }else if (User.IsInRole("au"))
+                        {
+                            treatment.Adutit = _userManager.GetUserId(User);
+                        }
                     }
                     if (treatment.IsApproved && User.IsInRole("apr"))
                     {
                         treatment.Approver = _userManager.GetUserId(User);
                     }
-                    if (treatment.IsIntered && User.IsInRole("en"))
-                    {
-                        treatment.Intered = _userManager.GetUserId(User);
-                    }
-                    if (treatment.IsThmin && User.IsInRole("th"))
-                    {
-                        treatment.Muthmen = _userManager.GetUserId(User);
-                    }
-
                     if (treatment.IsUnlockFin && User.IsInRole("fn"))
                     {
                     treatment.Fincial = _userManager.GetUserId(User);
