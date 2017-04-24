@@ -747,9 +747,6 @@ namespace CloudApp.Controllers
 
 
 
-
-
-
         public async Task<IActionResult> GetInvoiceReport(DateTime? date1 = null, DateTime? date2 = null, long? cms = null,string type = null)
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
@@ -856,11 +853,6 @@ namespace CloudApp.Controllers
 
             return  File(rendervalue, "application/pdf"); 
         }
-
-
-
-
-
 
         // GET: FinModels
         public async Task<IActionResult> GetEmployee(DateTime? date1 = null, DateTime? date2 = null , string emp=null)
