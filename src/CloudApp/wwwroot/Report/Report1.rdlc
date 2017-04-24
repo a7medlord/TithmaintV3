@@ -78,7 +78,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!DateOfBegin.Value</Value>
+                    <Value>=Globals!ExecutionTime</Value>
                     <Style>
                       <FontFamily>Arial (Body CS)</FontFamily>
                       <Format>dd/MM/yyyy</Format>
@@ -113,7 +113,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!DateOfBegin.Value</Value>
+                    <Value>=Globals!ExecutionTime</Value>
                     <Style>
                       <FontFamily>Arial (Body CS)</FontFamily>
                       <Format>dd/MM/yyyy</Format>

@@ -31,8 +31,6 @@ namespace CloudApp.Controllers
             _env = env;
         }
 
-
-
         public IActionResult FinFilter(DateTime? date1 = null, DateTime? date2 = null, long? cms = null , string aqartype = null , string city = null , string gada = null )
         {
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City), "Value", "Value");
@@ -324,7 +322,7 @@ namespace CloudApp.Controllers
             return View(models);
         }
 
-        public async Task<IActionResult> FinReqReport(DateTime? date1 = null, DateTime? date2 = null , long? cms = null , string bank=null)
+        public async Task<IActionResult> FinReqReport(DateTime? date1 = null, DateTime? date2 = null , long? cms = null , string bank=null , string clinet = null)
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
             if (!date1.HasValue)
@@ -437,7 +435,9 @@ namespace CloudApp.Controllers
                 }
             }
 
+
             }
+    
 
             ReportDataSource reportDataSource = new ReportDataSource();
             ReportDataSource bankDataSource = new ReportDataSource();
@@ -448,8 +448,6 @@ namespace CloudApp.Controllers
 
             bankDataSource.Name = "DataSetHelpBank";
             bankDataSource.Value = banks;
-
-
 
             LocalReport local = new LocalReport();
             local.DataSources.Add(reportDataSource);
@@ -468,8 +466,8 @@ namespace CloudApp.Controllers
 
             ReportParameter[] parameters = {
                 new ReportParameter("num",toWord.ConvertToArabic()),
-                new ReportParameter("clint",_context.Custmer.SingleOrDefault(d=>d.Id == cms)?.FromClint),
-                new ReportParameter("cmsid" , cms.ToString()), 
+                new ReportParameter("clint",clinet),
+                new ReportParameter("cmsid" , cms.ToString())
 
             };
 
@@ -479,6 +477,10 @@ namespace CloudApp.Controllers
 
             return File(rendervalue, "application/pdf");
         }
+
+
+
+
 
 
         public async Task<IActionResult> FinCloseReport(DateTime? date1 = null, DateTime? date2 = null)
@@ -747,9 +749,6 @@ namespace CloudApp.Controllers
 
 
 
-
-
-
         public async Task<IActionResult> GetInvoiceReport(DateTime? date1 = null, DateTime? date2 = null, long? cms = null,string type = null)
         {
             ViewData["CustmerId"] = new SelectList(_context.Custmer, "Id", "Name");
@@ -856,11 +855,6 @@ namespace CloudApp.Controllers
 
             return  File(rendervalue, "application/pdf"); 
         }
-
-
-
-
-
 
         // GET: FinModels
         public async Task<IActionResult> GetEmployee(DateTime? date1 = null, DateTime? date2 = null , string emp=null)

@@ -7,7 +7,7 @@ namespace CloudApp.Models.ManpulateModel
         public long Id { get; set; }
         [Display(Name = "العميل")]
         public string Custmer { get; set; }
-        [Display(Name = "عناية")]
+        [Display(Name = "الخاص بالعميل")]
         public string SCustmer { get; set; }
         [Display(Name = "تاريخ  الفاتورة")]
         public string DateOfBegin { get; set; }
