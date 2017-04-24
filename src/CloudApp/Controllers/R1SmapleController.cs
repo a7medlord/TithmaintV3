@@ -57,12 +57,11 @@ namespace CloudApp.Controllers
 
         public  IActionResult Create(int ids)
         {
-            GetBinding();
+           GetBindingForCrete();
+
             var cms = _cmsRepostry.GetbyId(ids);
-            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value", "Value");
-            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value", "Value");
             ViewData["cmsname"] = cms;
-            ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");
+           
             return View(new R1Smaple());
         }
         
@@ -73,38 +72,12 @@ namespace CloudApp.Controllers
             if (ModelState.IsValid)
             {
                 r1Smaple.Id = _towServices.GetAutoIncreesNumber(r1Smaple.DateOfBegin);
-                if (!string.IsNullOrEmpty(ids))
-                {
-                    string[] imgsids = ids.Split(';');
-                    r1Smaple.AttachmentForR1Samples= new List<AttachmentForR1Sample>();
-                    for (int i = 0; i < imgsids.Length - 1; i++)
-                    {
-                        r1Smaple.AttachmentForR1Samples.Add(new AttachmentForR1Sample() { AttachmentId = imgsids[i] });
-                    }
-                }
 
-                if (r1Smaple.IsAduit && User.IsInRole("au"))
-                {
-                    r1Smaple.Adutit = _userManager.GetUserId(User);
-                }
-                if (r1Smaple.IsApproved && User.IsInRole("apr"))
-                {
-                    r1Smaple.Approver = _userManager.GetUserId(User);
-                }
-                if (r1Smaple.IsIntered && User.IsInRole("en"))
-                {
-                    r1Smaple.Intered = _userManager.GetUserId(User);
-                }
-                if (r1Smaple.IsThmin && User.IsInRole("th"))
-                {
-                    r1Smaple.Muthmen = _userManager.GetUserId(User);
-                }
-                if (r1Smaple.IsUnlockFin && User.IsInRole("fn"))
-                {
-                    r1Smaple.Fincial = _userManager.GetUserId(User);
-                }
+                r1Smaple.BankModel = _context.BankModel.FirstOrDefault();
 
-                _towServices.CreatNewTreamnt(r1Smaple);
+                r1Smaple.Intered = _userManager.GetUserId(User);
+
+              _towServices.CreatNewTreamnt(r1Smaple);
 
                 return RedirectToAction("Edit" , new {id= r1Smaple.Id});
             }
@@ -147,7 +120,8 @@ namespace CloudApp.Controllers
             }
             ViewData["imgs"] = files;
 
-           GetBinding();
+          GetBindingForEdit();
+
             ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value", "Value");
             ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value", "Value");
             ViewData["cmsname"] = r1Smaple.Custmer;
@@ -229,7 +203,30 @@ namespace CloudApp.Controllers
             _towServices.UpdateExistTreament(row);
         }
 
-        void GetBinding()
+        void GetBindingForCrete()
+        {
+            IList<ApplicationUser> data = _userManager.GetUsersInRoleAsync("th").Result;
+
+            ViewData["ApplicationUserId"] = new SelectList(data.ToList(), "Id", "EmployName");
+            ViewData["aqartype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Aqar).Distinct(Comparer), "Value", "Value");
+            ViewData["desinArch"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.DesginArch).Distinct(Comparer), "Value", "Value");
+            ViewData["Mansob"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Mansob).Distinct(Comparer), "Value", "Value");
+            ViewData["AqarType"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BuildingStatus).Distinct(Comparer), "Value", "Value");
+            ViewData["butype"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BulsingType).Distinct(Comparer), "Value", "Value");
+            ViewData["AqarScope"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AqarScope).Distinct(Comparer), "Value", "Value");
+            ViewData["BuldingBuzy"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.BuldingBuzy).Distinct(Comparer), "Value", "Value");
+            ViewData["RoadSeflt"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.RoadSeflt).Distinct(Comparer), "Value", "Value");
+            ViewData["RoadLighting"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.RoadLighting).Distinct(Comparer), "Value", "Value");
+            ViewData["JarIsBulding"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.JarIsBulding).Distinct(Comparer), "Value", "Value");
+            ViewData["AqarIsAttch"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.AqarIsAttch).Distinct(Comparer), "Value", "Value");
+            ViewData["TshteebType"] = new SelectList(
+                _context.Flag.Where(d => d.FlagValue == FlagsName.TshteebType).Distinct(Comparer), "Value", "Value");
+
+            ViewData["City"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.City).Distinct(Comparer), "Value", "Value");
+            ViewData["Gada"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.Gada).Distinct(Comparer), "Value", "Value");
+        }
+
+        void GetBindingForEdit()
         {
             IList<ApplicationUser> data = _userManager.GetUsersInRoleAsync("th").Result;
 
@@ -254,7 +251,8 @@ namespace CloudApp.Controllers
             ViewData["ArchConstract"] = new SelectList(_context.Flag.Where(d => d.FlagValue == FlagsName.ArchConstract).Distinct(Comparer), "Value", "Value");
 
         }
-      
+
+
         private bool R1SmapleExists(long id)
         {
             return _context.R1Smaple.Any(e => e.Id == id);
