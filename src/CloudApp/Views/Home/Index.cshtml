@@ -39,6 +39,7 @@
 
     <div class="col-md-2">
         <div class="panel minimal panel-primary">
+            
             <div class="panel-heading clearfix">
                 <div class="panel-title">معاملات للتدقيق</div>
                 <ul class="panel-tool-options">
@@ -54,6 +55,7 @@
                     </li>
                 </ul>
             </div>
+
             <!-- panel body -->
             <div class="panel-body">
                 <div class="row col-with-divider">
@@ -69,6 +71,7 @@
 
     <div class="col-md-2">
         <div class="panel minimal panel-primary">
+            
             <div class="panel-heading clearfix">
                 <div class="panel-title">معاملات للاعتماد</div>
                 <ul class="panel-tool-options">
@@ -84,6 +87,7 @@
                     </li>
                 </ul>
             </div>
+
             <!-- panel body -->
             <div class="panel-body">
                 <div class="row col-with-divider">
@@ -274,7 +278,9 @@
     <script src="~/FrameWork/js/plugins/flot/jquery.flot.pie.min.js"></script>
     <script src="~/FrameWork/js/plugins/flot/jquery.flot.time.min.js"></script>
     <script src="~/FrameWork/js/plugins/chartjs/Chart.min.js"></script>
+
     <script>
+        alert("@DateTime.Now.ToString()");
         $(document).ready(function() {
 
             chart1();
@@ -549,21 +555,21 @@
             var ids = $(e).siblings("#idmodel").val();
             var type = $(e).siblings("#typemodel").val();
             
-                switch (type) {
-                    case "1":
-                        location.href = "/Treatments/Edit/" + ids;
+            switch (type) {
+            case "1":
+                location.href = "/Treatments/Edit/" + ids;
         
-                        break;
-                    case "2":
+                break;
+            case "2":
 
-                        location.href = "/R1Smaple/Edit/" + ids;
+                location.href = "/R1Smaple/Edit/" + ids;
 
-                        break;
-                    case "3":
-                        location.href = "/R2Smaple/Edit/" + ids;
-                        break;
-                    default:
-                }
+                break;
+            case "3":
+                location.href = "/R2Smaple/Edit/" + ids;
+                break;
+            default:
+            }
  
 
         }

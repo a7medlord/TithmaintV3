@@ -113,6 +113,7 @@
                        <div class="checkbox">
                            <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
                        </div>
+                       
                        <div class="form-group">
                            <div class="col-md-offset-2 col-md-10">
                                <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
@@ -132,23 +133,25 @@
                    <h3> ليس لديك صلاحية مشرف علي المعاملات</h3>
                </div>
                
-            <div style="display: none">
-                <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
-                <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .
-                </p>
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+               <div style="display: none">
+                   <h3 class="title text-info"> تعميد المستندات والأدخال</h3>
+                   <p><strong>1.</strong> تمت الموافقة علي كافة الاواراق والصكوك بعد عمليات الأدخال و التثمين والمراجعة .
+                   </p>
+                   <div class="row">
+                       <div class="col-md-2">
+                           <div class="checkbox">
+                               <label><input id="nex4" asp-for="IsApproved" type="checkbox">موافق..</label>
+                           </div>
+                           <div class="form-group">
+                               <div class="col-md-offset-2 col-md-10">
+                                   <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+               ]
            </div>
        }
 
@@ -352,8 +355,11 @@
             
 @*StoreData*@
 <input type="hidden" name="ids" id="ids" />
+
 <i id="imgs" style="display: none">@ViewBag.imgs</i>
+
 <i id="hosname" style="display: none">@string.Format("http://" + Context.Request.Host + "/attachs1/")</i>
+
 <i style="display: none" id="jsuthost">>@string.Format(Context.Request.Host + "/RemoveFile?name=")</i>
 
 </form>
@@ -394,7 +400,6 @@
 
 @functions
 {
-
     bool IsEntring()
     {
         bool value = User.IsInRole("en");
@@ -420,10 +425,4 @@
     {
         return User.IsInRole("fn");
     }
-
-    
 }
-
-
-
-

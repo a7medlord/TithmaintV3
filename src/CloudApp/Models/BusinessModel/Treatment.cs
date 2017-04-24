@@ -305,7 +305,9 @@ namespace CloudApp.Models.BusinessModel
         public ApplicationUser ApplicationUser { get; set; }
         [Display(Name = "المثمن")]
         public string ApplicationUserId { get; set; }
+        
         public string Muthmen { get; set; }
+
         public string Adutit { get; set; }
         public string Approver { get; set; }
         public string Intered { get; set; }

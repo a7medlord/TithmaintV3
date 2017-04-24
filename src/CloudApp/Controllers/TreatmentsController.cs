@@ -189,10 +189,12 @@ namespace CloudApp.Controllers
                             treatment.Adutit = _userManager.GetUserId(User);
                         }
                     }
+
                     if (treatment.IsApproved && User.IsInRole("apr"))
                     {
                         treatment.Approver = _userManager.GetUserId(User);
                     }
+
                     if (treatment.IsUnlockFin && User.IsInRole("fn"))
                     {
                     treatment.Fincial = _userManager.GetUserId(User);
