@@ -1,6 +1,17 @@
 ﻿
 $(".select2").css("width", "100%");
 
+$("#nex1").change(function () {
+    if (this.checked) {
+
+        $(".l0").removeClass('active').addClass('completed');
+
+    } else {
+
+        $(".l0").removeClass('completed').addClass('active');
+
+    }
+});
 $("#root").submit(function () {
 
     var today = new Date();

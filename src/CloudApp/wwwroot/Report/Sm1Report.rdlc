@@ -2557,7 +2557,49 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value> نرفق لكم فيما يلي معاينة وتقييم0</Value>
+                <Value> والؤرخ  في  [DateOfBegin]  </Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!AqarType.Value</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>لل</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>  الواقعة في مدينة  </Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!City.Value</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>  حي  </Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!Gada.Value</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>  بتاريخ  [DateOfBegin] </Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>
@@ -2569,7 +2611,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> والؤرخ  في 12-23-2017 افيلا الواقعة في مدينة المبرز حي العيون بموجب صك رقم 1/129 بتاريخ 4/3/2015  وفسح بناء رقم  </Value>
+                <Value> نرفق لكم فيما يلي معاينة وتقييم  رقم </Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>
