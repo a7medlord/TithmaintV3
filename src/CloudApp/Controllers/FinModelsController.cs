@@ -947,24 +947,16 @@ namespace CloudApp.Controllers
 
 
                 // Thminat
-                int muthmincount1 =
-                    _context.Treatment.Count(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-                int muthmincount2 = _context.R1Smaple.Count(
-                    d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
-                int muthmincount3 = _context.R2Smaple.Count(
-                    d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int muthmincount1 =_context.Treatment.Count(d => d.ApplicationUserId == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int muthmincount2 = _context.R1Smaple.Count(d => d.ApplicationUserId == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+                int muthmincount3 = _context.R2Smaple.Count( d => d.ApplicationUserId == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2);
+
                 int muthmincount = muthmincount1 + muthmincount2 + muthmincount3;
                 ViewBag.muthmincount = muthmincount;
 
-                double muthminprice1 = _context.Treatment
-                    .Where(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
-                    .Sum(d => d.MuthminPrice);
-                double muthminprice2 = _context.R1Smaple
-                    .Where(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
-                    .Sum(d => d.MuthminPrice);
-                double muthminprice3 = _context.R2Smaple
-                    .Where(d => d.Muthmen == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2)
-                    .Sum(d => d.MuthminPrice);
+                double muthminprice1 = _context.Treatment.Where(d => d.ApplicationUserId == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.MuthminPrice);
+                double muthminprice2 = _context.R1Smaple.Where(d => d.ApplicationUserId == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.MuthminPrice);
+                double muthminprice3 = _context.R2Smaple.Where(d => d.ApplicationUserId == emp & d.DateOfBegin >= date1 & d.DateOfBegin <= date2).Sum(d => d.MuthminPrice);
                 double muthminprice = muthminprice1 + muthminprice2 + muthminprice3;
                 ViewBag.Totalmuthmin = muthminprice;
 
@@ -1093,7 +1085,7 @@ namespace CloudApp.Controllers
                 foreach (var treatment in await _context.Treatment.Include(d => d.Custmer)
                     .ThenInclude(d => d.Sample)
                     .Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 &&
-                                (d.Intered == emp || d.Muthmen == emp || d.Adutit == emp || d.Approver == emp))
+                                (d.Intered == emp || d.ApplicationUserId == emp || d.Adutit == emp || d.Approver == emp))
                     .ToListAsync())
                 {
                     if (treatment != null)
@@ -1117,7 +1109,7 @@ namespace CloudApp.Controllers
                 foreach (var treatment in await _context.R1Smaple.Include(d => d.Custmer)
                     .ThenInclude(d => d.Sample)
                     .Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 &&
-                                (d.Intered == emp || d.Muthmen == emp || d.Adutit == emp || d.Approver == emp))
+                                (d.Intered == emp || d.ApplicationUserId == emp || d.Adutit == emp || d.Approver == emp))
                     .ToListAsync())
                 {
                     if (treatment != null)
@@ -1139,9 +1131,7 @@ namespace CloudApp.Controllers
 
                 foreach (var treatment in await _context.R2Smaple.Include(d => d.Custmer)
                     .ThenInclude(d => d.Sample)
-                    .Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 &&
-                                (d.Intered == emp || d.Muthmen == emp || d.Adutit == emp || d.Approver == emp))
-                    .ToListAsync())
+                    .Where(d => d.DateOfBegin >= date1 && d.DateOfBegin <= date2 &&(d.Intered == emp || d.ApplicationUserId == emp || d.Adutit == emp || d.Approver == emp))  .ToListAsync())
                 {
                     if (treatment != null)
                     {

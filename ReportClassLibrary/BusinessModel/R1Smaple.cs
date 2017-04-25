@@ -410,6 +410,8 @@ namespace ReportClassLibrary.BusinessModel
         public ApplicationUser ApplicationUser { get; set; }
         [Display(Name = "المثمن")]
         public string ApplicationUserId { get; set; }
+        [Display(Name = "رقم الصك")]
+        public string SukNumber { get; set; }
         public string Muthmen { get; set; }
         public string Adutit { get; set; }
         public string Approver { get; set; }
