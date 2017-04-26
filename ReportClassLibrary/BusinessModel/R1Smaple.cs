@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ReportClassLibrary.BusinessModel
 {
@@ -20,6 +22,7 @@ namespace ReportClassLibrary.BusinessModel
 
         [Display(Name = "رقم القطعة")]
         public string PiceNumber { get; set; }
+        public DateTime DateOfBegin { get; set; }
 
         [Display(Name = "رقم البلك")]
         public string BlockNumber { get; set; }
@@ -338,6 +341,8 @@ namespace ReportClassLibrary.BusinessModel
 
         [Display(Name = "تكاليف الصيانة التقديرية")]
         public string MantinancePrice { get; set; }
+        [Display(Name = " نوع الصيانة")]
+        public string MantinanceType { get; set; }
 
         [Display(Name = "رأي المثمن")]
         public string MothmenOpnion { get; set; }

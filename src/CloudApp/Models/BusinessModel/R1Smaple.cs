@@ -83,6 +83,7 @@ namespace CloudApp.Models.BusinessModel
         public string TshteebType { get; set; }
 
         [Display(Name = "رقم المبني")]
+
         public string BuldingNumber { get; set; }
 
         //حدود العقار
@@ -356,7 +357,9 @@ namespace CloudApp.Models.BusinessModel
 
         [Display(Name = "تكاليف الصيانة التقديرية")]
         public string MantinancePrice { get; set; }
-
+        [Display(Name = " نوع الصيانة")]
+        public string MantinanceType { get; set; }
+        
         [Display(Name = "رأي المثمن")]
         public string MothmenOpnion { get; set; }
 

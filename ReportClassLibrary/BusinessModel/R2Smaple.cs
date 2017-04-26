@@ -136,13 +136,13 @@ namespace ReportClassLibrary.BusinessModel
 
         // حاله المبني
         [Display(Name = "رديئ")]
-        public bool BuldingTypeBad { get; set; }
+        public bool AqarTypeBad { get; set; }
 
         [Display(Name = "جيد")]
-        public bool BuldingTypeGood { get; set; }
+        public bool AqarTypeGood { get; set; }
 
         [Display(Name = "ممتاز")]
-        public bool BuldingTypeExlant { get; set; }
+        public bool AqarTypeExlant { get; set; }
 
 
 

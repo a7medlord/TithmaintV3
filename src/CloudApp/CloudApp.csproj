@@ -37,6 +37,7 @@
     <Content Include="wwwroot\js\SampleTowCreat.js" />
     <Content Include="wwwroot\js\SampleTowEdit.js" />
     <Content Include="wwwroot\js\SmapleThreeEdit.js" />
+    <EmbeddedResource Include="wwwroot\Report\Sm1Report.rdlc" />
     <EmbeddedResource Include="wwwroot\Report\FinREqReport.rdlc" />
     <EmbeddedResource Include="wwwroot\Report\Report1.rdlc" />
     <Content Include="wwwroot\Report\SupFinREqReport.rdlc" />
@@ -98,7 +99,6 @@
   <ItemGroup>
     <EmbeddedResource Include="wwwroot\Report\QtReport.rdlc" />
     <EmbeddedResource Include="wwwroot\Report\Sm0Report.rdlc" />
-    <EmbeddedResource Include="wwwroot\Report\Sm1Report.rdlc" />
     <EmbeddedResource Include="wwwroot\Report\Sm2Report.rdlc" />
     <EmbeddedResource Include="wwwroot\Report\SupCoReport.rdlc" />
     <EmbeddedResource Include="wwwroot\Report\SupQtReport.rdlc" />
