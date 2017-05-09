@@ -475,432 +475,337 @@
 </div>
 
 
-<br/>
-<p>الخدمات المتوفرة : </p>
-<div style="border: darkturquoise solid 1px; padding: 10px">
+<div class="row">
+        <div class="col-lg-6">
+           
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading no-border clearfix"> 
+                            <h3 class="panel-title">الخدمات المتوفرة</h3>
+                        </div> 
+                        <!-- panel body --> 
+                        <div class="panel-body"> 
+                            <table>
+                                <tr>
+                                    <td><input asp-for="ServicesWater" />    <label asp-for="ServicesWater"></label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</td>
+                                    <td><input asp-for="ServicesPhone" />    <label asp-for="ServicesPhone"></label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</td>
+                                  
+                                </tr>
+                                <tr>
+                                    <td><input asp-for="ServicesElectrocitcs" />    <label asp-for="ServicesElectrocitcs"></label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</td>
+                                    <td><input asp-for="ServicesSanitation" />    <label asp-for="ServicesSanitation"></label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</td>
+                                  
+                                </tr>
+                                <tr>
+                                    <td><input asp-for="ServicesRoad" />    <label asp-for="ServicesRoad"></label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</td>
+                                    <td><input asp-for="ServicesLamp" />    <label asp-for="ServicesLamp"></label>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</td>
+                                </tr>
+                            </table>
 
-    <div class="row" style="margin-right: 1%; margin-left: 1%;margin-top:1%">
-
-        <div class="col-md-2 checkbox" style="display: none">
-
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="ServicesWater" />
-            <label asp-for="ServicesWater"></label>
-
-        </div>
-        <div class="col-md-2 checkbox">
-            <input asp-for="ServicesPhone" />
-            <label asp-for="ServicesPhone"></label>
-
-        </div>
-        <div class="col-md-2 checkbox">
-            <input asp-for="ServicesElectrocitcs" />
-            <label asp-for="ServicesElectrocitcs"></label>
-
-        </div>
-
-        <div class="col-md-2 checkbox">
-
-            <input asp-for="ServicesSanitation" />
-            <label asp-for="ServicesSanitation"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-
-            <input asp-for="ServicesRoad" />
-            <label asp-for="ServicesRoad"></label>
-        </div>
-        <div class="col-md-2 checkbox">
-            <input asp-for="ServicesLamp" />
-            <label asp-for="ServicesLamp"></label>
-        </div>
-    </div>
-  
-    
-
-
-</div>
-
-
-<br/>
-<p>المحيـــط : </p>
-
-
-<div style="border: darkturquoise solid 1px; padding: 10px">
-
-    <div class="row" style="margin: 1%">
-
-
-        <div class="col-md-2 checkbox" style="display: none">
-
-        </div>
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundMosq" />
-            <label asp-for="SroundMosq"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundmedicalCenter" />
-            <label asp-for="SroundmedicalCenter"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundmedSecurityFacilty" />
-            <label asp-for="SroundmedSecurityFacilty"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundSoaq" />
-            <label asp-for="SroundSoaq"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundGarden" />
-            <label asp-for="SroundGarden"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundFeul" />
-            <label asp-for="SroundFeul"></label>
-        </div>
-
-    </div>
-
-    <div class="row" style="margin: 1%">
-
-        <div class="col-md-2 checkbox" style="display: none">
-
-        </div>
-        <div class="col-md-2 checkbox">
-            <input asp-for="Sroundpartment" />
-            <label asp-for="Sroundpartment"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundHotel" />
-            <label asp-for="SroundHotel"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundRestrant" />
-            <label asp-for="SroundRestrant"></label>
-        </div>
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundCentralSoaq" />
-            <label asp-for="SroundCentralSoaq"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundComirchalCenter" />
-            <label asp-for="SroundComirchalCenter"></label>
-        </div>
-        
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundDispensares" />
-            <label asp-for="SroundDispensares"></label>
-        </div>
-
-
-    </div>
-
-    <div class="row" style="margin:1%">
-
-        <div class="col-md-2 checkbox" style="display: none">
-
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundHospital" />
-            <label asp-for="SroundHospital"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundciviliDenfencs" />
-            <label asp-for="SroundciviliDenfencs"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundBank" />
-            <label asp-for="SroundBank"></label>
-        </div>
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundSchools" />
-            <label asp-for="SroundSchools"></label>
-        </div>
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundPoilceCenter" />
-            <label asp-for="SroundPoilceCenter"></label>
-        </div>
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundGenralSoaq" />
-            <label asp-for="SroundGenralSoaq"></label>
-        </div>
-
-
-    </div>
-
-    <div class="row" style="margin: 1%">
-        <div class="col-md-2 checkbox" style="display: none">
-
-        </div>
- 
-
-        <div class="col-md-2 checkbox">
-            <input asp-for="SroundGovermentDepartMent" />
-            <label asp-for="SroundGovermentDepartMent"></label>
-        </div>
-
-    </div>
-
-
-</div>
-
-<br/>
-    
-<div style="border: darkturquoise solid 1px; padding: 10px">
-    
-    <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-                <label asp-for="GenLoc" class="control-label"></label>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="input-group">
-                            <select  asp-for="GenLoc" class="select2 form-control" asp-items="ViewBag.Gentype"></select>
-                            <span class="input-group-btn"><a id="GenlocFlag" data-toggle="modal" data-id="2" data-se="GenLoc" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
 
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading no-border clearfix"> 
+                            <h3 class="panel-title"> المحيط</h3>
+     
+                        </div> 
+                        <!-- panel body --> 
+                        <div class="panel-body"> 
+                            <table>
+                                <tr>
+                                    <td><input asp-for="SroundMosq" /><label asp-for="SroundMosq"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundmedicalCenter"/><label asp-for="SroundmedicalCenter"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundmedSecurityFacilty" /><label asp-for="SroundmedSecurityFacilty"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundSoaq" />    <label asp-for="SroundSoaq"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundGarden" />    <label asp-for="SroundGarden"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundFeul" />    <label asp-for="SroundFeul"></label>&nbsp;&nbsp;</td>
+                                    <td><input asp-for="Sroundpartment" />    <label asp-for="Sroundpartment"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundHotel" />    <label asp-for="SroundHotel"></label> &nbsp;&nbsp;</td>
+                                   
+                                </tr>
+                                <tr>
+                                    
+                                    <td><input asp-for="SroundRestrant" />    <label asp-for="SroundRestrant"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundCentralSoaq" />    <label asp-for="SroundCentralSoaq"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundComirchalCenter" />    <label asp-for="SroundComirchalCenter"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundDispensares" />    <label asp-for="SroundDispensares"></label></td>
+                                    <td><input asp-for="SroundHospital" /><label asp-for="SroundHospital"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundciviliDenfencs"/><label asp-for="SroundciviliDenfencs"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundBank" /><label asp-for="SroundBank"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundSchools" />    <label asp-for="SroundSchools"></label> &nbsp;&nbsp;</td>
+                                </tr>
+                                <tr>                             
+                                    <td><input asp-for="SroundPoilceCenter" />    <label asp-for="SroundPoilceCenter"></label> &nbsp;&nbsp;</td>
+                                    <td><input asp-for="SroundGenralSoaq" />    <label asp-for="SroundGenralSoaq"></label></td>
+                                    <td><input asp-for="SroundGovermentDepartMent" />    <label asp-for="SroundGovermentDepartMent"></label></td>
+                        
 
+                                </tr>
+                            </table>
 
-
-    <div class="row">
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label asp-for="North" class="control-label"></label>
-                <input asp-for="North" class="form-control"/>
-                <span asp-validation-for="North" class="text-danger"/>
+                        </div> 
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label asp-for="NorthTall" class="control-label"></label>
-                <input asp-for="NorthTall" class="form-control"/>
-                <span asp-validation-for="NorthTall" class="text-danger"/>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label asp-for="South" class="control-label"></label>
-                <input asp-for="South" class="form-control"/>
-                <span asp-validation-for="South" class="text-danger"/>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label asp-for="SouthTall" class="control-label"></label>
-                <input asp-for="SouthTall" class="form-control"/>
-                <span asp-validation-for="SouthTall" class="text-danger"/>
-            </div>
-        </div>
-
-    </div>
-    <br/>
-
-    <div class="row">
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label asp-for="East" class="control-label"></label>
-                <input asp-for="East" class="form-control"/>
-                <span asp-validation-for="East" class="text-danger"/>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label asp-for="EastTall" class="control-label"></label>
-                <input asp-for="EastTall" class="form-control"/>
-                <span asp-validation-for="EastTall" class="text-danger"/>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label asp-for="West" class="control-label"></label>
-                <input asp-for="West" class="form-control"/>
-                <span asp-validation-for="West" class="text-danger"/>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <label asp-for="WestTall" class="control-label"></label>
-                <input asp-for="WestTall" class="form-control"/>
-                <span asp-validation-for="WestTall" class="text-danger"/>
-            </div>
-        </div>
+        
+        
 
     </div>
 
 
-    <br/>
 
-    <div class="row">
-        <div class="col-md-10">
-            <div class="form-group">
-                <label asp-for="NotesAndAbstracting" class="control-label"></label>
-                <input asp-for="NotesAndAbstracting" class="form-control"/>
-                <span asp-validation-for="NotesAndAbstracting" class="text-danger"/>
+ 
+
+        <div style="border: darkturquoise solid 1px; padding: 10px">
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="GenLoc" class="control-label"></label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <select asp-for="GenLoc" class="select2 form-control" asp-items="ViewBag.Gentype"></select>
+                                    <span class="input-group-btn"><a id="GenlocFlag" data-toggle="modal" data-id="2" data-se="GenLoc" class="btn btn-primary"><i class="icon-plus"></i> </a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="North" class="control-label"></label>
+                        <input asp-for="North" class="form-control" />
+                        <span asp-validation-for="North" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="NorthTall" class="control-label"></label>
+                        <input asp-for="NorthTall" class="form-control" />
+                        <span asp-validation-for="NorthTall" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="South" class="control-label"></label>
+                        <input asp-for="South" class="form-control" />
+                        <span asp-validation-for="South" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="SouthTall" class="control-label"></label>
+                        <input asp-for="SouthTall" class="form-control" />
+                        <span asp-validation-for="SouthTall" class="text-danger" />
+                    </div>
+                </div>
+
+            </div>
+            <br />
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="East" class="control-label"></label>
+                        <input asp-for="East" class="form-control" />
+                        <span asp-validation-for="East" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="EastTall" class="control-label"></label>
+                        <input asp-for="EastTall" class="form-control" />
+                        <span asp-validation-for="EastTall" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="West" class="control-label"></label>
+                        <input asp-for="West" class="form-control" />
+                        <span asp-validation-for="West" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="WestTall" class="control-label"></label>
+                        <input asp-for="WestTall" class="form-control" />
+                        <span asp-validation-for="WestTall" class="text-danger" />
+                    </div>
+                </div>
+
+            </div>
+
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label asp-for="NotesAndAbstracting" class="control-label"></label>
+                        <input asp-for="NotesAndAbstracting" class="form-control" />
+                        <span asp-validation-for="NotesAndAbstracting" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="MantinCost" class="control-label"></label>
+                        <input asp-for="MantinCost" class="form-control" />
+                        <span asp-validation-for="MantinCost" class="text-danger" />
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="MothmnOpnin" class="control-label"></label>
+                        <input asp-for="MothmnOpnin" class="form-control" />
+                        <span asp-validation-for="MothmnOpnin" class="text-danger" />
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="col-md-2">
-            <div class="form-group">
-                <label asp-for="MantinCost" class="control-label"></label>
-                <input asp-for="MantinCost" class="form-control"/>
-                <span asp-validation-for="MantinCost" class="text-danger"/>
+        <br />
+        <p>ارفق المزيــد !</p>
+        <div class="dropzone" id="myId"></div>
+        <br />
+        @*<p>او قم بحذف ملف سابق !</p>
+            <div class="dropzone" id="myId2"></div>*@
+        <div class="row">
+            <div class="col-md-2">
+                <div class="checkbox">
+                    <label><input id="nex2" asp-for="IsThmin" type="checkbox">اكمال عملية التثمين...</label>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="حفـــــظ العملية" class="btn btn-primary" />
+                    </div>
+                </div>
             </div>
+
         </div>
+
+        <br />
+
+        @if (User.IsInRole("au") || User.IsInRole("apr"))
+        {
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="pac-input">البحــث</label>
+                        <input id="pac-input" class="form-control" type="text" placeholder="ابحث عن موقع">
+
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="Longtute" class="control-label"></label>
+                        <input asp-for="Longtute" class="form-control" />
+                        <span asp-validation-for="Longtute" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="Latute" class="control-label"></label>
+                        <input asp-for="Latute" class="form-control" />
+                        <br />
+                        <button type="button" id="is" class="btn btn-primary">عرض الخريطــة</button>
+                        <span asp-validation-for="Latute" class="text-danger" />
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <br />
+            <br />
+            <button type="button" class="btn btn-primary" onclick="getlog()">جلب الموقع الحالي</button>
+            <br />
+            <br />
+
+            <div id="maptest" style="width: 90%; height: 400px; margin-right: 5%">
+
+            </div>
+
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="pac-input">البحــث</label>
+                        <input id="pac-input" class="form-control" type="text" placeholder="ابحث عن موقع">
+
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="Longtute" class="control-label"></label>
+                        <input asp-for="Longtute" class="form-control" />
+                        <span asp-validation-for="Longtute" class="text-danger" />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="Latute" class="control-label"></label>
+                        <input asp-for="Latute" class="form-control" />
+                        <br />
+                        <button type="button" id="is" class="btn btn-primary">عرض الخريطــة</button>
+                        <span asp-validation-for="Latute" class="text-danger" />
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <br />
+            <br />
+            <button type="button" class="btn btn-primary" onclick="getlog()">جلب الموقع الحالي</button>
+            <br />
+            <br />
+
+            <div id="maptest" style="width: 90%; height: 400px; margin-right: 5%">
+
+            </div>
+
+        }
+
     </div>
-
-    <br/>
-
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label asp-for="MothmnOpnin" class="control-label"></label>
-                <input asp-for="MothmnOpnin" class="form-control"/>
-                <span asp-validation-for="MothmnOpnin" class="text-danger"/>
-            </div>
-        </div>
-    </div>
-</div>
-<br/>
-<p>ارفق المزيــد !</p>
-<div class="dropzone" id="myId"></div>
-<br/>
-@*<p>او قم بحذف ملف سابق !</p>
-    <div class="dropzone" id="myId2"></div>*@
-<div class="row">
-    <div class="col-md-2">
-        <div class="checkbox">
-            <label><input id="nex2" asp-for="IsThmin" type="checkbox">اكمال عملية التثمين...</label>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="حفـــــظ العملية" class="btn btn-primary"/>
-            </div>
-        </div>
-    </div>
-       
-</div>
-  
-    <br />
-
-   @if (User.IsInRole("au") || User.IsInRole("apr"))
-   {
-
-       <div class="row">
-           <div class="col-md-4">
-               <div class="form-group">
-                   <label for="pac-input">البحــث</label>
-                   <input id="pac-input" class="form-control" type="text" placeholder="ابحث عن موقع">
-
-               </div>
-           </div>
-
-           <div class="col-md-2">
-               <div class="form-group">
-                   <label asp-for="Longtute" class="control-label"></label>
-                   <input asp-for="Longtute" class="form-control" />
-                   <span asp-validation-for="Longtute" class="text-danger" />
-               </div>
-           </div>
-
-           <div class="col-md-2">
-               <div class="form-group">
-                   <label asp-for="Latute" class="control-label"></label>
-                   <input asp-for="Latute" class="form-control" />
-                   <br />
-                   <button type="button" id="is" class="btn btn-primary">عرض الخريطــة</button>
-                   <span asp-validation-for="Latute" class="text-danger" />
-
-               </div>
-
-           </div>
-
-
-       </div>
-
-       <br />
-       <br />
-       <button type="button" class="btn btn-primary" onclick="getlog()">جلب الموقع الحالي</button>
-       <br />
-       <br />
-
-       <div id="maptest" style="width: 90%; height: 400px; margin-right: 5%">
-
-       </div>
-
-   }
-   else
-   {
-       <div class="row">
-           <div class="col-md-4">
-               <div class="form-group">
-                   <label for="pac-input">البحــث</label>
-                   <input id="pac-input" class="form-control" type="text" placeholder="ابحث عن موقع">
-
-               </div>
-           </div>
-
-           <div class="col-md-2">
-               <div class="form-group">
-                   <label asp-for="Longtute" class="control-label"></label>
-                   <input asp-for="Longtute" class="form-control" />
-                   <span asp-validation-for="Longtute" class="text-danger" />
-               </div>
-           </div>
-
-           <div class="col-md-2">
-               <div class="form-group">
-                   <label asp-for="Latute" class="control-label"></label>
-                   <input asp-for="Latute" class="form-control" />
-                   <br />
-                   <button type="button" id="is" class="btn btn-primary">عرض الخريطــة</button>
-                   <span asp-validation-for="Latute" class="text-danger" />
-
-               </div>
-
-           </div>
-
-
-       </div>
-
-       <br />
-       <br />
-       <button type="button" class="btn btn-primary" onclick="getlog()">جلب الموقع الحالي</button>
-       <br />
-       <br />
-
-       <div id="maptest" style="width: 90%; height: 400px; margin-right: 5%">
-
-       </div>
-
-   }
-
-</div>
