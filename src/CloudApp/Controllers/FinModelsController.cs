@@ -479,10 +479,6 @@ namespace CloudApp.Controllers
         }
 
 
-
-
-
-
         public async Task<IActionResult> FinCloseReport(DateTime? date1 = null, DateTime? date2 = null)
         {
             ViewData["BankId"] = new SelectList(_context.BankModel, "Id", "Name");

@@ -174,7 +174,7 @@ $("#MeterPriceEarh").focusout(function () {
 });
 
 $("#MeterPriceQabo").focusout(function () {
-    var value = $("#AreaQabo").val() * $("#MeterPriceEarh").val();
+    var value = $("#AreaQabo").val() * $("#MeterPriceQabo").val();
     $("#TotalQabo").val(value);
 });
 

@@ -113,7 +113,6 @@ namespace CloudApp.Services
             reportDataSource.Name = "DataSetSample0";
             reportDataSource.Value = treatments;
             string custmer = treatments.SingleOrDefault()?.Custmer.Name;
-            string sample = treatments.SingleOrDefault()?.Custmer.Sample.Name;
             string longtute = treatments.SingleOrDefault()?.Longtute;
             string latute = treatments.SingleOrDefault()?.Latute;
             LocalReport local = new LocalReport();
@@ -126,15 +125,17 @@ namespace CloudApp.Services
 
             ToWord toWord = new ToWord((decimal)price, new CurrencyInfo(CurrencyInfo.Currencies.SaudiArabia));
             //get name
-            string muthmenname = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.EmployName;
+
+                                           
+            string muthmenname = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().ApplicationUserId)?.EmployName;
             string aduitname = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.EmployName;
             string appovename = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.EmployName;
             // get member id
-            string muthmenid = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.MemberId;
+            string muthmenid = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().ApplicationUserId)?.MemberId;
             string aduitid = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.MemberId;
             string appoveid = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.MemberId;
             //get image sign
-            string muthminsign = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Muthmen)?.SigImage;
+            string muthminsign = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().ApplicationUserId)?.SigImage;
             string auditsign = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Adutit)?.SigImage;
             string approvesign = _repostry.DircAccessToDb.Users.SingleOrDefault(d => d.Id == treatments.SingleOrDefault().Approver)?.SigImage;
             //get image url
@@ -146,7 +147,6 @@ namespace CloudApp.Services
             string map = Mapgen(longtute, latute, "ROADMAP", "16", "249", "739");
             string zoommap = Mapgen(longtute, latute, "satellite", "19", "265", "530");
             ReportParameter[] parameters = {
-                new ReportParameter("sample",sample),
                 new ReportParameter("custmer",custmer),
                 new ReportParameter("muthmen", muthmenname),
                 new ReportParameter("audit", aduitname),

@@ -42,7 +42,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.26471cm</Top>
-            <Left>13.091cm</Left>
+            <Left>13.13137cm</Left>
             <Height>1.01804cm</Height>
             <Width>6.8286cm</Width>
             <Style>
@@ -90,7 +90,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.13229cm</Top>
-            <Left>13.091cm</Left>
+            <Left>13.13137cm</Left>
             <Height>1.01804cm</Height>
             <Width>6.78627cm</Width>
             <ZIndex>1</ZIndex>
@@ -110,7 +110,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Parameters!custmer.Value</Value>
+                        <Value>=Fields!Scustmer.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
                         </Style>
@@ -139,7 +139,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.26471cm</Top>
-            <Left>0.20844cm</Left>
+            <Left>0.24881cm</Left>
             <Height>1.01804cm</Height>
             <Width>12.74027cm</Width>
             <ZIndex>2</ZIndex>
@@ -189,7 +189,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.13229cm</Top>
-            <Left>0.20844cm</Left>
+            <Left>0.24881cm</Left>
             <Height>1.01804cm</Height>
             <Width>12.72263cm</Width>
             <ZIndex>3</ZIndex>
@@ -204,12 +204,12 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>1.69545cm</Top>
-        <Left>0.21202cm</Left>
+        <Left>0.17165cm</Left>
         <Height>2.413cm</Height>
-        <Width>19.98839cm</Width>
+        <Width>20.3237cm</Width>
         <Style>
           <Border>
-            <Color>Firebrick</Color>
+            <Color>#f48fb1</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -251,10 +251,10 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!sample.Value</Value>
+                <Value>=Parameters!custmer.Value</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
+                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -286,7 +286,15 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>بالاشارة الي تكليفنا بتقييم العقار المؤرخ في  ورقم نرقف لكم فيما يلي نتيجة معاينة وتقييم رقم </Value>
+                <Value>بالاشارة الي تكليفنا بتقييم العقار المؤرخ في  </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!DateSNum.Value</Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value> نرقف لكم فيما يلي نتيجة معاينة وتقييم رقم </Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -296,10 +304,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>0.75205cm</Top>
-        <Left>9.71621cm</Left>
+        <Top>0.9743cm</Top>
+        <Left>8.50795cm</Left>
         <Height>0.6cm</Height>
-        <Width>10.51595cm</Width>
+        <Width>11.72421cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -351,7 +359,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.13229cm</Top>
-            <Left>14.75317cm</Left>
+            <Left>14.83764cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <Style>
@@ -399,7 +407,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.13229cm</Top>
-            <Left>10.85321cm</Left>
+            <Left>10.93768cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>1</ZIndex>
@@ -449,7 +457,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.16581cm</Top>
-            <Left>5.58006cm</Left>
+            <Left>5.66453cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>2</ZIndex>
@@ -516,7 +524,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.16581cm</Top>
-            <Left>0.05291cm</Left>
+            <Left>0.13738cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>3</ZIndex>
@@ -566,7 +574,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.36128cm</Top>
-            <Left>14.79815cm</Left>
+            <Left>14.88262cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>4</ZIndex>
@@ -589,6 +597,7 @@
                         <Value>=Fields!DateSNum.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
+                          <Format>dd-MM-yyyy</Format>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -615,7 +624,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.36128cm</Top>
-            <Left>10.89819cm</Left>
+            <Left>10.98266cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>5</ZIndex>
@@ -665,7 +674,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.3948cm</Top>
-            <Left>5.62504cm</Left>
+            <Left>5.70951cm</Left>
             <Height>1.06037cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>6</ZIndex>
@@ -726,7 +735,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.3948cm</Top>
-            <Left>0.09789cm</Left>
+            <Left>0.18236cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>7</ZIndex>
@@ -776,7 +785,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>2.63128cm</Top>
-            <Left>14.79815cm</Left>
+            <Left>14.88262cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>8</ZIndex>
@@ -825,7 +834,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>2.63128cm</Top>
-            <Left>10.89819cm</Left>
+            <Left>10.98266cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>9</ZIndex>
@@ -875,7 +884,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>2.6648cm</Top>
-            <Left>5.62504cm</Left>
+            <Left>5.70951cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>10</ZIndex>
@@ -895,7 +904,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!Tbuild.Value</Value>
+                        <Value>=Fields!AqarType.Value</Value>
                         <Style>
                           <FontSize>12pt</FontSize>
                         </Style>
@@ -924,7 +933,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>2.6648cm</Top>
-            <Left>0.09789cm</Left>
+            <Left>0.18236cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>11</ZIndex>
@@ -974,7 +983,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>3.90128cm</Top>
-            <Left>14.75317cm</Left>
+            <Left>14.83764cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.12498cm</Width>
             <ZIndex>12</ZIndex>
@@ -1023,7 +1032,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>3.90128cm</Top>
-            <Left>10.89819cm</Left>
+            <Left>10.98266cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.71387cm</Width>
             <ZIndex>13</ZIndex>
@@ -1073,7 +1082,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>3.9348cm</Top>
-            <Left>5.62504cm</Left>
+            <Left>5.70951cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>14</ZIndex>
@@ -1122,7 +1131,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>3.9348cm</Top>
-            <Left>0.09789cm</Left>
+            <Left>0.18236cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>15</ZIndex>
@@ -1172,7 +1181,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>5.17128cm</Top>
-            <Left>14.79815cm</Left>
+            <Left>14.88262cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>16</ZIndex>
@@ -1221,7 +1230,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>5.17128cm</Top>
-            <Left>10.89819cm</Left>
+            <Left>10.98266cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>17</ZIndex>
@@ -1271,7 +1280,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>5.2048cm</Top>
-            <Left>5.62504cm</Left>
+            <Left>5.70951cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>18</ZIndex>
@@ -1320,7 +1329,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>5.2048cm</Top>
-            <Left>0.09789cm</Left>
+            <Left>0.18236cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>19</ZIndex>
@@ -1370,7 +1379,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>6.44128cm</Top>
-            <Left>14.79815cm</Left>
+            <Left>14.88262cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>20</ZIndex>
@@ -1419,7 +1428,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>6.44128cm</Top>
-            <Left>10.89819cm</Left>
+            <Left>10.98266cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>21</ZIndex>
@@ -1469,7 +1478,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>6.4748cm</Top>
-            <Left>5.62504cm</Left>
+            <Left>5.70951cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>22</ZIndex>
@@ -1518,7 +1527,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>6.4748cm</Top>
-            <Left>0.09789cm</Left>
+            <Left>0.18236cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>23</ZIndex>
@@ -1568,7 +1577,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>7.71128cm</Top>
-            <Left>14.79815cm</Left>
+            <Left>14.88262cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>24</ZIndex>
@@ -1617,7 +1626,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>7.71128cm</Top>
-            <Left>10.89819cm</Left>
+            <Left>10.98266cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>25</ZIndex>
@@ -1669,7 +1678,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>7.7448cm</Top>
-            <Left>8.21655cm</Left>
+            <Left>8.30102cm</Left>
             <Height>2.31775cm</Height>
             <Width>2.48849cm</Width>
             <ZIndex>26</ZIndex>
@@ -1718,7 +1727,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>8.98128cm</Top>
-            <Left>14.79815cm</Left>
+            <Left>14.88262cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>27</ZIndex>
@@ -1767,7 +1776,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>8.98128cm</Top>
-            <Left>10.89819cm</Left>
+            <Left>10.98266cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>28</ZIndex>
@@ -2185,7 +2194,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>7.7448cm</Top>
-            <Left>0.09789cm</Left>
+            <Left>0.18236cm</Left>
             <Height>1.92064cm</Height>
             <Width>7.97755cm</Width>
             <ZIndex>29</ZIndex>
@@ -2235,7 +2244,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>10.25128cm</Top>
-            <Left>14.79815cm</Left>
+            <Left>14.88262cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>30</ZIndex>
@@ -2284,7 +2293,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>10.25128cm</Top>
-            <Left>10.89819cm</Left>
+            <Left>10.98266cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>31</ZIndex>
@@ -2334,7 +2343,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>10.13311cm</Top>
-            <Left>8.21655cm</Left>
+            <Left>8.30102cm</Left>
             <Height>1.19944cm</Height>
             <Width>2.48849cm</Width>
             <ZIndex>32</ZIndex>
@@ -2400,7 +2409,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>9.70072cm</Top>
-            <Left>0.09789cm</Left>
+            <Left>0.18236cm</Left>
             <Height>1.63183cm</Height>
             <Width>7.98078cm</Width>
             <ZIndex>33</ZIndex>
@@ -2415,13 +2424,13 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>4.56353cm</Top>
-        <Left>0.25612cm</Left>
+        <Left>0.17165cm</Left>
         <Height>11.47675cm</Height>
-        <Width>19.97604cm</Width>
+        <Width>20.3237cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
-            <Color>Firebrick</Color>
+            <Color>#f48fb1</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -2466,7 +2475,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.40758cm</Top>
-            <Left>12.94312cm</Left>
+            <Left>13.08345cm</Left>
             <Height>1.18004cm</Height>
             <Width>6.87917cm</Width>
             <Style>
@@ -2514,7 +2523,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.41993cm</Top>
-            <Left>0.05791cm</Left>
+            <Left>0.19824cm</Left>
             <Height>1.16769cm</Height>
             <Width>12.82171cm</Width>
             <ZIndex>1</ZIndex>
@@ -2566,7 +2575,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.1688cm</Top>
-            <Left>0.16109cm</Left>
+            <Left>0.30142cm</Left>
             <Height>1.12589cm</Height>
             <Width>19.65855cm</Width>
             <ZIndex>2</ZIndex>
@@ -2575,19 +2584,19 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Color>Firebrick</Color>
                 <Style>Solid</Style>
               </Border>
-              <BackgroundColor>Firebrick</BackgroundColor>
+              <BackgroundColor>#880e4f</BackgroundColor>
             </Style>
           </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>16.25865cm</Top>
-        <Left>0.31198cm</Left>
+        <Left>0.17165cm</Left>
         <Height>2.67759cm</Height>
-        <Width>19.97604cm</Width>
+        <Width>20.3237cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
-            <Color>Firebrick</Color>
+            <Color>#f48fb1</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -2634,7 +2643,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.1688cm</Top>
-            <Left>0.16109cm</Left>
+            <Left>0.30142cm</Left>
             <Height>1.31639cm</Height>
             <Width>19.65855cm</Width>
             <Style>
@@ -2642,7 +2651,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Color>Firebrick</Color>
                 <Style>Solid</Style>
               </Border>
-              <BackgroundColor>Firebrick</BackgroundColor>
+              <BackgroundColor>#880e4f</BackgroundColor>
             </Style>
           </Rectangle>
           <Rectangle Name="Rectangle46">
@@ -2683,7 +2692,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.67702cm</Top>
-            <Left>14.77566cm</Left>
+            <Left>14.91599cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>1</ZIndex>
@@ -2732,7 +2741,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.67702cm</Top>
-            <Left>0.16109cm</Left>
+            <Left>0.30142cm</Left>
             <Height>1.08127cm</Height>
             <Width>14.46111cm</Width>
             <ZIndex>2</ZIndex>
@@ -2782,7 +2791,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>2.90601cm</Top>
-            <Left>14.82064cm</Left>
+            <Left>14.96097cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>3</ZIndex>
@@ -2831,7 +2840,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>2.90601cm</Top>
-            <Left>10.92068cm</Left>
+            <Left>11.06101cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>4</ZIndex>
@@ -2881,7 +2890,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>2.93953cm</Top>
-            <Left>5.64753cm</Left>
+            <Left>5.78786cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>5</ZIndex>
@@ -2930,7 +2939,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>2.93953cm</Top>
-            <Left>0.12038cm</Left>
+            <Left>0.26071cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>6</ZIndex>
@@ -2980,7 +2989,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>4.17601cm</Top>
-            <Left>14.82064cm</Left>
+            <Left>14.96097cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>7</ZIndex>
@@ -3029,7 +3038,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>4.17601cm</Top>
-            <Left>10.92068cm</Left>
+            <Left>11.06101cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>8</ZIndex>
@@ -3079,7 +3088,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>4.20953cm</Top>
-            <Left>5.64753cm</Left>
+            <Left>5.78786cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>9</ZIndex>
@@ -3128,7 +3137,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>4.20953cm</Top>
-            <Left>0.12038cm</Left>
+            <Left>0.26071cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>10</ZIndex>
@@ -3178,7 +3187,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>5.44601cm</Top>
-            <Left>14.82064cm</Left>
+            <Left>14.96097cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>11</ZIndex>
@@ -3227,7 +3236,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>5.44601cm</Top>
-            <Left>10.92068cm</Left>
+            <Left>11.06101cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>12</ZIndex>
@@ -3277,7 +3286,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>5.47953cm</Top>
-            <Left>5.64753cm</Left>
+            <Left>5.78786cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>13</ZIndex>
@@ -3326,7 +3335,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>5.47953cm</Top>
-            <Left>0.12038cm</Left>
+            <Left>0.26071cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>14</ZIndex>
@@ -3376,7 +3385,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>6.71601cm</Top>
-            <Left>14.82064cm</Left>
+            <Left>14.96097cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>15</ZIndex>
@@ -3425,7 +3434,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>6.71601cm</Top>
-            <Left>10.92068cm</Left>
+            <Left>11.06101cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>16</ZIndex>
@@ -3475,7 +3484,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>6.74953cm</Top>
-            <Left>5.64753cm</Left>
+            <Left>5.78786cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>17</ZIndex>
@@ -3524,7 +3533,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>6.74953cm</Top>
-            <Left>0.12038cm</Left>
+            <Left>0.26071cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>18</ZIndex>
@@ -3539,13 +3548,13 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>19.11615cm</Top>
-        <Left>0.31198cm</Left>
+        <Left>0.17165cm</Left>
         <Height>7.93443cm</Height>
-        <Width>19.97604cm</Width>
+        <Width>20.3237cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
-            <Color>Firebrick</Color>
+            <Color>#f48fb1</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -3592,7 +3601,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.1688cm</Top>
-            <Left>0.16109cm</Left>
+            <Left>0.30142cm</Left>
             <Height>1.03064cm</Height>
             <Width>19.65855cm</Width>
             <Style>
@@ -3600,7 +3609,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Color>Firebrick</Color>
                 <Style>Solid</Style>
               </Border>
-              <BackgroundColor>Firebrick</BackgroundColor>
+              <BackgroundColor>#880e4f</BackgroundColor>
             </Style>
           </Rectangle>
           <Rectangle Name="Rectangle49">
@@ -3641,7 +3650,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.28698cm</Top>
-            <Left>14.77566cm</Left>
+            <Left>14.91599cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>1</ZIndex>
@@ -3689,7 +3698,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.28698cm</Top>
-            <Left>0.17697cm</Left>
+            <Left>0.3173cm</Left>
             <Height>1.08127cm</Height>
             <Width>14.44523cm</Width>
             <ZIndex>2</ZIndex>
@@ -3739,7 +3748,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>2.51597cm</Top>
-            <Left>14.82064cm</Left>
+            <Left>14.96097cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>3</ZIndex>
@@ -3785,7 +3794,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>2.51597cm</Top>
-            <Left>0.17697cm</Left>
+            <Left>0.3173cm</Left>
             <Height>1.08127cm</Height>
             <Width>14.49021cm</Width>
             <ZIndex>4</ZIndex>
@@ -3800,13 +3809,13 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>27.16985cm</Top>
-        <Left>0.31198cm</Left>
+        <Left>0.17165cm</Left>
         <Height>3.66713cm</Height>
-        <Width>19.97604cm</Width>
+        <Width>20.3237cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
-            <Color>Firebrick</Color>
+            <Color>#f48fb1</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -3851,7 +3860,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.17573cm</Top>
-            <Left>0.12619cm</Left>
+            <Left>0.26652cm</Left>
             <Height>1.08127cm</Height>
             <Width>14.44523cm</Width>
             <Style>
@@ -3900,7 +3909,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.40472cm</Top>
-            <Left>0.12619cm</Left>
+            <Left>0.26652cm</Left>
             <Height>1.08127cm</Height>
             <Width>14.49021cm</Width>
             <ZIndex>1</ZIndex>
@@ -3950,7 +3959,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.40472cm</Top>
-            <Left>14.76986cm</Left>
+            <Left>14.91019cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>2</ZIndex>
@@ -3999,7 +4008,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.17573cm</Top>
-            <Left>14.72488cm</Left>
+            <Left>14.86521cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>3</ZIndex>
@@ -4013,13 +4022,13 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>30.95603cm</Top>
-        <Left>0.31198cm</Left>
+        <Left>0.17165cm</Left>
         <Height>2.57705cm</Height>
-        <Width>19.97604cm</Width>
+        <Width>20.3237cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
-            <Color>Firebrick</Color>
+            <Color>#f48fb1</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -4064,7 +4073,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.1076cm</Top>
-            <Left>14.74789cm</Left>
+            <Left>14.96465cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <Style>
@@ -4112,7 +4121,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.1076cm</Top>
-            <Left>10.84793cm</Left>
+            <Left>11.06469cm</Left>
             <Height>1.08127cm</Height>
             <Width>3.7465cm</Width>
             <ZIndex>1</ZIndex>
@@ -4162,7 +4171,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.14112cm</Top>
-            <Left>5.57478cm</Left>
+            <Left>5.79154cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>2</ZIndex>
@@ -4211,7 +4220,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.14112cm</Top>
-            <Left>0.04763cm</Left>
+            <Left>0.26439cm</Left>
             <Height>1.04775cm</Height>
             <Width>5.37369cm</Width>
             <ZIndex>3</ZIndex>
@@ -4226,13 +4235,13 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>33.64949cm</Top>
-        <Left>0.38841cm</Left>
+        <Left>0.17165cm</Left>
         <Height>1.29647cm</Height>
-        <Width>19.87551cm</Width>
+        <Width>20.3237cm</Width>
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
-            <Color>Firebrick</Color>
+            <Color>#f48fb1</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -4277,7 +4286,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.12811cm</Top>
-            <Left>14.72488cm</Left>
+            <Left>14.85168cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <Style>
@@ -4325,7 +4334,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.12811cm</Top>
-            <Left>0.12619cm</Left>
+            <Left>0.25299cm</Left>
             <Height>1.08127cm</Height>
             <Width>14.44523cm</Width>
             <ZIndex>1</ZIndex>
@@ -4372,7 +4381,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.3571cm</Top>
-            <Left>0.12619cm</Left>
+            <Left>0.25299cm</Left>
             <Height>1.08127cm</Height>
             <Width>14.49021cm</Width>
             <ZIndex>2</ZIndex>
@@ -4422,7 +4431,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>1.3571cm</Top>
-            <Left>14.76986cm</Left>
+            <Left>14.89666cm</Left>
             <Height>1.08127cm</Height>
             <Width>5.08cm</Width>
             <ZIndex>3</ZIndex>
@@ -4436,13 +4445,13 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>35.12235cm</Top>
-        <Left>0.29845cm</Left>
+        <Left>0.17165cm</Left>
         <Height>2.56118cm</Height>
-        <Width>19.97604cm</Width>
+        <Width>20.3237cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
-            <Color>Firebrick</Color>
+            <Color>#f48fb1</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -4955,13 +4964,13 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>37.79815cm</Top>
-        <Left>0.11843cm</Left>
+        <Left>0.17165cm</Left>
         <Height>4.16719cm</Height>
-        <Width>20.11373cm</Width>
+        <Width>20.3237cm</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
-            <Color>Firebrick</Color>
+            <Color>#f48fb1</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -5008,7 +5017,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.1688cm</Top>
-            <Left>0.16109cm</Left>
+            <Left>0.23792cm</Left>
             <Height>0.90364cm</Height>
             <Width>19.65855cm</Width>
             <Style>
@@ -5016,7 +5025,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Color>Firebrick</Color>
                 <Style>Solid</Style>
               </Border>
-              <BackgroundColor>Firebrick</BackgroundColor>
+              <BackgroundColor>#880e4f</BackgroundColor>
             </Style>
           </Rectangle>
           <Image Name="Image2">
@@ -5024,7 +5033,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <Value>=Parameters!earthmap.Value</Value>
             <Sizing>Fit</Sizing>
             <Top>1.22647cm</Top>
-            <Left>0.08172cm</Left>
+            <Left>0.15855cm</Left>
             <Height>7.47959cm</Height>
             <Width>19.54334cm</Width>
             <ZIndex>1</ZIndex>
@@ -5074,7 +5083,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>8.92766cm</Top>
-            <Left>0.15875cm</Left>
+            <Left>0.23558cm</Left>
             <Height>0.90364cm</Height>
             <Width>19.65855cm</Width>
             <ZIndex>2</ZIndex>
@@ -5083,7 +5092,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Color>Firebrick</Color>
                 <Style>Solid</Style>
               </Border>
-              <BackgroundColor>Firebrick</BackgroundColor>
+              <BackgroundColor>#880e4f</BackgroundColor>
             </Style>
           </Rectangle>
           <Image Name="Image3">
@@ -5091,7 +5100,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <Value>=Parameters!map.Value</Value>
             <Sizing>Fit</Sizing>
             <Top>10.03564cm</Top>
-            <Left>0.12619cm</Left>
+            <Left>0.20302cm</Left>
             <Height>6.58cm</Height>
             <Width>19.54334cm</Width>
             <ZIndex>3</ZIndex>
@@ -5140,7 +5149,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>16.84125cm</Top>
-            <Left>7.12257cm</Left>
+            <Left>7.1994cm</Left>
             <Height>0.90364cm</Height>
             <Width>12.69473cm</Width>
             <ZIndex>4</ZIndex>
@@ -5149,7 +5158,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Color>Firebrick</Color>
                 <Style>Solid</Style>
               </Border>
-              <BackgroundColor>Firebrick</BackgroundColor>
+              <BackgroundColor>#880e4f</BackgroundColor>
             </Style>
           </Rectangle>
           <Rectangle Name="Rectangle107">
@@ -5192,7 +5201,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>16.84125cm</Top>
-            <Left>0.08172cm</Left>
+            <Left>0.15855cm</Left>
             <Height>0.90364cm</Height>
             <Width>6.8416cm</Width>
             <ZIndex>5</ZIndex>
@@ -5201,7 +5210,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Color>Firebrick</Color>
                 <Style>Solid</Style>
               </Border>
-              <BackgroundColor>Firebrick</BackgroundColor>
+              <BackgroundColor>#880e4f</BackgroundColor>
             </Style>
           </Rectangle>
           <Rectangle Name="Rectangle108">
@@ -5223,7 +5232,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>17.92128cm</Top>
-            <Left>5.3767cm</Left>
+            <Left>5.45353cm</Left>
             <Height>7.2732cm</Height>
             <Width>14.44294cm</Width>
             <ZIndex>6</ZIndex>
@@ -5377,7 +5386,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>17.88601cm</Top>
-            <Left>0.12038cm</Left>
+            <Left>0.19721cm</Left>
             <Height>7.30847cm</Height>
             <Width>5.00076cm</Width>
             <ZIndex>7</ZIndex>
@@ -5392,13 +5401,13 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>42.14262cm</Top>
-        <Left>0.24848cm</Left>
+        <Left>0.17165cm</Left>
         <Height>25.34442cm</Height>
-        <Width>20.00515cm</Width>
+        <Width>20.3237cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
-            <Color>Firebrick</Color>
+            <Color>#f48fb1</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -5452,10 +5461,10 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox96</rd:DefaultName>
-        <Top>0.75205cm</Top>
-        <Left>4.65738cm</Left>
+        <Top>0.9743cm</Top>
+        <Left>3.63432cm</Left>
         <Height>0.6cm</Height>
-        <Width>5.05883cm</Width>
+        <Width>4.86833cm</Width>
         <ZIndex>14</ZIndex>
         <Style>
           <Border>
@@ -5515,7 +5524,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Color>Firebrick</Color>
                 <Style>Solid</Style>
               </Border>
-              <BackgroundColor>Firebrick</BackgroundColor>
+              <BackgroundColor>#880e4f</BackgroundColor>
             </Style>
           </Rectangle>
           <Rectangle Name="Rectangle38">
@@ -5524,7 +5533,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
                 <Source>External</Source>
                 <Value>=Split(Parameters!images.Value,",").GetValue(0)</Value>
                 <Sizing>Fit</Sizing>
-                <Top>0.1703cm</Top>
+                <Top>0.16236cm</Top>
                 <Left>0.14027cm</Left>
                 <Height>4.18817cm</Height>
                 <Width>9.57792cm</Width>
@@ -5536,14 +5545,14 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
               </Image>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>0.9525cm</Top>
+            <Top>0.96044cm</Top>
             <Left>10.26585cm</Left>
-            <Height>4.52217cm</Height>
+            <Height>4.51423cm</Height>
             <Width>9.83648cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
-                <Color>Firebrick</Color>
+                <Color>#f48fb1</Color>
                 <Style>Solid</Style>
               </Border>
             </Style>
@@ -5574,7 +5583,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
-                <Color>Firebrick</Color>
+                <Color>#f48fb1</Color>
                 <Style>Solid</Style>
               </Border>
             </Style>
@@ -5603,7 +5612,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
-                <Color>Firebrick</Color>
+                <Color>#f48fb1</Color>
                 <Style>Solid</Style>
               </Border>
             </Style>
@@ -5633,7 +5642,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
-                <Color>Firebrick</Color>
+                <Color>#f48fb1</Color>
                 <Style>Solid</Style>
               </Border>
             </Style>
@@ -5662,7 +5671,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
-                <Color>Firebrick</Color>
+                <Color>#f48fb1</Color>
                 <Style>Solid</Style>
               </Border>
             </Style>
@@ -5692,7 +5701,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
-                <Color>Firebrick</Color>
+                <Color>#f48fb1</Color>
                 <Style>Solid</Style>
               </Border>
             </Style>
@@ -5721,7 +5730,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
-                <Color>Firebrick</Color>
+                <Color>#f48fb1</Color>
                 <Style>Solid</Style>
               </Border>
             </Style>
@@ -5751,7 +5760,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
-                <Color>Firebrick</Color>
+                <Color>#f48fb1</Color>
                 <Style>Solid</Style>
               </Border>
             </Style>
@@ -5780,7 +5789,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
-                <Color>Firebrick</Color>
+                <Color>#f48fb1</Color>
                 <Style>Solid</Style>
               </Border>
             </Style>
@@ -5810,7 +5819,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
-                <Color>Firebrick</Color>
+                <Color>#f48fb1</Color>
                 <Style>Solid</Style>
               </Border>
             </Style>
@@ -5830,7 +5839,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </Style>
       </Rectangle>
     </ReportItems>
-    <Height>36.16255in</Height>
+    <Height>36.16256in</Height>
     <Style />
   </Body>
   <Width>20.6cm</Width>
@@ -6051,7 +6060,7 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>f857bc7b-6fd2-406d-85c3-3956611ecb03</rd:DataSourceID>
+      <rd:DataSourceID>92bdd420-0f5c-43f5-aa2c-d8861f418f68</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -6079,6 +6088,10 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
         </Field>
         <Field Name="Approver">
           <DataField>Approver</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AqarType">
+          <DataField>AqarType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Area">
@@ -6217,8 +6230,8 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <DataField>ResWland</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SCustmer">
-          <DataField>SCustmer</DataField>
+        <Field Name="Scustmer">
+          <DataField>Scustmer</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ServicesElectrocitcs">
@@ -6345,10 +6358,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
           <DataField>StyleBuild</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Tbuild">
-          <DataField>Tbuild</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="TotalBulding">
           <DataField>TotalBulding</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -6461,12 +6470,6 @@ Switch(Fields!SroundGovermentDepartMent.Value = True, "دوئر حكومية" +"
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="images">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="sample">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>

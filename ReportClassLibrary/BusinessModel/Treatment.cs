@@ -11,8 +11,8 @@ namespace ReportClassLibrary.BusinessModel
         public long CustmerId { get; set; }
         [Display(Name = "المالك")]
         public string Owner { get; set; }
-        [ Display(Name = "اسم عميل البنك")]
-        public string SCustmer { get; set; }
+        [Display(Name = "الخاص بالعميل")]
+        public string Scustmer { get; set; }
         [ Display(Name = "رقم الصك")]
         public string SNum { get; set; }
         [Display(Name = "تاريخ الصك")]
@@ -30,7 +30,7 @@ namespace ReportClassLibrary.BusinessModel
         [Display(Name = "رقم المخطط")]
         public string Plane { get; set; }
         [Display(Name = "نوع العقار")]
-        public string Tbuild { get; set; }
+        public string AqarType { get; set; }
 
         [Display(Name = "خضوع العقار لنظام الارض البيضاء")]
         public string Wland { get; set; }
